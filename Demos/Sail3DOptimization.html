@@ -1,0 +1,849 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Sail3DOptimization</title>
+<meta name="generator" content="MATLAB 23.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2023-11-20">
+<meta name="DC.source" content="Sail3DOptimization.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">Demonstrate 3D optimization.</a>
+</li>
+<li>
+<a href="#2">Constants</a>
+</li>
+<li>
+<a href="#3">Mission set up</a>
+</li>
+<li>
+<a href="#4">Sail physical parameters</a>
+</li>
+<li>
+<a href="#5">Cost function weighting</a>
+</li>
+<li>
+<a href="#6">ode113 parameters</a>
+</li>
+<li>
+<a href="#7">Optimization parameters</a>
+</li>
+<li>
+<a href="#8">Simplex parameters (fminsearch)</a>
+</li>
+<li>
+<a href="#9">GA parameters</a>
+</li>
+<li>
+<a href="#10">Costate to sail angle function</a>
+</li>
+<li>
+<a href="#11">Acceleration</a>
+</li>
+<li>
+<a href="#12">Data for selected mission</a>
+</li>
+<li>
+<a href="#13">Dynamics function</a>
+</li>
+<li>
+<a href="#14">Cost function called by optimizer</a>
+</li>
+<li>
+<a href="#15">Initial costate guess</a>
+</li>
+<li>
+<a href="#16">Integration (ode113) parameters</a>
+</li>
+<li>
+<a href="#17">If nondimensionalize</a>
+</li>
+<li>
+<a href="#18">Weights for the costates</a>
+</li>
+<li>
+<a href="#19">Optimize the trajectory.</a>
+</li>
+</ul>
+</div>
+<h2 id="1">Demonstrate 3D optimization.</h2>
+<p>You can select an Earth to Mars mission or a Solar Polar Imager mission. You can pick either dimensional units or nondimensional units. Try either Simplex or genetic algorithms.</p>
+<p>Functions demonstrated:</p>
+<pre class="language-matlab">TrajectoryOptimization
+LambdaToConeClock3D
+RHSOpt3DOrbit
+Plot3DTrajectory
+Cost3D
+</pre>
+<p>See also: Constant, IsVersionAfter, Planets, ElToMEq, TimeDisplay, TrajectoryOptimization, LambdaToConeClock3D, Plot3DTrajectory, RHSOpt3DOrbit, Cost3D ------------------------------------------------------------------------</p>
+<pre class="codeinput">
+<span class="comment">%-------------------------------------------------------------------------------</span>
+<span class="comment">%   Copyright (c) 2005-2006 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%-------------------------------------------------------------------------------</span>
+<span class="comment">%   Since version 7.</span>
+<span class="comment">%-------------------------------------------------------------------------------</span>
+
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="comment">% User parameters</span>
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%</span>
+mission    = <span class="string">'elements'</span>; <span class="comment">% 'elements' 'planet name', 'spi', 'inclination'</span>
+nonDim     =  0; <span class="comment">% = 1 for nondimensional parameters, mu = 1, normalize position to 1 au</span>
+method     = <span class="string">'downhill simplex'</span>; <span class="comment">% 'downhill simplex' or 'genetic algorithm'</span>
+<span class="comment">% Also see below for many more parameters.</span>
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%</span>
+</pre>
+<h2 id="2">Constants</h2>
+<pre class="codeinput">
+<span class="comment">%----------</span>
+aU         = Constant(<span class="string">'au'</span>);
+c          = Constant(<span class="string">'speed of light'</span>);
+muSun      = Constant(<span class="string">'mu sun'</span>);
+</pre>
+<h2 id="3">Mission set up</h2>
+<pre class="codeinput">
+<span class="comment">%---------------</span>
+<span class="comment">% general purpose setup for 'elements' mission:</span>
+el0        =  [    aU;0;0;0;0.0;0];
+elF        =  [1.5*aU;0;0;0;0.0;0];
+</pre>
+<h2 id="4">Sail physical parameters</h2>
+<pre class="codeinput">
+<span class="comment">%-------------------------</span>
+sailArea   = 1e4;
+sailMass   = 100;
+sailRhoS   = 1.0;
+sailRhoAD  = 0.0;
+sailRhoR   = 0.0;
+duration   = 420; <span class="comment">% days, 420 good for pure planar and 10 deg inclination change</span>
+</pre>
+<h2 id="5">Cost function weighting</h2>
+<pre class="codeinput">
+<span class="comment">%------------------------</span>
+<span class="comment">% [1;1e8;1e8;4e8;4e8;0.9e9];, Best results planar with simplex</span>
+<span class="comment">% [10;2e9;2e9;1e8;1e8;0.9e9]; Best results inclination with simplex</span>
+<span class="comment">% This weighting is for the 1 aU to 1.5 aU circular orbit transfer problem</span>
+<span class="comment">% No e error, i &lt; 0.1 deg, no a error</span>
+optimizationErrorWeighting = [1;1e8;1e8;4e8;4e8;0.9e9];
+</pre>
+<h2 id="6">ode113 parameters</h2>
+<pre class="codeinput">
+<span class="comment">%------------------</span>
+integrationRelativeTolerance = 1e-2;
+integrationAbsoluteTolerance = 1e-2;
+</pre>
+<h2 id="7">Optimization parameters</h2>
+<pre class="codeinput">
+<span class="comment">%------------------------</span>
+clear <span class="string">d</span>;
+d.d              = Cost3D; <span class="comment">% initialize data structure</span>
+d.method         = method;
+d.repeat         = 0;
+</pre>
+<h2 id="8">Simplex parameters (fminsearch)</h2>
+<pre class="codeinput">
+<span class="comment">%--------------------</span>
+d.d.stateTol     = 1e-3; <span class="comment">% tolx</span>
+d.d.funTol       = 1e-4; <span class="comment">% tolfun</span>
+d.d.nIts         = 4000; <span class="comment">% function evals</span>
+d.d.OutputFcn    = @optimplotx;
+</pre>
+<h2 id="9">GA parameters</h2>
+<pre class="codeinput">
+<span class="comment">%--------------</span>
+d.d.nG = 50;   <span class="comment">% generations</span>
+d.d.nI = 10;  <span class="comment">% Note: need to scale # mutations and # gen with # individuals.</span>
+d.d.bounds = [-1 1; -1 1; -1 1; -1 1; -1 1; -1 1];
+<span class="keyword">if</span> IsVersionAfter(6.0)
+  eval(<span class="string">'fncSelect = @normGeomSelect;fncXOver = @heuristicXover;fncMutate = @nonUnifMutation;'</span>);
+<span class="keyword">else</span>
+  fncSelect = <span class="string">'normGeomSelect'</span>;
+  fncMutate = <span class="string">'nonUnifMutation'</span>;
+  fncXOver = <span class="string">'heuristicXover'</span>;
+<span class="keyword">end</span>
+d.d.fncMutate = fncMutate;
+d.d.optMutate = [floor(d.d.nI/2) d.d.nG 3];  <span class="comment">% # mutations, last gen, sigma</span>
+d.d.fncSelect = fncSelect;
+d.d.optSelect = 0.01; <span class="comment">% %chance that a solution is the best</span>
+d.d.fncXOver  = fncXOver;
+d.d.optXOver  = [floor(d.d.nI/2) 3]; <span class="comment">% # crossovers, # retries</span>
+
+<span class="keyword">switch</span> method
+  <span class="keyword">case</span> <span class="string">'downhill simplex'</span>
+    nSteps = d.d.nIts;
+  <span class="keyword">case</span> <span class="string">'genetic algorithm'</span>
+    nSteps = d.d.nG*(2*sum(d.d.optXOver)+d.d.optMutate(1)) + d.d.nI;
+<span class="keyword">end</span>
+</pre>
+<h2 id="10">Costate to sail angle function</h2>
+<pre class="codeinput">
+<span class="comment">%-------------------------------</span>
+d.d.lambdaToAccel = @LambdaToConeClock3D;
+</pre>
+<h2 id="11">Acceleration</h2>
+<pre class="codeinput">
+<span class="comment">%-------------</span>
+d.d.accel = sailArea*1367*aU^2*1e-6/(c*sailMass); <span class="comment">% km/sec^2*km^2</span>
+d.d.mu = muSun;
+</pre>
+<h2 id="12">Data for selected mission</h2>
+<pre class="codeinput">
+<span class="comment">%--------------------------</span>
+<span class="keyword">switch</span> mission
+  <span class="keyword">case</span> <span class="string">'elements'</span>
+    d.d.xF             = ElToMEq(  elF, d.d.mu );
+    d.d.x0             = ElToMEq(  el0, d.d.mu );
+    a0                 = el0(1);
+    d.d.iF             = elF(2);
+  <span class="keyword">case</span> <span class="string">'spi'</span>
+    [name,a,e,i,W,w,L] = Planets(<span class="string">'rad'</span>,3); <span class="comment">% Earth</span>
+    a                  = a*aU;
+    d.d.x0             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    a0                 = a(1,1);
+    a(1,1)             = 0.48*aU;
+    i(1,1)             = 70*pi/180;
+    d.d.xF             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    d.d.iF             = i(1,1); <span class="comment">% Final inclination</span>
+  <span class="keyword">case</span> <span class="string">'spimini'</span>
+    [name,a,e,i,W,w,L] = Planets(<span class="string">'rad'</span>,3); <span class="comment">% Earth</span>
+    a                  = a*aU;
+    d.d.x0             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    a0                 = a(1,1);
+    a(1,1)             = 0.9*aU;
+    i(1,1)             = 7*pi/180;
+    d.d.xF             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    d.d.iF             = i(1,1); <span class="comment">% Final inclination</span>
+  <span class="keyword">otherwise</span>
+    [~,a,e,i,W,w,L]    = Planets(<span class="string">'rad'</span>,3); <span class="comment">% Earth</span>
+    a                  = a*aU;
+    d.d.x0             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    [name,a,e,i,W,w,L] = Planets(<span class="string">'rad'</span>,mission);
+    a                  = a*aU;
+    a0                 = a(1,1);
+    d.d.xF             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    d.d.iF             = i(1,1); <span class="comment">% Final inclination</span>
+<span class="keyword">end</span>
+d.d.xF(6) = 0; <span class="comment">% Lambda for state 6 must be zero</span>
+optimizationErrorWeighting = [10/d.d.xF(1);2;2;2;2;1];
+</pre>
+<h2 id="13">Dynamics function</h2>
+<pre class="codeinput">
+<span class="comment">%------------------</span>
+d.d.rhsFun       = @RHSOpt3DOrbit;
+d.d.plotFun      = @Plot3DTrajectory;
+d.d.coordType    = <span class="string">'equinoctial'</span>; <span class="comment">% 'cartesian'</span>
+d.d.boundCond    = [1:5 12];
+d.d.hasThruster  = false;
+d.d.rhoS         = sailRhoS;
+d.d.rhoAD        = sailRhoAD;
+d.d.rhoR         = sailRhoR;
+
+TimeDisplay(<span class="string">'initialize'</span>,<span class="string">'Sail 3D Optimization'</span>, nSteps );
+</pre>
+<img vspace="5" hspace="5" src="Sail3DOptimization_01.png" alt=""> <h2 id="14">Cost function called by optimizer</h2>
+<pre class="codeinput">
+<span class="comment">%----------------------------------</span>
+d.d.costFun = @Cost3D;
+</pre>
+<h2 id="15">Initial costate guess</h2>
+<pre class="codeinput">
+<span class="comment">%----------------------</span>
+d.d.lambda0      = [0.0;0;0;0.0025;0.0025;0.00];
+<span class="comment">%d.d.lambda0 = 0.001*ones(6,1);</span>
+</pre>
+<h2 id="16">Integration (ode113) parameters</h2>
+<pre class="codeinput">
+<span class="comment">%--------------------------------</span>
+d.d.data.absTol  = integrationAbsoluteTolerance;
+d.d.data.relTol  = integrationRelativeTolerance;
+d.d.data.maxStep = 1; <span class="comment">% ode113 will never take a step bigger than this</span>
+                      <span class="comment">% fraction of the end time</span>
+d.d.tEnd         = duration*86400; <span class="comment">% (s)</span>
+</pre>
+<h2 id="17">If nondimensionalize</h2>
+<pre class="codeinput">
+<span class="comment">%---------------------</span>
+d.d.nonDim = nonDim;
+<span class="keyword">if</span>( nonDim )
+  w0          = sqrt(d.d.mu/a0^3);
+  d.d.accel   = d.d.accel/(w0^2*a0)/aU^2;
+  d.d.tEnd    = d.d.tEnd*w0;
+  d.d.x0(1,1) = d.d.x0(1,1)/a0;
+  d.d.xF(1,1) = d.d.xF(1,1)/a0;
+  d.d.mu      = 1;
+  d.d.w0      = w0;
+  d.d.a0      = a0;
+<span class="keyword">end</span>
+</pre>
+<h2 id="18">Weights for the costates</h2>
+<pre class="codeinput">
+<span class="comment">%-------------------------</span>
+d.d.errorScale   = optimizationErrorWeighting;
+</pre>
+<h2 id="19">Optimize the trajectory.</h2>
+<p>It will use Plot3DTrajectory to plot the results</p>
+<pre class="codeinput">
+<span class="comment">%-------------------------------------------------------</span>
+lambda = TrajectoryOptimization( d );
+[errMag, err] = Cost3D( lambda{1}, d.d );
+
+TimeDisplay(<span class="string">'close'</span> );
+
+fprintf(<span class="string">'Initial costates: \n'</span>)
+disp(d.d.lambda0')
+fprintf(<span class="string">'Final costates: \n'</span>)
+disp(lambda{1}')
+
+fprintf(<span class="string">'Error: %g\n'</span>,err)
+
+
+
+<span class="comment">%--------------------------------------</span>
+<span class="comment">% $Date$</span>
+<span class="comment">% $Id: a83193163881dfcfca727d48b2c6093ff78a208d $</span>
+</pre>
+<pre class="codeoutput">Case 1: Method: downhill simplex
+ 
+ Iteration   Func-count         f(x)         Procedure
+     0            1          5.31116         
+     1            7          4.97119         initial simplex
+     2            9          4.97119         contract outside
+     3           11          4.97119         contract inside
+     4           13          4.97119         contract inside
+     5           15          4.97119         contract inside
+     6           17          4.97119         contract inside
+     7           19          4.97119         contract inside
+     8           21          4.97119         contract inside
+     9           23          4.97119         contract inside
+    10           25          4.97119         contract inside
+    11           27          4.97119         contract inside
+    12           29          4.97119         contract inside
+    13           31          4.97119         contract inside
+    14           33          4.97119         contract inside
+    15           35          4.89842         contract inside
+    16           37          1.80948         reflect
+    17           38          1.80948         reflect
+    18           39          1.80948         reflect
+    19           40          1.80948         reflect
+    20           42          1.80948         contract outside
+    21           44          1.79427         contract inside
+    22           46         0.995823         reflect
+    23           48         0.931432         reflect
+    24           50         0.931432         contract inside
+    25           51         0.931432         reflect
+    26           53         0.931432         contract inside
+    27           55         0.931432         contract inside
+    28           56         0.931432         reflect
+    29           58         0.931432         contract inside
+    30           60         0.931432         contract inside
+    31           62         0.931432         contract inside
+    32           64         0.931432         contract inside
+    33           66         0.931432         contract inside
+    34           68         0.931432         contract inside
+    35           70         0.931432         contract inside
+    36           72         0.931432         contract inside
+    37           74         0.931432         contract inside
+    38           75         0.931432         reflect
+    39           77         0.898379         contract inside
+    40           79         0.898379         contract inside
+    41           81         0.898379         contract inside
+    42           82         0.898379         reflect
+    43           83         0.898379         reflect
+    44           84         0.898379         reflect
+    45           86         0.898379         contract inside
+    46           88         0.898379         contract inside
+    47           89         0.898379         reflect
+    48           90         0.898379         reflect
+    49           92         0.896207         contract inside
+    50           94         0.894801         contract inside
+    51           96         0.893765         contract inside
+    52           98          0.88248         contract inside
+    53          100          0.88248         contract inside
+    54          102          0.88248         contract inside
+    55          104         0.855194         expand
+    56          106         0.855194         contract inside
+    57          107         0.855194         reflect
+    58          108         0.855194         reflect
+    59          110         0.855194         contract inside
+    60          112         0.836158         expand
+    61          114         0.804602         expand
+    62          115         0.804602         reflect
+    63          117         0.804602         contract inside
+    64          118         0.804602         reflect
+    65          119         0.804602         reflect
+    66          120         0.804602         reflect
+    67          122         0.804602         contract inside
+    68          124         0.801908         reflect
+    69          125         0.801908         reflect
+    70          127         0.801908         contract inside
+    71          128         0.801908         reflect
+    72          129         0.801908         reflect
+    73          131         0.801908         contract inside
+    74          133         0.801908         contract inside
+    75          135         0.801908         contract inside
+    76          136         0.801908         reflect
+    77          137         0.801908         reflect
+    78          139         0.801908         contract inside
+    79          141         0.801908         contract inside
+    80          143         0.801908         contract outside
+    81          145          0.80123         contract outside
+    82          147          0.80123         contract inside
+    83          149          0.80123         contract inside
+    84          151         0.801217         reflect
+    85          153         0.801217         contract inside
+    86          155         0.801217         contract inside
+    87          156         0.801217         reflect
+    88          158         0.801088         reflect
+    89          160         0.800604         reflect
+    90          162         0.800604         contract inside
+    91          164         0.798835         expand
+    92          165         0.798835         reflect
+    93          167         0.798835         contract inside
+    94          168         0.798835         reflect
+    95          170         0.798835         contract inside
+    96          172         0.797842         reflect
+    97          174         0.797842         contract inside
+    98          175         0.797842         reflect
+    99          177         0.793951         reflect
+   100          178         0.793951         reflect
+   101          180         0.793951         contract inside
+   102          182         0.785353         reflect
+   103          183         0.785353         reflect
+   104          185         0.785353         contract inside
+   105          187         0.785353         contract inside
+   106          188         0.785353         reflect
+   107          190         0.777586         reflect
+   108          192         0.751521         reflect
+   109          194         0.751521         contract inside
+   110          196         0.751521         contract inside
+   111          197         0.751521         reflect
+   112          199         0.751521         contract inside
+   113          201         0.751521         contract inside
+   114          203         0.751521         contract inside
+   115          205         0.751521         contract inside
+   116          207         0.751521         contract inside
+   117          209         0.751521         contract inside
+   118          210         0.751521         reflect
+   119          212         0.730595         reflect
+   120          213         0.730595         reflect
+   121          215         0.730595         contract inside
+   122          217         0.730595         contract inside
+   123          219         0.721338         reflect
+   124          221         0.721338         contract inside
+   125          223         0.721338         contract inside
+   126          225         0.721338         contract inside
+   127          226         0.721338         reflect
+   128          227         0.721338         reflect
+   129          228         0.721338         reflect
+   130          230         0.704862         reflect
+   131          232         0.687271         reflect
+   132          234         0.687271         contract inside
+   133          236         0.687271         contract inside
+   134          237         0.687271         reflect
+   135          239         0.659762         expand
+   136          240         0.659762         reflect
+   137          242         0.659762         contract inside
+   138          244         0.658541         contract inside
+   139          245         0.658541         reflect
+   140          247         0.584768         expand
+   141          249         0.584768         contract inside
+   142          250         0.584768         reflect
+   143          251         0.584768         reflect
+   144          252         0.584768         reflect
+   145          253         0.584768         reflect
+   146          255         0.584768         contract inside
+   147          257         0.439729         expand
+   148          259         0.439729         contract inside
+   149          260         0.439729         reflect
+   150          261         0.439729         reflect
+   151          262         0.439729         reflect
+   152          263         0.439729         reflect
+   153          264         0.439729         reflect
+   154          266         0.439729         contract inside
+   155          268         0.291431         expand
+   156          269         0.291431         reflect
+   157          270         0.291431         reflect
+   158          271         0.291431         reflect
+   159          272         0.291431         reflect
+   160          274         0.283773         reflect
+   161          276         0.283773         contract inside
+   162          278         0.188818         reflect
+   163          280         0.188818         contract inside
+   164          281         0.188818         reflect
+   165          283         0.188818         contract inside
+   166          285         0.188818         contract outside
+   167          286         0.188818         reflect
+   168          287         0.188818         reflect
+   169          288         0.188818         reflect
+   170          290         0.183149         reflect
+   171          291         0.183149         reflect
+   172          293         0.183149         contract inside
+   173          295         0.183149         contract outside
+   174          297         0.183149         contract inside
+   175          298         0.183149         reflect
+   176          300         0.183149         contract inside
+   177          301         0.183149         reflect
+   178          303         0.183149         contract outside
+   179          305         0.179751         contract inside
+   180          307         0.179751         contract inside
+   181          309         0.179751         contract inside
+   182          310         0.179751         reflect
+   183          312         0.179751         contract inside
+   184          313         0.179751         reflect
+   185          315         0.178111         reflect
+   186          317         0.178111         contract inside
+   187          319         0.178111         contract inside
+   188          321         0.176736         reflect
+   189          323         0.176736         contract inside
+   190          325         0.176736         contract inside
+   191          327         0.176736         contract inside
+   192          329         0.176736         contract inside
+   193          331         0.176646         reflect
+   194          333         0.176646         contract inside
+   195          335         0.176646         contract inside
+   196          336         0.176646         reflect
+   197          337         0.176646         reflect
+   198          339         0.176646         contract inside
+   199          341         0.176646         contract inside
+   200          343         0.176646         contract inside
+   201          345         0.176646         contract inside
+   202          347         0.176646         contract inside
+   203          349         0.176646         contract inside
+   204          351         0.176486         reflect
+   205          353         0.176486         contract inside
+   206          355         0.176486         contract inside
+   207          357         0.176486         contract inside
+   208          359         0.176486         contract inside
+   209          361         0.176486         contract inside
+   210          362         0.176486         reflect
+   211          363         0.176486         reflect
+   212          365         0.176486         contract inside
+   213          366         0.176486         reflect
+ 
+Optimization terminated:
+ the current x satisfies the termination criteria using OPTIONS.TolX of 1.000000e-03 
+ and F(X) satisfies the convergence criteria using OPTIONS.TolFun of 1.000000e-04 
+
+Initial costates: 
+            0            0            0       0.0025       0.0025            0
+
+Final costates: 
+   -2.407e-12  -3.2484e-06   1.6313e-05    0.0026081    0.0023233  -0.00012474
+
+Error: -389345
+Error: -0.0495856
+Error: 0.0347245
+Error: -0.045196
+Error: -0.04477
+Error: 0.000136693
+</pre>
+<img vspace="5" hspace="5" src="Sail3DOptimization_02.png" alt=""> <img vspace="5" hspace="5" src="Sail3DOptimization_03.png" alt=""> <img vspace="5" hspace="5" src="Sail3DOptimization_04.png" alt=""> <img vspace="5" hspace="5" src="Sail3DOptimization_05.png" alt=""> <img vspace="5" hspace="5" src="Sail3DOptimization_06.png" alt=""> <img vspace="5" hspace="5" src="Sail3DOptimization_07.png" alt=""> <p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2023b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Demonstrate 3D optimization.
+% You can select an Earth to Mars mission or a Solar Polar Imager mission.
+% You can pick either dimensional units or nondimensional units.
+% Try either Simplex or genetic algorithms.
+%
+% Functions demonstrated:
+%
+%   TrajectoryOptimization
+%   LambdaToConeClock3D
+%   RHSOpt3DOrbit
+%   Plot3DTrajectory
+%   Cost3D
+%
+% See also: Constant, IsVersionAfter, Planets, ElToMEq, TimeDisplay, 
+%  TrajectoryOptimization, LambdaToConeClock3D, Plot3DTrajectory,
+%  RHSOpt3DOrbit, Cost3D
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%   Copyright (c) 2005-2006 Princeton Satellite Systems, Inc. 
+%   All rights reserved.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%   Since version 7.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+%%%%%%%%%%%%%%%%%%%%%
+% User parameters
+%%%%%%%%%%%%%%%%%%%%%
+mission    = 'elements'; % 'elements' 'planet name', 'spi', 'inclination'
+nonDim     =  0; % = 1 for nondimensional parameters, mu = 1, normalize position to 1 au
+method     = 'downhill simplex'; % 'downhill simplex' or 'genetic algorithm'
+% Also see below for many more parameters.
+%%%%%%%%%%%%%%%%%%%%%
+
+%% Constants
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+aU         = Constant('au');
+c          = Constant('speed of light');
+muSun      = Constant('mu sun');
+
+%% Mission set up
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+% general purpose setup for 'elements' mission:
+el0        =  [    aU;0;0;0;0.0;0];
+elF        =  [1.5*aU;0;0;0;0.0;0];
+
+%% Sail physical parameters
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+sailArea   = 1e4;
+sailMass   = 100;
+sailRhoS   = 1.0;
+sailRhoAD  = 0.0;
+sailRhoR   = 0.0;
+duration   = 420; % days, 420 good for pure planar and 10 deg inclination change
+
+%% Cost function weighting
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% [1;1e8;1e8;4e8;4e8;0.9e9];, Best results planar with simplex
+% [10;2e9;2e9;1e8;1e8;0.9e9]; Best results inclination with simplex
+% This weighting is for the 1 aU to 1.5 aU circular orbit transfer problem
+% No e error, i < 0.1 deg, no a error
+optimizationErrorWeighting = [1;1e8;1e8;4e8;4e8;0.9e9];
+
+%% ode113 parameters
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+integrationRelativeTolerance = 1e-2;
+integrationAbsoluteTolerance = 1e-2;
+
+%% Optimization parameters
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+clear d;
+d.d              = Cost3D; % initialize data structure
+d.method         = method;
+d.repeat         = 0; 
+
+%% Simplex parameters (fminsearch)
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+d.d.stateTol     = 1e-3; % tolx
+d.d.funTol       = 1e-4; % tolfun
+d.d.nIts         = 4000; % function evals
+d.d.OutputFcn    = @optimplotx;
+
+%% GA parameters
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+d.d.nG = 50;   % generations
+d.d.nI = 10;  % Note: need to scale # mutations and # gen with # individuals.
+d.d.bounds = [-1 1; -1 1; -1 1; -1 1; -1 1; -1 1];
+if IsVersionAfter(6.0)
+  eval('fncSelect = @normGeomSelect;fncXOver = @heuristicXover;fncMutate = @nonUnifMutation;');
+else
+  fncSelect = 'normGeomSelect';
+  fncMutate = 'nonUnifMutation';
+  fncXOver = 'heuristicXover';
+end
+d.d.fncMutate = fncMutate;
+d.d.optMutate = [floor(d.d.nI/2) d.d.nG 3];  % # mutations, last gen, sigma
+d.d.fncSelect = fncSelect;
+d.d.optSelect = 0.01; % %chance that a solution is the best
+d.d.fncXOver  = fncXOver; 
+d.d.optXOver  = [floor(d.d.nI/2) 3]; % # crossovers, # retries
+
+switch method
+  case 'downhill simplex'
+    nSteps = d.d.nIts;
+  case 'genetic algorithm'
+    nSteps = d.d.nG*(2*sum(d.d.optXOver)+d.d.optMutate(1)) + d.d.nI;
+end
+
+%% Costate to sail angle function
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+d.d.lambdaToAccel = @LambdaToConeClock3D;
+
+%% Acceleration
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+d.d.accel = sailArea*1367*aU^2*1e-6/(c*sailMass); % km/sec^2*km^2
+d.d.mu = muSun;
+
+%% Data for selected mission
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+switch mission
+  case 'elements'
+    d.d.xF             = ElToMEq(  elF, d.d.mu );
+    d.d.x0             = ElToMEq(  el0, d.d.mu );
+    a0                 = el0(1);
+    d.d.iF             = elF(2);
+  case 'spi'
+    [name,a,e,i,W,w,L] = Planets('rad',3); % Earth
+    a                  = a*aU;
+    d.d.x0             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    a0                 = a(1,1);
+    a(1,1)             = 0.48*aU;
+    i(1,1)             = 70*pi/180;
+    d.d.xF             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    d.d.iF             = i(1,1); % Final inclination
+  case 'spimini'
+    [name,a,e,i,W,w,L] = Planets('rad',3); % Earth
+    a                  = a*aU;
+    d.d.x0             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    a0                 = a(1,1);
+    a(1,1)             = 0.9*aU;
+    i(1,1)             = 7*pi/180;
+    d.d.xF             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    d.d.iF             = i(1,1); % Final inclination
+  otherwise
+    [~,a,e,i,W,w,L]    = Planets('rad',3); % Earth
+    a                  = a*aU;
+    d.d.x0             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    [name,a,e,i,W,w,L] = Planets('rad',mission);
+    a                  = a*aU;
+    a0                 = a(1,1);
+    d.d.xF             = ElToMEq( [a(1,1);i(1,1);W(1,1);w(1,1);e(1,1);L(1,1)], d.d.mu );
+    d.d.iF             = i(1,1); % Final inclination
+end    
+d.d.xF(6) = 0; % Lambda for state 6 must be zero
+optimizationErrorWeighting = [10/d.d.xF(1);2;2;2;2;1];
+
+
+%% Dynamics function
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+d.d.rhsFun       = @RHSOpt3DOrbit;
+d.d.plotFun      = @Plot3DTrajectory;
+d.d.coordType    = 'equinoctial'; % 'cartesian'
+d.d.boundCond    = [1:5 12];
+d.d.hasThruster  = false;
+d.d.rhoS         = sailRhoS;
+d.d.rhoAD        = sailRhoAD;
+d.d.rhoR         = sailRhoR;
+
+TimeDisplay('initialize','Sail 3D Optimization', nSteps );
+
+%% Cost function called by optimizer
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+d.d.costFun = @Cost3D;
+
+%% Initial costate guess
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+d.d.lambda0      = [0.0;0;0;0.0025;0.0025;0.00];
+%d.d.lambda0 = 0.001*ones(6,1);
+
+%% Integration (ode113) parameters
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+d.d.data.absTol  = integrationAbsoluteTolerance;
+d.d.data.relTol  = integrationRelativeTolerance;
+d.d.data.maxStep = 1; % ode113 will never take a step bigger than this
+                      % fraction of the end time
+d.d.tEnd         = duration*86400; % (s)
+
+%% If nondimensionalize
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+d.d.nonDim = nonDim;
+if( nonDim )
+  w0          = sqrt(d.d.mu/a0^3);
+  d.d.accel   = d.d.accel/(w0^2*a0)/aU^2;
+  d.d.tEnd    = d.d.tEnd*w0;
+  d.d.x0(1,1) = d.d.x0(1,1)/a0;
+  d.d.xF(1,1) = d.d.xF(1,1)/a0;
+  d.d.mu      = 1;
+  d.d.w0      = w0;
+  d.d.a0      = a0;
+end
+
+%% Weights for the costates
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+d.d.errorScale   = optimizationErrorWeighting;
+
+%% Optimize the trajectory. 
+% It will use Plot3DTrajectory to plot the results
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+lambda = TrajectoryOptimization( d );
+[errMag, err] = Cost3D( lambda{1}, d.d );
+
+TimeDisplay('close' );
+
+fprintf('Initial costates: \n')
+disp(d.d.lambda0')
+fprintf('Final costates: \n')
+disp(lambda{1}')
+
+fprintf('Error: %g\n',err)
+
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date$
+% $Id: a83193163881dfcfca727d48b2c6093ff78a208d $
+
+##### SOURCE END #####
+-->
+</body>
+</html>

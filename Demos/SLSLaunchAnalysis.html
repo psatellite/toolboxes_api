@@ -1,0 +1,1187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>SLSLaunchAnalysis</title>
+<meta name="generator" content="MATLAB 23.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2023-11-20">
+<meta name="DC.source" content="SLSLaunchAnalysis.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">Artemis Launch Analysis</a>
+</li>
+<li>
+<a href="#2">Setup</a>
+</li>
+<li>
+<a href="#3">SLS Properties</a>
+</li>
+<li>
+<a href="#4">SRB Properties</a>
+</li>
+<li>
+<a href="#5">RS-25 Properties</a>
+</li>
+<li>
+<a href="#6">All liquid booster (LB)</a>
+</li>
+<li>
+<a href="#7">SLS with LB Properties</a>
+</li>
+<li>
+<a href="#8">LB Properties</a>
+</li>
+<li>
+<a href="#9">SLS SRB vs SLS LB Comparison</a>
+</li>
+<li>
+<a href="#10">Simulate with LBs</a>
+</li>
+<li>
+<a href="#11">Simulate with SRBs</a>
+</li>
+</ul>
+</div>
+<h2 id="1">Artemis Launch Analysis</h2>
+<p>This script analyzes the SLS launch vehicle. It designs an all-liquid booster, using the same RS-25 engines, and compares the performance. It includes launch simulations.</p>
+<p>The following gives reference information used in the script.</p>
+<p>
+<b>System</b>
+</p>
+<p>
+<a href="https://www.nasa.gov/exploration/systems/sls/factsheets.html">https://www.nasa.gov/exploration/systems/sls/factsheets.html</a> <a href="http://www.braeunig.us/space/specs/sls.htm">http://www.braeunig.us/space/specs/sls.htm</a>
+</p>
+<p>The SLS core stage and its two solid rocket boosters (SRBs) generated a total of 8.8 million pounds of thrust</p>
+<p>
+<b>Solid Rocket Booster Details (5 segment)</b>
+</p>
+<p>Length: 177 feet (53.9 meters) Diameter: 3.71 meters Total mass: 731,885 kg each Propellant mass: 631,495 kg Propellant: polybutadiene acrylonitrile (PBAN) Thrust: 16,000 kN each Specific impulse: 242 s (sea level), 268 s (vacuum) Operational time: 127 seconds</p>
+<p>
+<b>Core Stage Details</b>
+</p>
+<p>Length: Approximately 212 feet (64.6 meters) Diameter: 27.6 feet (8.4 meters) Dry mass: Approximately 188,000 lbs (85,275 kg) Burnout mass: 112,000 kg Usable propellant mass: 979,452 kg Capacities: Liquid Hydrogen (LH2) 537,000 gallons (2 million liters) (317,000 pounds) | Liquid Oxygen (LOX)196,000 gallons (741,941 liters) (1.86 million pounds)</p>
+<p>
+<b>RS-25D Details:</b>
+</p>
+<p>Thrust: 416,300 lbs. (~1860 kN) (sea level), 512,300 lbs. (2280 kN) (vacuum) Specific impulse: 363 s (sea level), 453 s (vacuum) Dry Mass: 3,525 kg</p>
+<p>See also: RocketModel, RocketMass, TimeHistory, LatexExp, DisplayLatexTable, AtmDens2, StdAtm, SLSLaunchAnalysis&gt;RHS, SLSLaunchAnalysis&gt;SRBThrustInterp, SLSLaunchAnalysis&gt;DVParallel, SLSLaunchAnalysis&gt;DVFromMassAndIsp</p>
+<pre>------------------------------------------------------------------------</pre>
+<pre class="codeinput">
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%	  Copyright (c) 2022 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All Rights Reserved.</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Since version 2023.1</span>
+<span class="comment">%   2023.1 Pass data to StdData/RocketModel for faster simulation</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+</pre>
+<h2 id="2">Setup</h2>
+<pre class="codeinput">lbToKg    = 1/2.205;  <span class="comment">% kg/lb</span>
+g         = 9.806;    <span class="comment">% m/s^2</span>
+R_EARTH   = 6378.165; <span class="comment">% km</span>
+
+atmData = load(<span class="string">'AtmData.txt'</span>);
+
+lSRB      = 177*12*0.0254;  <span class="comment">% Total SRB length including nose and nozzle</span>
+lSRBCyl   = 177*12*0.0254*(44.67-0.08)/(46.97+4.96);    <span class="comment">% Length of actual SRB fuel tank</span>
+
+nLB       = 5;  <span class="comment">% number of liquid boosters</span>
+nRS25     = 4;  <span class="comment">% Number or RS25 engines on the core</span>
+nSRB      = 2;  <span class="comment">% number of solid rocket bodies</span>
+
+iSpSRBSL   = 242;        <span class="comment">% iSp of SRB at sea level(s)</span>
+iSpSRBVac  = 268;        <span class="comment">% iSp of SRB in vacuum (s)</span>
+iSpSRBAvg  = (iSpSRBSL + iSpSRBVac)/2;    <span class="comment">% Average iSp of SRB</span>
+massFSRB   = nSRB * 631495;  <span class="comment">% Total propellant mass for both SRBs (kg)</span>
+
+thrustRS25 = [1860 2280]*1e3*1.09;   <span class="comment">% RS-25 109% thrust [sea-level vacuum] (N)</span>
+iSpRS25    = [363 453];      <span class="comment">% RS-25 iSp [sea-level vacuum]</span>
+massRS25   = 3525;    <span class="comment">% RS-25 mass</span>
+mxrRS25    = 6.0;  <span class="comment">% RS-25 mixture ratio</span>
+
+massSRB   = nSRB*731885 ; <span class="comment">% Total mass of both SRBs (kg)</span>
+massFCore = (317000 + 1.86e6)*lbToKg;   <span class="comment">% Mass of core fuel (kg)</span>
+massDCore = 85275;      <span class="comment">% Dry mass of core</span>
+massDSRB  = massSRB-massFSRB;   <span class="comment">% Total dry mass of both SRBs (kg)</span>
+massCore  = massFCore + massDCore; <span class="comment">% kg</span>
+massSLS   = 5.75e6*lbToKg;      <span class="comment">% Total mass of SLS (kg)</span>
+massUS    = massSLS-massCore-massSRB;   <span class="comment">% Upper stage mass (kg)</span>
+
+fCore     = massDCore/massFCore;
+thrustSLSTI = nRS25*thrustRS25(1) + nSRB*SRBThrustInterp(0); <span class="comment">% Initial SLS thrust</span>
+thrustSLSTM = nRS25*thrustRS25(1) + nSRB*SRBThrustInterp(22); <span class="comment">% Max SLS thrust</span>
+rCore     = 8.4/2;  <span class="comment">% Core radius</span>
+rSRB      = 3.71/2; <span class="comment">% SRB radius</span>
+rLB       = rSRB;
+areaSLS   = pi*(nSRB*rSRB^2+rCore^2);   <span class="comment">% SLS frontal area</span>
+areaCore  = pi*rCore^2; <span class="comment">% Core frontal area</span>
+
+<span class="comment">% Parallel DV of SRBs and RS25s</span>
+[dV,dV1,dV2,iSpPSRB,mass2] = DVParallel( [nRS25*thrustRS25(1), nSRB*SRBThrustInterp(0)],<span class="keyword">...</span>
+                 [massFCore, massFSRB], <span class="keyword">...</span>
+                 [iSpRS25(1), iSpSRBSL],<span class="keyword">...</span>
+                 [massDCore massDSRB], massUS);
+</pre>
+<h2 id="3">SLS Properties</h2>
+<pre class="codeinput">clear <span class="string">s</span>
+k = 1;
+s{k,1} = <span class="string">'Total mass'</span>;       s{k,2} = LatexExp(massSLS,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Upper stage mass'</span>; s{k,2} = LatexExp(massUS,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Core dry mass'</span>;        s{k,2} = LatexExp(massDCore,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Core propellant mass'</span>;        s{k,2} = LatexExp(massFCore,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Core structural fraction'</span>; s{k,2} = sprintf(<span class="string">'%.4f'</span>,fCore'); k = k + 1;
+s{k,1} = <span class="string">'Core radius'</span>;      s{k,2} = sprintf(<span class="string">'%12.2f m'</span>,rCore); k = k + 1;
+s{k,1} = <span class="string">'Number of SRBs'</span>; s{k,2} = sprintf(<span class="string">'%12.0f'</span>,nSRB); k = k + 1;
+s{k,1} = <span class="string">'Parallel $\Delta V$'</span>;      s{k,2} = sprintf(<span class="string">'%6.1f m/s'</span>,dV1); k = k + 1;
+s{k,1} = <span class="string">'Core $\Delta V$ (SRBs released)'</span>;          s{k,2} = sprintf(<span class="string">'%6.1f m/s'</span>,dV2); k = k + 1;
+s{k,1} = <span class="string">'Total $\Delta V$'</span>;         s{k,2} = sprintf(<span class="string">'%6.1f m/s'</span>,dV); k = k + 1;
+s{k,1} = <span class="string">'Parallel $I_{sp}$'</span>;     s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,iSpPSRB); k = k + 1;
+s{k,1} = <span class="string">'Core $I_{sp}$'</span>;         s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,iSpRS25(1)); k = k + 1;
+s{k,1} = <span class="string">'Initial total thrust (SRB+core)'</span>;      s{k,2} = LatexExp(thrustSLSTI,<span class="string">'8.2'</span>,<span class="string">'N'</span>); k = k + 1;
+s{k,1} = <span class="string">'Initial acceleration'</span>;            s{k,2} = sprintf(<span class="string">'%6.3f g'</span>,thrustSLSTI/massSLS/g); k = k + 1;
+s{k,1} = <span class="string">'Frontal area'</span>; s{k,2} = sprintf(<span class="string">'%6.1f m$^2$'</span>,areaSLS);
+
+disp(<span class="string">'SLS Properties'</span>)
+DisplayLatexTable(s)
+</pre>
+<pre class="codeoutput">SLS Properties
+                     Total mass 2.61 $\times 10^{6}$ kg 
+               Upper stage mass 7.14 $\times 10^{4}$ kg 
+                  Core dry mass 8.53 $\times 10^{4}$ kg 
+           Core propellant mass 9.87 $\times 10^{5}$ kg 
+       Core structural fraction                  0.0864 
+                    Core radius                  4.20 m 
+                 Number of SRBs                       2 
+            Parallel $\Delta V$              2200.5 m/s 
+Core $\Delta V$ (SRBs released)              6239.9 m/s 
+               Total $\Delta V$              8440.4 m/s 
+              Parallel $I_{sp}$                 261.3 s 
+                  Core $I_{sp}$                 363.0 s 
+Initial total thrust (SRB+core)  3.66 $\times 10^{7}$ N 
+           Initial acceleration                 1.430 g 
+                   Frontal area              77.0 m$^2$ 
+</pre>
+<h2 id="4">SRB Properties</h2>
+<pre class="codeinput">clear <span class="string">s</span>
+k = 1;
+s{k,1} = <span class="string">'Dry Mass'</span>;         s{k,2} = LatexExp(massDSRB/nSRB,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Propellant mass'</span>; s{k,2} = LatexExp(massFSRB/nSRB,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Propellant'</span>;       s{k,2} = <span class="string">'Polybutadiene Acrylonitrile (PBAN)'</span>; k = k + 1;
+s{k,1} = <span class="string">'Sea level $I_{sp}$'</span>;     s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,iSpSRBSL ); k = k + 1;
+s{k,1} = <span class="string">'Vacuum $I_{sp}$'</span>;     s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,iSpSRBVac ); k = k + 1;
+s{k,1} = <span class="string">'Sea level thrust'</span>;       s{k,2} = LatexExp(SRBThrustInterp(0),<span class="string">'6.1'</span>,<span class="string">'N'</span>); k = k + 1;
+s{k,1} = <span class="string">'Max thrust'</span>;       s{k,2} = LatexExp(SRBThrustInterp(22),<span class="string">'6.1'</span>,<span class="string">'N'</span>); k = k + 1;
+s{k,1} = <span class="string">'Operational time'</span>; s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,127); k = k + 1;
+s{k,1} = <span class="string">'Radius'</span>;       s{k,2} = sprintf(<span class="string">'%12.1f m'</span>,rSRB); k = k + 1;
+s{k,1} = <span class="string">'Length'</span>;       s{k,2} = sprintf(<span class="string">'%12.1f m'</span>,lSRB);
+
+disp(<span class="string">'SRB Properties'</span>)
+DisplayLatexTable(s);
+</pre>
+<pre class="codeoutput">SRB Properties
+          Dry Mass            1.00 $\times 10^{5}$ kg 
+   Propellant mass            6.31 $\times 10^{5}$ kg 
+        Propellant Polybutadiene Acrylonitrile (PBAN) 
+Sea level $I_{sp}$                            242.0 s 
+   Vacuum $I_{sp}$                            268.0 s 
+  Sea level thrust              1.4 $\times 10^{7}$ N 
+        Max thrust              1.6 $\times 10^{7}$ N 
+  Operational time                            127.0 s 
+            Radius                              1.9 m 
+            Length                             53.9 m 
+</pre>
+<h2 id="5">RS-25 Properties</h2>
+<pre class="codeinput">clear <span class="string">s</span>
+k = 1;
+s{k,1} = <span class="string">'Dry mass'</span>;                   s{k,2} = sprintf(<span class="string">'%6.1f kg'</span>,massRS25); k = k + 1;
+s{k,1} = <span class="string">'Sea level $I_{sp}$'</span>;     s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,iSpRS25(1)); k = k + 1;
+s{k,1} = <span class="string">'Vacuum $I_{sp}$'</span>;        s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,iSpRS25(2)); k = k + 1;
+s{k,1} = <span class="string">'Sea level thrust (109\%)'</span>; s{k,2} = LatexExp(thrustRS25(1),<span class="string">'6.1'</span>,<span class="string">'N'</span>); k = k + 1;
+s{k,1} = <span class="string">'Vacuum thrust (109\%)'</span>;    s{k,2} = LatexExp(thrustRS25(2),<span class="string">'6.1'</span>,<span class="string">'N'</span>); k = k + 1;
+s{k,1} = <span class="string">'Propellant'</span>;             s{k,2} = <span class="string">'Liquid O2/Liquid H2'</span>; k = k + 1;
+s{k,1} = <span class="string">'Mixture ratio'</span>; s{k,2} = sprintf(<span class="string">'6:1'</span>);
+
+disp(<span class="string">'RS-25 Properties'</span>)
+DisplayLatexTable(s)
+</pre>
+<pre class="codeoutput">RS-25 Properties
+                Dry mass             3525.0 kg 
+      Sea level $I_{sp}$               363.0 s 
+         Vacuum $I_{sp}$               453.0 s 
+Sea level thrust (109\%) 2.0 $\times 10^{6}$ N 
+   Vacuum thrust (109\%) 2.5 $\times 10^{6}$ N 
+              Propellant   Liquid O2/Liquid H2 
+           Mixture ratio                   6:1 
+</pre>
+<h2 id="6">All liquid booster (LB)</h2>
+<pre class="codeinput">massGNC      = 100; <span class="comment">% Assumed mass of GN&amp;C system on each booster</span>
+
+<span class="comment">% Mass of fuel burned in parallel (core+LB)</span>
+mF1          = RocketMass(iSpRS25(1),massUS+mass2+nLB*(massRS25+massGNC),fCore,dV1/1000);
+thrustTLB    = (4+nLB)*thrustRS25(1);   <span class="comment">% Total thrust of vehicle (LB+core)</span>
+uER          = iSpRS25(1)*g;
+timeParallel = mF1*uER/thrustTLB;
+massFLB      = nLB*thrustRS25(1)*timeParallel/uER;
+
+<span class="comment">% LB tank will only be partially filled for the SLS with LBs</span>
+massDLB      = massFLB*fCore + nLB*massRS25 + nLB*massGNC;  <span class="comment">% Total dry mass for 5 liquid boosters</span>
+massLB       = massFLB + massDLB;
+tBurnLB      = timeParallel;
+
+<span class="comment">% Velocity change for parallel boostoer</span>
+[dV,dV1,dV2,iSpPLB,mass2,massSLSLB] = DVParallel( [4*thrustRS25(1), nLB*thrustRS25(1)],<span class="keyword">...</span>
+                    [massFCore, massFLB], <span class="keyword">...</span>
+                    [iSpRS25(1), iSpRS25(1)],<span class="keyword">...</span>
+                    [massDCore massDLB], massUS);
+
+<span class="comment">% Liquid booster volume</span>
+volumeLB = 415.3465;
+lengthLBCyl = volumeLB / (pi * rLB^2);  <span class="comment">% Fuel tank length (m)</span>
+lengthLB  = lengthLBCyl + 2.25 + 4.5; <span class="comment">% LB total length including nozzle and nose (m)</span>
+areaSLSLB = pi * (nLB * rLB^2 + rCore^2);   <span class="comment">% SLS with 5 LBs frontal area</span>
+</pre>
+<h2 id="7">SLS with LB Properties</h2>
+<pre class="codeinput">clear <span class="string">s</span>
+k = 1;
+s{k,1} = <span class="string">'Total mass'</span>;    s{k,2} = LatexExp(massSLSLB,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Upper stage mass'</span>; s{k,2} = sprintf(<span class="string">'%12.0f kg'</span>,massUS); k = k + 1;
+s{k,1} = <span class="string">'Core dry mass'</span>;        s{k,2} = LatexExp(massDCore,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Core fuel mass'</span>;        s{k,2} = LatexExp(massFCore,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Core radius'</span>;      s{k,2} = sprintf(<span class="string">'%12.2f m'</span>,rCore); k = k + 1;
+s{k,1} = <span class="string">'Number of LBs'</span>;    s{k,2} = sprintf(<span class="string">'%12.0f'</span>,nLB); k = k + 1;
+s{k,1} = <span class="string">'Parallel $\Delta V$'</span>;      s{k,2} = sprintf(<span class="string">'%6.1f m/s'</span>,dV1); k = k + 1;
+s{k,1} = <span class="string">'Core $\Delta V$ (LBs released)'</span>; s{k,2} = sprintf(<span class="string">'%6.1f m/s'</span>,dV2); k = k + 1;
+s{k,1} = <span class="string">'Total $\Delta V$'</span>;         s{k,2} = sprintf(<span class="string">'%6.1f m/s'</span>,dV); k = k + 1;
+s{k,1} = <span class="string">'Parallel $I_{sp}$'</span>;     s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,iSpPLB); k = k + 1;
+s{k,1} = <span class="string">'Core $I_{sp}$'</span>;         s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,iSpRS25(1)); k = k + 1;
+s{k,1} = <span class="string">'Initial total thrust (LBs+core)'</span>;      s{k,2} = LatexExp(thrustTLB,<span class="string">'8.2'</span>,<span class="string">'N'</span>); k = k + 1;
+s{k,1} = <span class="string">'Initial acceleration'</span>;  s{k,2} = sprintf(<span class="string">'%6.3f g'</span>,thrustTLB/massSLSLB/g); k = k + 1;
+s{k,1} = <span class="string">'Frontal area'</span>; s{k,2} = sprintf(<span class="string">'%6.1f m$^2$'</span>,areaSLSLB);
+
+disp(<span class="string">'SLS Liquid Booster Properties'</span>)
+DisplayLatexTable(s)
+</pre>
+<pre class="codeoutput">SLS Liquid Booster Properties
+                     Total mass 1.66 $\times 10^{6}$ kg 
+               Upper stage mass                71363 kg 
+                  Core dry mass 8.53 $\times 10^{4}$ kg 
+                 Core fuel mass 9.87 $\times 10^{5}$ kg 
+                    Core radius                  4.20 m 
+                  Number of LBs                       5 
+            Parallel $\Delta V$              2469.1 m/s 
+ Core $\Delta V$ (LBs released)              5686.1 m/s 
+               Total $\Delta V$              8155.2 m/s 
+              Parallel $I_{sp}$                 363.0 s 
+                  Core $I_{sp}$                 363.0 s 
+Initial total thrust (LBs+core)  1.82 $\times 10^{7}$ N 
+           Initial acceleration                 1.118 g 
+                   Frontal area             109.5 m$^2$ 
+</pre>
+<h2 id="8">LB Properties</h2>
+<pre class="codeinput">clear <span class="string">s</span>
+k = 1;
+s{k,1} = <span class="string">'Dry mass'</span>; s{k,2} = LatexExp(massDLB/nLB,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Propellant mass'</span>; s{k,2} = LatexExp(massFLB/nLB,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Propellant'</span>;             s{k,2} = <span class="string">'Liquid O2/Liquid H2'</span>; k = k + 1;
+s{k,1} = <span class="string">'Operational time'</span>; s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,tBurnLB); k = k + 1;
+s{k,1} = <span class="string">'Radius'</span>;       s{k,2} = sprintf(<span class="string">'%12.1f m'</span>,rLB); k = k + 1;
+s{k,1} = <span class="string">'Length'</span>;       s{k,2} = sprintf(<span class="string">'%12.1f m'</span>,lengthLB);
+
+disp(<span class="string">'Liquid Booster Properties'</span>)
+DisplayLatexTable(s)
+</pre>
+<pre class="codeoutput">Liquid Booster Properties
+        Dry mass 1.16 $\times 10^{4}$ kg 
+ Propellant mass 9.25 $\times 10^{4}$ kg 
+      Propellant     Liquid O2/Liquid H2 
+Operational time                 162.5 s 
+          Radius                   1.9 m 
+          Length                  45.2 m 
+</pre>
+<h2 id="9">SLS SRB vs SLS LB Comparison</h2>
+<pre class="codeinput">clear <span class="string">s</span>
+k = 1;
+s{k,1} = <span class="string">'Total mass'</span>;          s{k,2} = LatexExp(massSLS,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); s{k,3} = LatexExp(massSLSLB,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Upper stage mass'</span>;    s{k,2} = LatexExp(massUS,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); s{k,3} = LatexExp(massUS,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Core dry mass'</span>;     s{k,2} = LatexExp(massDCore,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); s{k,3} = LatexExp(massDCore,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Core fuel mass'</span>;      s{k,2} = LatexExp(massFCore,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); s{k,3} = LatexExp(massFCore,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Number of boosters'</span>; s{k,2} = sprintf(<span class="string">'%12.0f'</span>,nSRB); s{k,3} = sprintf(<span class="string">'%12.0f'</span>,nLB); k = k + 1;
+s{k,1} = <span class="string">'Total booster dry mass'</span>;  s{k,2} = LatexExp(massDSRB,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); s{k,3} = LatexExp(massDLB,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Total booster fuel mass'</span>;   s{k,2} = LatexExp(massFSRB,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); s{k,3} = LatexExp(massFLB,<span class="string">'8.2'</span>,<span class="string">'kg'</span>); k = k + 1;
+s{k,1} = <span class="string">'Parallel $I_{sp}$'</span>;     s{k,2} = sprintf(<span class="string">'%6.1f s'</span>,iSpPSRB); s{k,3} = sprintf(<span class="string">'%6.1f s'</span>, iSpPLB); k = k + 1;
+s{k,1} = <span class="string">'Initial total thrust (booster+core)'</span>; s{k,2} = LatexExp(thrustSLSTI,<span class="string">'8.2'</span>,<span class="string">'N'</span>); s{k,3} = LatexExp(thrustTLB,<span class="string">'8.2'</span>,<span class="string">'N'</span>); k = k + 1;
+s{k,1} = <span class="string">'Initial acceleration'</span>; s{k,2} = sprintf(<span class="string">'%6.3f g'</span>,thrustSLSTI/massSLS/g); s{k,3} = sprintf(<span class="string">'%6.3f g'</span>,thrustTLB/massSLSLB/g); k = k + 1;
+s{k,1} = <span class="string">'Frontal Area'</span>; s{k,2} = sprintf(<span class="string">'%6.1f m$^2$'</span>,areaSLS); s{k,3} = sprintf(<span class="string">'%6.1f m$^2$'</span>,areaSLSLB);
+
+disp(<span class="string">'SLS SRB vs SLS LB Comparison'</span>)
+DisplayLatexTable(s)
+</pre>
+<pre class="codeoutput">SLS SRB vs SLS LB Comparison
+                         Total mass 2.61 $\times 10^{6}$ kg 1.66 $\times 10^{6}$ kg 
+                   Upper stage mass 7.14 $\times 10^{4}$ kg 7.14 $\times 10^{4}$ kg 
+                      Core dry mass 8.53 $\times 10^{4}$ kg 8.53 $\times 10^{4}$ kg 
+                     Core fuel mass 9.87 $\times 10^{5}$ kg 9.87 $\times 10^{5}$ kg 
+                 Number of boosters                       2                       5 
+             Total booster dry mass 2.01 $\times 10^{5}$ kg 5.81 $\times 10^{4}$ kg 
+            Total booster fuel mass 1.26 $\times 10^{6}$ kg 4.63 $\times 10^{5}$ kg 
+                  Parallel $I_{sp}$                 261.3 s                 363.0 s 
+Initial total thrust (booster+core)  3.66 $\times 10^{7}$ N  1.82 $\times 10^{7}$ N 
+               Initial acceleration                 1.430 g                 1.118 g 
+                       Frontal Area              77.0 m$^2$             109.5 m$^2$ 
+</pre>
+<h2 id="10">Simulate with LBs</h2>
+<pre class="codeinput">dT          = 0.1;
+n           = 5000; <span class="comment">% 20000</span>
+tGT         = 150;
+gammaGT     = (90-19.5)*pi/180;
+kGT         = floor(tGT/dT);
+xP          = zeros(7,n);
+x           = [0;0;0;pi/2;massFLB + massFCore]; <span class="comment">% [x h v gamma mFuel]</span>
+massD       = massDLB + massDCore + massUS;
+thrust      = (4+nLB)*thrustRS25(1);
+pressureMin = StdAtm(0,atmData).pressure;
+pressureMax = StdAtm(80e3,atmData).pressure;
+pressure    = [pressureMin pressureMax];
+cD          = 0.35;
+
+d           = struct(<span class="string">'mu'</span>,3.98600436e5,<span class="string">'rP'</span>,R_EARTH,<span class="string">'cDA'</span>,0,<span class="keyword">...</span>
+                     <span class="string">'iSp'</span>,iSpRS25(1),<span class="string">'thrust'</span>,0,<span class="string">'massD'</span>,massD);
+
+disp(<span class="string">'Simulating with LBs...'</span>)
+<span class="keyword">for</span> k = 1:n
+  [~,drag] = RHS(x,0,d);
+  xP(:,k) = [x;thrust;Mag(drag)];
+  <span class="keyword">if</span>( x(5) &lt; 0 )
+    <span class="keyword">break</span>;
+  <span class="keyword">end</span>
+
+  <span class="keyword">if</span>( k == kGT)
+    x(4) = gammaGT;
+  <span class="keyword">end</span>
+
+  <span class="comment">% The RS-25 thrust and iSp varies with altitude</span>
+  height = xP(2,k);     <span class="comment">% Current rocket height (km)</span>
+  <span class="comment">% Get current RS-25 thrust and specific impulse for engines</span>
+  <span class="keyword">if</span> (height &lt;= 80)
+      [currThrustRS25,curriSpRS25] = RocketModel(height,iSpRS25,thrustRS25,pressure,atmData);
+  <span class="keyword">else</span>
+      currThrustRS25 = thrustRS25(2);
+      curriSpRS25 = iSpRS25(2);
+  <span class="keyword">end</span>
+
+  tSec = dT * k;    <span class="comment">% Seconds elapsed</span>
+  <span class="keyword">if</span>( tSec &lt; tBurnLB )
+    massD = massDCore + massUS + massDLB;
+    thrust = (4+nLB)*currThrustRS25;
+    d.cDA = cD*areaSLSLB;
+    d.iSp = curriSpRS25;
+  <span class="keyword">else</span>
+    massD  = massDCore + massUS;
+    thrust = 4*currThrustRS25;
+    d.cDA  = cD*areaCore;
+    d.iSP  = curriSpRS25;
+  <span class="keyword">end</span>
+
+  d.massD  = massD;
+  d.thrust = thrust;
+
+  x = RK4(@RHS,x,dT,0,d);
+<span class="keyword">end</span>
+
+yL = {<span class="string">'x (km)'</span> <span class="string">'h (km)'</span> <span class="string">'v (km/s)'</span> <span class="string">'\gamma (rad)'</span> <span class="keyword">...</span>
+     <span class="string">'Fuel (kg)'</span> <span class="string">'Thrust (N)'</span> <span class="string">'Drag (N)'</span>};
+
+xP = xP(:,1:k);
+t  = (0:k-1)*dT;
+
+k = 1:7;
+TimeHistory(t,xP(k,:),yL(k),<span class="string">'SLS with LBs'</span>);
+</pre>
+<pre class="codeoutput">Simulating with LBs...
+</pre>
+<img vspace="5" hspace="5" src="SLSLaunchAnalysis_01.png" alt=""> <h2 id="11">Simulate with SRBs</h2>
+<pre class="codeinput">dT          = 0.1;
+tGT         = 100;
+gammaGT     = (90-19.5)*pi/180;
+kGT         = floor(tGT/dT);
+n           = 5000; <span class="comment">% 20000</span>
+xP          = zeros(7,n);
+x           = [0;0;0;pi/2;massFSRB + massFCore];
+massD       = massDSRB + massDCore + massUS;
+thrust      = 4*thrustRS25(1)+nSRB*SRBThrustInterp(0);     <span class="comment">% WH 1/19/23 - Changed because original thrust was using liquid boosters</span>
+pressureMin = StdAtm(0,atmData).pressure;
+pressureMax = StdAtm(80e3,atmData).pressure;
+pressure = [pressureMin pressureMax];
+
+d           = struct(<span class="string">'mu'</span>,3.98600436e5,<span class="string">'rP'</span>,R_EARTH,<span class="string">'cDA'</span>,0,<span class="keyword">...</span>
+                     <span class="string">'iSp'</span>,iSpRS25(1),<span class="string">'thrust'</span>,0,<span class="string">'massD'</span>,massD);
+
+disp(<span class="string">'Simulating with SRBs...'</span>)
+<span class="keyword">for</span> k = 1:n
+  tSec = dT * k;    <span class="comment">% Seconds elapsed</span>
+  [~,drag] = RHS(x,0,d);
+  xP(:,k) = [x;thrust;Mag(drag)];
+  <span class="keyword">if</span>( x(5) &lt; 0 )
+    <span class="keyword">break</span>;
+  <span class="keyword">end</span>
+
+  <span class="keyword">if</span>( k == kGT)
+    x(4) = gammaGT;
+  <span class="keyword">end</span>
+
+  height = xP(2,k);     <span class="comment">% Current rocket height (km)</span>
+  <span class="comment">% Get current RS-25 thrust and specific impulse for engines</span>
+  <span class="keyword">if</span> (height &lt;= 80)
+      [currThrustRS25,curriSpRS25] = RocketModel(height,iSpRS25,thrustRS25,pressure,atmData);
+  <span class="keyword">else</span>
+      currThrustRS25 = thrustRS25(2);
+      curriSpRS25 = iSpRS25(2);
+  <span class="keyword">end</span>
+
+  <span class="keyword">if</span>( tSec &lt;= 127 )
+    massD  = massDCore + massUS + massDSRB;
+    thrust = 4*currThrustRS25+nSRB*SRBThrustInterp(tSec);   <span class="comment">% WH 1/19/23 - SRB thrust varies with time</span>
+    d.cDA  = cD*areaSLS;
+    d.iSp  = iSpPSRB;
+  <span class="keyword">else</span>
+    massD  = massDCore + massUS;
+    thrust = 4*currThrustRS25;
+    d.cDA  = cD*areaCore;
+    d.iSP  = curriSpRS25;
+  <span class="keyword">end</span>
+
+  d.massD  = massD;
+  d.thrust = thrust;
+
+  x = RK4(@RHS,x,dT,0,d);
+<span class="keyword">end</span>
+
+yL = {<span class="string">'x (km)'</span> <span class="string">'h (km)'</span> <span class="string">'v (km/s)'</span> <span class="string">'\gamma (rad)'</span> <span class="keyword">...</span>
+     <span class="string">'Fuel (kg)'</span> <span class="string">'Thrust (N)'</span> <span class="string">'Drag (N)'</span>};
+
+xP = xP(:,1:k);
+t  = (0:k-1)*dT;
+
+k = 1:7;
+TimeHistory(t,xP(k,:),yL(k),<span class="string">'SLS with SRBs'</span>);
+</pre>
+<pre class="codeinput">
+<span class="keyword">function</span> dV = DVFromMassAndIsp( mF, mT, iSp )
+<span class="comment">% Compute the change in velocity, DV, from masses and iSp</span>
+<span class="comment">% dV = DVFromMassAndIsp( mF, mT, iSp )</span>
+<span class="comment">%</span>
+<span class="comment">% mF - fuel mass</span>
+<span class="comment">% mT - total mass</span>
+
+g  = 9.806; <span class="comment">% Acceleration of gravity</span>
+uE = iSp*g;
+mD = mT - mF;
+dV = uE*log(mT/mD);
+
+<span class="keyword">end</span>
+</pre>
+<pre class="codeinput">
+<span class="keyword">function</span> [dV, dV1, dV2, iSpP, mass2, massT] = DVParallel( thrust, fuel, iSp, massD, massP )
+<span class="comment">% Velocity change with parallel stages</span>
+<span class="comment">% [dV, dV1, dV2, iSpP, mass2, massT] = DVParallel( thrust, fuel, iSp, massD, massP )</span>
+<span class="comment">%</span>
+<span class="comment">% thrust  (1,2)</span>
+<span class="comment">% fuel    (1,2)</span>
+<span class="comment">% Isp     (1,2)</span>
+<span class="comment">% massP   (1,1) mass of the stage's payload, i.e. upper stage</span>
+
+g    = 9.806;
+uE   = g*iSp;
+
+mDot = thrust./uE;
+time = fuel./mDot;
+
+<span class="keyword">if</span>( time(1) &lt; time(2) )
+  k1 = 1;
+  k2 = 2;
+  tP = time(1);
+<span class="keyword">else</span>
+  k1 = 2;
+  k2 = 1;
+  tP = time(2); <span class="comment">% tP = time parallel</span>
+<span class="keyword">end</span>
+
+<span class="comment">% Find dV for parallel segment</span>
+mF   = mDot(k2)*tP + fuel(k1);
+iSpP = (iSp(k1)*mDot(k1) + iSp(k2)*mDot(k2))/(mDot(k1) + mDot(k2));
+mT   = sum(massD) + massP + sum(fuel);
+dV1  = DVFromMassAndIsp( mF, mT, iSpP );
+
+<span class="comment">% Find dV for remainder</span>
+mF   = fuel(k2) - mDot(k2)*tP;  <span class="comment">% amount of fuel left in core stage after parallel burn</span>
+mD   = massD(k2) + massP;   <span class="comment">% Dry mass of core + upper stage</span>
+dV2  = DVFromMassAndIsp( mF, mD+mF, iSp(k2) );
+
+<span class="comment">% Mass of first stage that is not used up during parallel burn (core dry</span>
+<span class="comment">% mass + remaining fuel)</span>
+mass2 = mF*(1+massD(k2)/fuel(k2));
+
+dV    = dV1 + dV2;
+massT = sum(massD) + massP + sum(fuel);
+
+<span class="keyword">end</span>
+</pre>
+<pre class="codeinput">
+<span class="keyword">function</span> thrustSRBt = SRBThrustInterp(t)
+<span class="comment">% SRB Thrust Curve Interpolation</span>
+<span class="comment">% Interpolate thrust (in N) of SLS SRB at time t seconds.</span>
+<span class="comment">% Interpolation based off thrust curve from</span>
+<span class="comment">% https://en.wikipedia.org/wiki/Space_Shuttle_Solid_Rocket_Booster#/media/File:Srbthrust2.svg</span>
+
+time = [0 10 22 34 49 53 76 94 107 110 117 124 127];  <span class="comment">% seconds</span>
+thrust = [3.2 3.45 3.6 3.05 2.55 2.55 2.85 2.4 2.0 1.9 0.9 0.2 0] * 1e6;  <span class="comment">% lbf</span>
+
+<span class="comment">% Thrust of SRB at time t seconds in Newtons</span>
+thrustSRBt = interp1(time,thrust,t,<span class="string">'linear'</span>) * 4.448;   <span class="comment">% N</span>
+<span class="keyword">end</span>
+</pre>
+<pre class="codeoutput">Simulating with SRBs...
+</pre>
+<pre class="codeinput">
+<span class="keyword">function</span> [xDot,drag] = RHS(x,~,d)
+<span class="comment">% Launch vehicle dynamics</span>
+<span class="comment">% [xDot,drag] = RHS(x,~,d)</span>
+<span class="comment">%</span>
+<span class="comment">% Includes drag with AtmDens2</span>
+
+g           = 9.806;
+
+h           = x(2);
+v           = x(3);
+gamma       = x(4);
+mFuel       = x(5);
+
+cG          = cos(gamma);
+sG          = sin(gamma);
+
+<span class="comment">% Drag</span>
+rho        = AtmDens2(h); <span class="keyword">...</span>
+q          = 0.5*rho*(v*1000)^2;
+
+<span class="keyword">if</span>( abs(v) &gt; 0 )
+  drag = q*d.cDA;
+<span class="keyword">else</span>
+  drag = 0;
+<span class="keyword">end</span>
+
+<span class="comment">% Gravity and centripetal terms</span>
+r = d.rP + h;
+f = d.mu/r^2 - (v*cG)^2/r;
+
+<span class="comment">% Mass</span>
+mass = d.massD + mFuel;
+
+<span class="comment">% Total acceleration</span>
+vDot = (d.thrust - drag)/mass/1000 - f*sG;
+
+<span class="keyword">if</span>( v &gt; 0.1 &amp;&amp; gamma ~= pi/2)
+  gammaDot = -f*cG/v;
+<span class="keyword">else</span>
+  gammaDot = 0;
+<span class="keyword">end</span>
+
+mFuelDot = -d.thrust/(d.iSp*g);
+
+xDot = [v*cG;v*sG;vDot;gammaDot;mFuelDot];
+
+<span class="keyword">end</span>
+
+
+<span class="comment">%--------------------------------------</span>
+<span class="comment">% $Date$</span>
+<span class="comment">% $Id: 52d4f40a66cd1d5668f4aa0f04bc578b2fd30366 $</span>
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2023b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Artemis Launch Analysis
+% This script analyzes the SLS launch vehicle. It designs an all-liquid
+% booster, using the same RS-25 engines, and compares the performance.
+% It includes launch simulations.
+%
+% The following gives reference information used in the script.
+%
+% *System*
+%
+% https://www.nasa.gov/exploration/systems/sls/factsheets.html
+% http://www.braeunig.us/space/specs/sls.htm
+%
+% The SLS core stage and its two solid rocket boosters (SRBs) 
+% generated a total of 8.8 million pounds of thrust 
+%
+% *Solid Rocket Booster Details (5 segment)*
+%
+% Length: 177 feet (53.9 meters)
+% Diameter: 3.71 meters
+% Total mass: 731,885 kg each
+% Propellant mass: 631,495 kg 
+% Propellant: polybutadiene acrylonitrile (PBAN)
+% Thrust: 16,000 kN each
+% Specific impulse: 242 s (sea level), 268 s (vacuum)
+% Operational time: 127 seconds
+%
+% *Core Stage Details*
+%
+% Length: Approximately 212 feet (64.6 meters)
+% Diameter: 27.6 feet (8.4 meters)
+% Dry mass: Approximately 188,000 lbs (85,275 kg)
+% Burnout mass: 112,000 kg
+% Usable propellant mass: 979,452 kg
+% Capacities: Liquid Hydrogen (LH2) 537,000 gallons (2 million liters)
+% (317,000 pounds)  |  Liquid Oxygen (LOX)196,000 gallons (741,941 liters)
+% (1.86 million pounds)
+%
+% *RS-25D Details:*
+%
+% Thrust: 416,300 lbs. (~1860 kN) (sea level), 512,300 lbs. (2280 kN) (vacuum)
+% Specific impulse: 363 s (sea level), 453 s (vacuum)
+% Dry Mass: 3,525 kg
+%
+% See also: RocketModel, RocketMass, TimeHistory, LatexExp,
+% DisplayLatexTable, AtmDens2, StdAtm, SLSLaunchAnalysis>RHS,
+% SLSLaunchAnalysis>SRBThrustInterp, SLSLaunchAnalysis>DVParallel,
+% SLSLaunchAnalysis>DVFromMassAndIsp
+%
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%	  Copyright (c) 2022 Princeton Satellite Systems, Inc.
+%   All Rights Reserved.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Since version 2023.1
+%   2023.1 Pass data to StdData/RocketModel for faster simulation
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%% Setup
+lbToKg    = 1/2.205;  % kg/lb
+g         = 9.806;    % m/s^2
+R_EARTH   = 6378.165; % km
+
+atmData = load('AtmData.txt');
+
+lSRB      = 177*12*0.0254;  % Total SRB length including nose and nozzle
+lSRBCyl   = 177*12*0.0254*(44.67-0.08)/(46.97+4.96);    % Length of actual SRB fuel tank
+
+nLB       = 5;  % number of liquid boosters
+nRS25     = 4;  % Number or RS25 engines on the core
+nSRB      = 2;  % number of solid rocket bodies
+
+iSpSRBSL   = 242;        % iSp of SRB at sea level(s)
+iSpSRBVac  = 268;        % iSp of SRB in vacuum (s)
+iSpSRBAvg  = (iSpSRBSL + iSpSRBVac)/2;    % Average iSp of SRB
+massFSRB   = nSRB * 631495;  % Total propellant mass for both SRBs (kg)
+
+thrustRS25 = [1860 2280]*1e3*1.09;   % RS-25 109% thrust [sea-level vacuum] (N)
+iSpRS25    = [363 453];      % RS-25 iSp [sea-level vacuum]
+massRS25   = 3525;    % RS-25 mass
+mxrRS25    = 6.0;  % RS-25 mixture ratio
+
+massSRB   = nSRB*731885 ; % Total mass of both SRBs (kg)
+massFCore = (317000 + 1.86e6)*lbToKg;   % Mass of core fuel (kg)
+massDCore = 85275;      % Dry mass of core
+massDSRB  = massSRB-massFSRB;   % Total dry mass of both SRBs (kg)
+massCore  = massFCore + massDCore; % kg
+massSLS   = 5.75e6*lbToKg;      % Total mass of SLS (kg)
+massUS    = massSLS-massCore-massSRB;   % Upper stage mass (kg)
+
+fCore     = massDCore/massFCore;
+thrustSLSTI = nRS25*thrustRS25(1) + nSRB*SRBThrustInterp(0); % Initial SLS thrust
+thrustSLSTM = nRS25*thrustRS25(1) + nSRB*SRBThrustInterp(22); % Max SLS thrust
+rCore     = 8.4/2;  % Core radius
+rSRB      = 3.71/2; % SRB radius
+rLB       = rSRB;
+areaSLS   = pi*(nSRB*rSRB^2+rCore^2);   % SLS frontal area
+areaCore  = pi*rCore^2; % Core frontal area
+
+% Parallel DV of SRBs and RS25s
+[dV,dV1,dV2,iSpPSRB,mass2] = DVParallel( [nRS25*thrustRS25(1), nSRB*SRBThrustInterp(0)],...
+                 [massFCore, massFSRB], ...
+                 [iSpRS25(1), iSpSRBSL],...
+                 [massDCore massDSRB], massUS);
+
+%% SLS Properties
+clear s
+k = 1;
+s{k,1} = 'Total mass';       s{k,2} = LatexExp(massSLS,'8.2','kg'); k = k + 1;
+s{k,1} = 'Upper stage mass'; s{k,2} = LatexExp(massUS,'8.2','kg'); k = k + 1;
+s{k,1} = 'Core dry mass';        s{k,2} = LatexExp(massDCore,'8.2','kg'); k = k + 1;
+s{k,1} = 'Core propellant mass';        s{k,2} = LatexExp(massFCore,'8.2','kg'); k = k + 1;
+s{k,1} = 'Core structural fraction'; s{k,2} = sprintf('%.4f',fCore'); k = k + 1;
+s{k,1} = 'Core radius';      s{k,2} = sprintf('%12.2f m',rCore); k = k + 1;
+s{k,1} = 'Number of SRBs'; s{k,2} = sprintf('%12.0f',nSRB); k = k + 1;
+s{k,1} = 'Parallel $\Delta V$';      s{k,2} = sprintf('%6.1f m/s',dV1); k = k + 1;
+s{k,1} = 'Core $\Delta V$ (SRBs released)';          s{k,2} = sprintf('%6.1f m/s',dV2); k = k + 1;
+s{k,1} = 'Total $\Delta V$';         s{k,2} = sprintf('%6.1f m/s',dV); k = k + 1;
+s{k,1} = 'Parallel $I_{sp}$';     s{k,2} = sprintf('%6.1f s',iSpPSRB); k = k + 1;
+s{k,1} = 'Core $I_{sp}$';         s{k,2} = sprintf('%6.1f s',iSpRS25(1)); k = k + 1;
+s{k,1} = 'Initial total thrust (SRB+core)';      s{k,2} = LatexExp(thrustSLSTI,'8.2','N'); k = k + 1;
+s{k,1} = 'Initial acceleration';            s{k,2} = sprintf('%6.3f g',thrustSLSTI/massSLS/g); k = k + 1;
+s{k,1} = 'Frontal area'; s{k,2} = sprintf('%6.1f m$^2$',areaSLS);
+
+disp('SLS Properties')
+DisplayLatexTable(s)
+
+
+%% SRB Properties
+clear s
+k = 1;
+s{k,1} = 'Dry Mass';         s{k,2} = LatexExp(massDSRB/nSRB,'8.2','kg'); k = k + 1;
+s{k,1} = 'Propellant mass'; s{k,2} = LatexExp(massFSRB/nSRB,'8.2','kg'); k = k + 1;
+s{k,1} = 'Propellant';       s{k,2} = 'Polybutadiene Acrylonitrile (PBAN)'; k = k + 1;
+s{k,1} = 'Sea level $I_{sp}$';     s{k,2} = sprintf('%6.1f s',iSpSRBSL ); k = k + 1;
+s{k,1} = 'Vacuum $I_{sp}$';     s{k,2} = sprintf('%6.1f s',iSpSRBVac ); k = k + 1;
+s{k,1} = 'Sea level thrust';       s{k,2} = LatexExp(SRBThrustInterp(0),'6.1','N'); k = k + 1;
+s{k,1} = 'Max thrust';       s{k,2} = LatexExp(SRBThrustInterp(22),'6.1','N'); k = k + 1;
+s{k,1} = 'Operational time'; s{k,2} = sprintf('%6.1f s',127); k = k + 1;
+s{k,1} = 'Radius';       s{k,2} = sprintf('%12.1f m',rSRB); k = k + 1;
+s{k,1} = 'Length';       s{k,2} = sprintf('%12.1f m',lSRB);
+
+disp('SRB Properties')
+DisplayLatexTable(s);
+
+
+%% RS-25 Properties
+clear s
+k = 1;
+s{k,1} = 'Dry mass';                   s{k,2} = sprintf('%6.1f kg',massRS25); k = k + 1;
+s{k,1} = 'Sea level $I_{sp}$';     s{k,2} = sprintf('%6.1f s',iSpRS25(1)); k = k + 1;
+s{k,1} = 'Vacuum $I_{sp}$';        s{k,2} = sprintf('%6.1f s',iSpRS25(2)); k = k + 1;
+s{k,1} = 'Sea level thrust (109\%)'; s{k,2} = LatexExp(thrustRS25(1),'6.1','N'); k = k + 1;
+s{k,1} = 'Vacuum thrust (109\%)';    s{k,2} = LatexExp(thrustRS25(2),'6.1','N'); k = k + 1;
+s{k,1} = 'Propellant';             s{k,2} = 'Liquid O2/Liquid H2'; k = k + 1;
+s{k,1} = 'Mixture ratio'; s{k,2} = sprintf('6:1');
+
+disp('RS-25 Properties')
+DisplayLatexTable(s)
+
+%% All liquid booster (LB)
+massGNC      = 100; % Assumed mass of GN&C system on each booster
+
+% Mass of fuel burned in parallel (core+LB)
+mF1          = RocketMass(iSpRS25(1),massUS+mass2+nLB*(massRS25+massGNC),fCore,dV1/1000);  
+thrustTLB    = (4+nLB)*thrustRS25(1);   % Total thrust of vehicle (LB+core)
+uER          = iSpRS25(1)*g;
+timeParallel = mF1*uER/thrustTLB;
+massFLB      = nLB*thrustRS25(1)*timeParallel/uER;
+
+% LB tank will only be partially filled for the SLS with LBs
+massDLB      = massFLB*fCore + nLB*massRS25 + nLB*massGNC;  % Total dry mass for 5 liquid boosters
+massLB       = massFLB + massDLB;
+tBurnLB      = timeParallel;
+
+% Velocity change for parallel boostoer
+[dV,dV1,dV2,iSpPLB,mass2,massSLSLB] = DVParallel( [4*thrustRS25(1), nLB*thrustRS25(1)],...
+                    [massFCore, massFLB], ...
+                    [iSpRS25(1), iSpRS25(1)],...
+                    [massDCore massDLB], massUS);
+
+% Liquid booster volume
+volumeLB = 415.3465; 
+lengthLBCyl = volumeLB / (pi * rLB^2);  % Fuel tank length (m)
+lengthLB  = lengthLBCyl + 2.25 + 4.5; % LB total length including nozzle and nose (m)
+areaSLSLB = pi * (nLB * rLB^2 + rCore^2);   % SLS with 5 LBs frontal area
+
+%% SLS with LB Properties
+clear s
+k = 1;
+s{k,1} = 'Total mass';    s{k,2} = LatexExp(massSLSLB,'8.2','kg'); k = k + 1;
+s{k,1} = 'Upper stage mass'; s{k,2} = sprintf('%12.0f kg',massUS); k = k + 1;
+s{k,1} = 'Core dry mass';        s{k,2} = LatexExp(massDCore,'8.2','kg'); k = k + 1;
+s{k,1} = 'Core fuel mass';        s{k,2} = LatexExp(massFCore,'8.2','kg'); k = k + 1;
+s{k,1} = 'Core radius';      s{k,2} = sprintf('%12.2f m',rCore); k = k + 1;
+s{k,1} = 'Number of LBs';    s{k,2} = sprintf('%12.0f',nLB); k = k + 1;
+s{k,1} = 'Parallel $\Delta V$';      s{k,2} = sprintf('%6.1f m/s',dV1); k = k + 1;
+s{k,1} = 'Core $\Delta V$ (LBs released)'; s{k,2} = sprintf('%6.1f m/s',dV2); k = k + 1;
+s{k,1} = 'Total $\Delta V$';         s{k,2} = sprintf('%6.1f m/s',dV); k = k + 1;
+s{k,1} = 'Parallel $I_{sp}$';     s{k,2} = sprintf('%6.1f s',iSpPLB); k = k + 1;
+s{k,1} = 'Core $I_{sp}$';         s{k,2} = sprintf('%6.1f s',iSpRS25(1)); k = k + 1;
+s{k,1} = 'Initial total thrust (LBs+core)';      s{k,2} = LatexExp(thrustTLB,'8.2','N'); k = k + 1;
+s{k,1} = 'Initial acceleration';  s{k,2} = sprintf('%6.3f g',thrustTLB/massSLSLB/g); k = k + 1;
+s{k,1} = 'Frontal area'; s{k,2} = sprintf('%6.1f m$^2$',areaSLSLB);
+
+disp('SLS Liquid Booster Properties')
+DisplayLatexTable(s)
+
+%% LB Properties
+clear s
+k = 1;
+s{k,1} = 'Dry mass'; s{k,2} = LatexExp(massDLB/nLB,'8.2','kg'); k = k + 1;
+s{k,1} = 'Propellant mass'; s{k,2} = LatexExp(massFLB/nLB,'8.2','kg'); k = k + 1;
+s{k,1} = 'Propellant';             s{k,2} = 'Liquid O2/Liquid H2'; k = k + 1;
+s{k,1} = 'Operational time'; s{k,2} = sprintf('%6.1f s',tBurnLB); k = k + 1;
+s{k,1} = 'Radius';       s{k,2} = sprintf('%12.1f m',rLB); k = k + 1;
+s{k,1} = 'Length';       s{k,2} = sprintf('%12.1f m',lengthLB);
+
+disp('Liquid Booster Properties')
+DisplayLatexTable(s)
+
+%% SLS SRB vs SLS LB Comparison
+
+clear s
+k = 1;
+s{k,1} = 'Total mass';          s{k,2} = LatexExp(massSLS,'8.2','kg'); s{k,3} = LatexExp(massSLSLB,'8.2','kg'); k = k + 1;
+s{k,1} = 'Upper stage mass';    s{k,2} = LatexExp(massUS,'8.2','kg'); s{k,3} = LatexExp(massUS,'8.2','kg'); k = k + 1;
+s{k,1} = 'Core dry mass';     s{k,2} = LatexExp(massDCore,'8.2','kg'); s{k,3} = LatexExp(massDCore,'8.2','kg'); k = k + 1;
+s{k,1} = 'Core fuel mass';      s{k,2} = LatexExp(massFCore,'8.2','kg'); s{k,3} = LatexExp(massFCore,'8.2','kg'); k = k + 1;
+s{k,1} = 'Number of boosters'; s{k,2} = sprintf('%12.0f',nSRB); s{k,3} = sprintf('%12.0f',nLB); k = k + 1;
+s{k,1} = 'Total booster dry mass';  s{k,2} = LatexExp(massDSRB,'8.2','kg'); s{k,3} = LatexExp(massDLB,'8.2','kg'); k = k + 1;
+s{k,1} = 'Total booster fuel mass';   s{k,2} = LatexExp(massFSRB,'8.2','kg'); s{k,3} = LatexExp(massFLB,'8.2','kg'); k = k + 1;
+s{k,1} = 'Parallel $I_{sp}$';     s{k,2} = sprintf('%6.1f s',iSpPSRB); s{k,3} = sprintf('%6.1f s', iSpPLB); k = k + 1;
+s{k,1} = 'Initial total thrust (booster+core)'; s{k,2} = LatexExp(thrustSLSTI,'8.2','N'); s{k,3} = LatexExp(thrustTLB,'8.2','N'); k = k + 1;
+s{k,1} = 'Initial acceleration'; s{k,2} = sprintf('%6.3f g',thrustSLSTI/massSLS/g); s{k,3} = sprintf('%6.3f g',thrustTLB/massSLSLB/g); k = k + 1;
+s{k,1} = 'Frontal Area'; s{k,2} = sprintf('%6.1f m$^2$',areaSLS); s{k,3} = sprintf('%6.1f m$^2$',areaSLSLB);
+
+disp('SLS SRB vs SLS LB Comparison')
+DisplayLatexTable(s)
+
+%% Simulate with LBs
+
+dT          = 0.1;
+n           = 5000; % 20000
+tGT         = 150;
+gammaGT     = (90-19.5)*pi/180;
+kGT         = floor(tGT/dT);
+xP          = zeros(7,n);
+x           = [0;0;0;pi/2;massFLB + massFCore]; % [x h v gamma mFuel]
+massD       = massDLB + massDCore + massUS;
+thrust      = (4+nLB)*thrustRS25(1);
+pressureMin = StdAtm(0,atmData).pressure;
+pressureMax = StdAtm(80e3,atmData).pressure;
+pressure    = [pressureMin pressureMax];
+cD          = 0.35;
+
+d           = struct('mu',3.98600436e5,'rP',R_EARTH,'cDA',0,...
+                     'iSp',iSpRS25(1),'thrust',0,'massD',massD);
+
+disp('Simulating with LBs...')
+for k = 1:n
+  [~,drag] = RHS(x,0,d);
+  xP(:,k) = [x;thrust;Mag(drag)];
+  if( x(5) < 0 )
+    break;
+  end
+
+  if( k == kGT)
+    x(4) = gammaGT;
+  end
+
+  % The RS-25 thrust and iSp varies with altitude
+  height = xP(2,k);     % Current rocket height (km)
+  % Get current RS-25 thrust and specific impulse for engines
+  if (height <= 80)
+      [currThrustRS25,curriSpRS25] = RocketModel(height,iSpRS25,thrustRS25,pressure,atmData);
+  else
+      currThrustRS25 = thrustRS25(2);
+      curriSpRS25 = iSpRS25(2);
+  end
+
+  tSec = dT * k;    % Seconds elapsed
+  if( tSec < tBurnLB )
+    massD = massDCore + massUS + massDLB;
+    thrust = (4+nLB)*currThrustRS25;
+    d.cDA = cD*areaSLSLB;
+    d.iSp = curriSpRS25;
+  else
+    massD  = massDCore + massUS;
+    thrust = 4*currThrustRS25;
+    d.cDA  = cD*areaCore;
+    d.iSP  = curriSpRS25;
+  end
+
+  d.massD  = massD;
+  d.thrust = thrust;
+
+  x = RK4(@RHS,x,dT,0,d);
+end
+
+yL = {'x (km)' 'h (km)' 'v (km/s)' '\gamma (rad)' ...
+     'Fuel (kg)' 'Thrust (N)' 'Drag (N)'};
+
+xP = xP(:,1:k);
+t  = (0:k-1)*dT;
+
+k = 1:7;
+TimeHistory(t,xP(k,:),yL(k),'SLS with LBs');
+
+
+%% Simulate with SRBs
+dT          = 0.1;
+tGT         = 100;
+gammaGT     = (90-19.5)*pi/180;
+kGT         = floor(tGT/dT);
+n           = 5000; % 20000
+xP          = zeros(7,n);
+x           = [0;0;0;pi/2;massFSRB + massFCore];
+massD       = massDSRB + massDCore + massUS;
+thrust      = 4*thrustRS25(1)+nSRB*SRBThrustInterp(0);     % WH 1/19/23 - Changed because original thrust was using liquid boosters
+pressureMin = StdAtm(0,atmData).pressure;
+pressureMax = StdAtm(80e3,atmData).pressure;
+pressure = [pressureMin pressureMax];
+
+d           = struct('mu',3.98600436e5,'rP',R_EARTH,'cDA',0,...
+                     'iSp',iSpRS25(1),'thrust',0,'massD',massD);
+
+disp('Simulating with SRBs...')
+for k = 1:n
+  tSec = dT * k;    % Seconds elapsed
+  [~,drag] = RHS(x,0,d);
+  xP(:,k) = [x;thrust;Mag(drag)];
+  if( x(5) < 0 )
+    break;
+  end
+
+  if( k == kGT)
+    x(4) = gammaGT;
+  end
+
+  height = xP(2,k);     % Current rocket height (km)
+  % Get current RS-25 thrust and specific impulse for engines
+  if (height <= 80)
+      [currThrustRS25,curriSpRS25] = RocketModel(height,iSpRS25,thrustRS25,pressure,atmData);
+  else
+      currThrustRS25 = thrustRS25(2);
+      curriSpRS25 = iSpRS25(2);
+  end
+
+  if( tSec <= 127 )
+    massD  = massDCore + massUS + massDSRB;
+    thrust = 4*currThrustRS25+nSRB*SRBThrustInterp(tSec);   % WH 1/19/23 - SRB thrust varies with time
+    d.cDA  = cD*areaSLS;
+    d.iSp  = iSpPSRB;
+  else
+    massD  = massDCore + massUS;
+    thrust = 4*currThrustRS25;
+    d.cDA  = cD*areaCore;
+    d.iSP  = curriSpRS25;
+  end
+
+  d.massD  = massD;
+  d.thrust = thrust;
+
+  x = RK4(@RHS,x,dT,0,d);
+end
+
+yL = {'x (km)' 'h (km)' 'v (km/s)' '\gamma (rad)' ...
+     'Fuel (kg)' 'Thrust (N)' 'Drag (N)'};
+
+xP = xP(:,1:k);
+t  = (0:k-1)*dT;
+
+k = 1:7;
+TimeHistory(t,xP(k,:),yL(k),'SLS with SRBs');
+
+%%
+function dV = DVFromMassAndIsp( mF, mT, iSp )
+% Compute the change in velocity, DV, from masses and iSp
+% dV = DVFromMassAndIsp( mF, mT, iSp )
+%
+% mF - fuel mass
+% mT - total mass
+
+g  = 9.806; % Acceleration of gravity
+uE = iSp*g;
+mD = mT - mF;
+dV = uE*log(mT/mD);
+
+end
+
+%%
+function [dV, dV1, dV2, iSpP, mass2, massT] = DVParallel( thrust, fuel, iSp, massD, massP )
+% Velocity change with parallel stages
+% [dV, dV1, dV2, iSpP, mass2, massT] = DVParallel( thrust, fuel, iSp, massD, massP )
+%
+% thrust  (1,2)
+% fuel    (1,2)
+% Isp     (1,2)
+% massP   (1,1) mass of the stage's payload, i.e. upper stage
+
+g    = 9.806;
+uE   = g*iSp;
+
+mDot = thrust./uE;
+time = fuel./mDot;
+
+if( time(1) < time(2) )
+  k1 = 1;
+  k2 = 2;
+  tP = time(1);
+else
+  k1 = 2;
+  k2 = 1;
+  tP = time(2); % tP = time parallel
+end
+
+% Find dV for parallel segment
+mF   = mDot(k2)*tP + fuel(k1);
+iSpP = (iSp(k1)*mDot(k1) + iSp(k2)*mDot(k2))/(mDot(k1) + mDot(k2));
+mT   = sum(massD) + massP + sum(fuel);
+dV1  = DVFromMassAndIsp( mF, mT, iSpP );
+
+% Find dV for remainder
+mF   = fuel(k2) - mDot(k2)*tP;  % amount of fuel left in core stage after parallel burn
+mD   = massD(k2) + massP;   % Dry mass of core + upper stage
+dV2  = DVFromMassAndIsp( mF, mD+mF, iSp(k2) );
+
+% Mass of first stage that is not used up during parallel burn (core dry
+% mass + remaining fuel)
+mass2 = mF*(1+massD(k2)/fuel(k2));
+
+dV    = dV1 + dV2;
+massT = sum(massD) + massP + sum(fuel);
+
+end
+
+%%
+function thrustSRBt = SRBThrustInterp(t)
+% SRB Thrust Curve Interpolation
+% Interpolate thrust (in N) of SLS SRB at time t seconds.
+% Interpolation based off thrust curve from 
+% https://en.wikipedia.org/wiki/Space_Shuttle_Solid_Rocket_Booster#/media/File:Srbthrust2.svg
+
+time = [0 10 22 34 49 53 76 94 107 110 117 124 127];  % seconds
+thrust = [3.2 3.45 3.6 3.05 2.55 2.55 2.85 2.4 2.0 1.9 0.9 0.2 0] * 1e6;  % lbf
+
+% Thrust of SRB at time t seconds in Newtons
+thrustSRBt = interp1(time,thrust,t,'linear') * 4.448;   % N
+end
+
+%%
+function [xDot,drag] = RHS(x,~,d)
+% Launch vehicle dynamics
+% [xDot,drag] = RHS(x,~,d)
+%
+% Includes drag with AtmDens2
+
+g           = 9.806;
+
+h           = x(2);
+v           = x(3);
+gamma       = x(4);
+mFuel       = x(5);
+
+cG          = cos(gamma);
+sG          = sin(gamma);
+
+% Drag
+rho        = AtmDens2(h); ...
+q          = 0.5*rho*(v*1000)^2; 
+
+if( abs(v) > 0 )
+  drag = q*d.cDA;
+else
+  drag = 0;
+end
+
+% Gravity and centripetal terms
+r = d.rP + h;
+f = d.mu/r^2 - (v*cG)^2/r;
+
+% Mass
+mass = d.massD + mFuel;
+
+% Total acceleration
+vDot = (d.thrust - drag)/mass/1000 - f*sG;
+ 
+if( v > 0.1 && gamma ~= pi/2)
+  gammaDot = -f*cG/v;
+else
+  gammaDot = 0;
+end
+
+mFuelDot = -d.thrust/(d.iSp*g);
+
+xDot = [v*cG;v*sG;vDot;gammaDot;mFuelDot];
+
+end
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date$
+% $Id: 52d4f40a66cd1d5668f4aa0f04bc578b2fd30366 $
+
+##### SOURCE END #####
+-->
+</body>
+</html>

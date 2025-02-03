@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Planar heliopause mission simulation.</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-01-22">
+<meta name="DC.source" content="HeliopauseSimulation.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Planar heliopause mission simulation.</h1>
+<!--introduction-->
+<p>Can use either a built-in specular sail force disturbance function or the full sail disturbance function. Uses the FlatSail CAD model. The sail characteristic acceleration is about 4.6e-6 km/s2.</p>
+<p>Functions demonstrated:</p>
+<pre>     RHSHelio2DOrbit
+     HeliopauseSailAngle
+     FlatPlate</pre>
+<pre>------------------------------------------------------------------------
+See also Constant, Plot2D, TimeLabl, JD2000, HeliopauseSailAngle
+------------------------------------------------------------------------</pre>
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#2">Build the sail model</a>
+</li>
+<li>
+<a href="#3">Integrate</a>
+</li>
+<li>
+<a href="#4">Plot the results</a>
+</li>
+</ul>
+</div>
+<pre class="codeinput">
+<span class="comment">%-------------------------------------------------------------------------------</span>
+<span class="comment">%	Copyright (c) 2005,2006 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%   Since version 7.</span>
+<span class="comment">%-------------------------------------------------------------------------------</span>
+
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="comment">% User Parameters</span>
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="comment">% Two choices of disturbance model:</span>
+<span class="comment">%    1 (specular)</span>
+<span class="comment">%    2 (full)</span>
+disturbModel = 1;
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+</pre>
+<h2 id="2">Build the sail model</h2>
+<pre class="codeinput">
+<span class="comment">% Load the flat plate model</span>
+<span class="comment">%--------------------------</span>
+d = struct;
+d.g = load(fullfile(<span class="string">'SailData'</span>,<span class="string">'FlatSail.mat'</span>));
+
+<span class="comment">% Scale the sail</span>
+<span class="comment">%---------------</span>
+<span class="comment">%d.g.component(1).v = d.g.component(1).v;</span>
+<span class="comment">%[d.g.component(1).a, d.g.component(1).n, d.g.component(1).r, d.g.component(1).b] = PolygonProps( d.g.component(1).v, d.g.component(1).f );</span>
+area = CrossSection(d.g);
+lightness = LoadingToLightness(d.g.mass.mass/area);
+fprintf(<span class="string">'Sail side length: %g m\n'</span>,sqrt(area));
+fprintf(<span class="string">'Spacecraft mass:  %g kg\n'</span>,d.g.mass.mass);
+fprintf(<span class="string">'Lightness: %g\n'</span>,lightness);
+
+<span class="comment">% Disturbance model data</span>
+<span class="comment">%-----------------------</span>
+d.distModel.aeroOn   = 0;
+d.distModel.albedoOn = 0;
+d.distModel.solarOn  = 1;
+d.distModel.magOn    = 0;
+d.distModel.radOn    = 0;
+d.distModel.ggOn     = 0;
+d.distModel.planet   = <span class="string">'Sun'</span>;
+d.jD0                = JD2000;
+
+<span class="comment">% The maximum number of days for the numerical integration</span>
+<span class="comment">%---------------------------------------------------------</span>
+maxDays        = 365;
+
+<span class="comment">% Constants</span>
+<span class="comment">%----------</span>
+mu             = Constant(<span class="string">'mu sun'</span>);
+aU             = Constant(<span class="string">'au'</span>); <span class="comment">% km</span>
+lbFToN         = Constant(<span class="string">'lb force to n'</span>);
+lbFToKg        = Constant(<span class="string">'lb force to kg'</span>);
+c              = Constant(<span class="string">'speed of light'</span>)*1e3;
+secInDay       = 86400;
+mToKm          = 1/1000;
+
+<span class="comment">% Build the data structure for the differential equations</span>
+<span class="comment">%--------------------------------------------------------</span>
+d.tEnd         = maxDays*secInDay;
+d.mu           = mu;
+d.m0           = d.g.mass.mass; <span class="comment">% kg</span>
+d.laserOn      = 0;
+
+<span class="comment">% The following are for the specular model only</span>
+<span class="comment">%----------------------------------------------</span>
+<span class="comment">%area           = 350*d.m0;</span>
+p              = 1367;  <span class="comment">% W/m2</span>
+acc0           = 2.0*(p/c)*area/d.m0; <span class="comment">% m/s^2</span>
+d.accel        = acc0*mToKm*aU^2; <span class="comment">% prescale by AU^2</span>
+
+<span class="comment">% Sail pointing angle function</span>
+<span class="comment">%-----------------------------</span>
+d.sailAngleFun = @HeliopauseSailAngle;
+
+<span class="comment">% Select the disturance model</span>
+<span class="comment">%----------------------------</span>
+<span class="keyword">switch</span> disturbModel
+  <span class="keyword">case</span> 1
+    <span class="comment">% This uses the specular model</span>
+    d.forceModel   = <span class="string">'specular'</span>;
+  <span class="keyword">otherwise</span>
+    <span class="comment">% This uses the full disturbance model</span>
+    d.forceModel   = <span class="string">'full'</span>;
+<span class="keyword">end</span>
+disp(<span class="string">'HeliopauseSimulation:'</span>)
+disp([<span class="string">'Disturbance type: '</span> d.forceModel])
+</pre>
+<pre class="codeoutput">Sail side length: 223.607 m
+Spacecraft mass:  100 kg
+Lightness: 0.765
+HeliopauseSimulation:
+Disturbance type: specular
+</pre>
+<h2 id="3">Integrate</h2>
+<pre class="codeinput">
+<span class="comment">% Set up ode113</span>
+<span class="comment">%--------------</span>
+oDEOptions = odeset( <span class="string">'abstol'</span>, 1e-12, <span class="string">'reltol'</span>, 4e-8, <span class="string">'events'</span>, <span class="string">'off'</span> );
+
+<span class="comment">% Initial conditions. States are [r;dr/dt;drTheta/dt]</span>
+<span class="comment">%----------------------------------------------------</span>
+x      = [aU;0;sqrt(d.mu/aU);0]; <span class="comment">% [r;u;v;angle]</span>
+[t, x] = ode23(<span class="string">'RHSHelio2DOrbit'</span>, [0, d.tEnd], x, oDEOptions, d );
+
+x       = x';
+angle   = HeliopauseSailAngle( x, t );
+[t, tL] = TimeLabl( t' );
+</pre>
+<h2 id="4">Plot the results</h2>
+<pre class="codeinput">
+<span class="comment">% Plot the orbit</span>
+<span class="comment">%---------------</span>
+cA = cos( x(4,:) );
+sA = sin( x(4,:) );
+rX = x(1,:).*cA/aU;
+rY = x(1,:).*sA/aU;
+minR = min(Mag([rX;rY]))
+Plot2D( rX, rY, <span class="string">'x (au)'</span>, <span class="string">'y (au)'</span>,<span class="string">'Velocity Reversal Trajectory'</span> )
+hold <span class="string">on</span>
+<span class="comment">% Plot the initial orbit</span>
+th = linspace(0,2*pi);
+plot(x(1,1)*cos(th)/aU,x(1,1)*sin(th)/aU);
+axis <span class="string">equal</span>
+text(min(rX),max(rY),<span class="keyword">...</span>
+  sprintf(<span class="string">'\\beta=%g\nDays=%g\nangle=%g deg\nmin R: %g AU'</span>,<span class="keyword">...</span>
+  lightness,maxDays,angle(1)*180/pi,minR),<span class="keyword">...</span>
+  <span class="string">'VerticalAlignment'</span>,<span class="string">'top'</span>)
+
+yL = {<span class="string">'Sail Angle (deg)'</span> <span class="string">'u (km/s)'</span> <span class="string">'v (km/s)'</span>};
+Plot2D( t, [angle*180/pi;x(2,:);x(3,:)], tL, yL, <span class="string">'Sail Angle and Velocities'</span> );
+
+<span class="comment">%[a, e, rP, rA] = RV2AE( r, v, mu );</span>
+
+
+<span class="comment">%--------------------------------------</span>
+<span class="comment">% PSS internal file version information</span>
+<span class="comment">%--------------------------------------</span>
+
+<span class="comment">% $Id: 934c0a25332bb4fc5e70423fe04509cf4eb5f391 $</span>
+</pre>
+<pre class="codeoutput">
+minR =
+
+      0.12309
+
+</pre>
+<img vspace="5" hspace="5" src="HeliopauseSimulation_01.png" alt=""> <img vspace="5" hspace="5" src="HeliopauseSimulation_02.png" alt=""> <p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Planar heliopause mission simulation.
+% Can use either a built-in specular sail force disturbance function or the 
+% full sail disturbance function. Uses the FlatSail CAD model.
+% The sail characteristic acceleration is about 4.6e-6 km/s2.
+%
+% Functions demonstrated:
+%
+%       RHSHelio2DOrbit
+%       HeliopauseSailAngle
+%       FlatPlate
+%
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%  See also Constant, Plot2D, TimeLabl, JD2000, HeliopauseSailAngle
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%%
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%	Copyright (c) 2005,2006 Princeton Satellite Systems, Inc. 
+%   All rights reserved.
+%   Since version 7.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% User Parameters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Two choices of disturbance model:
+%    1 (specular) 
+%    2 (full)
+disturbModel = 1;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Build the sail model
+
+% Load the flat plate model
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+d = struct;
+d.g = load(fullfile('SailData','FlatSail.mat'));
+
+% Scale the sail
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%d.g.component(1).v = d.g.component(1).v;
+%[d.g.component(1).a, d.g.component(1).n, d.g.component(1).r, d.g.component(1).b] = PolygonProps( d.g.component(1).v, d.g.component(1).f );
+area = CrossSection(d.g);
+lightness = LoadingToLightness(d.g.mass.mass/area);
+fprintf('Sail side length: %g m\n',sqrt(area));
+fprintf('Spacecraft mass:  %g kg\n',d.g.mass.mass);
+fprintf('Lightness: %g\n',lightness);
+
+% Disturbance model data
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+d.distModel.aeroOn   = 0;
+d.distModel.albedoOn = 0;
+d.distModel.solarOn  = 1;
+d.distModel.magOn    = 0;
+d.distModel.radOn    = 0;
+d.distModel.ggOn     = 0;
+d.distModel.planet   = 'Sun';
+d.jD0                = JD2000;
+
+% The maximum number of days for the numerical integration
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+maxDays        = 365;
+
+% Constants
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+mu             = Constant('mu sun');
+aU             = Constant('au'); % km
+lbFToN         = Constant('lb force to n');
+lbFToKg        = Constant('lb force to kg');
+c              = Constant('speed of light')*1e3;
+secInDay       = 86400;
+mToKm          = 1/1000;
+
+% Build the data structure for the differential equations
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+d.tEnd         = maxDays*secInDay;
+d.mu           = mu;
+d.m0           = d.g.mass.mass; % kg
+d.laserOn      = 0;
+
+% The following are for the specular model only
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%area           = 350*d.m0;
+p              = 1367;  % W/m2
+acc0           = 2.0*(p/c)*area/d.m0; % m/s^2
+d.accel        = acc0*mToKm*aU^2; % prescale by AU^2
+
+% Sail pointing angle function
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+d.sailAngleFun = @HeliopauseSailAngle;
+
+% Select the disturance model
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+switch disturbModel
+  case 1
+    % This uses the specular model
+    d.forceModel   = 'specular'; 
+  otherwise
+    % This uses the full disturbance model
+    d.forceModel   = 'full'; 
+end
+disp('HeliopauseSimulation:')
+disp(['Disturbance type: ' d.forceModel])
+
+%% Integrate
+
+% Set up ode113
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+oDEOptions = odeset( 'abstol', 1e-12, 'reltol', 4e-8, 'events', 'off' );
+
+% Initial conditions. States are [r;dr/dt;drTheta/dt]
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+x      = [aU;0;sqrt(d.mu/aU);0]; % [r;u;v;angle]
+[t, x] = ode23('RHSHelio2DOrbit', [0, d.tEnd], x, oDEOptions, d );
+
+x       = x';
+angle   = HeliopauseSailAngle( x, t );
+[t, tL] = TimeLabl( t' );
+
+%% Plot the results
+
+% Plot the orbit
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+cA = cos( x(4,:) );
+sA = sin( x(4,:) );
+rX = x(1,:).*cA/aU;
+rY = x(1,:).*sA/aU;
+minR = min(Mag([rX;rY]))
+Plot2D( rX, rY, 'x (au)', 'y (au)','Velocity Reversal Trajectory' )
+hold on
+% Plot the initial orbit
+th = linspace(0,2*pi);
+plot(x(1,1)*cos(th)/aU,x(1,1)*sin(th)/aU);
+axis equal
+text(min(rX),max(rY),...
+  sprintf('\\beta=%g\nDays=%g\nangle=%g deg\nmin R: %g AU',...
+  lightness,maxDays,angle(1)*180/pi,minR),...
+  'VerticalAlignment','top')
+
+yL = {'Sail Angle (deg)' 'u (km/s)' 'v (km/s)'};
+Plot2D( t, [angle*180/pi;x(2,:);x(3,:)], tL, yL, 'Sail Angle and Velocities' );
+
+%[a, e, rP, rA] = RV2AE( r, v, mu );
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% PSS internal file version information
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date:   2022-09-23 $
+% $Id: 934c0a25332bb4fc5e70423fe04509cf4eb5f391 $
+
+
+##### SOURCE END #####
+-->
+</body>
+</html>

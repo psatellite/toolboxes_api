@@ -1,0 +1,252 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>SphereFreeMolecularFlow</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-09-19"><meta name="DC.source" content="SphereFreeMolecularFlow.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Surface accommodation drag on a sphere</a></li><li><a href="#2">Define the sphere mesh</a></li><li><a href="#3">Single velocity vector, S~3</a></li><li><a href="#4">Plot as a function of S, the speed ratio</a></li></ul></div><h2 id="1">Surface accommodation drag on a sphere</h2><p>Numerically compute the coefficient of drag on a sphere in free molecular flow and compare to the analytical solution. You can change the number of divisions in the sphere to see how it affects the accuracy of the numerical solution; 20 is much more accurate than 10.</p><pre>Reference:
+Storch, J. &#65279;Aerodynamic Disturbances on Spacecraft in Free-Molecular
+Flow, Aerospace Report TR-2003(3397)-1</pre><pre>------------------------------------------------------------------------
+See also: GeomPatch, PolygonProps, FAeroSurfaceAccommodation, Plot2D
+------------------------------------------------------------------------</pre><pre class="codeinput"><span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Copyright (c) 2022 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Since version 2022.1</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+</pre><h2 id="2">Define the sphere mesh</h2><pre class="codeinput">radius   = 1;
+nS       = 20; <span class="comment">% number of divisions</span>
+[v, f]   = GeomPatch( struct(<span class="string">'a'</span>,radius,<span class="string">'b'</span>,radius,<span class="string">'c'</span>,radius, <span class="string">'n'</span>, nS) );
+[area, n] = PolygonProps( v, f );
+DrawPatch( v, f );
+</pre><img vspace="5" hspace="5" src="SphereFreeMolecularFlow_01.png" alt=""> <h2 id="3">Single velocity vector, S~3</h2><p>Replicate figure 3.3 in Storch's paper, which plots the analytical solution for the coefficient of drag on a sphere</p><pre class="codeinput">disp(<span class="string">'Compute drag on a sphere for Vw/V=0.05 and s=3'</span>)
+
+<span class="comment">% Atmosphere properties</span>
+r   = 8.314; <span class="comment">% Gas constant, J/kg-mol-K</span>
+rho = 2.118338996643465e-13;  <span class="comment">% density, kg/m3</span>
+mG  = 17.06700873108905*1e-3; <span class="comment">% mean molecular weight, kg/mol</span>
+
+<span class="comment">% Spacecraft orbital velocity (flow antivelocity)</span>
+U   = sqrt(3.98600436e5/6928)*1000;  <span class="comment">% m/s</span>
+u   = U*[1;0;0];
+
+<span class="comment">% vB  = sqrt(0.5*pi*r*tB/m); % Vw in Storch</span>
+tB = (0.05*U)^2*2/pi/r*mG;
+
+d.area        = area';
+d.normal      = n';
+d.temperature = tB*ones(1,length(area));
+sigmaN = 0.7;
+sigmaT = 0.7;
+
+s = 3;
+tA = U^2/s^2/2/r*mG;
+
+disp(<span class="string">'Numerical solution:'</span>)
+[fT,cD,cL] = FAeroSurfaceAccommodation( u, rho, tA, mG, d, sigmaN, sigmaT )
+
+<span class="comment">% Expected cD and drag force:</span>
+disp(<span class="string">'Analytical solution:'</span>)
+
+Vw = sqrt(0.5*pi*r*tB/mG);
+f_cD = @(x) (2-sigmaN+sigmaT)/2./x.^3.*((4*x.^4+4*x.^2-1)/2./x.*erf(x) + (2*x.^2+1)/sqrt(pi).*exp(-x.^2)) + 4/3*sigmaN*Vw/U;
+cD0 = f_cD(s)
+fExp = 0.5*rho*U^2*pi*cD0
+</pre><pre class="codeoutput">Compute drag on a sphere for Vw/V=0.05 and s=3
+Numerical solution:
+
+fT =
+
+  -4.2989e-05
+  -6.6858e-22
+  -2.9241e-22
+
+
+cD =
+
+       2.2558
+
+
+cL =
+
+   3.8291e-17
+
+Analytical solution:
+
+cD0 =
+
+       2.2627
+
+
+fExp =
+
+   4.3319e-05
+
+</pre><h2 id="4">Plot as a function of S, the speed ratio</h2><pre class="codeinput">s   = linspace(2,10);
+tAs = U^2./s.^2/2/r*mG;
+cD  = zeros(size(tAs));
+<span class="keyword">for</span> k = 1:length(tAs)
+  [~,cD(k)] = FAeroSurfaceAccommodation( u, rho, tAs(k), mG, d, sigmaN, sigmaT );
+<span class="keyword">end</span>
+
+cD0 = f_cD(s);
+
+Plot2D(s,[cD;cD0],<span class="string">'Speed Ratio'</span>,<span class="string">'Coefficient of Drag'</span>,<span class="string">'Sphere in Free-Molecular Flow'</span>)
+legend(<span class="string">'Computed'</span>,<span class="string">'Analytical'</span>)
+text(6,2.5,sprintf(<span class="string">'n = %d'</span>,nS),<span class="string">'fontsize'</span>,14)
+
+
+<span class="comment">%--------------------------------------</span>
+</pre><img vspace="5" hspace="5" src="SphereFreeMolecularFlow_02.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Surface accommodation drag on a sphere
+% Numerically compute the coefficient of drag on a sphere in free molecular
+% flow and compare to the analytical solution. You can change the number of
+% divisions in the sphere to see how it affects the accuracy of the
+% numerical solution; 20 is much more accurate than 10.
+%
+%  Reference:
+%  Storch, J. ﻿Aerodynamic Disturbances on Spacecraft in Free-Molecular
+%  Flow, Aerospace Report TR-2003(3397)-1
+%
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%  See also: GeomPatch, PolygonProps, FAeroSurfaceAccommodation, Plot2D
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Copyright (c) 2022 Princeton Satellite Systems, Inc.
+%   All rights reserved.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Since version 2022.1
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%% Define the sphere mesh
+radius   = 1;
+nS       = 20; % number of divisions
+[v, f]   = GeomPatch( struct('a',radius,'b',radius,'c',radius, 'n', nS) );
+[area, n] = PolygonProps( v, f );
+DrawPatch( v, f );
+
+%% Single velocity vector, S~3
+% Replicate figure 3.3 in Storch's paper, which plots the analytical
+% solution for the coefficient of drag on a sphere 
+
+disp('Compute drag on a sphere for Vw/V=0.05 and s=3')
+
+% Atmosphere properties
+r   = 8.314; % Gas constant, J/kg-mol-K
+rho = 2.118338996643465e-13;  % density, kg/m3
+mG  = 17.06700873108905*1e-3; % mean molecular weight, kg/mol
+
+% Spacecraft orbital velocity (flow antivelocity)
+U   = sqrt(3.98600436e5/6928)*1000;  % m/s
+u   = U*[1;0;0];
+
+% vB  = sqrt(0.5*pi*r*tB/m); % Vw in Storch
+tB = (0.05*U)^2*2/pi/r*mG;
+
+d.area        = area';
+d.normal      = n';
+d.temperature = tB*ones(1,length(area));
+sigmaN = 0.7;
+sigmaT = 0.7;
+
+s = 3;
+tA = U^2/s^2/2/r*mG;
+
+disp('Numerical solution:')
+[fT,cD,cL] = FAeroSurfaceAccommodation( u, rho, tA, mG, d, sigmaN, sigmaT )
+
+% Expected cD and drag force:
+disp('Analytical solution:')
+
+Vw = sqrt(0.5*pi*r*tB/mG);
+f_cD = @(x) (2-sigmaN+sigmaT)/2./x.^3.*((4*x.^4+4*x.^2-1)/2./x.*erf(x) + (2*x.^2+1)/sqrt(pi).*exp(-x.^2)) + 4/3*sigmaN*Vw/U;
+cD0 = f_cD(s)
+fExp = 0.5*rho*U^2*pi*cD0
+
+%% Plot as a function of S, the speed ratio
+
+s   = linspace(2,10);
+tAs = U^2./s.^2/2/r*mG;
+cD  = zeros(size(tAs));
+for k = 1:length(tAs)
+  [~,cD(k)] = FAeroSurfaceAccommodation( u, rho, tAs(k), mG, d, sigmaN, sigmaT );
+end
+
+cD0 = f_cD(s);
+
+Plot2D(s,[cD;cD0],'Speed Ratio','Coefficient of Drag','Sphere in Free-Molecular Flow')
+legend('Computed','Analytical')
+text(6,2.5,sprintf('n = %d',nS),'fontsize',14)
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date:   2022-09-19 $
+% $Revision: be046cf1311b244da909830d1715ff9519620be5 $
+
+##### SOURCE END #####
+--></body></html>

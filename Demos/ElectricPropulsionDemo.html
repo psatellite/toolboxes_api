@@ -1,0 +1,227 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Design an electric powered transfer vehicle.</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-09-20"><meta name="DC.source" content="ElectricPropulsionDemo.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Design an electric powered transfer vehicle.</h1><p>Uses the payload mass, the required delta-V, the required thrust, the ratio of structure to fuel mass (for tanks, etc.) and the power per unit mass.</p><pre>------------------------------------------------------------------------
+ See also OptimalVehicle, ElectricPropulsionDesign, Plot2D,
+ MinimumExhaustVelocity
+------------------------------------------------------------------------</pre><pre class="codeinput"><span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Copyright (c) 1997-2004 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%   2021.1 Fix plotting bug of optimal value.</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+
+x        = struct();
+x.mP     = 50000;     <span class="comment">% kg</span>
+x.thrust = 15000;     <span class="comment">% N</span>
+x.dV     = 50000;     <span class="comment">% m/s</span>
+x.pR     = 1e9/50000; <span class="comment">% W/kg</span>
+x.sR     = 0.1;       <span class="comment">% kg/kg</span>
+x.eff    = 0.6;       <span class="comment">% efficiency</span>
+
+uEMin = MinimumExhaustVelocity( x.sR, x.dV );
+
+x.uE    = 1.5*uEMin;      <span class="comment">% guess</span>
+
+fprintf(<span class="string">'------------- Inputs --------------\n'</span>)
+fprintf(<span class="string">'Payload          %12.2f kg\n'</span>  , x.mP)
+fprintf(<span class="string">'Thrust           %12.2f N\n'</span>   , x.thrust)
+fprintf(<span class="string">'Delta-V          %12.2f km/s\n'</span>, x.dV*1e-3)
+fprintf(<span class="string">'Efficiency       %12g\n'</span>     , x.eff)
+fprintf(<span class="string">'Structural Ratio %12.2f kg/kg\n'</span>  , x.sR)
+fprintf(<span class="string">'Power Ratio      %12.2f W/kg\n'</span>  , x.pR)
+fprintf(<span class="string">'-----------------------------------\n\n'</span>)
+
+<span class="comment">% Find the optimal exhaust velocity and design the vehicle</span>
+<span class="comment">%---------------------------------------------------------</span>
+fprintf(<span class="string">'Optimal electric vehicle design:\n\n'</span>)
+xOpt  = OptimalVehicle( x, true );
+xT    = xOpt;
+
+<span class="comment">% Test a vector of uE's to confirm this is optimal</span>
+uE    = logspace(log10(1.05*uEMin), ceil(log10(100*x.uE)));
+mPlot = zeros(4,length(uE));
+
+<span class="keyword">for</span> k = 1:length(uE)
+  xT.uE      = uE(k);
+  xT         = ElectricPropulsionDesign( xT );
+  mPlot(:,k) = [xT.mT;xT.mS;xT.mR;xT.mF];
+<span class="keyword">end</span>
+
+[z,j] = find( mPlot(1,:) &gt; 0 );
+j  = min(j);
+
+uE = uE(j:end);
+mPlot = mPlot(:,j:end);
+
+yP = char(<span class="string">'Total'</span>,<span class="string">'Structural'</span>,<span class="string">'Propulsion'</span>,<span class="string">'Fuel'</span>);
+Plot2D( uE, mPlot, <span class="string">'Exhaust Velocity (m/s)'</span>,yP,<span class="string">'Mass (kg) vs. Exhaust Velocity'</span>,<span class="string">'log'</span>);
+subplot(4,1,1)
+hold <span class="string">on</span>
+plot(xOpt.uE,xOpt.mT,<span class="string">'k*'</span>)
+
+
+<span class="comment">%--------------------------------------</span>
+</pre><pre class="codeoutput">------------- Inputs --------------
+Payload              50000.00 kg
+Thrust               15000.00 N
+Delta-V                 50.00 km/s
+Efficiency                0.6
+Structural Ratio         0.10 kg/kg
+Power Ratio          20000.00 W/kg
+-----------------------------------
+
+Optimal electric vehicle design:
+
+Total mass             	    198228.29	kg
+Structural mass        	      7577.07	kg
+Propulsion system mass 	     64880.50	kg
+Payload mass           	     50000.00	kg
+Dry mass               	    122457.57	kg
+Fuel mass              	     75770.72	kg
+Power                  	  1297.61	MW
+Exhaust velocity       	   103.81	km/sec
+Power ratio            	    20.00	kW/kg
+Mass flow              	     0.144496	kg/s
+Thrust                 	    15000.000	N
+Total delta V          	    50.00	km/sec
+Average acceleration   	 9.35e-02	m/sec^2
+Burn time              	     6.19	days
+</pre><img vspace="5" hspace="5" src="ElectricPropulsionDemo_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Design an electric powered transfer vehicle.
+% Uses the payload mass, the required delta-V, the required thrust, the ratio of
+% structure to fuel mass (for tanks, etc.) and the power per unit mass.
+%
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   See also OptimalVehicle, ElectricPropulsionDesign, Plot2D,
+%   MinimumExhaustVelocity
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Copyright (c) 1997-2004 Princeton Satellite Systems, Inc.
+%   All rights reserved.
+%   2021.1 Fix plotting bug of optimal value.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+x        = struct();
+x.mP     = 50000;     % kg
+x.thrust = 15000;     % N
+x.dV     = 50000;     % m/s
+x.pR     = 1e9/50000; % W/kg
+x.sR     = 0.1;       % kg/kg
+x.eff    = 0.6;       % efficiency
+
+uEMin = MinimumExhaustVelocity( x.sR, x.dV );
+
+x.uE    = 1.5*uEMin;      % guess
+
+fprintf('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Inputs REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH\n')
+fprintf('Payload          %12.2f kg\n'  , x.mP)
+fprintf('Thrust           %12.2f N\n'   , x.thrust)
+fprintf('Delta-V          %12.2f km/s\n', x.dV*1e-3)
+fprintf('Efficiency       %12g\n'     , x.eff)
+fprintf('Structural Ratio %12.2f kg/kg\n'  , x.sR)
+fprintf('Power Ratio      %12.2f W/kg\n'  , x.pR)
+fprintf('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-\n\n')
+
+% Find the optimal exhaust velocity and design the vehicle
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+fprintf('Optimal electric vehicle design:\n\n')
+xOpt  = OptimalVehicle( x, true );
+xT    = xOpt;
+
+% Test a vector of uE's to confirm this is optimal
+uE    = logspace(log10(1.05*uEMin), ceil(log10(100*x.uE)));
+mPlot = zeros(4,length(uE));
+
+for k = 1:length(uE)
+  xT.uE      = uE(k);
+  xT         = ElectricPropulsionDesign( xT );
+  mPlot(:,k) = [xT.mT;xT.mS;xT.mR;xT.mF];
+end
+
+[z,j] = find( mPlot(1,:) > 0 );
+j  = min(j);
+
+uE = uE(j:end);
+mPlot = mPlot(:,j:end);
+
+yP = char('Total','Structural','Propulsion','Fuel');
+Plot2D( uE, mPlot, 'Exhaust Velocity (m/s)',yP,'Mass (kg) vs. Exhaust Velocity','log');
+subplot(4,1,1)
+hold on
+plot(xOpt.uE,xOpt.mT,'k*')
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date:   2022-09-20 $
+% $Revision: f36e59bdbd2df2a51e2c7f6f5798e16bf984cbb5 $
+
+##### SOURCE END #####
+--></body></html>

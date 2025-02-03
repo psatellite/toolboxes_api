@@ -1,0 +1,550 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Demonstrate navigation with UKF in low earth orbit.</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-01-22">
+<meta name="DC.source" content="NavigationDemo.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Demonstrate navigation with UKF in low earth orbit.</h1>
+<!--introduction-->
+<p>Uses GPS and a range/rate sensor.</p>
+<p>The gravity model is point mass without any perturbations or disturbances such as solar or aerodynamics.</p>
+<p>This demo uses the new UKF framework with separate propagate and measurement update functions.</p>
+<p>See also RHSOrbitPlanetFixed, MeasGPS, MeasRangeGroundStationEF, UKFPredict, UKFUpdate</p>
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#2">Constants</a>
+</li>
+<li>
+<a href="#3">User inputs</a>
+</li>
+<li>
+<a href="#4">Orbit</a>
+</li>
+<li>
+<a href="#5">Navigation setup</a>
+</li>
+<li>
+<a href="#6">Navigation simulation</a>
+</li>
+<li>
+<a href="#7">Plot</a>
+</li>
+</ul>
+</div>
+<pre class="codeinput">
+<span class="comment">%---------------------------------------------------------------------</span>
+<span class="comment">%   Copyright (c) 2014, 2023 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%---------------------------------------------------------------------</span>
+</pre>
+<h2 id="2">Constants</h2>
+<pre class="codeinput">
+<span class="comment">%-----------</span>
+rE              = 6378.165;
+mu              = 3.98600436e5;
+radToDeg        = pi/180;
+omegaE          = 2*pi/86400;
+jD0             = Date2JD([2016 4 4 0 0 0]);
+</pre>
+<h2 id="3">User inputs</h2>
+<pre class="codeinput">
+<span class="comment">%-------------</span>
+
+<span class="comment">% Script control</span>
+<span class="comment">%---------------</span>
+useGPS            = 0;      <span class="comment">% 1 = use GPS</span>
+useRange          =	1;      <span class="comment">% 1 = use range to the target</span>
+
+sigmaRangeGPS     = 0.001;
+sigmaRangeRateGPS = 1e-5;
+sigmaRange        = 0.001;
+sigmaRangeRate    = 1e-5;
+rGPS              = diag([sigmaRangeGPS sigmaRangeRateGPS].^2);
+
+dR                = 2e-3;     <span class="comment">% GPS position accuracy, 1 sigma (km)</span>
+dV                = 4e-6;     <span class="comment">% The initial velocity error 1 sigma (km/s)</span>
+fQ0               = 0.000011;   <span class="comment">% The model covariance will be this fraction of the initial acceleration</span>
+                              <span class="comment">% Roughly the effect of the J2 term</span>
+qR                = [1; 1; 1]*1e-10; <span class="comment">% Uncertainty in the derivative states</span>
+
+hPerigee          = 450;      <span class="comment">% km</span>
+hApogee           = 450;      <span class="comment">% km</span>
+inclination       = 0;        <span class="comment">% degrees</span>
+
+<span class="comment">% Set the seed for the random number generators.</span>
+<span class="comment">% If the seed is not set each run will be different.</span>
+<span class="comment">%---------------------------------------------------</span>
+seed            = 45198;
+rng(seed);
+
+<span class="comment">% Set up the orbit</span>
+<span class="comment">%-----------------</span>
+rP              = hPerigee + rE;
+rA              = hApogee  + rE;
+[a, e]          = RPRA2AE( rA, rP );
+p               = Period( a );
+nOrbits         = 4;
+dT              = 2;
+
+nSamples        = ceil(nOrbits*p/dT);
+</pre>
+<h2 id="4">Orbit</h2>
+<pre class="codeinput">
+<span class="comment">%-------</span>
+i               = inclination*radToDeg; <span class="comment">% Inclination (rad)</span>
+el              = [a i 0 0 e 0];
+
+<span class="comment">% Generate the initial orbit</span>
+<span class="comment">%---------------------------</span>
+[r0, v0]        = El2RV(el,mu);
+rGS             = Unit(r0)*rE;
+
+dRHS            = RHSOrbitPlanetFixed;
+dRHS.mu         = mu;
+dRHS.theta0     = 0;
+dRHS.omega      = omegaE;
+dRHS.aECI       = [0;0;0];
+
+<span class="comment">% Adjust for the rotation of the earth</span>
+<span class="comment">%-------------------------------------</span>
+v0              = v0 - Cross([0;0;dRHS.omega],r0);
+x0              = [r0;v0];
+</pre>
+<h2 id="5">Navigation setup</h2>
+<pre class="codeinput">
+<span class="comment">%------------------</span>
+
+<span class="comment">% GPS sensor data structure</span>
+<span class="comment">%--------------------------</span>
+dGPSSim.noise   = [0;0];
+dGPSSim.rE      = rE;
+dGPSSim.rRef    = 1;
+dGPSSim.hMin    = 10;
+dGPSSim.jD      = jD0;
+dGPSSim.jD0     = jD0;
+dGPSSim.theta0  = 0;
+dGPSSim.omega   = omegaE;
+dGPS            = dGPSSim;
+
+dGSSim.rGS      = rGS;
+dGSSim.noise    = [0;0];
+dGSSim.jD       = jD0;
+dGSSim.rRef     = 1;
+dGS             = dGSSim;
+
+<span class="comment">% The initial covariance</span>
+<span class="comment">%-----------------------</span>
+p0              = diag([dR dR dR dV dV dV].^2);
+
+<span class="comment">% Base the initial model covariance on a fraction of the gravitational</span>
+<span class="comment">% acceleration</span>
+<span class="comment">%---------------------------------------------------------------------</span>
+a0              = mu*r0/Mag(r0)^3;
+q0              = diag([qR; (fQ0*a0).^2]);
+
+dRHSEst         = dRHS;
+
+<span class="comment">% Initialize the Unscented Kalman Filter</span>
+<span class="comment">%---------------------------------------</span>
+ukf     = KFInitialize( <span class="string">'ukf'</span>,<span class="string">'f'</span>,@RHSOrbitPlanetFixed,<span class="string">'alpha'</span>,0.1,<span class="keyword">...</span>
+                        <span class="string">'kappa'</span>,0,<span class="string">'beta'</span>,2,<span class="string">'dT'</span>,dT,<span class="string">'fData'</span>,dRHSEst,<span class="keyword">...</span>
+                        <span class="string">'p'</span>,p0,<span class="string">'q'</span>,q0,<span class="string">'x'</span>,[r0;v0], <span class="string">'m'</span>,[r0;v0]);
+</pre>
+<h2 id="6">Navigation simulation</h2>
+<pre class="codeinput">
+<span class="comment">%-----------------------</span>
+
+<span class="comment">% Run the optical navigation</span>
+<span class="comment">%---------------------------</span>
+rEst        = zeros(3,nSamples);
+vEst        = zeros(3,nSamples);
+r           = zeros(3,nSamples);
+v           = zeros(3,nSamples);
+
+x           = x0;
+t           = 0;
+
+<span class="keyword">for</span> k = 1:nSamples
+
+    <span class="comment">% Time</span>
+    <span class="comment">%-----</span>
+    jD                     = jD0 + t/86400;
+    dGPSSim.jD             = jD;
+    dGSSim.jD              = jD;
+
+    <span class="comment">% Plotting storage</span>
+    <span class="comment">%-----------------</span>
+    rEst(:,k)              = ukf.m(1:3);
+    vEst(:,k)              = ukf.m(4:6);
+    r(:,k)                 = x(1:3);
+    v(:,k)                 = x(4:6);
+
+    <span class="comment">% Generate the measurements</span>
+    <span class="comment">%--------------------------</span>
+
+    <span class="comment">% GPS sensor</span>
+    <span class="comment">%-----------</span>
+    <span class="keyword">if</span>( useGPS )
+      ukf.y(1).data         = MeasGPS( x, dGPSSim );
+      ukf.y(1).param.hFun   = @MeasGPS;
+      ukf.y(1).param.hData	= dGPS;
+      rB                    = diag([sigmaRangeGPS sigmaRangeRateGPS].^2);
+      ukf.y(1).param.r      = BlockDiagonal(rB,length(ukf.y(1).data)/2);
+      j                     = 2;
+    <span class="keyword">else</span>
+      j                     = 1;
+    <span class="keyword">end</span>
+
+    <span class="comment">% Range sensor</span>
+    <span class="comment">%-------------</span>
+    <span class="keyword">if</span>( useRange )
+      ukf.y(j).data         = MeasRangeGroundStationEF( x, dGSSim );
+      ukf.y(j).param.hFun   = @MeasRangeGroundStationEF;
+      ukf.y(j).param.hData	= dGS;
+      ukf.y(j).param.r      = diag([sigmaRange sigmaRangeRate].^2);
+    <span class="keyword">end</span>
+
+    <span class="comment">% Propagate the orbit</span>
+    <span class="comment">%--------------------</span>
+    ukf.t                   = t;
+    ukf                     = UKFPredict( ukf );
+
+	<span class="comment">% Incorporate the measurements</span>
+    <span class="comment">% ----------------------------</span>
+    <span class="keyword">if</span>( useGPS || useRange )
+    	ukf	= UKFUpdate( ukf );
+    <span class="keyword">end</span>
+
+    <span class="comment">% Numerically integrate the truth orbit</span>
+    <span class="comment">%--------------------------------------</span>
+    x = RK4(@RHSOrbitPlanetFixed, x,  dT, t, dRHS );
+    t = t + dT;
+
+<span class="keyword">end</span>
+</pre>
+<h2 id="7">Plot</h2>
+<pre class="codeinput">
+<span class="comment">%------</span>
+[t, tL]	= TimeLabl((0:(nSamples-1))*dT);
+
+<span class="comment">% Dimensionalize</span>
+<span class="comment">%---------------</span>
+nP = {<span class="string">'[1 4]'</span> <span class="string">'[2 5]'</span> <span class="string">'[3 6]'</span>};
+Plot2D(t,[r;rEst],tL,{<span class="string">'x (km)'</span> <span class="string">'y (km)'</span> <span class="string">'z (km)'</span>},  <span class="string">'Navigation: Position Estimate and Truth model'</span>, <span class="string">'lin'</span>,nP)
+legend(<span class="string">'Truth'</span>, <span class="string">'Estimate'</span>)
+
+Plot2D(t,r-rEst,tL,{<span class="string">'\delta x (km)'</span>     <span class="string">'\delta y (km)'</span>     <span class="string">'\delta z (km)'</span>},          <span class="string">'Navigation: Position Estimate Error'</span>)
+Plot2D(t,v-vEst,tL,{<span class="string">'\delta v_x (km/s)'</span> <span class="string">'\delta v_y (km/s)'</span> <span class="string">'\delta v_z (km/s)'</span>},      <span class="string">'Navigation: Velocity Estimate Error'</span>)
+
+yL = {<span class="string">'x (km)'</span> <span class="string">'y (km)'</span> <span class="string">'z (km)'</span> <span class="string">'v_x (km/s)'</span> <span class="string">'v_y (km/s)'</span> <span class="string">'v_z (km/s)'</span>};
+Plot2D(t,[r;v],tL,yL,<span class="string">'Propagation EF'</span>)
+
+
+
+<span class="comment">% $Id: aa87f96da92eecac1191ff7a1082213117833af8 $</span>
+</pre>
+<img vspace="5" hspace="5" src="NavigationDemo_01.png" alt=""> <img vspace="5" hspace="5" src="NavigationDemo_02.png" alt=""> <img vspace="5" hspace="5" src="NavigationDemo_03.png" alt=""> <img vspace="5" hspace="5" src="NavigationDemo_04.png" alt=""> <p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Demonstrate navigation with UKF in low earth orbit.
+%
+% Uses GPS and a range/rate sensor. 
+%
+% The gravity model is point mass without any perturbations or
+% disturbances such as solar or aerodynamics.
+%
+% This demo uses the new UKF framework with separate propagate and
+% measurement update functions.
+%
+% See also RHSOrbitPlanetFixed, MeasGPS, MeasRangeGroundStationEF,
+% UKFPredict, UKFUpdate
+%%
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%   Copyright (c) 2014, 2023 Princeton Satellite Systems, Inc. 
+%   All rights reserved.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+%% Constants
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+rE              = 6378.165;
+mu              = 3.98600436e5;
+radToDeg        = pi/180;
+omegaE          = 2*pi/86400;
+jD0             = Date2JD([2016 4 4 0 0 0]);
+
+%% User inputs
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+% Script control
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+useGPS            = 0;      % 1 = use GPS
+useRange          =	1;      % 1 = use range to the target
+
+sigmaRangeGPS     = 0.001;
+sigmaRangeRateGPS = 1e-5;
+sigmaRange        = 0.001;
+sigmaRangeRate    = 1e-5;
+rGPS              = diag([sigmaRangeGPS sigmaRangeRateGPS].^2);
+
+dR                = 2e-3;     % GPS position accuracy, 1 sigma (km)
+dV                = 4e-6;     % The initial velocity error 1 sigma (km/s)
+fQ0               = 0.000011;   % The model covariance will be this fraction of the initial acceleration
+                              % Roughly the effect of the J2 term
+qR                = [1; 1; 1]*1e-10; % Uncertainty in the derivative states
+
+hPerigee          = 450;      % km
+hApogee           = 450;      % km
+inclination       = 0;        % degrees
+
+% Set the seed for the random number generators. 
+% If the seed is not set each run will be different.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+seed            = 45198;
+rng(seed);
+
+% Set up the orbit
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+rP              = hPerigee + rE;
+rA              = hApogee  + rE;
+[a, e]          = RPRA2AE( rA, rP );
+p               = Period( a );
+nOrbits         = 4;
+dT              = 2;
+
+nSamples        = ceil(nOrbits*p/dT);
+
+%% Orbit
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+i               = inclination*radToDeg; % Inclination (rad)
+el              = [a i 0 0 e 0];
+
+% Generate the initial orbit
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+[r0, v0]        = El2RV(el,mu);
+rGS             = Unit(r0)*rE;
+
+dRHS            = RHSOrbitPlanetFixed;
+dRHS.mu         = mu;
+dRHS.theta0     = 0;
+dRHS.omega      = omegaE;
+dRHS.aECI       = [0;0;0];
+
+% Adjust for the rotation of the earth
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+v0              = v0 - Cross([0;0;dRHS.omega],r0);
+x0              = [r0;v0];
+
+%% Navigation setup
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+% GPS sensor data structure
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+dGPSSim.noise   = [0;0];
+dGPSSim.rE      = rE;
+dGPSSim.rRef    = 1;
+dGPSSim.hMin    = 10;
+dGPSSim.jD      = jD0;
+dGPSSim.jD0     = jD0;
+dGPSSim.theta0  = 0;
+dGPSSim.omega   = omegaE;
+dGPS            = dGPSSim;
+
+dGSSim.rGS      = rGS;
+dGSSim.noise    = [0;0];
+dGSSim.jD       = jD0;
+dGSSim.rRef     = 1;
+dGS             = dGSSim;
+
+% The initial covariance
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+p0              = diag([dR dR dR dV dV dV].^2);
+
+% Base the initial model covariance on a fraction of the gravitational
+% acceleration
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+a0              = mu*r0/Mag(r0)^3;
+q0              = diag([qR; (fQ0*a0).^2]);
+
+dRHSEst         = dRHS;
+
+% Initialize the Unscented Kalman Filter
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+ukf     = KFInitialize( 'ukf','f',@RHSOrbitPlanetFixed,'alpha',0.1,...
+                        'kappa',0,'beta',2,'dT',dT,'fData',dRHSEst,...
+                        'p',p0,'q',q0,'x',[r0;v0], 'm',[r0;v0]);                  
+
+%% Navigation simulation
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+% Run the optical navigation
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+rEst        = zeros(3,nSamples);
+vEst        = zeros(3,nSamples);
+r           = zeros(3,nSamples);
+v           = zeros(3,nSamples);
+
+x           = x0;
+t           = 0;
+
+for k = 1:nSamples
+  
+    % Time
+    %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+    jD                     = jD0 + t/86400;
+    dGPSSim.jD             = jD;
+    dGSSim.jD              = jD;
+   
+    % Plotting storage
+    %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+    rEst(:,k)              = ukf.m(1:3);
+    vEst(:,k)              = ukf.m(4:6);
+    r(:,k)                 = x(1:3);
+    v(:,k)                 = x(4:6);
+   
+    % Generate the measurements
+    %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+    
+    % GPS sensor
+    %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+    if( useGPS )
+      ukf.y(1).data         = MeasGPS( x, dGPSSim );
+      ukf.y(1).param.hFun   = @MeasGPS;
+      ukf.y(1).param.hData	= dGPS;
+      rB                    = diag([sigmaRangeGPS sigmaRangeRateGPS].^2);
+      ukf.y(1).param.r      = BlockDiagonal(rB,length(ukf.y(1).data)/2);
+      j                     = 2;
+    else
+      j                     = 1;
+    end
+ 
+    % Range sensor
+    %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+    if( useRange )
+      ukf.y(j).data         = MeasRangeGroundStationEF( x, dGSSim );
+      ukf.y(j).param.hFun   = @MeasRangeGroundStationEF;
+      ukf.y(j).param.hData	= dGS;
+      ukf.y(j).param.r      = diag([sigmaRange sigmaRangeRate].^2);
+    end
+ 
+    % Propagate the orbit
+    %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+    ukf.t                   = t; 
+    ukf                     = UKFPredict( ukf );  
+    
+	% Incorporate the measurements
+    % REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+    if( useGPS || useRange )
+    	ukf	= UKFUpdate( ukf );
+    end
+  
+    % Numerically integrate the truth orbit
+    %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+    x = RK4(@RHSOrbitPlanetFixed, x,  dT, t, dRHS );
+    t = t + dT;
+
+end
+
+%% Plot
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+[t, tL]	= TimeLabl((0:(nSamples-1))*dT);
+
+% Dimensionalize
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+nP = {'[1 4]' '[2 5]' '[3 6]'};
+Plot2D(t,[r;rEst],tL,{'x (km)' 'y (km)' 'z (km)'},  'Navigation: Position Estimate and Truth model', 'lin',nP)
+legend('Truth', 'Estimate')
+
+Plot2D(t,r-rEst,tL,{'\delta x (km)'     '\delta y (km)'     '\delta z (km)'},          'Navigation: Position Estimate Error')
+Plot2D(t,v-vEst,tL,{'\delta v_x (km/s)' '\delta v_y (km/s)' '\delta v_z (km/s)'},      'Navigation: Velocity Estimate Error')
+
+yL = {'x (km)' 'y (km)' 'z (km)' 'v_x (km/s)' 'v_y (km/s)' 'v_z (km/s)'};
+Plot2D(t,[r;v],tL,yL,'Propagation EF')
+
+
+% $Date:   2023-06-30 $
+% $Id: aa87f96da92eecac1191ff7a1082213117833af8 $
+
+##### SOURCE END #####
+-->
+</body>
+</html>

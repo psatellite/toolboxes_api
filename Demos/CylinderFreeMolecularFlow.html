@@ -1,0 +1,260 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>CylinderFreeMolecularFlow</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-09-19"><meta name="DC.source" content="CylinderFreeMolecularFlow.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Surface accommodation drag on a cylinder</a></li><li><a href="#2">Define the cylinder mesh</a></li><li><a href="#3">Single velocity vector, S~inf</a></li><li><a href="#4">Vector forces on the cylinder, expected and numerical solution</a></li></ul></div><h2 id="1">Surface accommodation drag on a cylinder</h2><p>Numerically compute the coefficient of drag on a cylinder in free molecular flow and compare to the analytical solution. You can change the number of divisions in the mesh to see how it affects the accuracy of the numerical solution; 20 is much more accurate than 10.</p><p>Reference: Storch, J. &#65279;''Aerodynamic Disturbances on Spacecraft in Free-Molecular  Flow,'' Aerospace Corp. tech report, 2002</p><pre>------------------------------------------------------------------------
+See also: GeomPatch, PolygonProps, DrawPatch, FAeroSurfaceAccommodation
+------------------------------------------------------------------------</pre><pre class="codeinput"><span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Copyright (c) 2022 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Since version 2022.1</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+</pre><h2 id="2">Define the cylinder mesh</h2><pre class="codeinput">aCyl = 1;
+lCyl = 5;
+nS   = 10; <span class="comment">% number of divisions, compare 5 and 15</span>
+[v, f]   = GeomPatch( struct(<span class="string">'rU'</span>,aCyl,<span class="string">'rL'</span>,aCyl,<span class="string">'zUpper'</span>,lCyl,<span class="string">'zLower'</span>,0, <span class="string">'n'</span>, nS) );
+[area, n] = PolygonProps( v, f );
+DrawPatch( v, f );
+</pre><img vspace="5" hspace="5" src="CylinderFreeMolecularFlow_01.png" alt=""> <h2 id="3">Single velocity vector, S~inf</h2><p>Replicate figure 2.8 in Storch's paper, which plots the analytical solution for the forces on a cylinder</p><pre class="codeinput">disp(<span class="string">'Compute drag on a cylinder for Vw/V=0.05 and s=inf'</span>)
+
+<span class="comment">% Atmosphere properties</span>
+r   = 8.314; <span class="comment">% Gas constant, J/mol-K</span>
+rho = 2.118338996643465e-13;  <span class="comment">% density, kg/m3</span>
+mG  = 17.06700873108905*1e-3; <span class="comment">% mean molecular weight, kg/mol</span>
+
+<span class="comment">% Spacecraft orbital velocity (flow antivelocity)</span>
+U   = sqrt(3.98600436e5/6928)*1000;  <span class="comment">% m/s</span>
+u   = U*[1;0;0];
+
+<span class="comment">% vB  = sqrt(0.5*pi*r*tB/m); % Vw in Storch</span>
+tB = (0.05*U)^2*2/pi/r*mG;
+tA = 1; <span class="comment">% produces S near infinity</span>
+
+d.area        = area';
+d.normal      = n';
+d.temperature = tB*ones(1,length(area));
+sigmaN = 0.7;
+sigmaT = 0.7;
+
+disp(<span class="string">'Numerical solution, normal flow:'</span>)
+[fT,cD,cL] = FAeroSurfaceAccommodation( -u, rho, tA, mG, d, sigmaN, sigmaT )
+disp(<span class="string">'f/(rho*V^2*a*l)'</span>)
+fT/rho/U^2/aCyl/lCyl
+
+disp(<span class="string">'Numerical solution, tangential flow:'</span>)
+u   = U*[0;0;1];
+[fT,cD,cL,f] = FAeroSurfaceAccommodation( -u, rho, tA, mG, d, sigmaN, sigmaT );
+disp(<span class="string">'f/(rho*V^2*a*l)'</span>)
+fT/rho/U^2/aCyl/lCyl
+</pre><pre class="codeoutput">Compute drag on a cylinder for Vw/V=0.05 and s=inf
+Numerical solution, normal flow:
+
+fT =
+
+   0.00013261
+   4.5528e-21
+   1.6025e-22
+
+
+cD =
+
+       2.2881
+
+
+cL =
+
+   7.8604e-17
+
+f/(rho*V^2*a*l)
+
+ans =
+
+       2.1761
+   7.4711e-17
+   2.6297e-18
+
+Numerical solution, tangential flow:
+f/(rho*V^2*a*l)
+
+ans =
+
+   1.7786e-16
+   6.5749e-21
+      0.78972
+
+</pre><h2 id="4">Vector forces on the cylinder, expected and numerical solution</h2><pre class="codeinput">Vw = sqrt(0.5*pi*r*tB/mG);
+f_x = @(x) 1/6*sin(x).*(4*(4+sigmaT-2*sigmaN)*sin(x) + 6*pi*aCyl/lCyl*sigmaT*cos(x) + 2*pi*sigmaN*Vw/U);
+f_y = @(x) cos(x).*(2*sigmaT*sin(x) + pi*aCyl/lCyl*(2-sigmaN)*cos(x)+pi*aCyl/lCyl*Vw/U*sigmaN);
+
+beta = linspace(0,pi/2);
+Plot2D(beta,[f_x(beta);f_y(beta)],<span class="string">'Angle of Attack'</span>,<span class="string">'Forces on a Cylinder, Analytical'</span>)
+legend(<span class="string">'F_x'</span>,<span class="string">'F_y'</span>)
+
+u   = -U*[sin(beta);zeros(size(beta));cos(beta)];
+[fT,cD,cL] = FAeroSurfaceAccommodation( u, rho, tA, mG, d, sigmaN, sigmaT );
+fac = rho*U^2*aCyl*lCyl;
+Plot2D(beta,fT([1 3],:)/fac,<span class="string">'Angle of Attack'</span>,<span class="string">'Forces on a Cylinder, Numerical'</span>)
+hold <span class="string">on</span>
+plot(beta,[f_x(beta);f_y(beta)],<span class="string">'--'</span>)
+legend(<span class="string">'f_x'</span>,<span class="string">'f_y'</span>,<span class="string">'F_x'</span>,<span class="string">'F_y'</span>)
+
+
+<span class="comment">%--------------------------------------</span>
+</pre><img vspace="5" hspace="5" src="CylinderFreeMolecularFlow_02.png" alt=""> <img vspace="5" hspace="5" src="CylinderFreeMolecularFlow_03.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Surface accommodation drag on a cylinder
+% Numerically compute the coefficient of drag on a cylinder in free molecular
+% flow and compare to the analytical solution. You can change the number of
+% divisions in the mesh to see how it affects the accuracy of the
+% numerical solution; 20 is much more accurate than 10.
+%
+% Reference: Storch, J. ﻿''Aerodynamic Disturbances on Spacecraft in Free-Molecular
+%  Flow,'' Aerospace Corp. tech report, 2002
+%
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%  See also: GeomPatch, PolygonProps, DrawPatch, FAeroSurfaceAccommodation
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Copyright (c) 2022 Princeton Satellite Systems, Inc.
+%   All rights reserved.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Since version 2022.1
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%% Define the cylinder mesh
+aCyl = 1;
+lCyl = 5;
+nS   = 10; % number of divisions, compare 5 and 15
+[v, f]   = GeomPatch( struct('rU',aCyl,'rL',aCyl,'zUpper',lCyl,'zLower',0, 'n', nS) );
+[area, n] = PolygonProps( v, f );
+DrawPatch( v, f );
+
+%% Single velocity vector, S~inf
+% Replicate figure 2.8 in Storch's paper, which plots the analytical
+% solution for the forces on a cylinder
+
+disp('Compute drag on a cylinder for Vw/V=0.05 and s=inf')
+
+% Atmosphere properties
+r   = 8.314; % Gas constant, J/mol-K
+rho = 2.118338996643465e-13;  % density, kg/m3
+mG  = 17.06700873108905*1e-3; % mean molecular weight, kg/mol
+
+% Spacecraft orbital velocity (flow antivelocity)
+U   = sqrt(3.98600436e5/6928)*1000;  % m/s
+u   = U*[1;0;0];
+
+% vB  = sqrt(0.5*pi*r*tB/m); % Vw in Storch
+tB = (0.05*U)^2*2/pi/r*mG;
+tA = 1; % produces S near infinity
+
+d.area        = area';
+d.normal      = n';
+d.temperature = tB*ones(1,length(area));
+sigmaN = 0.7;
+sigmaT = 0.7;
+
+disp('Numerical solution, normal flow:')
+[fT,cD,cL] = FAeroSurfaceAccommodation( -u, rho, tA, mG, d, sigmaN, sigmaT )
+disp('f/(rho*V^2*a*l)')
+fT/rho/U^2/aCyl/lCyl
+
+disp('Numerical solution, tangential flow:')
+u   = U*[0;0;1];
+[fT,cD,cL,f] = FAeroSurfaceAccommodation( -u, rho, tA, mG, d, sigmaN, sigmaT );
+disp('f/(rho*V^2*a*l)')
+fT/rho/U^2/aCyl/lCyl
+
+
+%% Vector forces on the cylinder, expected and numerical solution
+
+Vw = sqrt(0.5*pi*r*tB/mG);
+f_x = @(x) 1/6*sin(x).*(4*(4+sigmaT-2*sigmaN)*sin(x) + 6*pi*aCyl/lCyl*sigmaT*cos(x) + 2*pi*sigmaN*Vw/U);
+f_y = @(x) cos(x).*(2*sigmaT*sin(x) + pi*aCyl/lCyl*(2-sigmaN)*cos(x)+pi*aCyl/lCyl*Vw/U*sigmaN);
+
+beta = linspace(0,pi/2);
+Plot2D(beta,[f_x(beta);f_y(beta)],'Angle of Attack','Forces on a Cylinder, Analytical')
+legend('F_x','F_y')
+
+u   = -U*[sin(beta);zeros(size(beta));cos(beta)];
+[fT,cD,cL] = FAeroSurfaceAccommodation( u, rho, tA, mG, d, sigmaN, sigmaT );
+fac = rho*U^2*aCyl*lCyl;
+Plot2D(beta,fT([1 3],:)/fac,'Angle of Attack','Forces on a Cylinder, Numerical')
+hold on
+plot(beta,[f_x(beta);f_y(beta)],'REPLACE_WITH_DASH_DASH')
+legend('f_x','f_y','F_x','F_y')
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date:   2022-09-19 $
+% $Revision: bd7ea5f48d84ced45be1e1eea4325ad5b11a5fec $
+
+##### SOURCE END #####
+--></body></html>

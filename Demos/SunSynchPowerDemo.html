@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>SunSynchPowerDemo</title>
+<meta name="generator" content="MATLAB 23.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2023-11-20">
+<meta name="DC.source" content="SunSynchPowerDemo.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">Sun Synchronous Orbit power model</a>
+</li>
+<li>
+<a href="#2">Constants</a>
+</li>
+<li>
+<a href="#3">Spacecraft parameters</a>
+</li>
+<li>
+<a href="#4">Julian day number is needed</a>
+</li>
+<li>
+<a href="#5">Find the orbit</a>
+</li>
+<li>
+<a href="#6">Compute the sun vector</a>
+</li>
+</ul>
+</div>
+<h2 id="1">Sun Synchronous Orbit power model</h2>
+<p>Compute the inclination to be sun-synchronous at the specific date. Computes the sun vector in the local frame (LVLH) and the power generation from a solar array model. Try changing the ascending node to see how much power is generated with LVLH pointing.</p>
+<p>See also: Date2JD, Constant, SunSyncInclination, Period, RVFromKepler, PlotOrbit, QLVLH, TimeHistory, SunV1, QForm, SolarCellPower, CubeSatPowerAnalysis</p>
+<pre class="codeinput">
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Copyright (c) 2023 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+</pre>
+<h2 id="2">Constants</h2>
+<pre class="codeinput">SOLAR_FLUX  = 1367;    <span class="comment">% W/m2 at 1 AU</span>
+R_EARTH = Constant(<span class="string">'equatorial radius earth'</span>);
+</pre>
+<h2 id="3">Spacecraft parameters</h2>
+<pre class="codeinput">eff        = 0.3; <span class="comment">% solar array efficiency</span>
+area       = 0.1*0.3; <span class="comment">% 3U CubeSat panel, full coverage</span>
+peakPower  = 2; <span class="comment">% W</span>
+basePower  = 8; <span class="comment">% W</span>
+</pre>
+<h2 id="4">Julian day number is needed</h2>
+<pre class="codeinput">dateOfSim  = [2024 1 1];
+jD0 = Date2JD(dateOfSim);
+</pre>
+<h2 id="5">Find the orbit</h2>
+<p>The ascending node sets the sun angle to the orbit including whether the satellite will see eclipses.</p>
+<pre class="codeinput">altitude = 550; <span class="comment">% km</span>
+sMA   = R_EARTH + altitude;
+inc   = SunSyncInclination(sMA); <span class="comment">% assume zero eccentricity</span>
+W     = 0; <span class="comment">% ascending node (rad)</span>
+el    = [sMA inc W 0 0 0];
+
+p       = Period(sMA);
+[r,v,t] = RVWithJ2(el,jD0,4*p,0.001082);
+
+PlotOrbit(r,t,jD0);
+
+<span class="comment">% Spacecraft is flying fixed to the LVLH frame</span>
+<span class="comment">% z is in the -r direction</span>
+<span class="comment">% y is in the - rxv direction</span>
+<span class="comment">% x completes the set; along v in a circular orbit</span>
+
+qECIToLVLH = QLVLH(r,v);
+yL    = {<span class="string">'q_s'</span> <span class="string">'q_x'</span> <span class="string">'q_y'</span> <span class="string">'q_z'</span>};
+
+TimeHistory(t,qECIToLVLH,yL,<span class="string">'LVLH Quaternion'</span>);
+</pre>
+<img vspace="5" hspace="5" src="SunSynchPowerDemo_01.png" alt=""> <img vspace="5" hspace="5" src="SunSynchPowerDemo_02.png" alt=""> <h2 id="6">Compute the sun vector</h2>
+<pre class="codeinput">jD        = jD0 + t/86400;
+uSunECI   = SunV1(jD);
+uSunLVLH  = QForm(qECIToLVLH, uSunECI);
+yL        = {<span class="string">'u_x'</span> <span class="string">'u_y'</span> <span class="string">'u_z'</span>};
+TimeHistory(t,uSunLVLH,yL,<span class="string">'Sun Vector'</span>);
+
+<span class="comment">% max expected power from the array if directly sun-pointing</span>
+powerMax = area*SOLAR_FLUX*eff;
+
+<span class="comment">% estimate demand from the spacecraft</span>
+powerCycle = basePower + peakPower*abs(sin(2*pi*t/p));
+
+<span class="comment">% now compute the power along the actual orbit assuming the arrays are</span>
+<span class="comment">% aligned on LVLH y vector (orbit normal)</span>
+d = SolarCellPower; <span class="comment">% 1U</span>
+d.solarCellEff = eff;
+d.solarCellArea = area*[1 1];
+d.solarCellNormal = [0 0;1 -1; 0 0]; <span class="comment">% along orbit normal</span>
+DispWithTitle(d.solarCellNormal,<span class="string">'Solar Panel Normals, body frame'</span>)
+CubeSatPowerAnalysis( d, qECIToLVLH, r, jD ); <span class="comment">% plot</span>
+
+power = CubeSatPowerAnalysis( d, qECIToLVLH, r, jD );
+net        = power - powerCycle;
+yL         = {<span class="string">'Power (W)'</span> <span class="string">'Consumption (W)'</span> <span class="string">'Net (W)'</span>};
+TimeHistory(t,[power;powerMax*ones(size(power));powerCycle;net],yL,<span class="string">'Power Production and Consumption'</span>,<span class="keyword">...</span>
+  {[1 2],3,4});
+
+
+<span class="comment">%--------------------------------------</span>
+<span class="comment">% $Date$</span>
+<span class="comment">% $Id: 50506edaf87433790f898534172dc384994e3cc2 $</span>
+</pre>
+<pre class="codeoutput">Solar Panel Normals, body frame
+     0     0
+     1    -1
+     0     0
+
+</pre>
+<img vspace="5" hspace="5" src="SunSynchPowerDemo_03.png" alt=""> <img vspace="5" hspace="5" src="SunSynchPowerDemo_04.png" alt=""> <img vspace="5" hspace="5" src="SunSynchPowerDemo_05.png" alt=""> <p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2023b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Sun Synchronous Orbit power model
+% Compute the inclination to be sun-synchronous at the specific date.
+% Computes the sun vector in the local frame (LVLH) and the power
+% generation from a solar array model. Try changing the ascending node to
+% see how much power is generated with LVLH pointing.
+%
+% See also: Date2JD, Constant, SunSyncInclination, Period, RVFromKepler,
+% PlotOrbit, QLVLH, TimeHistory, SunV1, QForm, SolarCellPower,
+% CubeSatPowerAnalysis
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Copyright (c) 2023 Princeton Satellite Systems, Inc. 
+%   All rights reserved.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%% Constants
+SOLAR_FLUX  = 1367;    % W/m2 at 1 AU
+R_EARTH = Constant('equatorial radius earth');
+
+%% Spacecraft parameters
+eff        = 0.3; % solar array efficiency
+area       = 0.1*0.3; % 3U CubeSat panel, full coverage
+peakPower  = 2; % W
+basePower  = 8; % W
+
+%% Julian day number is needed
+dateOfSim  = [2024 1 1];
+jD0 = Date2JD(dateOfSim);
+
+%% Find the orbit
+% The ascending node sets the sun angle to the orbit including whether the
+% satellite will see eclipses.
+
+altitude = 550; % km
+sMA   = R_EARTH + altitude;
+inc   = SunSyncInclination(sMA); % assume zero eccentricity
+W     = 0; % ascending node (rad)
+el    = [sMA inc W 0 0 0];
+
+p       = Period(sMA);
+[r,v,t] = RVWithJ2(el,jD0,4*p,0.001082);
+
+PlotOrbit(r,t,jD0);
+
+% Spacecraft is flying fixed to the LVLH frame
+% z is in the -r direction
+% y is in the - rxv direction
+% x completes the set; along v in a circular orbit
+
+qECIToLVLH = QLVLH(r,v);
+yL    = {'q_s' 'q_x' 'q_y' 'q_z'};
+
+TimeHistory(t,qECIToLVLH,yL,'LVLH Quaternion');
+
+%% Compute the sun vector
+jD        = jD0 + t/86400;
+uSunECI   = SunV1(jD);
+uSunLVLH  = QForm(qECIToLVLH, uSunECI);
+yL        = {'u_x' 'u_y' 'u_z'};
+TimeHistory(t,uSunLVLH,yL,'Sun Vector');
+
+% max expected power from the array if directly sun-pointing
+powerMax = area*SOLAR_FLUX*eff;
+
+% estimate demand from the spacecraft
+powerCycle = basePower + peakPower*abs(sin(2*pi*t/p));
+
+% now compute the power along the actual orbit assuming the arrays are
+% aligned on LVLH y vector (orbit normal)
+d = SolarCellPower; % 1U
+d.solarCellEff = eff;
+d.solarCellArea = area*[1 1];
+d.solarCellNormal = [0 0;1 -1; 0 0]; % along orbit normal
+DispWithTitle(d.solarCellNormal,'Solar Panel Normals, body frame')
+CubeSatPowerAnalysis( d, qECIToLVLH, r, jD ); % plot
+
+power = CubeSatPowerAnalysis( d, qECIToLVLH, r, jD );
+net        = power - powerCycle;
+yL         = {'Power (W)' 'Consumption (W)' 'Net (W)'};
+TimeHistory(t,[power;powerMax*ones(size(power));powerCycle;net],yL,'Power Production and Consumption',...
+  {[1 2],3,4});
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date$
+% $Id: 50506edaf87433790f898534172dc384994e3cc2 $
+
+
+##### SOURCE END #####
+-->
+</body>
+</html>

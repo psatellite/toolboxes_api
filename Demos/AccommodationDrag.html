@@ -1,0 +1,612 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>AccommodationDrag</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-01-31">
+<meta name="DC.source" content="AccommodationDrag.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">Compare simple drag with surface accommodation over a 3D model</a>
+</li>
+<li>
+<a href="#2">The spacecraft</a>
+</li>
+<li>
+<a href="#3">Data sorting</a>
+</li>
+<li>
+<a href="#4">Surface Accommodation</a>
+</li>
+<li>
+<a href="#5">Via Disturbances</a>
+</li>
+<li>
+<a href="#6">Along an orbit</a>
+</li>
+<li>
+<a href="#7">Plot</a>
+</li>
+</ul>
+</div>
+<h2 id="1">Compare simple drag with surface accommodation over a 3D model</h2>
+<p>Surface accommodation includes a component of the force in the "lift" direction, not just the force along the velocity vector. Computing it requires an estimate of the accommodation coefficients, which will vary with the surface properties. By default, FAeroSurfaceAccommodation uses coefficients fit to experimental data for N2 on an aluminum surface, which is valid for altitudes under 300 km.</p>
+<pre>------------------------------------------------------------------------
+References:  Fredo and Kaplan, "Procedure for Obtaining Aerodynamic
+             Properties of Spacecraft," J. Spacecraft Vol. 18 No. 4,
+             July-August 1981.</pre>
+<pre>------------------------------------------------------------------------
+See also: DrawCAD, CrossSection, VOrbit, AtmDens2, AeroF,
+FAeroSurfaceAccommodation, RVFromKepler, DrawSCPlanPlugIn
+------------------------------------------------------------------------</pre>
+<pre class="codeinput">
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Copyright (c) 2022 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Since version 2022.1</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+</pre>
+<h2 id="2">The spacecraft</h2>
+<pre class="codeinput">disp(<span class="string">'Satellite cross-sectional area:'</span>)
+g = load(<span class="string">'SCForImaging'</span>);
+DrawCAD( g, true );
+areaX = CrossSection( g, [], [1;0;0] )
+areaY = CrossSection( g, [], [0;1;0] )
+areaZ = CrossSection( g, [], [0;0;1] )
+</pre>
+<pre class="codeoutput">Satellite cross-sectional area:
+
+areaX =
+
+         2.96
+
+
+areaY =
+
+        3.151
+
+
+areaZ =
+
+       15.627
+
+</pre>
+<img vspace="5" hspace="5" src="AccommodationDrag_01.png" alt=""> <h2 id="3">Data sorting</h2>
+<pre class="codeinput">data = struct;
+data.area = [];
+data.normal = [];
+data.temperature = [];
+<span class="keyword">for</span> j = 1:length(g.component)
+  nA = length(g.component(j).a);
+  data.area = [data.area g.component(j).a'];
+  data.normal = [data.normal g.component(j).n'];
+  <span class="keyword">if</span> isfield(g.component,<span class="string">'thermal'</span>)
+    temp = g.component(j).thermal.temperature;
+  <span class="keyword">else</span>
+    temp = 300;
+  <span class="keyword">end</span>
+  data.temperature = [data.temperature temp*ones(1,nA)];
+<span class="keyword">end</span>
+
+<span class="comment">% data is now a structure of arrays for each face area with area, normal</span>
+<span class="comment">% and temperature</span>
+data
+</pre>
+<pre class="codeoutput">
+data = 
+
+  struct with fields:
+
+           area: [3.2468 3.2468 3.2468 3.2468 3.2468 3.2468 &hellip; ] (1&times;20 double)
+         normal: [3&times;20 double]
+    temperature: [300 300 300 300 300 300 300 300 300 300 300 &hellip; ] (1&times;20 double)
+
+</pre>
+<h2 id="4">Surface Accommodation</h2>
+<p>Flat-on, the coefficient of drag is the same. At an angle, it changes. References include Kaplan and Fredo's journal paper and Storch's report.</p>
+<pre class="codeinput">h = 6600;           <span class="comment">% km</span>
+R_EARTH = 6378;     <span class="comment">% km</span>
+v = VOrbit(h)*1000; <span class="comment">% m/s</span>
+
+disp(<span class="string">'Surface Accommodation forces and coefficient of drag:'</span>)
+rho = AtmDens2(h-R_EARTH);
+tA  = 2149.00; <span class="comment">% atmospheric temperature (K)</span>
+mG  = 17.06700873108905*1e-3; <span class="comment">% mass (kg/mol)</span>
+<span class="comment">% First, straight on the flat faces in each direction</span>
+disp(<span class="string">'---- x-velocity'</span>)
+ux = [v;0;0]; <span class="comment">% rotation of earth?</span>
+[fx,cDx] = FAeroSurfaceAccommodation( ux, rho, tA, mG, data )
+disp(<span class="string">'---- y-velocity'</span>)
+uy = [0;v;0]; <span class="comment">% rotation of earth?</span>
+[fy,cDy] = FAeroSurfaceAccommodation( uy, rho, tA, mG, data )
+disp(<span class="string">'---- z-velocity'</span>)
+uz = [0;0;v]; <span class="comment">% rotation of earth?</span>
+[fz,cDz] = FAeroSurfaceAccommodation( uz, rho, tA, mG, data )
+disp(<span class="string">'simple drag model using cDz, matches'</span>)
+[~,fT] = AeroF( rho, cDz, uz*1e-3, data.normal, data.area );
+fT
+
+<span class="comment">% Then, from an angle.</span>
+<span class="comment">% The surface accommodation force is different in each component while the</span>
+<span class="comment">% simple constant cD is the same.</span>
+
+disp(<span class="string">'---- offset velocity ----'</span>)
+u = v*Unit([1;1;1]);
+[f,cDacc] = FAeroSurfaceAccommodation( u, rho, tA, mG, data )
+disp(Mag(f))
+[fA,fT] = AeroF( rho, cDz, u*1e-3, data.normal, data.area );
+fT
+disp(<span class="string">'Observe the difference in the force direction:'</span>)
+disp(<span class="string">'Accommodation, Simple Drag:'</span>)
+disp(Unit([f fT]))
+</pre>
+<pre class="codeoutput">Surface Accommodation forces and coefficient of drag:
+---- x-velocity
+
+fx =
+
+    -0.042595
+            0
+            0
+
+
+cDx =
+
+       3.0914
+
+---- y-velocity
+
+fy =
+
+            0
+     -0.04452
+            0
+
+
+cDy =
+
+       3.0353
+
+---- z-velocity
+
+fz =
+
+            0
+            0
+     -0.17029
+
+
+cDz =
+
+       2.3411
+
+simple drag model using cDz, matches
+
+fT =
+
+            0
+            0
+     -0.17029
+
+---- offset velocity ----
+
+f =
+
+    -0.044716
+     -0.04529
+      -0.0828
+
+
+cDacc =
+
+       1.7078
+
+      0.10443
+
+
+fT =
+
+    -0.078963
+    -0.078963
+    -0.078963
+
+Observe the difference in the force direction:
+Accommodation, Simple Drag:
+     -0.42818     -0.57735
+     -0.43367     -0.57735
+     -0.79284     -0.57735
+
+</pre>
+<h2 id="5">Via Disturbances</h2>
+<pre class="codeinput">jD            = Date2JD([2022 1 1]);
+d             = Disturbances( <span class="string">'defaults'</span> );
+solarFlux     = 1358;
+d.s           = solarFlux*SunV1(jD(1)); <span class="comment">% Watts/m^2</span>
+d.tSamp       = 10;
+d.shadow      = 0;
+d.showScans   = 1;
+d.nScanLines  = 10;
+d.units       = <span class="string">'m'</span>;
+d.planet      = <span class="string">'earth'</span>;
+d.mu          = 3.986014e5;
+d.r           = [h;0;0];
+d.b           = [0;0;71]*1.e-9;
+d.v           = v*Unit([1;1;1])*1e-3; <span class="comment">% km/s</span>
+d.tGas        = tA;  <span class="comment">% K; 900?</span>
+d.mGas        = mG;
+d.computePR   = 0;
+d.computeAero = 1;
+d.atmosphericDensity = rho;
+
+<span class="comment">% Initialize the disturbance model</span>
+hD = Disturbances( <span class="string">'init'</span>, g, d );
+[f, t] = Disturbances( <span class="string">'run'</span>, g, d, hD );
+disp(<span class="string">'Force from Disturbances, default cD'</span>)
+disp(f.aero)
+disp(<span class="string">'Magnitude'</span>)
+disp(Mag(f.aero))
+
+<span class="comment">% Zero the coefficient of drag to force the accommodation calc (Hughes)</span>
+g0 = g;
+<span class="keyword">for</span> k = 1:length(g0.component)
+  g0.component(k).aero.cD = 0; <span class="comment">% or empty?</span>
+  g0.component(k).aero.sigmaN = 0.7;
+  g0.component(k).aero.sigmaT = 0.7;
+<span class="keyword">end</span>
+[f0, t0] = Disturbances( <span class="string">'run'</span>, g0, d, hD );
+disp(<span class="string">'Force from Disturbances, surface accommodation'</span>)
+disp(f0.aero)
+disp(<span class="string">'Magnitude'</span>)
+disp(Mag(f0.aero))
+disp(<span class="string">'Directions compared to velocity vector, [v cD accom]'</span>)
+disp(Unit([d.v f.aero f0.aero]))
+</pre>
+<pre class="codeoutput">Force from Disturbances, default cD
+     -0.09107
+     -0.09107
+     -0.09107
+
+Magnitude
+      0.15774
+
+Force from Disturbances, surface accommodation
+     -0.05404
+     -0.05448
+    -0.083222
+
+Magnitude
+       0.1132
+
+Directions compared to velocity vector, [v cD accom]
+      0.57735     -0.57735     -0.47739
+      0.57735     -0.57735     -0.48127
+      0.57735     -0.57735     -0.73517
+
+</pre>
+<img vspace="5" hspace="5" src="AccommodationDrag_02.png" alt=""> <h2 id="6">Along an orbit</h2>
+<p>If inclination and eccentricity are zero, the velocity vector simply moves in the X/Y plane of the spacecraft body frame.</p>
+<pre class="codeinput">el = [6378+250 0 0 0 0.002 0];
+[r,v,t] = RVFromKepler(el);
+e = EarthEnvironment(r,v,jD,d);
+g = SetCADQuaternion( g, Eul2Q([pi/2;0;0]) );
+g0 = SetCADQuaternion( g0, Eul2Q([pi/2;0;0]) );
+hD = Disturbances( <span class="string">'init'</span>, g, e );
+[f, tq] = Disturbances( <span class="string">'run'</span>, g, e, hD );
+[f0, tq0] = Disturbances( <span class="string">'run'</span>, g0, e, hD );
+</pre>
+<h2 id="7">Plot</h2>
+<pre class="codeinput">[tP,tL] = TimeLabel(t);
+Plot2D(tP,f.aero,tL,{<span class="string">'F_x'</span>,<span class="string">'F_y'</span>,<span class="string">'F_z'</span>},<span class="string">'Aero Force, ECI Frame (N)'</span>)
+subplot(3,1,1)
+hold <span class="string">on</span>
+plot(tP,f0.aero(1,:))
+legend(<span class="string">'Constant cD'</span>,<span class="string">'Surface Acc.'</span>)
+subplot(3,1,2)
+hold <span class="string">on</span>
+plot(tP,f0.aero(2,:))
+subplot(3,1,3)
+hold <span class="string">on</span>
+plot(tP,f0.aero(3,:))
+qLVLH = QLVLH(r,v);
+f_lv = QForm(qLVLH,f.aero);
+f_lv0 = QForm(qLVLH,f0.aero);
+[~,ls] = Plot2D(tP,f_lv0,tL,<span class="string">'LVLH Aero Force (N)'</span>);
+hold <span class="string">on</span>
+<span class="keyword">for</span> k = 1:3
+  lh(k) = plot(tP,f_lv(k,:),<span class="string">'--'</span>,<span class="string">'color'</span>,ls.h(k).Color,<span class="string">'linewidth'</span>,1);
+<span class="keyword">end</span>
+legend([ls.h(1) lh(1)],<span class="string">'Accomm.'</span>,<span class="string">'cD'</span>)
+Plot2D(tP,e.atmosphericDensity,tL,<span class="string">'Atmospheric Density (kg/m^3)'</span>)
+
+<span class="comment">% Visualize the vectors</span>
+g.rECI = r(:,1);
+g.vECI = v(:,1);
+tag = DrawSCPlanPlugIn( g );
+DrawSCPlanPlugIn( <span class="string">'vectors'</span>, tag, g, e.s(:,1) )
+<span class="keyword">for</span> k = 2:length(t)
+  g.rECI = r(:,k);
+  g.vECI = v(:,k);
+  DrawSCPlanPlugIn( <span class="string">'vectors'</span>, tag, g, e.s(:,1) )
+  drawnow
+<span class="keyword">end</span>
+
+<span class="comment">%--------------------------------------</span>
+
+<span class="comment">% $Id: 25920d0c1cb3732b1900d0ddc5efbb111706c35b $</span>
+</pre>
+<img vspace="5" hspace="5" src="AccommodationDrag_03.png" alt=""> <img vspace="5" hspace="5" src="AccommodationDrag_04.png" alt=""> <img vspace="5" hspace="5" src="AccommodationDrag_05.png" alt=""> <img vspace="5" hspace="5" src="AccommodationDrag_06.png" alt=""> <img vspace="5" hspace="5" src="AccommodationDrag_07.png" alt=""> <img vspace="5" hspace="5" src="AccommodationDrag_08.png" alt=""> <img vspace="5" hspace="5" src="AccommodationDrag_09.png" alt=""> <img vspace="5" hspace="5" src="AccommodationDrag_10.png" alt=""> <img vspace="5" hspace="5" src="AccommodationDrag_11.png" alt=""> <p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Compare simple drag with surface accommodation over a 3D model
+% Surface accommodation includes a component of the force in the "lift"
+% direction, not just the force along the velocity vector. Computing it
+% requires an estimate of the accommodation coefficients, which will vary
+% with the surface properties. By default, FAeroSurfaceAccommodation uses
+% coefficients fit to experimental data for N2 on an aluminum surface,
+% which is valid for altitudes under 300 km.
+%
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%  References:  Fredo and Kaplan, "Procedure for Obtaining Aerodynamic
+%               Properties of Spacecraft," J. Spacecraft Vol. 18 No. 4,
+%               July-August 1981.
+%
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%  See also: DrawCAD, CrossSection, VOrbit, AtmDens2, AeroF,
+%  FAeroSurfaceAccommodation, RVFromKepler, DrawSCPlanPlugIn
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Copyright (c) 2022 Princeton Satellite Systems, Inc.
+%   All rights reserved.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Since version 2022.1
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%% The spacecraft
+disp('Satellite cross-sectional area:')
+g = load('SCForImaging');
+DrawCAD( g, true );
+areaX = CrossSection( g, [], [1;0;0] )
+areaY = CrossSection( g, [], [0;1;0] )
+areaZ = CrossSection( g, [], [0;0;1] )
+
+%% Data sorting
+data = struct;
+data.area = [];
+data.normal = [];
+data.temperature = [];
+for j = 1:length(g.component)
+  nA = length(g.component(j).a);
+  data.area = [data.area g.component(j).a'];
+  data.normal = [data.normal g.component(j).n'];
+  if isfield(g.component,'thermal')
+    temp = g.component(j).thermal.temperature;
+  else
+    temp = 300;
+  end
+  data.temperature = [data.temperature temp*ones(1,nA)];
+end
+
+% data is now a structure of arrays for each face area with area, normal
+% and temperature
+data
+
+%% Surface Accommodation
+% Flat-on, the coefficient of drag is the same. At an angle, it changes.
+% References include Kaplan and Fredo's journal paper and Storch's report.
+
+h = 6600;           % km
+R_EARTH = 6378;     % km
+v = VOrbit(h)*1000; % m/s
+
+disp('Surface Accommodation forces and coefficient of drag:')
+rho = AtmDens2(h-R_EARTH);
+tA  = 2149.00; % atmospheric temperature (K)
+mG  = 17.06700873108905*1e-3; % mass (kg/mol)
+% First, straight on the flat faces in each direction
+disp('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH x-velocity')
+ux = [v;0;0]; % rotation of earth?
+[fx,cDx] = FAeroSurfaceAccommodation( ux, rho, tA, mG, data )
+disp('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH y-velocity')
+uy = [0;v;0]; % rotation of earth?
+[fy,cDy] = FAeroSurfaceAccommodation( uy, rho, tA, mG, data )
+disp('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH z-velocity')
+uz = [0;0;v]; % rotation of earth?
+[fz,cDz] = FAeroSurfaceAccommodation( uz, rho, tA, mG, data )
+disp('simple drag model using cDz, matches')
+[~,fT] = AeroF( rho, cDz, uz*1e-3, data.normal, data.area );
+fT
+
+% Then, from an angle.
+% The surface accommodation force is different in each component while the
+% simple constant cD is the same.
+
+disp('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH offset velocity REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH')
+u = v*Unit([1;1;1]);
+[f,cDacc] = FAeroSurfaceAccommodation( u, rho, tA, mG, data )
+disp(Mag(f))
+[fA,fT] = AeroF( rho, cDz, u*1e-3, data.normal, data.area );
+fT
+disp('Observe the difference in the force direction:')
+disp('Accommodation, Simple Drag:')
+disp(Unit([f fT]))
+
+%% Via Disturbances
+jD            = Date2JD([2022 1 1]);
+d             = Disturbances( 'defaults' );
+solarFlux     = 1358;
+d.s           = solarFlux*SunV1(jD(1)); % Watts/m^2
+d.tSamp       = 10;
+d.shadow      = 0;
+d.showScans   = 1;
+d.nScanLines  = 10;
+d.units       = 'm';
+d.planet      = 'earth';
+d.mu          = 3.986014e5;
+d.r           = [h;0;0];
+d.b           = [0;0;71]*1.e-9;
+d.v           = v*Unit([1;1;1])*1e-3; % km/s
+d.tGas        = tA;  % K; 900?
+d.mGas        = mG;
+d.computePR   = 0;
+d.computeAero = 1;
+d.atmosphericDensity = rho;
+
+% Initialize the disturbance model
+hD = Disturbances( 'init', g, d );
+[f, t] = Disturbances( 'run', g, d, hD );
+disp('Force from Disturbances, default cD')
+disp(f.aero)
+disp('Magnitude')
+disp(Mag(f.aero))
+
+% Zero the coefficient of drag to force the accommodation calc (Hughes)
+g0 = g;
+for k = 1:length(g0.component)
+  g0.component(k).aero.cD = 0; % or empty?
+  g0.component(k).aero.sigmaN = 0.7; 
+  g0.component(k).aero.sigmaT = 0.7;
+end
+[f0, t0] = Disturbances( 'run', g0, d, hD );
+disp('Force from Disturbances, surface accommodation')
+disp(f0.aero)
+disp('Magnitude')
+disp(Mag(f0.aero))
+disp('Directions compared to velocity vector, [v cD accom]')
+disp(Unit([d.v f.aero f0.aero]))
+
+%% Along an orbit
+% If inclination and eccentricity are zero, the velocity vector simply
+% moves in the X/Y plane of the spacecraft body frame.
+el = [6378+250 0 0 0 0.002 0];
+[r,v,t] = RVFromKepler(el);
+e = EarthEnvironment(r,v,jD,d);
+g = SetCADQuaternion( g, Eul2Q([pi/2;0;0]) );
+g0 = SetCADQuaternion( g0, Eul2Q([pi/2;0;0]) );
+hD = Disturbances( 'init', g, e );
+[f, tq] = Disturbances( 'run', g, e, hD );
+[f0, tq0] = Disturbances( 'run', g0, e, hD );
+
+%%% Plot
+[tP,tL] = TimeLabel(t);
+Plot2D(tP,f.aero,tL,{'F_x','F_y','F_z'},'Aero Force, ECI Frame (N)')
+subplot(3,1,1)
+hold on
+plot(tP,f0.aero(1,:))
+legend('Constant cD','Surface Acc.')
+subplot(3,1,2)
+hold on
+plot(tP,f0.aero(2,:))
+subplot(3,1,3)
+hold on
+plot(tP,f0.aero(3,:))
+qLVLH = QLVLH(r,v);
+f_lv = QForm(qLVLH,f.aero);
+f_lv0 = QForm(qLVLH,f0.aero);
+[~,ls] = Plot2D(tP,f_lv0,tL,'LVLH Aero Force (N)');
+hold on
+for k = 1:3
+  lh(k) = plot(tP,f_lv(k,:),'REPLACE_WITH_DASH_DASH','color',ls.h(k).Color,'linewidth',1);
+end
+legend([ls.h(1) lh(1)],'Accomm.','cD')
+Plot2D(tP,e.atmosphericDensity,tL,'Atmospheric Density (kg/m^3)')
+
+% Visualize the vectors
+g.rECI = r(:,1);
+g.vECI = v(:,1);
+tag = DrawSCPlanPlugIn( g );
+DrawSCPlanPlugIn( 'vectors', tag, g, e.s(:,1) )
+for k = 2:length(t)
+  g.rECI = r(:,k);
+  g.vECI = v(:,k);
+  DrawSCPlanPlugIn( 'vectors', tag, g, e.s(:,1) )
+  drawnow
+end
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date:   AccommodationDrag.m $
+% $Id: 25920d0c1cb3732b1900d0ddc5efbb111706c35b $
+
+##### SOURCE END #####
+-->
+</body>
+</html>

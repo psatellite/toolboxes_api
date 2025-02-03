@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Lunar Landing Trajectory Simulation</title>
+<meta name="generator" content="MATLAB 23.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2024-08-08">
+<meta name="DC.source" content="LunarTrajectoryDemo.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Lunar Landing Trajectory Simulation</h1>
+<!--introduction-->
+<p>Creates an optimal 2D trajectory which is transformed into 3D for a north pole landing.</p>
+<p>Things to try: - Adjust the initial altitude - Change the available acceleration (multiple of g)</p>
+<p>See also: OptimalLunarLanding, PlotPlanetaryOrbit, TimeHistory, Plot2D, Plot3D, Figui</p>
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#2">Compute the optimal landing trajectory</a>
+</li>
+<li>
+<a href="#3">Plot</a>
+</li>
+</ul>
+</div>
+<pre class="codeinput">
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Copyright (c) 2021,2024 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Since version 2024.1</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+</pre>
+<h2 id="2">Compute the optimal landing trajectory</h2>
+<p>It optimizes a 2D trajectory then transforms it into a 3D trajectory in ECI</p>
+<pre class="codeinput">
+<span class="comment">% Constants</span>
+rMoon    = Constant(<span class="string">'equatorial radius moon'</span>);
+mu       = Constant(<span class="string">'mu moon'</span>);
+
+jD       = Date2JD([2023 6 6]);
+
+<span class="comment">% Initial altitude from lunar surface</span>
+h = 15; <span class="comment">% km</span>
+
+<span class="comment">% acceleration, typically 2-3 x lunar g</span>
+g = mu/rMoon^2;
+a = 3*g;
+
+<span class="comment">% polar location</span>
+rTarget = [0;0;rMoon];
+
+<span class="comment">% Optimize</span>
+[xP2D,tTraj,beta]	= OptimalLunarLanding( a, h, 30 );
+tCont             = tTraj(1:end-1);
+accel2D           = a*[cos(beta);sin(beta)];
+
+<span class="comment">% define x??</span>
+r   = rMoon+h;
+x   = [r;0;0;0;0;sqrt(mu/r)]; <span class="comment">% Circular polar orbit Lunar fixed</span>
+x   = LFToECI(x,jD)   <span class="comment">% Convert to ECI</span>
+</pre>
+<pre class="codeoutput">                                            First-order      Norm of
+ Iter F-count            f(x)  Feasibility   optimality         step
+    0      61    3.434516e+02    5.617e+01    2.704e-02
+    1     122    3.317382e+02    3.318e+00    3.611e+00    3.069e+00
+    2     183    3.598638e+02    1.032e+00    3.423e+00    5.157e+00
+    3     244    3.595683e+02    4.797e-02    1.297e+00    3.368e-01
+    4     305    3.602061e+02    9.946e-03    2.906e-01    1.657e-01
+    5     369    3.601583e+02    9.895e-03    4.355e-01    9.029e-02
+    6     430    3.602358e+02    2.255e-03    3.451e-01    7.424e-02
+    7     494    3.602187e+02    2.631e-03    2.286e-01    6.139e-02
+    8     555    3.602492e+02    1.121e-03    1.000e-01    4.511e-02
+    9     616    3.602345e+02    1.031e-02    8.129e-01    1.444e-01
+   10     677    3.601510e+02    8.172e-03    4.963e-02    1.305e-01
+   11     738    3.602532e+02    2.689e-03    6.488e-01    8.733e-02
+   12     799    3.602188e+02    2.374e-03    2.075e-02    7.896e-02
+   13     860    3.602583e+02    7.220e-04    2.244e-01    4.633e-02
+   14     921    3.602489e+02    6.582e-04    2.000e-02    4.215e-02
+   15     982    3.602599e+02    1.337e-04    1.346e-01    2.161e-02
+   16    1043    3.602577e+02    1.259e-04    5.268e-03    1.983e-02
+
+Optimization completed: The relative first-order optimality measure, 5.267506e-03,
+is less than options.OptimalityTolerance = 1.000000e-02, and the relative maximum constraint
+violation, 2.241406e-06, is less than options.ConstraintTolerance = 1.000000e-02.
+
+
+x =
+
+      -369.01
+         1589
+       641.85
+     -0.02784
+     -0.63248
+       1.5498
+
+</pre>
+<h2 id="3">Plot</h2>
+<pre class="codeinput">TimeHistory(tCont,beta*180/pi,{<span class="string">'Control Angle (deg)'</span>},<span class="string">'Optimal Thrust Angle'</span>);
+TimeHistory(tTraj,Mag(xP2D(1:2,:)) - rMoon,{<span class="string">'Altitude (km)'</span>},<span class="string">'Lunar Altitude'</span>);
+figure(<span class="string">'Name'</span>,<span class="string">'LunarTrajectoryDemo'</span>);
+quiver(xP2D(1,1:end-1),xP2D(2,1:end-1),cos(beta),sin(beta))
+hold <span class="string">on</span>
+plot(xP2D(1,:),xP2D(2,:))
+
+<span class="comment">% acceleration in ECI frame</span>
+[xTrajECI,b] = RotateOrbit(xP2D,x,mu,rTarget,<span class="string">'end'</span>); <span class="comment">% no "x"</span>
+accel        = b*[accel2D;zeros(1,length(tTraj)-1)];
+
+<span class="comment">% Plot</span>
+Plot2D( xP2D(1,:), xP2D(2,:),<span class="string">'x (km)'</span>,<span class="string">'y (km)'</span>,<span class="string">'2D Trajectory'</span>);
+Plot3D( xTrajECI(1:3,:), <span class="string">'x (km)'</span>, <span class="string">'y (km)'</span>, <span class="string">'z (km)'</span>, <span class="string">'Trajectory'</span>  );
+TimeHistory(tCont,accel2D,{<span class="string">'x'</span>,<span class="string">'y'</span>},<span class="string">'Acceleration in Planar Frame (km/s^2)'</span>);
+TimeHistory(tCont,accel,{<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>},<span class="string">'Acceleration in ECI Frame (km/s^2)'</span>);
+
+<span class="comment">% Plot the orbit around the moon</span>
+PlotPlanetaryOrbit( xTrajECI(1:3,:), <span class="string">'Moon'</span>, tTraj, jD-0.01 );
+
+Figui
+
+
+<span class="comment">%--------------------------------------</span>
+
+<span class="comment">% $Id: c7c03e36db6a858de803785dd15788ef2ee55893 $</span>
+</pre>
+<img vspace="5" hspace="5" src="LunarTrajectoryDemo_01.png" alt=""> <img vspace="5" hspace="5" src="LunarTrajectoryDemo_02.png" alt=""> <img vspace="5" hspace="5" src="LunarTrajectoryDemo_03.png" alt=""> <img vspace="5" hspace="5" src="LunarTrajectoryDemo_04.png" alt=""> <img vspace="5" hspace="5" src="LunarTrajectoryDemo_05.png" alt=""> <img vspace="5" hspace="5" src="LunarTrajectoryDemo_06.png" alt=""> <img vspace="5" hspace="5" src="LunarTrajectoryDemo_07.png" alt=""> <img vspace="5" hspace="5" src="LunarTrajectoryDemo_08.png" alt=""> <img vspace="5" hspace="5" src="LunarTrajectoryDemo_09.png" alt=""> <p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2023b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Lunar Landing Trajectory Simulation
+% Creates an optimal 2D trajectory which is transformed into 3D for a north
+% pole landing.
+%
+% Things to try:
+% - Adjust the initial altitude
+% - Change the available acceleration (multiple of g)
+%
+% See also: OptimalLunarLanding, PlotPlanetaryOrbit, TimeHistory, Plot2D,
+% Plot3D, Figui
+%%
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Copyright (c) 2021,2024 Princeton Satellite Systems, Inc.
+%   All rights reserved.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Since version 2024.1
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%% Compute the optimal landing trajectory
+% It optimizes a 2D trajectory then transforms it into a 3D trajectory in
+% ECI
+
+% Constants
+rMoon    = Constant('equatorial radius moon');
+mu       = Constant('mu moon');
+
+jD       = Date2JD([2023 6 6]);
+
+% Initial altitude from lunar surface
+h = 15; % km
+
+% acceleration, typically 2-3 x lunar g
+g = mu/rMoon^2;
+a = 3*g; 
+
+% polar location
+rTarget = [0;0;rMoon];
+
+% Optimize
+[xP2D,tTraj,beta]	= OptimalLunarLanding( a, h, 30 );
+tCont             = tTraj(1:end-1);
+accel2D           = a*[cos(beta);sin(beta)];
+
+% define x??
+r   = rMoon+h;
+x   = [r;0;0;0;0;sqrt(mu/r)]; % Circular polar orbit Lunar fixed
+x   = LFToECI(x,jD)   % Convert to ECI
+
+%% Plot
+TimeHistory(tCont,beta*180/pi,{'Control Angle (deg)'},'Optimal Thrust Angle');
+TimeHistory(tTraj,Mag(xP2D(1:2,:)) - rMoon,{'Altitude (km)'},'Lunar Altitude');
+figure('Name','LunarTrajectoryDemo');
+quiver(xP2D(1,1:end-1),xP2D(2,1:end-1),cos(beta),sin(beta))
+hold on
+plot(xP2D(1,:),xP2D(2,:))
+
+% acceleration in ECI frame
+[xTrajECI,b] = RotateOrbit(xP2D,x,mu,rTarget,'end'); % no "x"
+accel        = b*[accel2D;zeros(1,length(tTraj)-1)];
+
+% Plot
+Plot2D( xP2D(1,:), xP2D(2,:),'x (km)','y (km)','2D Trajectory');
+Plot3D( xTrajECI(1:3,:), 'x (km)', 'y (km)', 'z (km)', 'Trajectory'  );
+TimeHistory(tCont,accel2D,{'x','y'},'Acceleration in Planar Frame (km/s^2)');
+TimeHistory(tCont,accel,{'x','y','z'},'Acceleration in ECI Frame (km/s^2)');
+
+% Plot the orbit around the moon
+PlotPlanetaryOrbit( xTrajECI(1:3,:), 'Moon', tTraj, jD-0.01 );
+
+Figui
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date:   LunarTrajectoryDemo.m $
+% $Id: c7c03e36db6a858de803785dd15788ef2ee55893 $
+
+##### SOURCE END #####
+-->
+</body>
+</html>

@@ -1,0 +1,500 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>AccommodationFlatPlate</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-09-19"><meta name="DC.source" content="AccommodationFlatPlate.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Surface accommodation drag demo on a flat plate</a></li><li><a href="#2">Purely normal flow</a></li><li><a href="#3">Purely perpendicular flow</a></li><li><a href="#4">Angle of attack on a flat plate</a></li></ul></div><h2 id="1">Surface accommodation drag demo on a flat plate</h2><p>The drag and lift are parameterized by the ratio of the orbital velocity (the flow velocity) to the thermal velocity of the atmospheric particles. This speed ratio is "S". The demo compares specular and diffuse accommodation coefficients to those in the reference and those computed from experimental data, then computes the lift and drag as a function of angle of attack of the plate for S=3 and S=infinity.</p><div><ul><li>Hypermolecular flow/fully accommodated: S = infinity, tA ~ 0 K.</li><li>Typical spacecraft orbit parameters: S = 3-10, tA ~ 1000 K</li></ul></div><div><ul><li>Specular reflection: sigmaN = sigmaT = 0</li><li>Diffuse reflection: sigmaN = sigmaT = 1</li><li>Reference values: sigmaN = sigmaT = 0.7</li></ul></div><pre>------------------------------------------------------------------------
+References: Storch, J. &#65279;Aerodynamic Disturbances on Spacecraft in
+            Free-Molecular Flow, Aerospace Report TR-2003(3397)-1,
+            https://ascelibrary.org/doi/10.1061/40722%28153%2960
+------------------------------------------------------------------------
+See also: FAeroSurfaceAccommodation, AeroF
+------------------------------------------------------------------------</pre><pre class="codeinput"><span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Copyright (c) 2022 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Since version 2022.1</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+
+<span class="comment">% Define front and back of a flat plate</span>
+area             = 1;
+data             = struct;
+data.area        = area*[1 1];
+data.normal      = [1 -1;0 0;0 0]; <span class="comment">% front and back of plate</span>
+data.temperature = 188*[1 1];
+
+<span class="comment">% Atmosphere</span>
+rho = 2.118338996643465e-13; <span class="comment">% kg/m3</span>
+tA  = 2149.00;               <span class="comment">% K</span>
+mG  = 17.06700873108905;     <span class="comment">% amu, g/mol</span>
+
+mu  = 3.98600436e5;          <span class="comment">% km^3/sec^2</span>
+alt = 6928;                  <span class="comment">% km</span>
+U   = sqrt(mu/alt)*1000; <span class="comment">% Orbital velocty for flow</span>
+</pre><h2 id="2">Purely normal flow</h2><p>Lift should be zero, drag is at maximum</p><pre class="codeinput">fprintf(<span class="string">'\n----- Normal flow -----\n'</span>)
+u = U*[1;0;0];
+fT = [];
+
+<span class="comment">% Calculated coefficients, cosAlpha = 1</span>
+[sigmaN_1, sigmaT_1] = AccommodationCoefficients( 1 );
+
+<span class="comment">% Specular, sigmas == 0. Diffuse, sigmas == 1.</span>
+sigmaN = [0 1 0.7 sigmaN_1];
+sigmaT = [0 1 0.7 sigmaT_1];
+
+<span class="keyword">for</span> k = 1:length(sigmaN)
+  [fT(:,k),cD(k),cL(k),f] = FAeroSurfaceAccommodation( u, rho, tA, <span class="keyword">...</span>
+                               mG*1e-3, data, sigmaN(k), sigmaT(k) );
+<span class="keyword">end</span>
+
+<span class="comment">% Flat plate, constant cD</span>
+cD(5) = 2.7;
+[fA,fT(:,5)] = AeroF( rho, cD(5), u*1e-3, data.normal, data.area );
+
+disp(<span class="string">'Specular, Diffuse, All 0.7, Calculated, cD=2.7'</span>)
+sigmaN
+sigmaT
+fT
+cD
+cL
+</pre><pre class="codeoutput">
+----- Normal flow -----
+Specular, Diffuse, All 0.7, Calculated, cD=2.7
+
+sigmaN =
+
+            0            1          0.7         0.93
+
+
+sigmaT =
+
+            0            1          0.7            0
+
+
+fT =
+
+  -2.4819e-05  -1.3019e-05  -1.6559e-05  -1.3845e-05  -1.6454e-05
+            0            0            0            0            0
+            0            0            0            0            0
+
+
+cD =
+
+       4.0728       2.1364       2.7173       2.2719          2.7
+
+
+cL =
+
+     0     0
+     0     0
+
+</pre><h2 id="3">Purely perpendicular flow</h2><p>The experimental coefficients show a greater sigmaT than sigmaN, but both are nonzero. The lift should be zero but the drag nonzero.</p><pre class="codeinput">fprintf(<span class="string">'\nTangential flow -----\n'</span>)
+u = U*[0;1;0];
+
+disp(<span class="string">'Diffuse, sigmas == 1'</span>)
+[fT,cD,cL,f] = FAeroSurfaceAccommodation( u, rho, tA, mG*1e-3, data, 1, 1 )
+
+disp(<span class="string">'Calculated coeff, cosAlpha = 0'</span>)
+[sigmaN, sigmaT] = AccommodationCoefficients( 0 )
+[fT,cD,cL,f] = FAeroSurfaceAccommodation( u, rho, tA, mG*1e-3, data, sigmaN, sigmaT )
+fD = -u'/U*fT;
+fL = sqrt(sum(fT.*fT) - fD^2);
+cD = 2*fD/rho/U^2/area
+cL = 2*fL/rho/U^2/area
+</pre><pre class="codeoutput">
+Tangential flow -----
+Diffuse, sigmas == 1
+
+fT =
+
+            0
+  -1.3118e-06
+            0
+
+
+cD =
+
+      0.21526
+
+
+cL =
+
+     0
+
+
+f =
+
+  -1.4368e-07   1.4368e-07
+  -6.5589e-07  -6.5589e-07
+            0            0
+
+Calculated coeff, cosAlpha = 0
+
+sigmaN =
+
+       0.2298
+
+
+sigmaT =
+
+      0.59992
+
+
+fT =
+
+            0
+  -7.8696e-07
+            0
+
+
+cD =
+
+      0.12914
+
+
+cL =
+
+     0
+
+
+f =
+
+  -2.0383e-07   2.0383e-07
+  -3.9348e-07  -3.9348e-07
+            0            0
+
+
+cD =
+
+      0.12914
+
+
+cL =
+
+     0
+
+</pre><h2 id="4">Angle of attack on a flat plate</h2><p>cD is nonzero for zero angle of attack for nonzero sigmaT and finite S - the ratio of the molecular flow speed at orbit rate to the random speed from the atmospheric temperature. S might be 3 to 10.</p><p>See Figure 2.6 (Hyperthermal) and 3.4, 3.5 (Free-Molecular) in Storch</p><pre class="codeinput">u = -U*[1;0;0];
+beta = linspace(0,pi,101);
+n = -[sin(beta);cos(beta);zeros(size(beta))];
+Plot2D(beta*180/pi,acos(Unit(u)'*n)*180/pi,<span class="string">'Angle of Attack'</span>,<span class="string">'Normal Angle'</span>)
+Plot2D(beta*180/pi,n,<span class="string">'Angle of Attack'</span>,<span class="string">'Normal Vector'</span>)
+legend(<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>)
+
+sigmaN = 0.7;
+sigmaT = 0.7;
+
+<span class="comment">% S = 3 in the reference plot</span>
+r = 8.314e3;
+S = 3;
+tA = U^2/S^2/2/r*mG;
+tAs = [tA 1]; <span class="comment">% free flow and hyperthermal flow (s=infinity)</span>
+
+<span class="comment">% Analytic solution, from Storch</span>
+tB = data.temperature(1);
+Vw = sqrt(0.5*pi*r*tB/mG);
+C_L = @(S) ((2-sigmaN-sigmaT)/sqrt(pi)/S*exp(-S^2*sin(beta).^2) + sigmaN*Vw/U).*sin(2*beta) + <span class="keyword">...</span>
+      ((2-sigmaN)/S^2 + 2*(2-sigmaN-sigmaT)*sin(beta).^2).*cos(beta).*erf(S*sin(beta));
+C_D = @(S) 2*sigmaN*Vw/U*sin(beta).^2 + 2/sqrt(pi)/S*((2-sigmaN)*sin(beta).^2 + sigmaT*cos(beta).^2).*exp(-S^2*sin(beta).^2) + <span class="keyword">...</span>
+      2*((2-sigmaN)*(sin(beta).^2 + 1/2/S^2) + sigmaT*cos(beta).^2).*sin(beta).*erf(S*sin(beta));
+Plot2D(beta*180/pi,[C_L(3);C_L(1e6)],<span class="string">'Angle of Attack'</span>,<span class="string">'C_L'</span>,<span class="string">'Analytic Lift Coefficient'</span>)
+Plot2D(beta*180/pi,[C_D(3);C_D(1e6)],<span class="string">'Angle of Attack'</span>,<span class="string">'C_D'</span>,<span class="string">'Analytic Drag Coefficient'</span>)
+
+<span class="comment">% Numeric solution</span>
+force = zeros(2,3,length(beta));
+<span class="keyword">for</span> j = 1:2
+  <span class="keyword">for</span> k = 1:size(n,2)
+    data.normal = [n(:,k) -n(:,k)];
+    fT = FAeroSurfaceAccommodation( u, rho, tAs(j), mG*1e-3, data, sigmaN, sigmaT );
+    fD = -u'/U*fT;
+    fL = sqrt(sum(fT.*fT) - fD^2);
+    <span class="comment">% cD/cL of plate: use frontal area; this a special case of a general body.</span>
+    cD(j,k) = 2*fD/rho/U^2/area;
+    cL(j,k) = 2*fL/rho/U^2/area;
+    force(j,:,k) = fT;
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+cD0 = max(cD(:));
+<span class="keyword">for</span> k = 1:size(n,2)
+  [~,fAero(:,k)] = AeroF( rho, cD0, u*1e-3, n(:,k), data.area(1) );
+<span class="keyword">end</span>
+
+Plot2D(beta*180/pi,squeeze(force(1,1:2,:)),<span class="string">'Angle of Attack'</span>,<span class="string">'Total Force - Flat Plate'</span>)
+hold <span class="string">on</span>
+plot(beta*180/pi,squeeze(force(2,1,:)),<span class="string">'b--'</span>)
+plot(beta*180/pi,squeeze(force(2,2,:)),<span class="string">'r--'</span>)
+plot(beta*180/pi,fAero,<span class="string">'k-'</span>)
+legend(<span class="string">'fX - s=3'</span>,<span class="string">'fY - s=3'</span>,<span class="string">'fX - s=inf'</span>,<span class="string">'fY - s=inf'</span>,sprintf(<span class="string">'f cD=%3.3g'</span>,cD0))
+Plot2D(beta*180/pi,[cL;cD],<span class="string">'Angle of Attack'</span>,{<span class="string">'|c_L|'</span>,<span class="string">'c_D'</span>},<span class="string">'Lift and Drag Coefficients'</span>,<span class="keyword">...</span>
+  <span class="string">'lin'</span>,{[1 2],[3 4]})
+legend(<span class="string">'S=3'</span>,<span class="string">'S=inf'</span>)
+
+
+<span class="comment">%-------------------------------------------------------------------------------</span>
+<span class="comment">%   Accommodation coefficients</span>
+<span class="comment">%   This is a fit to experimental data for N2 on an aluminum surface.</span>
+<span class="comment">%   Considered valid for altitudes under 300 km. Data from Knechtel and</span>
+<span class="comment">%   Pitts (1973) and fit from Fredo and Kaplan (1981)</span>
+<span class="comment">%</span>
+<span class="comment">%   Fredo and Kaplan, "Procedure for Obtaining Aerodynamic Properties of</span>
+<span class="comment">%   Spacecraft," J. Spacecraft Vol. 18 No. 4, July-August 1981.</span>
+<span class="comment">%-------------------------------------------------------------------------------</span>
+<span class="keyword">function</span> [sigmaN, sigmaT] = AccommodationCoefficients( uN )
+
+theta  = acos( uN )*180/pi;
+
+sigmaN = 0.93 - 1.48e-3*theta - 7e-5*theta.^2;
+sigmaT = 0.63*(1 - exp( -3.38e-2*theta ) );
+
+<span class="keyword">end</span>
+
+
+<span class="comment">%--------------------------------------</span>
+</pre><img vspace="5" hspace="5" src="AccommodationFlatPlate_01.png" alt=""> <img vspace="5" hspace="5" src="AccommodationFlatPlate_02.png" alt=""> <img vspace="5" hspace="5" src="AccommodationFlatPlate_03.png" alt=""> <img vspace="5" hspace="5" src="AccommodationFlatPlate_04.png" alt=""> <img vspace="5" hspace="5" src="AccommodationFlatPlate_05.png" alt=""> <img vspace="5" hspace="5" src="AccommodationFlatPlate_06.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Surface accommodation drag demo on a flat plate
+% The drag and lift are parameterized by the ratio of the orbital velocity
+% (the flow velocity) to the thermal velocity of the atmospheric particles.
+% This speed ratio is "S". The demo compares specular and diffuse
+% accommodation coefficients to those in the reference and those computed
+% from experimental data, then computes the lift and drag as a function of
+% angle of attack of the plate for S=3 and S=infinity.
+%
+% * Hypermolecular flow/fully accommodated: S = infinity, tA ~ 0 K.
+% * Typical spacecraft orbit parameters: S = 3-10, tA ~ 1000 K
+%
+% * Specular reflection: sigmaN = sigmaT = 0
+% * Diffuse reflection: sigmaN = sigmaT = 1
+% * Reference values: sigmaN = sigmaT = 0.7
+%
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%  References: Storch, J. ﻿Aerodynamic Disturbances on Spacecraft in
+%              Free-Molecular Flow, Aerospace Report TR-2003(3397)-1,
+%              https://ascelibrary.org/doi/10.1061/40722%28153%2960
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%  See also: FAeroSurfaceAccommodation, AeroF
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Copyright (c) 2022 Princeton Satellite Systems, Inc.
+%   All rights reserved.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Since version 2022.1
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+% Define front and back of a flat plate
+area             = 1;
+data             = struct;
+data.area        = area*[1 1];
+data.normal      = [1 -1;0 0;0 0]; % front and back of plate
+data.temperature = 188*[1 1];
+
+% Atmosphere
+rho = 2.118338996643465e-13; % kg/m3
+tA  = 2149.00;               % K
+mG  = 17.06700873108905;     % amu, g/mol
+
+mu  = 3.98600436e5;          % km^3/sec^2
+alt = 6928;                  % km
+U   = sqrt(mu/alt)*1000; % Orbital velocty for flow
+
+%% Purely normal flow
+% Lift should be zero, drag is at maximum
+
+fprintf('\nREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Normal flow REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-\n')
+u = U*[1;0;0];
+fT = [];
+
+% Calculated coefficients, cosAlpha = 1
+[sigmaN_1, sigmaT_1] = AccommodationCoefficients( 1 );
+
+% Specular, sigmas == 0. Diffuse, sigmas == 1.
+sigmaN = [0 1 0.7 sigmaN_1];
+sigmaT = [0 1 0.7 sigmaT_1];
+
+for k = 1:length(sigmaN)
+  [fT(:,k),cD(k),cL(k),f] = FAeroSurfaceAccommodation( u, rho, tA, ...
+                               mG*1e-3, data, sigmaN(k), sigmaT(k) );
+end
+
+% Flat plate, constant cD
+cD(5) = 2.7;
+[fA,fT(:,5)] = AeroF( rho, cD(5), u*1e-3, data.normal, data.area );
+
+disp('Specular, Diffuse, All 0.7, Calculated, cD=2.7')
+sigmaN
+sigmaT
+fT
+cD
+cL
+
+%% Purely perpendicular flow
+% The experimental coefficients show a greater sigmaT than sigmaN, but both
+% are nonzero. The lift should be zero but the drag nonzero.
+
+fprintf('\nTangential flow REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-\n')
+u = U*[0;1;0];
+
+disp('Diffuse, sigmas == 1')
+[fT,cD,cL,f] = FAeroSurfaceAccommodation( u, rho, tA, mG*1e-3, data, 1, 1 )
+
+disp('Calculated coeff, cosAlpha = 0')
+[sigmaN, sigmaT] = AccommodationCoefficients( 0 )
+[fT,cD,cL,f] = FAeroSurfaceAccommodation( u, rho, tA, mG*1e-3, data, sigmaN, sigmaT )
+fD = -u'/U*fT;
+fL = sqrt(sum(fT.*fT) - fD^2);
+cD = 2*fD/rho/U^2/area
+cL = 2*fL/rho/U^2/area 
+
+
+%% Angle of attack on a flat plate
+% cD is nonzero for zero angle of attack for nonzero sigmaT and finite S -
+% the ratio of the molecular flow speed at orbit rate to the random speed
+% from the atmospheric temperature. S might be 3 to 10.
+%
+% See Figure 2.6 (Hyperthermal) and 3.4, 3.5 (Free-Molecular) in Storch
+
+u = -U*[1;0;0];
+beta = linspace(0,pi,101);
+n = -[sin(beta);cos(beta);zeros(size(beta))];
+Plot2D(beta*180/pi,acos(Unit(u)'*n)*180/pi,'Angle of Attack','Normal Angle')
+Plot2D(beta*180/pi,n,'Angle of Attack','Normal Vector')
+legend('x','y','z')
+
+sigmaN = 0.7;
+sigmaT = 0.7;
+
+% S = 3 in the reference plot
+r = 8.314e3;
+S = 3;
+tA = U^2/S^2/2/r*mG;
+tAs = [tA 1]; % free flow and hyperthermal flow (s=infinity)
+
+% Analytic solution, from Storch
+tB = data.temperature(1);
+Vw = sqrt(0.5*pi*r*tB/mG); 
+C_L = @(S) ((2-sigmaN-sigmaT)/sqrt(pi)/S*exp(-S^2*sin(beta).^2) + sigmaN*Vw/U).*sin(2*beta) + ...
+      ((2-sigmaN)/S^2 + 2*(2-sigmaN-sigmaT)*sin(beta).^2).*cos(beta).*erf(S*sin(beta));
+C_D = @(S) 2*sigmaN*Vw/U*sin(beta).^2 + 2/sqrt(pi)/S*((2-sigmaN)*sin(beta).^2 + sigmaT*cos(beta).^2).*exp(-S^2*sin(beta).^2) + ...
+      2*((2-sigmaN)*(sin(beta).^2 + 1/2/S^2) + sigmaT*cos(beta).^2).*sin(beta).*erf(S*sin(beta));
+Plot2D(beta*180/pi,[C_L(3);C_L(1e6)],'Angle of Attack','C_L','Analytic Lift Coefficient')
+Plot2D(beta*180/pi,[C_D(3);C_D(1e6)],'Angle of Attack','C_D','Analytic Drag Coefficient')
+
+% Numeric solution
+force = zeros(2,3,length(beta));
+for j = 1:2
+  for k = 1:size(n,2)
+    data.normal = [n(:,k) -n(:,k)];
+    fT = FAeroSurfaceAccommodation( u, rho, tAs(j), mG*1e-3, data, sigmaN, sigmaT );
+    fD = -u'/U*fT;
+    fL = sqrt(sum(fT.*fT) - fD^2);
+    % cD/cL of plate: use frontal area; this a special case of a general body.
+    cD(j,k) = 2*fD/rho/U^2/area;
+    cL(j,k) = 2*fL/rho/U^2/area; 
+    force(j,:,k) = fT;
+  end
+end
+cD0 = max(cD(:));
+for k = 1:size(n,2)
+  [~,fAero(:,k)] = AeroF( rho, cD0, u*1e-3, n(:,k), data.area(1) );
+end
+
+Plot2D(beta*180/pi,squeeze(force(1,1:2,:)),'Angle of Attack','Total Force - Flat Plate')
+hold on
+plot(beta*180/pi,squeeze(force(2,1,:)),'bREPLACE_WITH_DASH_DASH')
+plot(beta*180/pi,squeeze(force(2,2,:)),'rREPLACE_WITH_DASH_DASH')
+plot(beta*180/pi,fAero,'k-')
+legend('fX - s=3','fY - s=3','fX - s=inf','fY - s=inf',sprintf('f cD=%3.3g',cD0))
+Plot2D(beta*180/pi,[cL;cD],'Angle of Attack',{'|c_L|','c_D'},'Lift and Drag Coefficients',...
+  'lin',{[1 2],[3 4]})
+legend('S=3','S=inf')
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%   Accommodation coefficients
+%   This is a fit to experimental data for N2 on an aluminum surface.
+%   Considered valid for altitudes under 300 km. Data from Knechtel and
+%   Pitts (1973) and fit from Fredo and Kaplan (1981)
+%
+%   Fredo and Kaplan, "Procedure for Obtaining Aerodynamic Properties of
+%   Spacecraft," J. Spacecraft Vol. 18 No. 4, July-August 1981.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+function [sigmaN, sigmaT] = AccommodationCoefficients( uN )
+
+theta  = acos( uN )*180/pi;
+
+sigmaN = 0.93 - 1.48e-3*theta - 7e-5*theta.^2;
+sigmaT = 0.63*(1 - exp( -3.38e-2*theta ) );
+
+end
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date:   2022-09-19 $
+% $Revision: f5b0359287e283e976ec7650891d6e6422ed5e72 $
+
+##### SOURCE END #####
+--></body></html>

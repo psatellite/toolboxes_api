@@ -1,0 +1,437 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Simulation using the full disturbance model</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-01-31">
+<meta name="DC.source" content="DisturbancesSim.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Simulation using the full disturbance model</h1>
+<!--introduction-->
+<p>Open-loop simulation using a CAD model and low-earth relevant disturbances, i.e. aero and planetary radiation.</p>
+<p>See also: CrossSection, El2RV, QZero, JD2000, Disturbances, SunV1, RHSGeoJ2, TimeGUI, SetCADQuaternion, RK4, FRB, Plot2D, PlotPlanetOrbit</p>
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#2">Initial conditions</a>
+</li>
+<li>
+<a href="#3">Plot every nPMax steps</a>
+</li>
+<li>
+<a href="#4">Plotting arrays</a>
+</li>
+<li>
+<a href="#5">Plot results</a>
+</li>
+</ul>
+</div>
+<pre class="codeinput">
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Copyright (c) 2022 Princeton Satellite Systems, Inc.</span>
+<span class="comment">%   All rights reserved.</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+<span class="comment">%   Since version 2022.1</span>
+<span class="comment">%--------------------------------------------------------------------------</span>
+</pre>
+<h2 id="2">Initial conditions</h2>
+<pre class="codeinput">
+<span class="comment">% This spacecraft has a bus cross-section of about 3 m^2</span>
+g = load(<span class="string">'SCForImaging'</span>);
+areaX = CrossSection( g, [], [1;0;0] )
+areaY = CrossSection( g, [], [0;1;0] )
+areaZ = CrossSection( g, [], [0;0;1] )
+inr    = g.mass.inertia; <span class="comment">% can change inertia here</span>
+invInr = inv(inr);
+<span class="comment">% surface accommodation</span>
+<span class="keyword">for</span> k = 1:length(g.component)
+  g.component(k).aero.cD = 0; <span class="comment">% or empty?</span>
+  g.component(k).aero.sigmaN = 0.7;
+  g.component(k).aero.sigmaT = 0.7;
+<span class="keyword">end</span>
+
+el      = [6378+250 0.5 0 0 0.002 0];
+[r0,v0] = El2RV(el);
+q0      = QZero;
+
+x1  = [q0;[0;0;0]];
+x2  = [r0;v0];
+jD0 = JD2000;
+
+<span class="comment">% Specify the disturbances to include</span>
+e           = Disturbances(<span class="string">'defaults'</span>);
+e.s         = 1367*SunV1( jD0, r0 ); <span class="comment">% Watts/m^2</span>
+e.shadow    = 0; <span class="comment">% for optical surfaces</span>
+e.computeAero = true;
+e.computeGG   = true;
+e.computePR   = true;
+e.tGas = 900;
+e.mGas = 0.017;
+
+<span class="comment">% Optional: J2 harmonic.</span>
+<span class="comment">% This will result in osculating elements but will obscure the effect of</span>
+<span class="comment">% drag on the altitude, depending on the length of the simulation</span>
+dJ2 = RHSGeoJ2; <span class="comment">% default J2 data</span>
+dJ2.jD0 = jD0;
+useJ2 = false;
+</pre>
+<pre class="codeoutput">
+areaX =
+
+         2.96
+
+
+areaY =
+
+        3.151
+
+
+areaZ =
+
+       15.627
+
+</pre>
+<h2 id="3">Plot every nPMax steps</h2>
+<pre class="codeinput">
+<span class="comment">%-----------------------</span>
+dT    = 0.5;
+nSim  = 20000;
+nP    = 0;
+kP    = 0;
+nPMax = 10;
+nPlot = nSim/nPMax;
+mET   = 0;
+jD    = jD0;
+</pre>
+<h2 id="4">Plotting arrays</h2>
+<pre class="codeinput">
+<span class="comment">%----------------</span>
+x1Plot      = zeros( 7,nPlot );
+x2Plot      = zeros( 6,nPlot );
+tPlot       = zeros( 1,nPlot );
+TPlot       = zeros( 3,nPlot );
+FPlot       = zeros( 3,nPlot );
+
+<span class="comment">% Global for the TimeGUI</span>
+<span class="comment">%------------------------</span>
+<span class="keyword">global</span> simulationAction
+simulationAction = <span class="string">' '</span>;
+[ ratioRealTime, tToGoMem ] = TimeGUI( nSim, 0, [], 0, dT, <span class="string">'Disturbances Sim'</span> );
+
+<span class="keyword">for</span> k = 1:nSim
+  <span class="comment">% Display the status message</span>
+  <span class="comment">%---------------------------</span>
+  [ ratioRealTime, tToGoMem ] = TimeGUI( nSim, k, tToGoMem, ratioRealTime, dT );
+
+  g = SetCADQuaternion( g, x1(1:4) );
+
+  <span class="comment">% Assume disturbances are constant over each small timestep</span>
+  e.r   = x2(1:3);
+  e.v   = x2(4:6);
+  <span class="comment">% optional: sun, magnetic field</span>
+  [f,t] = Disturbances(<span class="string">'run'</span>,g,e);
+  fDist = f.total/1000; <span class="comment">% to kN from N</span>
+  tDist = t.total;      <span class="comment">% already in Nm</span>
+
+  <span class="comment">% Update the equations of motion</span>
+  <span class="comment">% -------------------------------</span>
+  x1 = RK4(@FRB,x1,dT,mET,inr,invInr,tDist);
+  <span class="keyword">if</span> useJ2
+    x2 = RK4(@RHSGeoJ2,x2,dT,mET,dJ2,fDist/g.mass.mass);
+  <span class="keyword">else</span>
+    x2 = RK4(@FOrbCart,x2,dT,jD,fDist/g.mass.mass);
+  <span class="keyword">end</span>
+  mET = mET + dT;
+  jD  = jD + dT/86400;
+
+  <span class="keyword">if</span> (nP == 0)
+    kP           = kP + 1;
+    x1Plot(:,kP) = x1;
+  	x2Plot(:,kP) = x2;
+    tPlot(:,kP)  = mET;
+    TPlot(:,kP)  = t.total;
+    FPlot(:,kP)  = f.total;
+    nP           = nPMax - 1;
+  <span class="keyword">else</span>
+    nP           = nP - 1;
+  <span class="keyword">end</span>
+
+  <span class="comment">% Time control</span>
+  <span class="comment">%-------------</span>
+  <span class="keyword">switch</span> simulationAction
+    <span class="keyword">case</span> <span class="string">'pause'</span>
+      pause
+      simulationAction = <span class="string">' '</span>;
+    <span class="keyword">case</span> <span class="string">'stop'</span>
+      <span class="keyword">return</span>;
+    <span class="keyword">case</span> <span class="string">'plot'</span>
+      <span class="keyword">break</span>;
+  <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+</pre>
+<img vspace="5" hspace="5" src="DisturbancesSim_01.png" alt=""> <h2 id="5">Plot results</h2>
+<pre class="codeinput">TimeGUI(<span class="string">'close'</span>);
+
+j = 1:kP;
+
+[tPlot,tL] = TimeLabel(tPlot(j));
+
+Plot2D(tPlot,x1Plot( 1:4,j),tL,[<span class="string">'Q_s'</span>;<span class="string">'Q_x'</span>;<span class="string">'Q_y'</span>;<span class="string">'Q_z'</span>],<span class="string">'Quaternion'</span>)
+Plot2D(tPlot,x1Plot( 5:7,j),tL,[<span class="string">'\omega_x'</span>;<span class="string">'\omega_y'</span>;<span class="string">'\omega_z'</span>],<span class="string">'Body Rates'</span>)
+Plot2D(tPlot,Mag(x2Plot( 4:6,j)),tL,<span class="string">'|V_x|'</span>,<span class="string">'Velocity (km/s)'</span>)
+Plot2D(tPlot,TPlot(:,j),tL,[<span class="string">'T_x'</span>;<span class="string">'T_y'</span>;<span class="string">'T_z'</span>],<span class="string">'Applied Torque (Nm)'</span>)
+
+<span class="comment">% osculating elements</span>
+els = RVSet2El(x2Plot(1:3,j),x2Plot(4:6,j));
+Plot2D(tPlot,els(:,1:5)',tL,{<span class="string">'sma'</span>,<span class="string">'inc'</span>,<span class="string">'w'</span>,<span class="string">'W'</span>,<span class="string">'ecc'</span>},<span class="string">'Orbital Elements'</span>)
+
+<span class="comment">% 3D orbit</span>
+PlotPlanetOrbit( x2Plot(:,j), jD0 + tPlot/86400, <span class="string">'Spacecraft'</span>, <span class="string">'Earth'</span> )
+
+
+<span class="comment">%--------------------------------------</span>
+
+<span class="comment">% $Id: 831ae27e47852b8da9b37333a7ed24a19aaa0e31 $</span>
+</pre>
+<img vspace="5" hspace="5" src="DisturbancesSim_02.png" alt=""> <img vspace="5" hspace="5" src="DisturbancesSim_03.png" alt=""> <img vspace="5" hspace="5" src="DisturbancesSim_04.png" alt=""> <img vspace="5" hspace="5" src="DisturbancesSim_05.png" alt=""> <img vspace="5" hspace="5" src="DisturbancesSim_06.png" alt=""> <img vspace="5" hspace="5" src="DisturbancesSim_07.png" alt=""> <p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Simulation using the full disturbance model
+% Open-loop simulation using a CAD model and low-earth relevant
+% disturbances, i.e. aero and planetary radiation.
+%
+% See also: CrossSection, El2RV, QZero, JD2000, Disturbances, SunV1,
+% RHSGeoJ2, TimeGUI, SetCADQuaternion, RK4, FRB, Plot2D, PlotPlanetOrbit
+%%
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Copyright (c) 2022 Princeton Satellite Systems, Inc.
+%   All rights reserved.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%   Since version 2022.1
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%% Initial conditions
+
+
+% This spacecraft has a bus cross-section of about 3 m^2
+g = load('SCForImaging');
+areaX = CrossSection( g, [], [1;0;0] )
+areaY = CrossSection( g, [], [0;1;0] )
+areaZ = CrossSection( g, [], [0;0;1] )
+inr    = g.mass.inertia; % can change inertia here
+invInr = inv(inr);
+% surface accommodation
+for k = 1:length(g.component)
+  g.component(k).aero.cD = 0; % or empty?
+  g.component(k).aero.sigmaN = 0.7; 
+  g.component(k).aero.sigmaT = 0.7;
+end
+
+el      = [6378+250 0.5 0 0 0.002 0];
+[r0,v0] = El2RV(el);
+q0      = QZero;
+
+x1  = [q0;[0;0;0]];
+x2  = [r0;v0];
+jD0 = JD2000;
+
+% Specify the disturbances to include
+e           = Disturbances('defaults');
+e.s         = 1367*SunV1( jD0, r0 ); % Watts/m^2
+e.shadow    = 0; % for optical surfaces
+e.computeAero = true;
+e.computeGG   = true;
+e.computePR   = true;
+e.tGas = 900;
+e.mGas = 0.017;
+
+% Optional: J2 harmonic.
+% This will result in osculating elements but will obscure the effect of
+% drag on the altitude, depending on the length of the simulation
+dJ2 = RHSGeoJ2; % default J2 data
+dJ2.jD0 = jD0;
+useJ2 = false;
+
+%% Plot every nPMax steps
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+dT    = 0.5;
+nSim  = 20000;
+nP    = 0;
+kP    = 0;
+nPMax = 10;
+nPlot = nSim/nPMax;
+mET   = 0;
+jD    = jD0;
+
+%% Plotting arrays
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+x1Plot      = zeros( 7,nPlot );
+x2Plot      = zeros( 6,nPlot );
+tPlot       = zeros( 1,nPlot );
+TPlot       = zeros( 3,nPlot );
+FPlot       = zeros( 3,nPlot );
+
+% Global for the TimeGUI
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+global simulationAction
+simulationAction = ' ';
+[ ratioRealTime, tToGoMem ] = TimeGUI( nSim, 0, [], 0, dT, 'Disturbances Sim' );
+
+for k = 1:nSim
+  % Display the status message
+  %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+  [ ratioRealTime, tToGoMem ] = TimeGUI( nSim, k, tToGoMem, ratioRealTime, dT );
+
+  g = SetCADQuaternion( g, x1(1:4) );
+
+  % Assume disturbances are constant over each small timestep
+  e.r   = x2(1:3);
+  e.v   = x2(4:6);
+  % optional: sun, magnetic field
+  [f,t] = Disturbances('run',g,e);
+  fDist = f.total/1000; % to kN from N
+  tDist = t.total;      % already in Nm
+
+  % Update the equations of motion
+  % REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+  x1 = RK4(@FRB,x1,dT,mET,inr,invInr,tDist);
+  if useJ2
+    x2 = RK4(@RHSGeoJ2,x2,dT,mET,dJ2,fDist/g.mass.mass);
+  else
+    x2 = RK4(@FOrbCart,x2,dT,jD,fDist/g.mass.mass);
+  end
+  mET = mET + dT;
+  jD  = jD + dT/86400;
+
+  if (nP == 0)
+    kP           = kP + 1;
+    x1Plot(:,kP) = x1;
+  	x2Plot(:,kP) = x2;
+    tPlot(:,kP)  = mET;
+    TPlot(:,kP)  = t.total;
+    FPlot(:,kP)  = f.total;
+    nP           = nPMax - 1;
+  else
+    nP           = nP - 1;
+  end
+
+  % Time control
+  %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+  switch simulationAction
+    case 'pause'
+      pause
+      simulationAction = ' ';
+    case 'stop'
+      return;
+    case 'plot'
+      break;
+  end
+  
+end
+
+%% Plot results
+TimeGUI('close');
+
+j = 1:kP;
+
+[tPlot,tL] = TimeLabel(tPlot(j));
+
+Plot2D(tPlot,x1Plot( 1:4,j),tL,['Q_s';'Q_x';'Q_y';'Q_z'],'Quaternion')
+Plot2D(tPlot,x1Plot( 5:7,j),tL,['\omega_x';'\omega_y';'\omega_z'],'Body Rates')
+Plot2D(tPlot,Mag(x2Plot( 4:6,j)),tL,'|V_x|','Velocity (km/s)')
+Plot2D(tPlot,TPlot(:,j),tL,['T_x';'T_y';'T_z'],'Applied Torque (Nm)')
+
+% osculating elements
+els = RVSet2El(x2Plot(1:3,j),x2Plot(4:6,j));
+Plot2D(tPlot,els(:,1:5)',tL,{'sma','inc','w','W','ecc'},'Orbital Elements')
+
+% 3D orbit
+PlotPlanetOrbit( x2Plot(:,j), jD0 + tPlot/86400, 'Spacecraft', 'Earth' )
+
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% $Date:   DisturbancesSim.m $
+% $Id: 831ae27e47852b8da9b37333a7ed24a19aaa0e31 $
+
+##### SOURCE END #####
+-->
+</body>
+</html>
