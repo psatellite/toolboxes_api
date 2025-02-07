@@ -1,4 +1,4 @@
 var _radial_basis_function_8m =
 [
-    [ "RadialBasisFunction", "group___math_functions.html#gaa0cabc887f3aaaf08796b9d4411f449b", null ]
+    [ "RadialBasisFunction", "group___math_functions.html#ga6c315288c1ce8bbaad5b038d700b4f39", null ]
 ];

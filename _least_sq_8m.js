@@ -1,4 +1,4 @@
 var _least_sq_8m =
 [
-    [ "LeastSq", "group___math_functions.html#gab88403694791af85ff0e309c044489ed", null ]
+    [ "LeastSq", "group___math_functions.html#ga935729f212ec90e2a0e8a8357cfbeba7", null ]
 ];

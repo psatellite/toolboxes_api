@@ -1,4 +1,4 @@
 var _star_centroid_8m =
 [
-    [ "StarCentroid", "group___imaging_functions.html#ga47e662068a35c65b25d661686dd62c22", null ]
+    [ "StarCentroid", "group___imaging_functions.html#gaeab14b79a1b47ffe28783f9e3390166d", null ]
 ];

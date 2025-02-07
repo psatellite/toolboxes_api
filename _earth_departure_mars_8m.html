@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Interplanetary/Demos/Mars/EarthDepartureMars.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Interplanetary/Demos/Mars/EarthDepartureMars.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,22 +99,60 @@ $(function(){initNavTree('_earth_departure_mars_8m.html',''); initResizable(true
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">EarthDepartureMars.m File Reference<div class="ingroups"><a class="el" href="group___interplanetary_group.html">Interplanetary Module</a> &raquo; <a class="el" href="group___interplanetary_demos.html">Interplanetary Demos</a></div></div></div>
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">EarthDepartureMars.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Simulate a departure from the Earth <a href="Demos/Interplanetary/EarthDepartureMars.html">Published Demo</a>  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a8e28cb23f0a1701cfd0d6b28c5e652ec" id="r_a8e28cb23f0a1701cfd0d6b28c5e652ec"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e28cb23f0a1701cfd0d6b28c5e652ec">RHS</a> (in hours, in xT, in r0)</td></tr>
+<tr class="memdesc:a8e28cb23f0a1701cfd0d6b28c5e652ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (c) 2017 Princeton Satellite Systems, Inc.  <br /></td></tr>
+<tr class="separator:a8e28cb23f0a1701cfd0d6b28c5e652ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Treat the problem as planar. Has a rendezvous.</p>
-<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___common_functions.html#gaa48c784bb78677916d4a8ea05e78b0f3" title="Compute the Julian Date from the date.">Date2JD</a>. <a class="el" href="group___interplanetary_functions.html#gaea5275f57540ab2190ec598cdb753c6a" title="Simulate a low thrust departure from a planet.">TwoDEscape</a>, <a class="el" href="group___orbit_functions.html#gaae51ee018e321d05c93d309c3462d81e" title="Solves the Lambert time of flight problem using Battin&#39;s method.">LambertTOF</a>, <a class="el" href="group___orbit_functions.html#gaee6c6852bd96912c362c6ae013c37528" title="Converts Cartesian state to Keplerian orbital elements.">RV2El</a>, <a class="el" href="group___orbit_functions.html#ga69b82953888de99ee146a72f065b3b71" title="Generate an orbit by propagating Keplerian elements.">RVOrbGen</a> </dd></dl>
-</div></div><!-- contents -->
+<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___common_functions.html#gacc8101597897c2b80df3b7f4835b1fcf" title="Compute the Julian Date from the date.">Date2JD</a>. <a class="el" href="group___interplanetary_functions.html#ga7b00a0cddc94bd1d854c7700a14f75a2" title="Simulate a low thrust departure from a planet.">TwoDEscape</a>, <a class="el" href="group___orbit_functions.html#gacd03e02247d5d61495c8840dedd1416a" title="Solves the Lambert time of flight problem using Battin&#39;s method.">LambertTOF</a>, <a class="el" href="group___orbit_functions.html#ga1089993ec76d603555d52ad54c1aecfe" title="Converts Cartesian state to Keplerian orbital elements.">RV2El</a>, <a class="el" href="group___orbit_functions.html#ga8dd4015eb11dd93d9278245e033a1ec6" title="Generate an orbit by propagating Keplerian elements.">RVOrbGen</a></dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a8e28cb23f0a1701cfd0d6b28c5e652ec" name="a8e28cb23f0a1701cfd0d6b28c5e652ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e28cb23f0a1701cfd0d6b28c5e652ec">&#9670;&#160;</a></span>RHS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">function RHS </td>
+          <td>(</td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>hours</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>xT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>r0</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>All rights reserved.</p>
+<p>Since 2019.1 Use a search to find the Lambert solution that results in the final velocity vector tangent to the target The solution should be about 20 hours. Cost </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_aab116434280e4be3d0d097cb2e8bd5e.html">Interplanetary</a></li><li class="navelem"><a class="el" href="dir_057721f15adc46208a2b800ad04610fa.html">Demos</a></li><li class="navelem"><a class="el" href="dir_6259d909af93400a477136406e774b46.html">Mars</a></li><li class="navelem"><a class="el" href="_earth_departure_mars_8m.html">EarthDepartureMars.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_aab116434280e4be3d0d097cb2e8bd5e.html">Interplanetary</a></li><li class="navelem"><a class="el" href="dir_057721f15adc46208a2b800ad04610fa.html">Demos</a></li><li class="navelem"><a class="el" href="dir_6259d909af93400a477136406e774b46.html">Mars</a></li><li class="navelem"><a class="el" href="_earth_departure_mars_8m.html">EarthDepartureMars.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

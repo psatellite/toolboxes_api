@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/IntegratedSim/Software/DFFCommandProcessing.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/IntegratedSim/Software/DFFCommandProcessing.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,19 +110,19 @@ $(function(){initNavTree('_d_f_f_command_processing_8m.html',''); initResizable(
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab7b870d020e1a0258042607ec8ec6d45" id="r_ab7b870d020e1a0258042607ec8ec6d45"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7b870d020e1a0258042607ec8ec6d45">DFFCommandProcessing</a> (in action, in d, in k)</td></tr>
-<tr class="memdesc:ab7b870d020e1a0258042607ec8ec6d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive ground commands and route them to the appropriate module(s).  <br /></td></tr>
-<tr class="separator:ab7b870d020e1a0258042607ec8ec6d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab510d9aeeb8c17a910c0bc0733e84d39" id="r_ab510d9aeeb8c17a910c0bc0733e84d39"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab510d9aeeb8c17a910c0bc0733e84d39">DFFCommandProcessing</a> (in action, in d, in k)</td></tr>
+<tr class="memdesc:ab510d9aeeb8c17a910c0bc0733e84d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive ground commands and route them to the appropriate module(s).  <br /></td></tr>
+<tr class="separator:ab510d9aeeb8c17a910c0bc0733e84d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ab7b870d020e1a0258042607ec8ec6d45" name="ab7b870d020e1a0258042607ec8ec6d45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7b870d020e1a0258042607ec8ec6d45">&#9670;&#160;</a></span>DFFCommandProcessing()</h2>
+<a id="ab510d9aeeb8c17a910c0bc0733e84d39" name="ab510d9aeeb8c17a910c0bc0733e84d39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab510d9aeeb8c17a910c0bc0733e84d39">&#9670;&#160;</a></span>DFFCommandProcessing()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function DFFCommandProcessing </td>
+          <td class="memname">function DFFCommandProcessing </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
         </tr>
@@ -138,20 +138,27 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Since version 7.</p>
-<h2><a class="anchor" id="autotoc_md4430"></a>
+<pre class="fragment"> Since version 7.
+</pre><h2><a class="anchor" id="autotoc_md4367"></a>
 Form</h2>
-<p>DFFCommandProcessing( action, d, k )</p>
-<h2><a class="anchor" id="autotoc_md4431"></a>
+<pre class="fragment"> DFFCommandProcessing( action, d, k )
+</pre><h2><a class="anchor" id="autotoc_md4368"></a>
 Inputs</h2>
-<p>action (1,:) 'initialize' 'update' 'register' 'command ...' 'set ...' d (1,1) commandList when action is 'initialize' otherwise Mission elapsed time k (1,1) Unique spacecraft identifier</p>
-<h2><a class="anchor" id="autotoc_md4432"></a>
+<pre class="fragment"> action        (1,:)     'initialize' 
+                         'update'
+                         'register' 
+                         'command ...' 
+                         'set ...'
+ d             (1,1)     commandList when action is 'initialize'
+                         otherwise Mission elapsed time
+ k             (1,1)     Unique spacecraft identifier
+</pre><h2><a class="anchor" id="autotoc_md4369"></a>
 Outputs</h2>
-<p>y (:) Depends on input </p>
-
+<pre class="fragment"> y             (:)       Depends on input
+</pre> 
 <p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="group___formation_flying_functions.html#ga6e466ac60ecc580aecaf252028510b42">DFFControl()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___formation_flying_functions.html#gacfba4523cb0f018c53f6eb4b251954bf">DFFControl()</a>.</p>
 
 </div>
 </div>
@@ -160,8 +167,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_9ac725e1de0bc93e411881206520fffe.html">Software</a></li><li class="navelem"><a class="el" href="_d_f_f_command_processing_8m.html">DFFCommandProcessing.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_9ac725e1de0bc93e411881206520fffe.html">Software</a></li><li class="navelem"><a class="el" href="_d_f_f_command_processing_8m.html">DFFCommandProcessing.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

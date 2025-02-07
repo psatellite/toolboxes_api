@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/SpacecraftEstimation/Help/StellarHelp_hlp.m File Reference</title>
+<title>PSS MATLAB Toolboxes: SpacecraftEstimation/Help/StellarHelp_hlp.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -106,58 +106,51 @@ $(function(){initNavTree('_stellar_help__hlp_8m.html',''); initResizable(true); 
 <p>Stellar Help <a href="Demos/Aerospace/StellarHelp_hlp.html">Published Demo</a>  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This GUI allows you to identify stars from images. Since version 9. Control Summary Quaternion</p>
-<p>Displays the attitude quaternion obtained from the star map.</p>
-<p>Star Catalog</p>
-<p>Displays the name of the star catalog in use.</p>
-<p>Dark File</p>
-<p>The file name of the dark frame used to calibrate the images.</p>
-<p>Image File</p>
-<p>The file name of star image that is to be procesed.</p>
-<p>Identify</p>
-<p>Identify stars and compute the quaternion. This will only by enabled after the centroid button has been pushed.</p>
-<p>Centroid</p>
-<p>Identify star centroids.</p>
-<p>Select Star Catalog</p>
-<p>Select the star catalog. It will bring up a file selection dialog.</p>
-<p>Select Dark Frame</p>
-<p>Select the dark frame. It will bring up a file selection dialog.</p>
-<p>Select Image</p>
-<p>Select the star image. It will bring up a file selection dialog.</p>
-<p>Use Intensity</p>
-<p>When clicked the star id will use intensity information.</p>
-<p>Show Centroid Images</p>
-<p>This is a toggle button. When pushed it will cause the centroiding software to display the star images.</p>
-<p>Star threshold</p>
-<p>This is the minimum stellar magnitude of stars that are to be loaded from the database.</p>
-<p>Threshold</p>
-<p>This is the fraction of the maximum pixel value that will be used to threshold the star image.</p>
-<p>Dot Product Tolerance</p>
-<p>The tolerance used on dot products when doing star identification.</p>
-<p>Intensity Tolerance</p>
-<p>The tolerance used on intensity when doing star identification.</p>
-<p>Intensity Scale</p>
-<p>The scale used to convert pixel output to watts/m^2.</p>
-<p>Horiz. Pixels/Degree</p>
-<p>The horizontal angular width of a pixel.</p>
-<p>Vert. Pixels/Degree</p>
-<p>The vertical angular width of a pixel.</p>
-<p>Centroid List</p>
-<p>List of objects and their centroids from the centroiding algorithm.</p>
-<p>Star List</p>
-<p>List of identified stars.</p>
-<p>Using the GUI The Process</p>
-<p>The steps you take are: a. Select an image file. b. Set the threshold c. Hit "Centroid" d. Select a star catalog e. Enter the CCD parameters f. Hit identify</p>
-<p>Needed Data</p>
-<p>You need to have the intensity scaling data if you plan to use intensity information. This is most easily done by finding a known star, measuring the output using the centroiding algorithm, and setting the intensity scale. Once this is done you should be able to use the same number for multiple images.</p>
-<p>Back to &lt;GUIindex.html&gt; </p>
+<div class="textblock"><pre class="fragment"> This GUI allows you to identify stars from images.
+ Since version 9.
+</pre><p> Control Summary Quaternion </p><pre class="fragment">Displays the attitude quaternion obtained from the star map.
+</pre><p>Star Catalog </p><pre class="fragment">Displays the name of the star catalog in use.
+</pre><p>Dark File </p><pre class="fragment">The file name of the dark frame used to calibrate the images.
+</pre><p>Image File </p><pre class="fragment">The file name of star image that is to be procesed.
+</pre><p>Identify </p><pre class="fragment">Identify stars and compute the quaternion. This will only by enabled
+after the centroid button has been pushed.
+</pre><p>Centroid </p><pre class="fragment">Identify star centroids.
+</pre><p>Select Star Catalog </p><pre class="fragment">Select the star catalog. It will bring up a file selection dialog.
+</pre><p>Select Dark Frame </p><pre class="fragment">Select the dark frame. It will bring up a file selection dialog.
+</pre><p>Select Image </p><pre class="fragment">Select the star image. It will bring up a file selection dialog.
+</pre><p>Use Intensity </p><pre class="fragment">When clicked the star id will use intensity information.
+</pre><p>Show Centroid Images </p><pre class="fragment">This is a toggle button. When pushed it will cause the centroiding
+software to display the star images.
+</pre><p>Star threshold </p><pre class="fragment">This is the minimum stellar magnitude of stars that are to be loaded
+from the database.
+</pre><p>Threshold </p><pre class="fragment">This is the fraction of the maximum pixel value that will be used to 
+threshold the star image.
+</pre><p>Dot Product Tolerance </p><pre class="fragment">The tolerance used on dot products when doing star identification.
+</pre><p>Intensity Tolerance </p><pre class="fragment">The tolerance used on intensity when doing star identification.
+</pre><p>Intensity Scale </p><pre class="fragment">The scale used to convert pixel output to watts/m^2.
+</pre><p>Horiz. Pixels/Degree </p><pre class="fragment">The horizontal angular width of a pixel.
+</pre><p>Vert. Pixels/Degree </p><pre class="fragment">The vertical angular width of a pixel.
+</pre><p>Centroid List </p><pre class="fragment">List of objects and their centroids from the centroiding algorithm.
+</pre><p>Star List </p><pre class="fragment">List of identified stars.
+</pre><p>Using the GUI The Process </p><pre class="fragment">The steps you take are:
+a. Select an image file.
+b. Set the threshold
+c. Hit "Centroid"
+d. Select a star catalog
+e. Enter the CCD parameters
+f. Hit identify
+</pre><p>Needed Data </p><pre class="fragment">You need to have the intensity scaling data if you plan to use intensity information.
+This is most easily done by finding a known star, measuring the output using the centroiding
+algorithm, and setting the intensity scale. Once this is done you should be able
+to use the same number for multiple images.
+</pre><p>Back to &lt;GUIindex.html&gt; </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_90b9fe53e1cfddcae453a6e48ed2eac2.html">SpacecraftEstimation</a></li><li class="navelem"><a class="el" href="dir_74ec7118aedb02142bd5c29489856fc5.html">Help</a></li><li class="navelem"><a class="el" href="_stellar_help__hlp_8m.html">StellarHelp_hlp.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_90b9fe53e1cfddcae453a6e48ed2eac2.html">SpacecraftEstimation</a></li><li class="navelem"><a class="el" href="dir_74ec7118aedb02142bd5c29489856fc5.html">Help</a></li><li class="navelem"><a class="el" href="_stellar_help__hlp_8m.html">StellarHelp_hlp.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:49 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

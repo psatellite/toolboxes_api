@@ -1,4 +1,4 @@
 var _d_c_motor_parity_space_8m =
 [
-    [ "DCMotorParitySpace", "group___math_functions.html#ga3e42c70c3de90be5e5ee443a11fcaa1f", null ]
+    [ "DCMotorParitySpace", "group___math_functions.html#gaed38a011317861a42041a6adf52b5927", null ]
 ];

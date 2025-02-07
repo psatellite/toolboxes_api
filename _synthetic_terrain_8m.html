@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/OpticalNavigation/Demos/Terrain/SyntheticTerrain.m File Reference</title>
+<title>PSS MATLAB Toolboxes: OpticalNavigation/Demos/Terrain/SyntheticTerrain.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,14 +99,24 @@ $(function(){initNavTree('_synthetic_terrain_8m.html',''); initResizable(true); 
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">SyntheticTerrain.m File Reference<div class="ingroups"><a class="el" href="group___optical_navigation_group.html">OpticalNavigation Module</a> &raquo; <a class="el" href="group___optical_navigation_demos.html">OpticalNavigation Demos</a></div></div></div>
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">SyntheticTerrain.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>SyntheticTerrain is a script created to create synthetic terrain <a href="Demos/OpticalNavigation/SyntheticTerrain.html">Published Demo</a>  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1ec779449271bb01bacfa6d61cf7e01a" id="r_a1ec779449271bb01bacfa6d61cf7e01a"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ec779449271bb01bacfa6d61cf7e01a">square</a> (in hmap, in interp, in iteration, in scale, in im_m, in im_n, in input_location_x, in input_location_y, in method)</td></tr>
+<tr class="memdesc:a1ec779449271bb01bacfa6d61cf7e01a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (c) 2021 Princeton Satellite Systems, Inc.  <br /></td></tr>
+<tr class="separator:a1ec779449271bb01bacfa6d61cf7e01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Allan et al.'s work <a href="https://doi.org/10.1109/AERO.2019.8741780">https://doi.org/10.1109/AERO.2019.8741780</a> to create a s terrain generator for the lunar surface to create high resolution images from the currently available low resolution images from <a href="http://imbrium.mit.edu/">http://imbrium.mit.edu/</a></p>
+<div class="textblock"><p>function to perform square portion of square-diamond interpolation</p>
+<p>Allan et al.'s work <a href="https://doi.org/10.1109/AERO.2019.8741780">https://doi.org/10.1109/AERO.2019.8741780</a> to create a s terrain generator for the lunar surface to create high resolution images from the currently available low resolution images from <a href="http://imbrium.mit.edu/">http://imbrium.mit.edu/</a></p>
 <p>This script upscales the input image and outputs a synthetic higher resolution version of the input image:</p>
 <ol type="1">
 <li>separates the high and low frequencies of the input image</li>
@@ -124,14 +134,78 @@ $(function(){initNavTree('_synthetic_terrain_8m.html',''); initResizable(true); 
 <p>method - matrix with indices indicating if a pixel was interpolated with the square or diamond method and the iteration number. 1:iter_max are squares for each iteration. iter_max+1:iter_max+iter_max are diamonds for each iteration. useful for debugging or for understanding final image artifacts.</p>
 <p>Online resources:</p>
 <p>Diamond-square method <a href="https://stevelosh.com/blog/2016/06/diamond-square/">https://stevelosh.com/blog/2016/06/diamond-square/</a></p>
-<p>catmull rom spline <a href="https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline">https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline</a> </p>
-</div></div><!-- contents -->
+<p>catmull rom spline <a href="https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline">https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline</a></p>
+<p>SyntheticTerrain is a script created to create synthetic terrain <a href="Demos/OpticalNavigation/SyntheticTerrain.html">Published Demo</a> </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a1ec779449271bb01bacfa6d61cf7e01a" name="a1ec779449271bb01bacfa6d61cf7e01a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ec779449271bb01bacfa6d61cf7e01a">&#9670;&#160;</a></span>square()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">function square </td>
+          <td>(</td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>hmap</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>interp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>iteration</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>scale</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>im_m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>im_n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>input_location_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>input_location_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>method</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>All rights reserved.</p>
+<p>Since version 2021.1 Lunar image Fourier transform to separate high and low freq data Taken from Maggie Kautz's homework for OPTI 512L from UArizona fourier transforms to split high and low frequencies by freq input variable Fourier transform original image Make a meshgrid the same size as input image Change this variable to change frequency split Use meshgrid to greate high and low pass filters Use high and low pass filters on fourier transform of the original image Inverse fourier transform to return data we can use Take real portion of inverse fft for visualization purposes Make real portion of fft into rgb images for visualizations at the end of the code Plot frequency split to see if freq variable needs to be changed High freq: square-diamond interpolation perform square-diamond interpolation only on high frequency portion get size of high frequency portion set upscaling factor (needs to be power of 2: 2,4,8,16, etc.) set interpolation method (either 'linear' or 'spline') initilize heightmap and diamond-square method output add existing data to heightmap position original data determined by scale*x+1,scale*y+1 starts at 1,1 when x=y=0 save position of original data rename original data to square input variables Low freq: bilinear interpolation use matlab function to bilinear interpolate low frequency data Rejoin frequencies recombine processed high and low frequencies normalize make rgb for visualization Plotting Original terrain image subplots to see before and after for low and high frequencies final output image Square interpolation </p>
+
+<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="_catmull_rom_spline_8m.html#a654b784d7984ac56a102577a6dec2adf">CatmullRomSpline()</a>, <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>, <a class="el" href="acstate_8m.html#a93c860fbc0b00237698debdccbc93363">length()</a>, <a class="el" href="#a1ec779449271bb01bacfa6d61cf7e01a">square()</a>, and <a class="el" href="acstate_8m.html#a868c2ad16f7ccf1ccb3eb728b357b42f">zeros()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="group___sail_functions.html#gaa372d601a2781a3ecb9347e609c93e0b">AccelToSailProps()</a>, <a class="el" href="group___airships_functions.html#gafd7c9f68c352fff2ad10e868bdca5945">AirshipGeometry()</a>, <a class="el" href="group___interplanetary_functions.html#ga4d180fb8bf350ff0f32f9cc56719c752">AlphaCentauriSystem()</a>, <a class="el" href="group___s_c_functions.html#ga247347ba70501a9a26711ba7e700e335">AutoPoint()</a>, <a class="el" href="group___common_functions.html#gaabb11d2756794f3891360ebcbd01ca7f">C2DelZOH()</a>, <a class="el" href="group___common_functions.html#gae0280a3c5e50505ac33ca29622dec2b9">C2DFOH()</a>, <a class="el" href="group___common_functions.html#ga95ada914cb746b4e34467b066607e854">C2DPulse()</a>, <a class="el" href="group___common_functions.html#ga0a09c80ac7fd7b4e564deaf97109e3e2">C2DZOH()</a>, <a class="el" href="group___common_functions.html#ga7e3e6dcc0f52d8eec24d36c9834f5b18">C2DZOHWD()</a>, <a class="el" href="group___s_c_functions.html#gacf100f0e9edb0e7133ec17e078b353a1">CalibrateSunSensor()</a>, <a class="el" href="group___imaging_functions.html#ga51b1e334982da24b3a3e6815498b42c1">CalibrationCube()</a>, <a class="el" href="group___s_c_functions.html#ga86917bf051760215fb687b7006594165">CameraDatabase()</a>, <a class="el" href="group___s_c_functions.html#ga92286e2c0564a53b3051fc145fec0203">CameraImage()</a>, <a class="el" href="group___s_c_functions.html#gacf49cf941133d55aeff2deceb45209ca">CentroidNoise()</a>, <a class="el" href="group___a_c_functions.html#ga327cf94634e77704137844f38789fc77">ClimbAngle()</a>, <a class="el" href="group___formation_flying_functions.html#ga9a32f1f47c34362f71bfb0971cadd46f">CompareHills()</a>, <a class="el" href="group___sail_functions.html#ga884177b5dcfc3eed407dadab4233597b">ConeClockPatches()</a>, <a class="el" href="group___imaging_functions.html#ga500fc064d2172c8b56c40c0951155171">ConvolveImage()</a>, <a class="el" href="group___link_functions.html#gad4814ca90b673cc0003e4fe7aa708663">DBsmToSM()</a>, <a class="el" href="group___imaging_functions.html#ga6be72a841b911fcd1379f7e3d62d8cd5">DetectorModel()</a>, <a class="el" href="group___math_functions.html#ga5ed330f37dbcc26f79707e210a643aac">DLyapG()</a>, <a class="el" href="group___common_functions.html#ga061f45cd571626a7307937f411f08bb4">DQCE()</a>, <a class="el" href="group___airships_functions.html#ga612a35638c7a0efc82b95dc193e99cd0">DrawAirship()</a>, <a class="el" href="group___aerospace_utils_functions.html#gab3ca8a4cda409c61758568c4ca7323ee">DrawSCPlanPlugIn()</a>, <a class="el" href="group___common_functions.html#ga1341f949f92e532d2ba47a7c2b7698ab">DRiccati()</a>, <a class="el" href="group___formation_flying_functions.html#gaeaef67e7ebf754f908facd9a0ec3f2db">FindMinSet()</a>, <a class="el" href="group___a_c_functions.html#ga666e3dffc0770c8fd39882b7e2702dfc">FlightEquilibrium()</a>, <a class="el" href="group___thermal_functions.html#ga72c2fcc8f909bcd25e02da0b3e8cb89f">FrictionLaminar()</a>, <a class="el" href="group___sail_functions.html#ga02fbfcdc0d44ad305623498178779e2b">GeoOptimalMission()</a>, <a class="el" href="group___sail_functions.html#ga78f6b3b7492dc9877200c1a8ca6c5f0d">GeoSwitchingMission()</a>, <a class="el" href="group___s_c_functions.html#ga001272e53f48a1e24c0c35e944ef648e">GPSSatellite()</a>, <a class="el" href="group___math_functions.html#ga93babc45d9b85fe4287c90ec22dbb441">GridPathCost()</a>, <a class="el" href="group___math_functions.html#ga27947fba07e4a30d7004f99fa88eeac4">GridSuccessorNodes()</a>, <a class="el" href="group___math_functions.html#ga30c83699ef9ad9109daf64e4b84b09f2">GridTraverseCost()</a>, <a class="el" href="group___link_functions.html#gac15fd7c4082c82b7e7f9bd42aada7e9f">GroundStationVisibility()</a>, <a class="el" href="group___sail_functions.html#ga862d711fe39c53972a72953dabb32bf6">HRakoczy()</a>, <a class="el" href="group___a_c_functions.html#ga6a7accb8ca6074a667c370294006c9cb">HUD()</a>, <a class="el" href="group___a_c_functions.html#gad71e141f8df8d8ba2a2eeaf9cc8bb117">InducedDragCoeff()</a>, <a class="el" href="group___common_functions.html#ga784219cdec55ea3e8e63e535608eae1e">IntersectPlaneAndSphere()</a>, <a class="el" href="group___aerospace_utils_functions.html#gaa13a746ff8d11fcd7f0ee47c15093020">LatLonToR()</a>, <a class="el" href="group___math_functions.html#ga37bf02767d0df127868a14eb139d9f1d">LyapG()</a>, <a class="el" href="group___sail_functions.html#ga1062d49a0c67bbf57c622c32dae3343e">MakeSquareSail()</a>, <a class="el" href="group___common_functions.html#ga01df62b8b9c38a66c0b3a0b8ca63b599">MSR()</a>, <a class="el" href="group___formation_flying_functions.html#ga8f858ee88327d4e102a02a666f79efb8">OptimalAssignment()</a>, <a class="el" href="group___orbit_functions.html#gac305b05b1e9f9fce26a53be902e66dbf">OrbitalPlane()</a>, <a class="el" href="group___orbit_functions.html#ga652b7341bff52b9de2abeac5e37e36fb">OrbMnvrHohmann()</a>, <a class="el" href="group___interplanetary_functions.html#ga6493d0c99d60f6edac0b34967b22c4f4">PlanetTransferLambert()</a>, <a class="el" href="group___orbit_functions.html#gada905ec25c899f178d67ad71b0df11d3">PlotLambertTransfer()</a>, <a class="el" href="group___s_c_functions.html#ga6c8e5f567fc33c427fed6cda58ecf03d">PltOrbit()</a>, <a class="el" href="group___s_c_functions.html#ga1bc6779169b034ce51287da0bcd2833e">PointCameraModel()</a>, <a class="el" href="group___thermal_functions.html#gac4cb6421e2e6c573be393f23e0cb33c5">PressureDropChannel()</a>, <a class="el" href="group___common_functions.html#gafe09938187676590752a871e657099f3">QCE()</a>, <a class="el" href="group___link_functions.html#ga49fa359b18f5b6909264e73485b7440e">RadarCrosssection()</a>, <a class="el" href="group___spacecraft_estimation_functions.html#gab97c0d14f8d0b8115cd6013b10f29411">RADecToPix()</a>, <a class="el" href="group___math_functions.html#gad760962dc73dddc5af588b1ee4d16b41">RandChiSquared()</a>, <a class="el" href="group___spacecraft_estimation_functions.html#gab59376875d83844d462a3250b9243526">ReshapeCovariance()</a>, <a class="el" href="group___common_functions.html#gaa963273b5e85a4c2c3d6b5282e67568d">Riccati()</a>, <a class="el" href="group___sail_functions.html#gafc8c1646d022a1e6440bc8b896322035">S4DeployTorque()</a>, <a class="el" href="group___sail_functions.html#ga596bc002b7272e5421a2a5ae81778924">SailEnvironment()</a>, <a class="el" href="group___link_functions.html#gaa3071a9d999ff9c985f3ba77cd03a8a5">SatelliteVisibility()</a>, <a class="el" href="group___math_functions.html#gad654657064a563ed4bc90316e2ba9cdd">SkewSq()</a>, <a class="el" href="group___link_functions.html#ga4b088dfda81cf1d78e91e8ca41ad91b9">SMToDBsm()</a>, <a class="el" href="group___thermal_functions.html#ga577919527579ff317088cd7396bad463">SpaceCamera()</a>, <a class="el" href="group___spacecraft_estimation_functions.html#ga3a58cc4c1455370e317d01a8ac778a71">SqrFOV()</a>, <a class="el" href="#a1ec779449271bb01bacfa6d61cf7e01a">square()</a>, <a class="el" href="group___spacecraft_estimation_functions.html#gaf40e531ada3d4768aafa095d97eaa575">StarDensity()</a>, <a class="el" href="group___spacecraft_estimation_functions.html#ga6b3d0e61dd651ef12f6275e37e8617ec">StarPrediction()</a>, <a class="el" href="group___s_c_functions.html#gac31bf734f7e20459d7f23bc89f133c5d">SunSensor()</a>, <a class="el" href="group___common_functions.html#gab3e4f86cfb737d749d7df6623085e7f7">Symmetrize()</a>, <a class="el" href="group___math_functions.html#ga5c152106726f7c5f8c6526466230714c">TransformGridCoordinates()</a>, <a class="el" href="group___common_functions.html#ga6312bee9b5baa9001cb70b302e466b12">Truss()</a>, <a class="el" href="group___common_functions.html#ga0998303171b4c63b6d1e03b7be65962a">UKF()</a>, <a class="el" href="group___sail_functions.html#ga926f960ea1f65673486549e04ffa89e7">VisualizeSailAttitude()</a>, <a class="el" href="group___math_functions.html#gacb3c20551bb470789ff4bec458450c7a">WorstFirstAssignment()</a>, and <a class="el" href="group___imaging_functions.html#gab72e2c867ba26f53807018ec08477a92">ZodiacalLight()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_61ff521ec6e579c70834ab20b09d8895.html">OpticalNavigation</a></li><li class="navelem"><a class="el" href="dir_86e43fb3e31e9403477dc2da2a227500.html">Demos</a></li><li class="navelem"><a class="el" href="dir_072969b3734c5585e739b5479abbdf13.html">Terrain</a></li><li class="navelem"><a class="el" href="_synthetic_terrain_8m.html">SyntheticTerrain.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_61ff521ec6e579c70834ab20b09d8895.html">OpticalNavigation</a></li><li class="navelem"><a class="el" href="dir_86e43fb3e31e9403477dc2da2a227500.html">Demos</a></li><li class="navelem"><a class="el" href="dir_072969b3734c5585e739b5479abbdf13.html">Terrain</a></li><li class="navelem"><a class="el" href="_synthetic_terrain_8m.html">SyntheticTerrain.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

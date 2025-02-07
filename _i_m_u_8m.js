@@ -1,4 +1,4 @@
 var _i_m_u_8m =
 [
-    [ "IMU", "group___s_c_functions.html#gaa28f80def013b77a0eb7a7c4aad6b18c", null ]
+    [ "IMU", "group___s_c_functions.html#ga0cc6ab29e5b16a5e2c0b97853a972ab1", null ]
 ];

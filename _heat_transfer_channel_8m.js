@@ -1,4 +1,4 @@
 var _heat_transfer_channel_8m =
 [
-    [ "HeatTransferChannel", "group___thermal_functions.html#ga8463d61f62d41aaf1c8477d2716aa14c", null ]
+    [ "HeatTransferChannel", "group___thermal_functions.html#ga4e493aaa0a062080fc914c45f4ac3dac", null ]
 ];

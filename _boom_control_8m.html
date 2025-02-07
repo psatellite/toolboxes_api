@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Sail/Demos/Control/BoomControl.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Sail/Demos/Control/BoomControl.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('_boom_control_8m.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">BoomControl.m File Reference<div class="ingroups"><a class="el" href="group___sail_group.html">Sail Module</a> &raquo; <a class="el" href="group___sail_demos.html">Sail Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">BoomControl.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -107,30 +107,45 @@ $(function(){initNavTree('_boom_control_8m.html',''); initResizable(true); });
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a href="Demos/Sail/BoomControl.html">Published Demo</a></p>
-<p>This demo uses the PlateWithBoom CAD model. The gimbals have a 1-2 sequence, first around the X axis and then around the Y axis. The control law is designed using PIDMIMO. There is no roll actuation and therefore the attitude trajectory must use only Y and Z torques.</p>
-<p>The attitude dynamics assume fixed gimbal rates. The CAD model is a perfectly specular plate with a control boom.</p>
-<p>Functions demonstrated: PIDMIMO ConeClockToQConstrained HGimballedBoom TwoBodyRateModel SailDisturbance</p>
-<p>Since version 7.</p>
-<dl class="section see"><dt>See also</dt><dd>BoomActuation, which rotates the gimbals without following a </dd>
+<pre class="fragment"> This demo uses the PlateWithBoom CAD model. The gimbals have a 
+ 1-2 sequence, first around the X axis and then around the Y axis. 
+ The control law is designed using PIDMIMO. There is no roll 
+ actuation and therefore the attitude trajectory must use 
+ only Y and Z torques.
+
+
+ The attitude dynamics assume fixed gimbal rates. 
+ The CAD model is a perfectly specular plate with a control boom.
+
+
+ Functions demonstrated:
+ PIDMIMO
+ ConeClockToQConstrained
+ HGimballedBoom
+ TwoBodyRateModel
+ SailDisturbance
+
+
+ Since version 7.
+</pre><dl class="section see"><dt>See also</dt><dd>BoomActuation, which rotates the gimbals without following a </dd>
 <dd>
-specific control law., <a class="el" href="group___a_c_functions.html#ga6aff0365bb05ed71875480d2516d2698" title="Dynamics model for an aircraft.">AC</a>, <a class="el" href="group___a_c_functions.html#gae938d2bb067c73020775ceb4409a99b2" title="Plots the aircraft data.">ACPlot</a>, <a class="el" href="group___aerospace_utils_functions.html#gaa5a009a4a5c576eaeed0f1004d87546f" title="Determine cross-sectional area from CAD model.">CrossSection</a>, <a class="el" href="group___aerospace_utils_functions.html#ga19bd263ddf0227441508aad52ff2f256" title="Draw a spacecraft CAD model in a plain 3D box with Gouraud lighting.">DrawSCPlanPlugIn</a></dd>
+specific control law., <a class="el" href="group___a_c_functions.html#ga1271c5c182805a10d3b24cfde3be8808" title="Dynamics model for an aircraft.">AC</a>, <a class="el" href="group___a_c_functions.html#ga26f946f060f9ee9c237203f5deaebbe6" title="Plots the aircraft data.">ACPlot</a>, <a class="el" href="group___aerospace_utils_functions.html#gaa81508b1f52900b4b0a3f248be510331" title="Determine cross-sectional area from CAD model.">CrossSection</a>, <a class="el" href="group___aerospace_utils_functions.html#gab3ca8a4cda409c61758568c4ca7323ee" title="Draw a spacecraft CAD model in a plain 3D box with Gouraud lighting.">DrawSCPlanPlugIn</a></dd>
 <dd>
-<a class="el" href="group___common_functions.html#gac1ad2574cafad301304f2a4b077dc3fd" title="Produces a state space n degree of freedom PID controller.">PIDMIMO</a>, <a class="el" href="group___common_functions.html#gae560a4e0a6618f9759193ce6956e9c0b" title="Transforms a vector in the direction of the quaternion.">QForm</a>, <a class="el" href="group___common_functions.html#ga310e0ff2e7e7510a5a64e64bc1317da6" title="Multiply two quaternions.">QMult</a>, <a class="el" href="group___common_functions.html#gae34cfbff6258c1e27ba06e984be478ba" title="Transpose of a quaternion.">QPose</a>, <a class="el" href="group___common_functions.html#ga8225cf186f4bd8843a219b98f1d08d75" title="Transforms a vector opposite the direction of the quaternion.">QTForm</a>, <a class="el" href="group___common_functions.html#ga333e57e54da5b1629f5fac27222949c3" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#gaa1bbddfdac326fa68664604280cfec64" title="Manages the wait bar.">WaitBarManager</a>, <a class="el" href="group___common_functions.html#gad8224b630862781e5b991a2741964ab3" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a></dd>
+<a class="el" href="group___common_functions.html#gad412ba3d9c1a2f7559ac0de6981100a0" title="Produces a state space n degree of freedom PID controller.">PIDMIMO</a>, <a class="el" href="group___common_functions.html#ga7d3c7fb06a85848dbbdcf0e6cbcf17fb" title="Transforms a vector in the direction of the quaternion.">QForm</a>, <a class="el" href="group___common_functions.html#gaca51a78bd8f4873eac408b409cd231c7" title="Multiply two quaternions.">QMult</a>, <a class="el" href="group___common_functions.html#ga3236818ea5277837d0dfcbb565ac9437" title="Transpose of a quaternion.">QPose</a>, <a class="el" href="group___common_functions.html#gab63f3ad8219a695021616d47b8a163a3" title="Transforms a vector opposite the direction of the quaternion.">QTForm</a>, <a class="el" href="group___common_functions.html#ga3a2fd4c8c08b56a14ca41af691af1905" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#ga9788cfd2d133490ccdc92a9f9e24f322" title="Manages the wait bar.">WaitBarManager</a>, <a class="el" href="group___common_functions.html#ga5c1f468d16ddd7a9d4049311428be679" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a></dd>
 <dd>
-<a class="el" href="group___common_functions.html#gaf96f2212c8decc8858e5f70f81ce5ef3" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga1dc2fa66a4f35374ed94a34daa86e513" title="Magnitude of a set of vectors.">Mag</a>, <a class="el" href="group___math_functions.html#ga0effcdde6bb79d7705aef465a7f987c2" title="Fourth order Runge-Kutta.">RK4</a>, <a class="el" href="group___math_functions.html#gac94e3328682f937211287f266dfd0a47" title="Unitize vectors by column.">Unit</a>, <a class="el" href="group___common_functions.html#gad9cd05ee0fe34d133490710851868f82" title="Returns the Julian Date for J2000.0 0d 0h UT.">JD2000</a>, <a class="el" href="group___orbit_functions.html#gaed91df46bdea0396c2055f146c5644f4" title="Converts orbital elements to r and v for an elliptic orbit.">El2RV</a>, <a class="el" href="group___s_c_functions.html#ga90fafa33cf2087052ef44641145a45c6" title="Models accelerometers.">Accel</a>, <a class="el" href="group___sail_functions.html#gae421764644ba2b7ee15db95c05897dd7" title="Compute commanded gimbal rates based on commanded angles and a fixed rate.">GimbalRates</a></dd>
+<a class="el" href="group___common_functions.html#ga5a8e26df8ab9db2da1c5c2e834d64c7d" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga4b519b77f25a768b7bcde40daeb0acb5" title="Magnitude of a set of vectors.">Mag</a>, <a class="el" href="group___math_functions.html#ga2bd3d421395eeb70502e6fd0f9959089" title="Fourth order Runge-Kutta.">RK4</a>, <a class="el" href="group___math_functions.html#gad24742367c4da86ab9b4e50fc2a70948" title="Unitize vectors by column.">Unit</a>, <a class="el" href="group___common_functions.html#ga27f3dfb980e396d07b061dab831d7a12" title="Returns the Julian Date for J2000.0 0d 0h UT.">JD2000</a>, <a class="el" href="group___orbit_functions.html#ga5afb2fb1d6667a79269e1376665d1064" title="Converts orbital elements to r and v for an elliptic orbit.">El2RV</a>, <a class="el" href="group___s_c_functions.html#ga29e494da3df2442768f67827b5b1e79a" title="Models accelerometers.">Accel</a>, <a class="el" href="group___sail_functions.html#ga4d88d3868b46724a5356a3848c7eb5e6" title="Compute commanded gimbal rates based on commanded angles and a fixed rate.">GimbalRates</a></dd>
 <dd>
-<a class="el" href="group___sail_functions.html#ga5e5274dafe785d2edaec5522fe826109" title="Calculate angular momentum of boom system and update the body rates.">HGimballedBoom</a>, <a class="el" href="group___sail_functions.html#ga1089a4f13ee7c689eaa89d6770142bed" title="Compute a quaternion from cone and clock angles.">ConeClockToQConstrained</a>, <a class="el" href="group___sail_functions.html#ga9f60d1b6a501362eff3ac271b6b16342" title="Quaternion from inertial to the local rotating sun-sail frame.">QSail</a>, <a class="el" href="group___sail_functions.html#ga323bf1c1b9d36ee096e90828748d23e9" title="Computes cone and clock angles from an inertial to body quaternion.">QToConeClock</a></dd>
+<a class="el" href="group___sail_functions.html#ga4030dbcfbd37d5f05e182858a90573a7" title="Calculate angular momentum of boom system and update the body rates.">HGimballedBoom</a>, <a class="el" href="group___sail_functions.html#gab3d80c770e5e9edb306af7b275f00ba7" title="Compute a quaternion from cone and clock angles.">ConeClockToQConstrained</a>, <a class="el" href="group___sail_functions.html#gadf2ed0c526ca7a3ae7312b69b072c370" title="Quaternion from inertial to the local rotating sun-sail frame.">QSail</a>, <a class="el" href="group___sail_functions.html#gabef7afa8e24b27dfdd53c0c1fde7960b" title="Computes cone and clock angles from an inertial to body quaternion.">QToConeClock</a></dd>
 <dd>
-<a class="el" href="group___sail_functions.html#ga78e87d271ba003764ff54ece021c1ec2" title="Transformation matrix for an arbitrary number of single axis rotations.">HingeRotationMatrix</a>, <a class="el" href="group___sail_functions.html#gaa2a466f40a74efd840c8122b922cb26f" title="Return a default profile structure for SailDisturbance.">ProfileStruct</a>, <a class="el" href="group___sail_functions.html#ga642d5f3e7c33d785e5ccd0356adb3b17" title="Compute the forces and torques on a solar sail vehicle.">SailDisturbance</a></dd></dl>
-<p>Copyright (c) 2005,2006 Princeton Satellite Systems, Inc.</p>
-<p>All rights reserved. </p>
-</div></div><!-- contents -->
+<a class="el" href="group___sail_functions.html#ga1c24c04a865c8f09d9d5072e5a8343a5" title="Transformation matrix for an arbitrary number of single axis rotations.">HingeRotationMatrix</a>, <a class="el" href="group___sail_functions.html#gaae11ef83368757bff4761d350b908b32" title="Return a default profile structure for SailDisturbance.">ProfileStruct</a>, <a class="el" href="group___sail_functions.html#ga0e002a11377005d7517911edd5a88af2" title="Compute the forces and torques on a solar sail vehicle.">SailDisturbance</a></dd></dl>
+<p>Copyright (c) 2005,2006 Princeton Satellite Systems, Inc. </p><pre class="fragment"> All rights reserved.
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_30d4bb0c100869f6710ebe9d77c1283e.html">Sail</a></li><li class="navelem"><a class="el" href="dir_c1994c0c679903e12e391b93719718e5.html">Demos</a></li><li class="navelem"><a class="el" href="dir_31ffdfa0de5d3e2610f1f5463a1752e7.html">Control</a></li><li class="navelem"><a class="el" href="_boom_control_8m.html">BoomControl.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_30d4bb0c100869f6710ebe9d77c1283e.html">Sail</a></li><li class="navelem"><a class="el" href="dir_c1994c0c679903e12e391b93719718e5.html">Demos</a></li><li class="navelem"><a class="el" href="dir_31ffdfa0de5d3e2610f1f5463a1752e7.html">Control</a></li><li class="navelem"><a class="el" href="_boom_control_8m.html">BoomControl.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,4 @@
 var _lambert_double_rendezvous_8m =
 [
-    [ "LambertDoubleRendezvous", "group___interplanetary_functions.html#ga431275efe7a5b9b22ee6516923a2cd67", null ]
+    [ "LambertDoubleRendezvous", "group___interplanetary_functions.html#ga8325766fad3d92ef9316eaaf0c8718da", null ]
 ];

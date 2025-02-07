@@ -1,4 +1,4 @@
 var _alfriend2_el_8m =
 [
-    [ "Alfriend2El", "_alfriend2_el_8m.html#a8d30235b886dc027c72dec32b349039b", null ]
+    [ "Alfriend2El", "_alfriend2_el_8m.html#aba74b32384218fdd88c4f8fab4e95ba7", null ]
 ];

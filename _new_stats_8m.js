@@ -1,4 +1,4 @@
 var _new_stats_8m =
 [
-    [ "NewStats", "group___math_functions.html#gad9761b07dc084053bab5f36835fab2dc", null ]
+    [ "NewStats", "group___math_functions.html#ga740e9e16e2e6accf2716831bff667ff3", null ]
 ];

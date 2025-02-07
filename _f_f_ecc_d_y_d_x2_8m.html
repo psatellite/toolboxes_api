@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/EccDynamics/Derivatives/FFEccDYDX2.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/EccDynamics/Derivatives/FFEccDYDX2.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,19 +110,19 @@ $(function(){initNavTree('_f_f_ecc_d_y_d_x2_8m.html',''); initResizable(true); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac36c039c7a240bc70bf30c93da6a5efa" id="r_ac36c039c7a240bc70bf30c93da6a5efa"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac36c039c7a240bc70bf30c93da6a5efa">FFEccDYDX2</a> (in nu, in e, in ignoredArg)</td></tr>
-<tr class="memdesc:ac36c039c7a240bc70bf30c93da6a5efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the second derivative of y with respect to x on an ellipse.  <br /></td></tr>
-<tr class="separator:ac36c039c7a240bc70bf30c93da6a5efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d9307a5344657869fe4efb71ea7665b" id="r_a9d9307a5344657869fe4efb71ea7665b"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d9307a5344657869fe4efb71ea7665b">FFEccDYDX2</a> (in nu, in e, in ignoredArg)</td></tr>
+<tr class="memdesc:a9d9307a5344657869fe4efb71ea7665b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the second derivative of y with respect to x on an ellipse.  <br /></td></tr>
+<tr class="separator:a9d9307a5344657869fe4efb71ea7665b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac36c039c7a240bc70bf30c93da6a5efa" name="ac36c039c7a240bc70bf30c93da6a5efa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac36c039c7a240bc70bf30c93da6a5efa">&#9670;&#160;</a></span>FFEccDYDX2()</h2>
+<a id="a9d9307a5344657869fe4efb71ea7665b" name="a9d9307a5344657869fe4efb71ea7665b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d9307a5344657869fe4efb71ea7665b">&#9670;&#160;</a></span>FFEccDYDX2()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function FFEccDYDX2 </td>
+          <td class="memname">function FFEccDYDX2 </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>nu</em></span>, </td>
         </tr>
@@ -138,23 +138,26 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Here, x is along the major axis and y is along the minor axis.</p>
-<p>This function is called by the "FFEccTrueAnomZInc" function to find the true <br  />
- anomaly at which the maximum cross-track separation occurs, assuming a pure inclination difference (no right ascension difference). <br  />
-</p>
-<h2><a class="anchor" id="autotoc_md4152"></a>
-Form</h2>
-<p>dydx2 = FFEccDYDX2( nu, e, w );</p>
-<h2><a class="anchor" id="autotoc_md4153"></a>
-Inputs</h2>
-<p>nu (1,N) True anomaly [rad] e (1) Eccentricity</p>
-<h2><a class="anchor" id="autotoc_md4154"></a>
-Outputs</h2>
-<p>dydx2 (1,N) Second derivative of y w.r.t. x at each true anomaly</p>
-<p>Copyright 2004 Princeton Satellite Systems, Inc.</p>
-<p>All rights reserved.</p>
-<p>Since version 7. </p>
+<pre class="fragment"> Here, x is along the major axis and y is along the minor axis.
 
+
+ This function is called by the "FFEccTrueAnomZInc" function to find the true  
+ anomaly at which the maximum cross-track separation occurs, assuming a pure 
+ inclination difference (no right ascension difference).  
+</pre><h2><a class="anchor" id="autotoc_md4089"></a>
+Form</h2>
+<pre class="fragment"> dydx2 = FFEccDYDX2( nu, e, w );
+</pre><h2><a class="anchor" id="autotoc_md4090"></a>
+Inputs</h2>
+<pre class="fragment"> nu              (1,N)  True anomaly [rad]
+ e                (1)   Eccentricity
+</pre><h2><a class="anchor" id="autotoc_md4091"></a>
+Outputs</h2>
+<pre class="fragment"> dydx2           (1,N)  Second derivative of y w.r.t. x at each true anomaly
+</pre><p>Copyright 2004 Princeton Satellite Systems, Inc.</p>
+<p>All rights reserved.</p>
+<pre class="fragment"> Since version 7.
+</pre> 
 <p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>.</p>
 
 </div>
@@ -164,8 +167,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_b3e48c05240b402f263141829698d7aa.html">EccDynamics</a></li><li class="navelem"><a class="el" href="dir_7c9ef0ae47091d8bfca40657f20bea07.html">Derivatives</a></li><li class="navelem"><a class="el" href="_f_f_ecc_d_y_d_x2_8m.html">FFEccDYDX2.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_b3e48c05240b402f263141829698d7aa.html">EccDynamics</a></li><li class="navelem"><a class="el" href="dir_7c9ef0ae47091d8bfca40657f20bea07.html">Derivatives</a></li><li class="navelem"><a class="el" href="_f_f_ecc_d_y_d_x2_8m.html">FFEccDYDX2.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

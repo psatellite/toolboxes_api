@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/SC/Dynamics/PlotFlex.m File Reference</title>
+<title>PSS MATLAB Toolboxes: SC/Dynamics/PlotFlex.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,7 +110,7 @@ Functions</h2></td></tr>
 <tr class="memitem:af62134d2af9690e0b7613d687454d804" id="r_af62134d2af9690e0b7613d687454d804"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af62134d2af9690e0b7613d687454d804">PlotFlex</a> (in d, in eta, in opt)</td></tr>
 <tr class="separator:af62134d2af9690e0b7613d687454d804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28ed42adb6e026503e23c4e2aed15878" id="r_a28ed42adb6e026503e23c4e2aed15878"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28ed42adb6e026503e23c4e2aed15878">PlotModeShape</a> (in d, in eta, in mode)</td></tr>
-<tr class="memdesc:a28ed42adb6e026503e23c4e2aed15878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plots the flex model including the mode shapes.  <br /></td></tr>
+<tr class="memdesc:a28ed42adb6e026503e23c4e2aed15878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (c) 1997-2005 Princeton Satellite Systems, Inc.  <br /></td></tr>
 <tr class="separator:a28ed42adb6e026503e23c4e2aed15878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -138,9 +138,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="group___s_c_functions.html#ga726adb16000c90a1cd5deee48bad4c5f">GetFlex()</a>, <a class="el" href="statespace_8m.html#aed9dbb8af76caf0e678e3a4161041fe9">isempty()</a>, <a class="el" href="#af62134d2af9690e0b7613d687454d804">PlotFlex()</a>, and <a class="el" href="#a28ed42adb6e026503e23c4e2aed15878">PlotModeShape()</a>.</p>
+<p class="reference">References <a class="el" href="group___s_c_functions.html#ga2671370fd4fd4da23d09077b2d02616a">GetFlex()</a>, <a class="el" href="statespace_8m.html#aed9dbb8af76caf0e678e3a4161041fe9">isempty()</a>, <a class="el" href="#af62134d2af9690e0b7613d687454d804">PlotFlex()</a>, and <a class="el" href="#a28ed42adb6e026503e23c4e2aed15878">PlotModeShape()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="group___s_c_functions.html#ga726adb16000c90a1cd5deee48bad4c5f">GetFlex()</a>, and <a class="el" href="#af62134d2af9690e0b7613d687454d804">PlotFlex()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___s_c_functions.html#ga2671370fd4fd4da23d09077b2d02616a">GetFlex()</a>, and <a class="el" href="#af62134d2af9690e0b7613d687454d804">PlotFlex()</a>.</p>
 
 </div>
 </div>
@@ -167,22 +167,47 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If only d is entered (first form below) the function will plot the mode shapes for unit mode displacments. The 'model' option plots the total node displacement for the given mode displacement, eta. The 'nodes' option plots the total node displacment for unit modal displacements.</p>
-<p>See GetFlex for formatting data into the needed structure.</p>
-<h2><a class="anchor" id="autotoc_md8629"></a>
-Form</h2>
-<p>PlotFlex( d ) PlotFlex( d, eta, opt )</p>
-<h2><a class="anchor" id="autotoc_md8630"></a>
-Inputs</h2>
-<p>d (:) Flex model data structure .name (1,:) Name of the component .nNodes (1,1) Number of nodes .nModes (1,1) Number of modes .node (n) Node data structure .r (3,1) Location of each node with respect to the origin .mass (1,1) Mass of each node .inertia (3,3) Inertia of each node .nodeID (1,1) Node id .mode (m) Mode data structure .modeID (1,1) Mode id .phi (6,n) x = phi*eta where eta is the mode displacement .omega (1,1) Modal frequency eta (m) Mode displacements* opt (p,:) Options* 'mode shapes' (default value) 'model', total node displacement 'nodes'</p><ul>
-<li>Optional inputs</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md8631"></a>
-Outputs</h2>
-<p>None Copyright (c) 1997-2005 Princeton Satellite Systems, Inc.</p>
-<p>All rights reserved. Plot the mode shape </p>
+<pre class="fragment"> Plots the flex model including the mode shapes. 
+ If only d is entered (first form below) the function will plot the mode
+ shapes for unit mode displacments. The 'model' option plots the total node
+ displacement for the given mode displacement, eta. The 'nodes' option plots
+ the total node displacment for unit modal displacements.
 
-<p class="reference">References <a class="el" href="statespace_8m.html#aed9dbb8af76caf0e678e3a4161041fe9">isempty()</a>, <a class="el" href="acstate_8m.html#a93c860fbc0b00237698debdccbc93363">length()</a>, <a class="el" href="group___common_functions.html#ga744659571504739313271c967d5c3043">NewFig()</a>, <a class="el" href="group___common_functions.html#gad8224b630862781e5b991a2741964ab3">Plot2D()</a>, <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>, <a class="el" href="group___common_functions.html#gab795a56d3c8e2914aa6b373350006298">TitleS()</a>, <a class="el" href="group___common_functions.html#gadbcf7e8aa884881f6243670a40300e1c">XLabelS()</a>, <a class="el" href="group___common_functions.html#gaa9c18f12794cf2770b2b7d27ed3283a5">YLabelS()</a>, <a class="el" href="acstate_8m.html#a868c2ad16f7ccf1ccb3eb728b357b42f">zeros()</a>, and <a class="el" href="group___common_functions.html#gafc92f0fef577c8878087a5e830792e81">ZLabelS()</a>.</p>
+
+ See GetFlex for formatting data into the needed structure.
+</pre><h2><a class="anchor" id="autotoc_md8380"></a>
+Form</h2>
+<pre class="fragment"> PlotFlex( d )
+ PlotFlex( d, eta, opt )
+</pre><h2><a class="anchor" id="autotoc_md8381"></a>
+Inputs</h2>
+<pre class="fragment"> d      (:)     Flex model data structure
+                .name   (1,:)   Name of the component
+                .nNodes (1,1)   Number of nodes
+                .nModes (1,1)   Number of modes
+                .node   (n)     Node data structure
+                                .r       (3,1)  Location of each node
+                                                with respect to the origin
+                                .mass    (1,1)  Mass of each node
+                                .inertia (3,3)  Inertia of each node
+                                .nodeID  (1,1)  Node id
+                .mode   (m)     Mode data structure
+                                .modeID  (1,1)  Mode id
+                                .phi     (6,n)  x = phi*eta where
+                                               eta is the mode displacement
+                                .omega   (1,1)  Modal frequency
+ eta    (m)     Mode displacements*
+ opt    (p,:)   Options*        'mode shapes' (default value)
+                                'model', total node displacement
+                                'nodes'
+                                    * Optional inputs
+</pre><h2><a class="anchor" id="autotoc_md8382"></a>
+Outputs</h2>
+<pre class="fragment"> None
+</pre> <pre class="fragment"> All rights reserved.
+</pre><p> Plot the mode shape </p>
+
+<p class="reference">References <a class="el" href="statespace_8m.html#aed9dbb8af76caf0e678e3a4161041fe9">isempty()</a>, <a class="el" href="acstate_8m.html#a93c860fbc0b00237698debdccbc93363">length()</a>, <a class="el" href="group___common_functions.html#gaf0e1b0ea8a7f6e57910e4b55b57ea369">NewFig()</a>, <a class="el" href="group___common_functions.html#ga5c1f468d16ddd7a9d4049311428be679">Plot2D()</a>, <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>, <a class="el" href="group___common_functions.html#gaeca3ec9be91d33d8b95904c431c6e4d0">TitleS()</a>, <a class="el" href="group___common_functions.html#gac9aa46a0522738d5b0517cbad1801f87">XLabelS()</a>, <a class="el" href="group___common_functions.html#ga44852ccbe0e2aa704e7fa3fa174203dc">YLabelS()</a>, <a class="el" href="acstate_8m.html#a868c2ad16f7ccf1ccb3eb728b357b42f">zeros()</a>, and <a class="el" href="group___common_functions.html#ga093a9fb1a6b4e968d9ae74917ddf109b">ZLabelS()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#af62134d2af9690e0b7613d687454d804">PlotFlex()</a>.</p>
 
@@ -193,8 +218,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_57d1b70c649d31ec87936898fd99801f.html">SC</a></li><li class="navelem"><a class="el" href="dir_a20eb66087c2f57a704f6f952a196572.html">Dynamics</a></li><li class="navelem"><a class="el" href="_plot_flex_8m.html">PlotFlex.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_57d1b70c649d31ec87936898fd99801f.html">SC</a></li><li class="navelem"><a class="el" href="dir_a20eb66087c2f57a704f6f952a196572.html">Dynamics</a></li><li class="navelem"><a class="el" href="_plot_flex_8m.html">PlotFlex.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:49 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

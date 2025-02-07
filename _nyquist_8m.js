@@ -1,4 +1,4 @@
 var _nyquist_8m =
 [
-    [ "Nyquist", "group___common_functions.html#ga349a21a8c9c1e867d3eefcc079c6d3f9", null ]
+    [ "Nyquist", "group___common_functions.html#ga171dbd176e0a1f34c1c9fb41831dd43e", null ]
 ];

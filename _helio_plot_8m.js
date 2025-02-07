@@ -1,4 +1,4 @@
 var _helio_plot_8m =
 [
-    [ "HelioPlot", "group___interplanetary_functions.html#gad2a96b908f42a030ea4d57be27f1c7cb", null ]
+    [ "HelioPlot", "group___interplanetary_functions.html#ga89706992edc5cbaca9cf4fa537193244", null ]
 ];

@@ -1,4 +1,4 @@
 var _derivation_template_8m =
 [
-    [ "DerivationTemplate", "group___plotting_functions.html#ga241c6a71871d6db991ea1fd7d6547c99", null ]
+    [ "DerivationTemplate", "group___plotting_functions.html#gab71b56a079d0fa64232aa7b7d7b9d678", null ]
 ];

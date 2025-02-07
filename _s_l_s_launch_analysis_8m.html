@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Propulsion/Demos/Rocket/SLSLaunchAnalysis.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Propulsion/Demos/Rocket/SLSLaunchAnalysis.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,14 +99,24 @@ $(function(){initNavTree('_s_l_s_launch_analysis_8m.html',''); initResizable(tru
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">SLSLaunchAnalysis.m File Reference<div class="ingroups"><a class="el" href="group___propulsion_group.html">Propulsion Module</a> &raquo; <a class="el" href="group___propulsion_demos.html">Propulsion Demos</a></div></div></div>
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">SLSLaunchAnalysis.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Artemis Launch Analysis <a href="Demos/Propulsion/SLSLaunchAnalysis.html">Published Demo</a>  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a3deb6195e47f0fa61634301c096fe684" id="r_a3deb6195e47f0fa61634301c096fe684"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3deb6195e47f0fa61634301c096fe684">DVFromMassAndIsp</a> (in mF, in mT, in iSp)</td></tr>
+<tr class="memdesc:a3deb6195e47f0fa61634301c096fe684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (c) 2022 Princeton Satellite Systems, Inc.  <br /></td></tr>
+<tr class="separator:a3deb6195e47f0fa61634301c096fe684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This script analyzes the SLS launch vehicle. It designs an all-liquid booster, using the same RS-25 engines, and compares the performance. It includes launch simulations.</p>
+<div class="textblock"><p>Compute the change in velocity, DV, from masses and iSp dV = DVFromMassAndIsp( mF, mT, iSp )</p>
+<p>This script analyzes the SLS launch vehicle. It designs an all-liquid booster, using the same RS-25 engines, and compares the performance. It includes launch simulations.</p>
 <p>The following gives reference information used in the script.</p>
 <p><em>System</em></p>
 <p><a href="https://www.nasa.gov/exploration/systems/sls/factsheets.html">https://www.nasa.gov/exploration/systems/sls/factsheets.html</a> <a href="http://www.braeunig.us/space/specs/sls.htm">http://www.braeunig.us/space/specs/sls.htm</a></p>
@@ -117,19 +127,54 @@ $(function(){initNavTree('_s_l_s_launch_analysis_8m.html',''); initResizable(tru
 <p>Length: Approximately 212 feet (64.6 meters) Diameter: 27.6 feet (8.4 meters) Dry mass: Approximately 188,000 lbs (85,275 kg) Burnout mass: 112,000 kg Usable propellant mass: 979,452 kg Capacities: Liquid Hydrogen (LH2) 537,000 gallons (2 million liters) (317,000 pounds) | Liquid Oxygen (LOX)196,000 gallons (741,941 liters) (1.86 million pounds)</p>
 <p><em>RS-25D Details:</em></p>
 <p>Thrust: 416,300 lbs. (~1860 kN) (sea level), 512,300 lbs. (2280 kN) (vacuum) Specific impulse: 363 s (sea level), 453 s (vacuum) Dry Mass: 3,525 kg</p>
-<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___propulsion_functions.html#ga0766039d9c5bc624959817b35bec8ab2" title="Generic rocket model as a function of altitude.">RocketModel</a>, <a class="el" href="group___propulsion_functions.html#ga39ecaa20cfac1c73338858e50569b0d5" title="Compute masses for a single stage to produce the required delta-v.">RocketMass</a>, <a class="el" href="group___common_functions.html#ga63c31fd37ffa27bd0e2af01a9a90d980" title="Time history plots.">TimeHistory</a>, <a class="el" href="group___common_functions.html#ga810aaac4837493b974ddab07bcc0373c" title="Creates a latex exponential string.">LatexExp</a>, </dd>
+<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___propulsion_functions.html#ga1d39d512cacc35b906d034e6483c13b4" title="Generic rocket model as a function of altitude.">RocketModel</a>, <a class="el" href="group___propulsion_functions.html#ga685d93149452528547c6055d38793d81" title="Compute masses for a single stage to produce the required delta-v.">RocketMass</a>, <a class="el" href="group___common_functions.html#gac038564e341b54b1b6158115ae2b83c7" title="Time history plots.">TimeHistory</a>, <a class="el" href="group___common_functions.html#ga1d7f6be2d48f9c93ecfbf6542578f123" title="Creates a latex exponential string.">LatexExp</a>, </dd>
 <dd>
-<a class="el" href="group___common_functions.html#gac0957fb93e0dec4096b495d976cbc271" title="Displays a LaTeX table or create formatted string output.">DisplayLatexTable</a>, <a class="el" href="group___aerospace_utils_functions.html#ga2aa26765a55bc31ea68c9029ad805d54" title="Computes the Earth&#39;s atmospheric density using scale heights.">AtmDens2</a>, <a class="el" href="group___common_functions.html#ga1e28bd09a6f0892281b61e3a8cb6ce25" title="Computes atmospheric density based on the standard atmosphere model.">StdAtm</a>, SLSLaunchAnalysis&gt;RHS</dd>
+<a class="el" href="group___common_functions.html#gabf6bb76e659ae529ca74e71c2d09d97a" title="Displays a LaTeX table or create formatted string output.">DisplayLatexTable</a>, <a class="el" href="group___aerospace_utils_functions.html#gacf9792fb7e73b54fbae4e6faa66c925f" title="Computes the Earth&#39;s atmospheric density using scale heights.">AtmDens2</a>, <a class="el" href="group___common_functions.html#gabda75d0b66fa26d34109c5f70300b82f" title="Computes atmospheric density based on the standard atmosphere model.">StdAtm</a>, SLSLaunchAnalysis&gt;<a class="el" href="_rendezvous_sim_8m.html#a877f1073b93edf945c9063c16509d9cc" title="Copyright (c) 2020 Princeton Satellite Systems, Inc.">RHS</a></dd>
 <dd>
 SLSLaunchAnalysis&gt;SRBThrustInterp, SLSLaunchAnalysis&gt;DVParallel</dd></dl>
-<p>SLSLaunchAnalysis&gt;DVFromMassAndIsp </p>
-</div></div><!-- contents -->
+<p>SLSLaunchAnalysis&gt;DVFromMassAndIsp</p>
+<p>mF - fuel mass mT - total mass</p>
+<p>Artemis Launch Analysis <a href="Demos/Propulsion/SLSLaunchAnalysis.html">Published Demo</a> </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a3deb6195e47f0fa61634301c096fe684" name="a3deb6195e47f0fa61634301c096fe684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3deb6195e47f0fa61634301c096fe684">&#9670;&#160;</a></span>DVFromMassAndIsp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">function DVFromMassAndIsp </td>
+          <td>(</td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>mF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>mT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>iSp</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>All Rights Reserved.</p>
+<p>Since version 2023.1 2023.1 Pass data to StdData/RocketModel for faster simulation Setup Parallel DV of SRBs and RS25s SLS Properties SRB Properties RS-25 Properties All liquid booster (LB) Mass of fuel burned in parallel (core+LB) LB tank will only be partially filled for the SLS with LBs Velocity change for parallel boostoer Liquid booster volume SLS with LB Properties LB Properties SLS SRB vs SLS LB Comparison Simulate with LBs The RS-25 thrust and iSp varies with altitude Get current RS-25 thrust and specific impulse for engines Simulate with SRBs Get current RS-25 thrust and specific impulse for engines </p>
+
+<p class="reference">References <a class="el" href="acstate_8m.html#ac9ad2959b7b091d60ba42cfd4614a0a8">abs()</a>, <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="group___aerospace_utils_functions.html#gacf9792fb7e73b54fbae4e6faa66c925f">AtmDens2()</a>, <a class="el" href="#a3deb6195e47f0fa61634301c096fe684">DVFromMassAndIsp()</a>, and <a class="el" href="_rendezvous_sim_8m.html#a877f1073b93edf945c9063c16509d9cc">RHS()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="#a3deb6195e47f0fa61634301c096fe684">DVFromMassAndIsp()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_3db80d515f4efebc828af068a1838b52.html">Propulsion</a></li><li class="navelem"><a class="el" href="dir_b9b5be36a5ce353dd024ba1e858888a4.html">Demos</a></li><li class="navelem"><a class="el" href="dir_c72959951a5cb68fc73149468db19354.html">Rocket</a></li><li class="navelem"><a class="el" href="_s_l_s_launch_analysis_8m.html">SLSLaunchAnalysis.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_3db80d515f4efebc828af068a1838b52.html">Propulsion</a></li><li class="navelem"><a class="el" href="dir_b9b5be36a5ce353dd024ba1e858888a4.html">Demos</a></li><li class="navelem"><a class="el" href="dir_c72959951a5cb68fc73149468db19354.html">Rocket</a></li><li class="navelem"><a class="el" href="_s_l_s_launch_analysis_8m.html">SLSLaunchAnalysis.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

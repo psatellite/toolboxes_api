@@ -1,4 +1,4 @@
 var _mod_newt_8m =
 [
-    [ "ModNewt", "group___math_functions.html#ga42e1f8c18f2c1dc423c775277ce332e6", null ]
+    [ "ModNewt", "group___math_functions.html#ga44761ce4b65cecb4f0320ab779b7c4ab", null ]
 ];

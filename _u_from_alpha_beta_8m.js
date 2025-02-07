@@ -1,4 +1,4 @@
 var _u_from_alpha_beta_8m =
 [
-    [ "UFromAlphaBeta", "group___a_c_functions.html#ga7361462ee9e566eb63250eae7f291724", null ]
+    [ "UFromAlphaBeta", "group___a_c_functions.html#ga1ce9a9263eea5bc6c76d88fafb4999a5", null ]
 ];

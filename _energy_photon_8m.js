@@ -1,4 +1,4 @@
 var _energy_photon_8m =
 [
-    [ "EnergyPhoton", "group___imaging_functions.html#ga9bf911fc218e6a150751c6680fcf551e", null ]
+    [ "EnergyPhoton", "group___imaging_functions.html#gaa61a331713339506905e967a2d44a6e2", null ]
 ];

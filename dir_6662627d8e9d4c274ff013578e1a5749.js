@@ -1,6 +1,6 @@
 var dir_6662627d8e9d4c274ff013578e1a5749 =
 [
-    [ "ApolloGuidanceDemo.m", "_apollo_guidance_demo_8m.html", null ],
+    [ "ApolloGuidanceDemo.m", "_apollo_guidance_demo_8m.html", "_apollo_guidance_demo_8m" ],
     [ "CubeSatLunarMission.m", "_cube_sat_lunar_mission_8m.html", null ],
     [ "DVFromGatewayTo15km.m", "_d_v_from_gateway_to15km_8m.html", null ],
     [ "HelioTrajectorySimulation.m", "_helio_trajectory_simulation_8m.html", null ],

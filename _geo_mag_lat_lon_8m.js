@@ -1,4 +1,4 @@
 var _geo_mag_lat_lon_8m =
 [
-    [ "GeoMagLatLon", "group___a_c_functions.html#ga2993c668f3fe898051c22f17ee4ba925", null ]
+    [ "GeoMagLatLon", "group___a_c_functions.html#gae3736ad55ee3a71678b076156c7af426", null ]
 ];

@@ -1,4 +1,4 @@
 var _centroids_8m =
 [
-    [ "Centroids", "group___imaging_functions.html#ga68755636fb7d9faa6de62607b5cf79da", null ]
+    [ "Centroids", "group___imaging_functions.html#ga0db1603ee4b0a1e82c7b29d193bc8614", null ]
 ];

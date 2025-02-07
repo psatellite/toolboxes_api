@@ -1,4 +1,4 @@
 var _orbit_drag_8m =
 [
-    [ "OrbitDrag", "group___orbit_functions.html#gafdd06c9d2b76eaffe4c41a081f057c3a", null ]
+    [ "OrbitDrag", "group___orbit_functions.html#gaaf6328bd8e3a01886c4d2eef226a3d6b", null ]
 ];

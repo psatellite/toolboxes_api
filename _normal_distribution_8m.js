@@ -1,4 +1,4 @@
 var _normal_distribution_8m =
 [
-    [ "NormalDistribution", "group___math_functions.html#gad62309337f9cca7037501217cfe157fd", null ]
+    [ "NormalDistribution", "group___math_functions.html#ga77877e2f2f780a9fc63ebec6c4756184", null ]
 ];

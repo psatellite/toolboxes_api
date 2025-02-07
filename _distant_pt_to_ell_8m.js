@@ -1,4 +1,4 @@
 var _distant_pt_to_ell_8m =
 [
-    [ "DistantPtToEll", "group___formation_flying_functions.html#gab68c93b909d7ef66db85865ad832f946", null ]
+    [ "DistantPtToEll", "group___formation_flying_functions.html#ga1af4caab033d33e7413b0292f63634f4", null ]
 ];

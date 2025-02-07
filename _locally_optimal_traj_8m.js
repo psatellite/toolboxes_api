@@ -1,4 +1,4 @@
 var _locally_optimal_traj_8m =
 [
-    [ "LocallyOptimalTraj", "group___sail_functions.html#ga28dcf9b1886c91bf7e5cffc9d5cd6ba3", null ]
+    [ "LocallyOptimalTraj", "group___sail_functions.html#gaa6b874c0493b371a75f446d0319a8a07", null ]
 ];

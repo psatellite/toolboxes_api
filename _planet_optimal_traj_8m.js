@@ -1,4 +1,4 @@
 var _planet_optimal_traj_8m =
 [
-    [ "PlanetOptimalTraj", "group___sail_functions.html#gae85b834d654aa5511d0447cead680cbc", null ]
+    [ "PlanetOptimalTraj", "group___sail_functions.html#gae51c6d5139d5f2866ed27dd55cdcf0aa", null ]
 ];

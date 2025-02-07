@@ -1,4 +1,4 @@
 var _r_lagrange_8m =
 [
-    [ "RLagrange", "group___orbit_functions.html#gadaafb9649b4897cdfded7a33b90dbbc5", null ]
+    [ "RLagrange", "group___orbit_functions.html#gafe4be6dc995cfc0c1f7f93823cdcaddf", null ]
 ];

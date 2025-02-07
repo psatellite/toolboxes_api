@@ -1,4 +1,4 @@
 var _thermal_color_map_8m =
 [
-    [ "ThermalColorMap", "group___thermal_functions.html#gad3835a7307e71672e59210284a75b653", null ]
+    [ "ThermalColorMap", "group___thermal_functions.html#ga45b8584d19d7380b8d77c4977a5d68d5", null ]
 ];

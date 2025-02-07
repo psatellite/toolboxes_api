@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Sail/Demos/Missions/ST9Orbit.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Sail/Demos/Missions/ST9Orbit.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('_s_t9_orbit_8m.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">ST9Orbit.m File Reference<div class="ingroups"><a class="el" href="group___sail_group.html">Sail Module</a> &raquo; <a class="el" href="group___sail_demos.html">Sail Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">ST9Orbit.m File Reference<div class="ingroups"><a class="el" href="group___missions_group.html">Missions Module</a> &raquo; <a class="el" href="group___missions_demos.html">Missions Demos</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -107,23 +107,39 @@ $(function(){initNavTree('_s_t9_orbit_8m.html',''); initResizable(true); });
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a href="Demos/Sail/ST9Orbit.html">Published Demo</a></p>
-<p>Uses a simple specular model for the solar pressure force. Integration tolerance must be tight enough to produce circular precessing orbit when sail is edge-on. Multiple sail angle laws are implemented in the code. Scroll down to select a method or add your own.</p>
-<p>Default sail sizes are from 40 to 60 m square. The total spacecraft mass is on the order of 500 kg.</p>
-<p>If one axis of the sail is aligned with LVLH, which alleviates gravity gradient torques, the semi-major axis change is on the order of 40 km in 15 days. The sun-synch orbit is closely maintained. The oscillations in semi-major axis change are due to the inclusion of the J2 gravity term, which is necessary for a sun-synch orbit.</p>
-<p>Since version 7.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___common_functions.html#gae59b663cdc4d24c241de22f6f9b5e50a" title="Computes inertias of common objects about their c.m.">Inertias</a>, <a class="el" href="group___common_functions.html#ga81a74dfa813bb50e946a440fa5eda1b1" title="Compute the vertices for a cone.">Cone</a>, <a class="el" href="group___common_functions.html#ga6730338910557a6196f15d9c8ddab72b" title="Converts 3-2-1 Euler angles to a quaternion.">Eul2Q</a>, <a class="el" href="group___aerospace_utils_functions.html#ga36923696746f9ba2ea3ec7d2c98288ca" title="Generate the quaternions that transform from ECI to LVLH coordinates.">QLVLH</a>, <a class="el" href="group___common_functions.html#ga310e0ff2e7e7510a5a64e64bc1317da6" title="Multiply two quaternions.">QMult</a>, <a class="el" href="group___common_functions.html#ga8225cf186f4bd8843a219b98f1d08d75" title="Transforms a vector opposite the direction of the quaternion.">QTForm</a>, <a class="el" href="group___common_functions.html#gad2aa5406bfcb16d2aed8f7163807d3c7" title="NPlot generates a plot on which the ylabels are character strings.">NPlot</a>, <a class="el" href="group___common_functions.html#gad8224b630862781e5b991a2741964ab3" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, </dd>
+<pre class="fragment">Uses a simple specular model for the solar pressure force.
+Integration tolerance must be tight enough to produce circular
+precessing orbit when sail is edge-on.
+Multiple sail angle laws are implemented in the code. Scroll down to
+select a method or add your own.
+
+
+Default sail sizes are from 40 to 60 m square. The total spacecraft
+mass is on the order of 500 kg.
+
+
+If one axis of the sail is aligned with LVLH, which alleviates gravity
+gradient torques, the semi-major axis change is on the order of 40 km
+in 15 days. The sun-synch orbit is closely maintained.
+The oscillations in semi-major axis change are due to the inclusion of
+the J2 gravity term, which is necessary for a sun-synch orbit.
+
+
+Since version 7.
+</pre><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___common_functions.html#ga0cace758354eed32c5a57c065fe4077b" title="Computes inertias of common objects about their c.m.">Inertias</a>, <a class="el" href="group___common_functions.html#ga6c97d3a594924d4f6b3bf91459a3e983" title="Compute the vertices for a cone.">Cone</a>, <a class="el" href="group___common_functions.html#ga04b3ec1b25bbf63da69473d39c1b7797" title="Converts 3-2-1 Euler angles to a quaternion.">Eul2Q</a>, <a class="el" href="group___aerospace_utils_functions.html#ga8377127ed7891c4901b9fce0696fb4f7" title="Generate the quaternions that transform from ECI to LVLH coordinates.">QLVLH</a>, <a class="el" href="group___common_functions.html#gaca51a78bd8f4873eac408b409cd231c7" title="Multiply two quaternions.">QMult</a>, <a class="el" href="group___common_functions.html#gab63f3ad8219a695021616d47b8a163a3" title="Transforms a vector opposite the direction of the quaternion.">QTForm</a>, <a class="el" href="group___common_functions.html#gaee55bd348d3d6a3deb990c25046164e8" title="NPlot generates a plot on which the ylabels are character strings.">NPlot</a>, <a class="el" href="group___common_functions.html#ga5c1f468d16ddd7a9d4049311428be679" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, </dd>
 <dd>
-<a class="el" href="group___common_functions.html#gaf96f2212c8decc8858e5f70f81ce5ef3" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga058693fa5e69570bca8c2568df970266" title="Vector cross product for multicolum arrays.">Cross</a>, <a class="el" href="group___math_functions.html#gab59c62d2bb1697d27271239ba7c72ce6" title="Dot product with support for arrays.">Dot</a>, <a class="el" href="group___math_functions.html#ga12a978f2f34b10de5cf5590e483cf969" title="Fourth/fifth order Runge-Kutta.">RK45</a>, <a class="el" href="group___math_functions.html#gac94e3328682f937211287f266dfd0a47" title="Unitize vectors by column.">Unit</a>, <a class="el" href="group___common_functions.html#gaa48c784bb78677916d4a8ea05e78b0f3" title="Compute the Julian Date from the date.">Date2JD</a>, <a class="el" href="group___orbit_functions.html#ga8a82e58d1f8c61d91bc593d26cf3dfe9" title="Load a spherical harmonic gravity model (.geo) from GSFC/U.">LoadGravityModel</a>, <a class="el" href="group___orbit_functions.html#gaed91df46bdea0396c2055f146c5644f4" title="Converts orbital elements to r and v for an elliptic orbit.">El2RV</a></dd>
+<a class="el" href="group___common_functions.html#ga5a8e26df8ab9db2da1c5c2e834d64c7d" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga8bc5e1aa9bb61f1fd77943b68486a981" title="Vector cross product for multicolum arrays.">Cross</a>, <a class="el" href="group___math_functions.html#gac53553c820f6671074b41992e283a1f2" title="Dot product with support for arrays.">Dot</a>, <a class="el" href="group___math_functions.html#gaa7283591675707b57e5578f2b0fb6b9f" title="Fourth/fifth order Runge-Kutta.">RK45</a>, <a class="el" href="group___math_functions.html#gad24742367c4da86ab9b4e50fc2a70948" title="Unitize vectors by column.">Unit</a>, <a class="el" href="group___common_functions.html#gacc8101597897c2b80df3b7f4835b1fcf" title="Compute the Julian Date from the date.">Date2JD</a>, <a class="el" href="group___orbit_functions.html#gac4eee1e33602847a17d941576dad0382" title="Load a spherical harmonic gravity model (.geo) from GSFC/U.">LoadGravityModel</a>, <a class="el" href="group___orbit_functions.html#ga5afb2fb1d6667a79269e1376665d1064" title="Converts orbital elements to r and v for an elliptic orbit.">El2RV</a></dd>
 <dd>
-<a class="el" href="group___s_c_functions.html#gae4c515f6afb50d51370a2f33af1d9d62" title="Plots one orbit and the sun vector looking down on the ECI Plane.">PltOrbit</a>, <a class="el" href="group___orbit_functions.html#gaee6c6852bd96912c362c6ae013c37528" title="Converts Cartesian state to Keplerian orbital elements.">RV2El</a>, <a class="el" href="group___s_c_functions.html#ga5cc2967810ca9640c49f83a496f9737f" title="Computes eclipses.">Eclipse</a>, <a class="el" href="group___s_c_functions.html#gae20dbb6312d1eab2f235090c706f5556" title="Generate the sun vector in the earth-centered inertial frame.">SunV1</a>, <a class="el" href="group___s_c_functions.html#ga90fafa33cf2087052ef44641145a45c6" title="Models accelerometers.">Accel</a>, <a class="el" href="group___sail_functions.html#gad4f01b449546d3e011ab7ec6f6891f14" title="Computes cone and clock angles from a unit vector.">UToConeClock</a></dd></dl>
-<p>Copyright (c) 2006 Princeton Satellite Systems, Inc. All rights reserved. </p>
-</div></div><!-- contents -->
+<a class="el" href="group___s_c_functions.html#ga6c8e5f567fc33c427fed6cda58ecf03d" title="Plots one orbit and the sun vector looking down on the ECI Plane.">PltOrbit</a>, <a class="el" href="group___orbit_functions.html#ga1089993ec76d603555d52ad54c1aecfe" title="Converts Cartesian state to Keplerian orbital elements.">RV2El</a>, <a class="el" href="group___s_c_functions.html#ga44e35aa01575acdbcbdfa830ab913035" title="Computes eclipses.">Eclipse</a>, <a class="el" href="group___s_c_functions.html#ga407115a474f1a7b8c6e20cf91d4277fa" title="Generate the sun vector in the earth-centered inertial frame.">SunV1</a>, <a class="el" href="group___s_c_functions.html#ga29e494da3df2442768f67827b5b1e79a" title="Models accelerometers.">Accel</a>, <a class="el" href="group___sail_functions.html#gacc2acf5d3e7a054ca798f6e36e1fe432" title="Computes cone and clock angles from a unit vector.">UToConeClock</a></dd></dl>
+<pre class="fragment">Copyright (c) 2006 Princeton Satellite Systems, Inc.
+All rights reserved.
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_30d4bb0c100869f6710ebe9d77c1283e.html">Sail</a></li><li class="navelem"><a class="el" href="dir_c1994c0c679903e12e391b93719718e5.html">Demos</a></li><li class="navelem"><a class="el" href="dir_0e9865caaa0e1f3b11adde1b3cadaf77.html">Missions</a></li><li class="navelem"><a class="el" href="_s_t9_orbit_8m.html">ST9Orbit.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_30d4bb0c100869f6710ebe9d77c1283e.html">Sail</a></li><li class="navelem"><a class="el" href="dir_c1994c0c679903e12e391b93719718e5.html">Demos</a></li><li class="navelem"><a class="el" href="dir_0e9865caaa0e1f3b11adde1b3cadaf77.html">Missions</a></li><li class="navelem"><a class="el" href="_s_t9_orbit_8m.html">ST9Orbit.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

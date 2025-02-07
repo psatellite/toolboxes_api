@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/SpacecraftEstimation/Demos/OrbitEstimation/UnscentedKalmanSmootherDemo.m File Reference</title>
+<title>PSS MATLAB Toolboxes: SpacecraftEstimation/Demos/OrbitEstimation/UnscentedKalmanSmootherDemo.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('_unscented_kalman_smoother_demo_8m.html',''); initResi
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">UnscentedKalmanSmootherDemo.m File Reference<div class="ingroups"><a class="el" href="group___spacecraft_estimation_group.html">SpacecraftEstimation Module</a> &raquo; <a class="el" href="group___spacecraft_estimation_demos.html">SpacecraftEstimation Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">UnscentedKalmanSmootherDemo.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -107,22 +107,35 @@ $(function(){initNavTree('_unscented_kalman_smoother_demo_8m.html',''); initResi
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a href="Demos/SpacecraftEstimation/UnscentedKalmanSmootherDemo.html">Published Demo</a></p>
-<p>This is for a 1 dimensional launch problem with an angle sensor that measures the angle to the launch vehicle. The vehicle is subject to Gaussian random thrust variations. The sensor is subject to Gaussian white noise.</p>
-<p>The script first runs the simulation and the sensor angle are used for both the forward and backward Unscented Kalman filters.</p>
-<p>The geometry gets worse as the launch vehicle gets higher.</p>
-<p>The demo uses UKFUpdate and UKFPredict which are alternatives to UKF.</p>
-<p>Since version 11.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___common_functions.html#gabe0e7993e8cb9651da5870552b0f0c12" title="Right hand side for a one dimensional vertical motion simulation.">RHSX</a>, <a class="el" href="group___common_functions.html#ga550d7ff2050a7855a1904602a12d9a29" title="Angle sensor.">AngleSensor</a>, <a class="el" href="group___common_functions.html#gaf85fde5d44c25cd5aa1c3bb7558f86ab" title="Initializes Kalman Filter data structures for the KF, UKF, EKF and IEKF.">KFInitialize</a>, <a class="el" href="group___common_functions.html#ga34a7f898cd3a3fd46415923dcd19d624" title="Unscented Kalman Filter weights.">UKFWeight</a>, <a class="el" href="group___common_functions.html#gab80071032040f379bebb9e492d86d48e" title="Unscented Kalman Filter state prediction step.">UKFPredict</a>, </dd>
+<pre class="fragment">This is for a 1 dimensional launch problem with an angle sensor that 
+measures the angle to the launch vehicle. The vehicle is subject
+to Gaussian random thrust variations. The sensor is subject to Gaussian
+white noise.
+
+
+The script first runs the simulation and the sensor angle are used
+for both the forward and backward Unscented Kalman filters.
+
+
+The geometry gets worse as the launch vehicle gets higher.
+
+
+The demo uses UKFUpdate and UKFPredict which are alternatives to UKF.
+
+
+Since version 11.
+</pre><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___common_functions.html#ga8b41448fede3df5981f126441eef12fe" title="Right hand side for a one dimensional vertical motion simulation.">RHSX</a>, <a class="el" href="group___common_functions.html#ga9b3a47bcc8ab59cd179aa639999f8d6b" title="Angle sensor.">AngleSensor</a>, <a class="el" href="group___common_functions.html#ga8b073f0c0c8385442f2c16ade314ec4f" title="Initializes Kalman Filter data structures for the KF, UKF, EKF and IEKF.">KFInitialize</a>, <a class="el" href="group___common_functions.html#ga5ba86eef900d3452393c204d76974edf" title="Unscented Kalman Filter weights.">UKFWeight</a>, <a class="el" href="group___common_functions.html#ga1943dbd4cd7e2d99567270a2866192e3" title="Unscented Kalman Filter state prediction step.">UKFPredict</a>, </dd>
 <dd>
-<a class="el" href="group___common_functions.html#ga61328679da6c7a72b3d175a7bcd55c0f" title="Unscented Kalman Filter measurement update step.">UKFUpdate</a></dd></dl>
-<p>Copyright (c) 2012 Princeton Satellite Systems, Inc. All rights reserved. </p>
-</div></div><!-- contents -->
+<a class="el" href="group___common_functions.html#ga3f9073da63241b82f0a73b42803c8823" title="Unscented Kalman Filter measurement update step.">UKFUpdate</a></dd></dl>
+<pre class="fragment">Copyright (c) 2012 Princeton Satellite Systems, Inc.
+All rights reserved.
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_90b9fe53e1cfddcae453a6e48ed2eac2.html">SpacecraftEstimation</a></li><li class="navelem"><a class="el" href="dir_5c8c6ebfa3ecd237d1185fe937863fbf.html">Demos</a></li><li class="navelem"><a class="el" href="dir_7307103e149440d2256e40b828b2f462.html">OrbitEstimation</a></li><li class="navelem"><a class="el" href="_unscented_kalman_smoother_demo_8m.html">UnscentedKalmanSmootherDemo.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_90b9fe53e1cfddcae453a6e48ed2eac2.html">SpacecraftEstimation</a></li><li class="navelem"><a class="el" href="dir_5c8c6ebfa3ecd237d1185fe937863fbf.html">Demos</a></li><li class="navelem"><a class="el" href="dir_7307103e149440d2256e40b828b2f462.html">OrbitEstimation</a></li><li class="navelem"><a class="el" href="_unscented_kalman_smoother_demo_8m.html">UnscentedKalmanSmootherDemo.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:49 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

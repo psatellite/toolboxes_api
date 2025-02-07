@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/LunarMissions/LunarMission/LunarTargeting.m File Reference</title>
+<title>PSS MATLAB Toolboxes: LunarMissions/LunarMission/LunarTargeting.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -105,38 +105,22 @@ $(function(){initNavTree('_lunar_targeting_8m.html',''); initResizable(true); })
 </div><!--header-->
 <div class="contents">
 
-<p>Uses the JPL Ephemerides for the Earth and moon.  
-<a href="#details">More...</a></p>
+<p>Generate transfer orbit elements for a lunar mission (fmincon).  
+</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga2f9c9fbf8aa2fa7b88cb3448a03e92f3" id="r_ga2f9c9fbf8aa2fa7b88cb3448a03e92f3"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___lunar_missions_functions.html#ga2f9c9fbf8aa2fa7b88cb3448a03e92f3">LunarTargeting</a> (in date, in el0, in rP, in inc, in fIf, in simJDP, in opts)</td></tr>
-<tr class="memdesc:ga2f9c9fbf8aa2fa7b88cb3448a03e92f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate transfer orbit elements for a lunar mission (fmincon).  <br /></td></tr>
-<tr class="separator:ga2f9c9fbf8aa2fa7b88cb3448a03e92f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga659fbbb949014d4170fd77e93d9f520b" id="r_ga659fbbb949014d4170fd77e93d9f520b"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___lunar_missions_functions.html#ga659fbbb949014d4170fd77e93d9f520b">LunarTargeting</a> (in date, in el0, in rP, in inc, in fIf, in simJDP, in opts)</td></tr>
+<tr class="memdesc:ga659fbbb949014d4170fd77e93d9f520b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate transfer orbit elements for a lunar mission (fmincon).  <br /></td></tr>
+<tr class="separator:ga659fbbb949014d4170fd77e93d9f520b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The target is the perilune altitude of the hyperbolic passage of the moon. The function propagates the resulting trajectory using ode113. It propagates to the target point. You can specify radius of perilune and orbit inclination.</p>
-<p>This function uses Lambert to target a point on the Earth/Moon interface. The point is where the hyperbolic passage of the moon starts. This justifies the single body Lambert solution.</p>
-<p>The spacecraft starts in any Earth orbit.</p>
-<p>Requires fmincon in the optimization toolbox. See fmincon for the definition of the argument opts.</p>
-<p>Type LunarTargeting for a demo.</p>
-<h2><a class="anchor" id="autotoc_md5828"></a>
-Form</h2>
-<p>[x0,eL,v,jD0] = LunarTargeting( date, a0, rP, inc, fIf, opts )</p>
-<h2><a class="anchor" id="autotoc_md5829"></a>
-Inputs</h2>
-<p>date (1,:) Date [yy mm dd hh mm ss] or Julian date of lunar encounter. "Encounter": When spacecraft reaches earth/moon interface. el0 (1,5) Initial keplerian orbital elements [a,i,W,w,e] in km and radians rP (1,1) Desired perilune distance (km) inc (1,1) Desired Lunar orbit inclination (rad) fIf (1,1) The Earth/Moon gravitational interface point from the moon simJDP (1,1) Logical. If false, jDP is computed from Keplerian lunar elements. If true, jDP is computed more accurately via simulation. Default: False opts (.) Optimization tolerance data structure</p>
-<h2><a class="anchor" id="autotoc_md5830"></a>
-Outputs</h2>
-<p>x0 (1,6) Initial state [r,v] in km and km/s elL (6,1) Final lunar keplerian orbital elements [a,i,W,w,e,M] in km and radians v (3,2) Initial and interface velocity in km/s jD0 (1,1) Start Julian date jDP (1,1) Julian date of perilune</p>
-<p>Generate transfer orbit elements for a lunar mission (fmincon). </p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_0c354de4d7830fb657ec432c5ab18776.html">LunarMissions</a></li><li class="navelem"><a class="el" href="dir_38b062066722c91b5deb40862f90853c.html">LunarMission</a></li><li class="navelem"><a class="el" href="_lunar_targeting_8m.html">LunarTargeting.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_0c354de4d7830fb657ec432c5ab18776.html">LunarMissions</a></li><li class="navelem"><a class="el" href="dir_38b062066722c91b5deb40862f90853c.html">LunarMission</a></li><li class="navelem"><a class="el" href="_lunar_targeting_8m.html">LunarTargeting.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

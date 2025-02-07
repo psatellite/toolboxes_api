@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Sail/Demos/Actuator/TwoBodyBoom.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Sail/Demos/Actuator/TwoBodyBoom.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('_two_body_boom_8m.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">TwoBodyBoom.m File Reference<div class="ingroups"><a class="el" href="group___sail_group.html">Sail Module</a> &raquo; <a class="el" href="group___sail_demos.html">Sail Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">TwoBodyBoom.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -109,10 +109,13 @@ $(function(){initNavTree('_two_body_boom_8m.html',''); initResizable(true); });
 <div class="textblock"><p><a href="Demos/Sail/TwoBodyBoom.html">Published Demo</a></p>
 <p>Input a sinusoidal hinge torque and verify resulting motion in absence of external forces and torques.</p>
 <p>Runs for 4.5 days at 30 second timestep.</p>
-<p>Since version 7.</p>
-<p>xDot = FTB( x, t, r0, r1, lam1, iner0, iner1, m0, m1, torque, force, iAxis ) [wDot, h, iner] = TBModel( w0, w1, q0to1, r0, r1, lam1, iner0, iner1,
-   m0, m1, torque, force, iAxis )</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___s_c_functions.html#ga39b20fd2be4afb24d3b7f2cf369d611d" title="Two body spacecraft model right-hand-side.">FTB</a>, <a class="el" href="group___s_c_functions.html#gafedac849d576e1079a99873d7010527b" title="Models two rigid bodies attached by a 1 to 3-dof hinge.">TBModel</a>., <a class="el" href="group___common_functions.html#gaa0e6f0e75a8d356d6c77290eb906afc7" title="Outputs the zero quaternion, [1;0;0;0].">QZero</a>, <a class="el" href="group___common_functions.html#gad8224b630862781e5b991a2741964ab3" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, <a class="el" href="group___common_functions.html#ga918513da25db805cc32870932b833b74" title="A GUI displaying the time remaining and estimated completion time.">TimeGUI</a>, <a class="el" href="group___common_functions.html#gaf96f2212c8decc8858e5f70f81ce5ef3" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga0effcdde6bb79d7705aef465a7f987c2" title="Fourth order Runge-Kutta.">RK4</a></dd></dl>
+<pre class="fragment"> Since version 7.
+
+
+ xDot = FTB( x, t, r0, r1, lam1, iner0, iner1, m0, m1, torque, force, iAxis )
+ [wDot, h, iner] = TBModel( w0, w1, q0to1, r0, r1, lam1, iner0, iner1,
+ m0, m1, torque, force, iAxis )
+</pre><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___s_c_functions.html#gaf808bb7e6b0a432f115bef81a365411c" title="Two body spacecraft model right-hand-side.">FTB</a>, <a class="el" href="group___s_c_functions.html#gad3a287a822bcc63ed68713d32051a7bb" title="Models two rigid bodies attached by a 1 to 3-dof hinge.">TBModel</a>., <a class="el" href="group___common_functions.html#ga2ce4a52c7c482bbc549c85b580568eb8" title="Outputs the zero quaternion, [1;0;0;0].">QZero</a>, <a class="el" href="group___common_functions.html#ga5c1f468d16ddd7a9d4049311428be679" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, <a class="el" href="group___common_functions.html#ga7972d3e113aebf4fd60c459ed274e46a" title="A GUI displaying the time remaining and estimated completion time.">TimeGUI</a>, <a class="el" href="group___common_functions.html#ga5a8e26df8ab9db2da1c5c2e834d64c7d" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga2bd3d421395eeb70502e6fd0f9959089" title="Fourth order Runge-Kutta.">RK4</a></dd></dl>
 <p>Copyright (c) 2006 Princeton Satellite Systems, Inc.</p>
 <p>All rights reserved. </p>
 </div></div><!-- contents -->
@@ -120,8 +123,8 @@ $(function(){initNavTree('_two_body_boom_8m.html',''); initResizable(true); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_30d4bb0c100869f6710ebe9d77c1283e.html">Sail</a></li><li class="navelem"><a class="el" href="dir_c1994c0c679903e12e391b93719718e5.html">Demos</a></li><li class="navelem"><a class="el" href="dir_f8c7705d016dfc446fe2cd16483dd259.html">Actuator</a></li><li class="navelem"><a class="el" href="_two_body_boom_8m.html">TwoBodyBoom.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_30d4bb0c100869f6710ebe9d77c1283e.html">Sail</a></li><li class="navelem"><a class="el" href="dir_c1994c0c679903e12e391b93719718e5.html">Demos</a></li><li class="navelem"><a class="el" href="dir_f8c7705d016dfc446fe2cd16483dd259.html">Actuator</a></li><li class="navelem"><a class="el" href="_two_body_boom_8m.html">TwoBodyBoom.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

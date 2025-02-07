@@ -1,4 +1,4 @@
 var _quadratic_8m =
 [
-    [ "Quadratic", "group___sail_functions.html#ga2332ab42a1a5bd91a309a964da9287ee", null ]
+    [ "Quadratic", "group___sail_functions.html#gacdfb8ae3fed2b36226b280aa2b835961", null ]
 ];

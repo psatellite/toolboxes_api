@@ -1,4 +1,4 @@
 var _latex_scientific_notation_8m =
 [
-    [ "LatexScientificNotation", "group___common_functions.html#gaee9b5c4c33594febfc01b6b8c84e7826", null ]
+    [ "LatexScientificNotation", "group___common_functions.html#gae924ede0974d45b2ecc1a5965b7bbf65", null ]
 ];

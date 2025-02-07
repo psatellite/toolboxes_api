@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/OpticalNavigation/Demos/OpticalNavigation/EarthOrbitOpticalNav.m File Reference</title>
+<title>PSS MATLAB Toolboxes: OpticalNavigation/Demos/OpticalNavigation/EarthOrbitOpticalNav.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -113,27 +113,25 @@ $(function(){initNavTree('_earth_orbit_optical_nav_8m.html',''); initResizable(t
 <p>The star sensor assumes that it can see multiple stars. This can be accomplished by a wide field of view sensor or by an articulated sensor.</p>
 <p>This demo uses the new UKF framework with separate propagate and measurement update functions.</p>
 <p>Things to try:</p>
-<ol type="1">
-<li>Change the orbit</li>
-<li>Change the sensor noise</li>
-<li>Change the star vector</li>
-<li>Add disturbances.</li>
-<li>Use only the earth chord measurement</li>
-<li>Turn off the update step</li>
-<li>Vary the initial covariances</li>
-</ol>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___orbit_functions.html#gad018c1bbf59d9195a22f533fff47e4e4" title="Converts perigee and apogee to semi-major axis and eccentricity.">RPRA2AE</a>, <a class="el" href="group___orbit_functions.html#gaed91df46bdea0396c2055f146c5644f4" title="Converts orbital elements to r and v for an elliptic orbit.">El2RV</a>, <a class="el" href="group___orbit_functions.html#ga567af55ff5e35fce1417e98d76796034" title="Compute the period for an orbit.">Period</a>, <a class="el" href="group___orbit_functions.html#ga85bb44814ea9dca0437754732137937c" title="Right hand side for a simple Cartesian orbit.">RHSOrbit</a>, <a class="el" href="group___spacecraft_estimation_functions.html#gab0d929bfa98c25124e9d6fef50f3b020" title="Earth chord model for use with UKF.">MeasEarthChord</a>, </dd>
+<pre class="fragment"> 1. Change the orbit
+ 2. Change the sensor noise
+ 3. Change the star vector
+ 4. Add disturbances.
+ 5. Use only the earth chord measurement
+ 6. Turn off the update step
+ 7. Vary the initial covariances
+</pre><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___orbit_functions.html#gafe44bccc182e3a10df9def6b15983170" title="Converts perigee and apogee to semi-major axis and eccentricity.">RPRA2AE</a>, <a class="el" href="group___orbit_functions.html#ga5afb2fb1d6667a79269e1376665d1064" title="Converts orbital elements to r and v for an elliptic orbit.">El2RV</a>, <a class="el" href="group___orbit_functions.html#ga7c1eb42e22d71a258a2045394604e33b" title="Compute the period for an orbit.">Period</a>, <a class="el" href="group___orbit_functions.html#ga754c8beac572879940c744f592685120" title="Right hand side for a simple Cartesian orbit.">RHSOrbit</a>, <a class="el" href="group___spacecraft_estimation_functions.html#ga9ea8c9796da3d46891d64d974b5b705a" title="Earth chord model for use with UKF.">MeasEarthChord</a>, </dd>
 <dd>
-<a class="el" href="group___spacecraft_estimation_functions.html#ga9a1b6a17d3a1c217ece8f5c509152cd8" title="Nadir/star measurement for use with UKF.">MeasNadirStar</a>, <a class="el" href="group___common_functions.html#ga333e57e54da5b1629f5fac27222949c3" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#gaf85fde5d44c25cd5aa1c3bb7558f86ab" title="Initializes Kalman Filter data structures for the KF, UKF, EKF and IEKF.">KFInitialize</a>, <a class="el" href="group___common_functions.html#gab80071032040f379bebb9e492d86d48e" title="Unscented Kalman Filter state prediction step.">UKFPredict</a>, <a class="el" href="group___common_functions.html#ga61328679da6c7a72b3d175a7bcd55c0f" title="Unscented Kalman Filter measurement update step.">UKFUpdate</a>, <a class="el" href="group___common_functions.html#gad8224b630862781e5b991a2741964ab3" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a></dd>
+<a class="el" href="group___spacecraft_estimation_functions.html#gaa585353651bf4a9d14d3c42bae5bc010" title="Nadir/star measurement for use with UKF.">MeasNadirStar</a>, <a class="el" href="group___common_functions.html#ga3a2fd4c8c08b56a14ca41af691af1905" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#ga8b073f0c0c8385442f2c16ade314ec4f" title="Initializes Kalman Filter data structures for the KF, UKF, EKF and IEKF.">KFInitialize</a>, <a class="el" href="group___common_functions.html#ga1943dbd4cd7e2d99567270a2866192e3" title="Unscented Kalman Filter state prediction step.">UKFPredict</a>, <a class="el" href="group___common_functions.html#ga3f9073da63241b82f0a73b42803c8823" title="Unscented Kalman Filter measurement update step.">UKFUpdate</a>, <a class="el" href="group___common_functions.html#ga5c1f468d16ddd7a9d4049311428be679" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a></dd>
 <dd>
-<a class="el" href="group___common_functions.html#gaf96f2212c8decc8858e5f70f81ce5ef3" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga0effcdde6bb79d7705aef465a7f987c2" title="Fourth order Runge-Kutta.">RK4</a>, <a class="el" href="group___math_functions.html#ga1dc2fa66a4f35374ed94a34daa86e513" title="Magnitude of a set of vectors.">Mag</a>, <a class="el" href="group___math_functions.html#gac94e3328682f937211287f266dfd0a47" title="Unitize vectors by column.">Unit</a>, <a class="el" href="group___math_functions.html#gafc99098efca5a697937048efb2f7107c" title="Cosine with input in degrees.">CosD</a> </dd></dl>
+<a class="el" href="group___common_functions.html#ga5a8e26df8ab9db2da1c5c2e834d64c7d" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga2bd3d421395eeb70502e6fd0f9959089" title="Fourth order Runge-Kutta.">RK4</a>, <a class="el" href="group___math_functions.html#ga4b519b77f25a768b7bcde40daeb0acb5" title="Magnitude of a set of vectors.">Mag</a>, <a class="el" href="group___math_functions.html#gad24742367c4da86ab9b4e50fc2a70948" title="Unitize vectors by column.">Unit</a>, <a class="el" href="group___math_functions.html#ga44464b1462db5569eb8c0e6658654462" title="Cosine with input in degrees.">CosD</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_61ff521ec6e579c70834ab20b09d8895.html">OpticalNavigation</a></li><li class="navelem"><a class="el" href="dir_86e43fb3e31e9403477dc2da2a227500.html">Demos</a></li><li class="navelem"><a class="el" href="dir_fdba74405e635ab415859130b62f809f.html">OpticalNavigation</a></li><li class="navelem"><a class="el" href="_earth_orbit_optical_nav_8m.html">EarthOrbitOpticalNav.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_61ff521ec6e579c70834ab20b09d8895.html">OpticalNavigation</a></li><li class="navelem"><a class="el" href="dir_86e43fb3e31e9403477dc2da2a227500.html">Demos</a></li><li class="navelem"><a class="el" href="dir_fdba74405e635ab415859130b62f809f.html">OpticalNavigation</a></li><li class="navelem"><a class="el" href="_earth_orbit_optical_nav_8m.html">EarthOrbitOpticalNav.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

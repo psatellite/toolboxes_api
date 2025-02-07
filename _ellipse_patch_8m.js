@@ -1,4 +1,4 @@
 var _ellipse_patch_8m =
 [
-    [ "EllipsePatch", "group___formation_flying_functions.html#gae137eac9d9392a67e73434fa595dc6d0", null ]
+    [ "EllipsePatch", "group___formation_flying_functions.html#gad600d3607ac827480f2adcc15c92c06d", null ]
 ];

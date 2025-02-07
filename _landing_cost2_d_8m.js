@@ -1,4 +1,4 @@
 var _landing_cost2_d_8m =
 [
-    [ "LandingCost2D", "group___lunar_missions_functions.html#gad2c01ac108588e7bd292db4e7c5e93c8", null ]
+    [ "LandingCost2D", "group___lunar_missions_functions.html#ga0fa7cc9b4133f9857e5bcf579159cc8c", null ]
 ];

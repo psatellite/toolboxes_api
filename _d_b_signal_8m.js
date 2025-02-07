@@ -1,4 +1,4 @@
 var _d_b_signal_8m =
 [
-    [ "DBSignal", "group___link_functions.html#ga486c1c6a8e01b30cd051771c7155757f", null ]
+    [ "DBSignal", "group___link_functions.html#ga7ab78d49eb1c69fbe16e6c5573c3a2a2", null ]
 ];

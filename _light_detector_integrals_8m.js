@@ -1,4 +1,4 @@
 var _light_detector_integrals_8m =
 [
-    [ "LightDetectorIntegrals", "group___s_c_functions.html#ga9006ecb959e3ca6d72edf419e76ce7be", null ]
+    [ "LightDetectorIntegrals", "group___s_c_functions.html#ga8f154e67e41f4be9e40152a259b16d0d", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/SC/Demos/Disturbances/AccommodationFlatPlate.m File Reference</title>
+<title>PSS MATLAB Toolboxes: SC/Demos/Disturbances/AccommodationFlatPlate.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,12 +99,21 @@ $(function(){initNavTree('_accommodation_flat_plate_8m.html',''); initResizable(
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">AccommodationFlatPlate.m File Reference<div class="ingroups"><a class="el" href="group___s_c_group.html">SC Module</a> &raquo; <a class="el" href="group___s_c_demos.html">SC Demos folders</a></div></div></div>
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">AccommodationFlatPlate.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Surface accommodation drag demo on a flat plate <a href="Demos/SC/AccommodationFlatPlate.html">Published Demo</a>  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ad27c221ef7f7959f983936b413ec382a" id="r_ad27c221ef7f7959f983936b413ec382a"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad27c221ef7f7959f983936b413ec382a">AccommodationCoefficients</a> (in uN)</td></tr>
+<tr class="memdesc:ad27c221ef7f7959f983936b413ec382a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (c) 2022 Princeton Satellite Systems, Inc.  <br /></td></tr>
+<tr class="separator:ad27c221ef7f7959f983936b413ec382a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The drag and lift are parameterized by the ratio of the orbital velocity (the flow velocity) to the thermal velocity of the atmospheric particles. This speed ratio is "S". The demo compares specular and diffuse accommodation coefficients to those in the reference and those computed from experimental data, then computes the lift and drag as a function of angle of attack of the plate for S=3 and S=infinity.</p>
 <ul>
@@ -115,14 +124,39 @@ $(function(){initNavTree('_accommodation_flat_plate_8m.html',''); initResizable(
 <li>Reference values: sigmaN = sigmaT = 0.7</li>
 </ul>
 <p>References: Storch, J. ﻿Aerodynamic Disturbances on Spacecraft in Free-Molecular Flow, Aerospace Report TR-2003(3397)-1, <a href="https://ascelibrary.org/doi/10.1061/40722%28153%2960">https://ascelibrary.org/doi/10.1061/40722%28153%2960</a></p>
-<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___s_c_functions.html#ga974697bb83e8218768dde6168b452aea" title="Computes the aerodynamic force using surface accommodation coefficients.">FAeroSurfaceAccommodation</a>, <a class="el" href="group___s_c_functions.html#gab0bfbb0035670a067602095be236259e" title="Compute the aerodynamic forces on a set of elemental areas.">AeroF</a> </dd></dl>
-</div></div><!-- contents -->
+<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___s_c_functions.html#ga9ee0022352fdd8b09bdd45f574c21b1e" title="Computes the aerodynamic force using surface accommodation coefficients.">FAeroSurfaceAccommodation</a>, <a class="el" href="group___s_c_functions.html#ga49a6b74df244c1a4dbb4a7787a789578" title="Compute the aerodynamic forces on a set of elemental areas.">AeroF</a></dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ad27c221ef7f7959f983936b413ec382a" name="ad27c221ef7f7959f983936b413ec382a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad27c221ef7f7959f983936b413ec382a">&#9670;&#160;</a></span>AccommodationCoefficients()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">function AccommodationCoefficients </td>
+          <td>(</td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>uN</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>All rights reserved.</p>
+<p>Since version 2022.1 Define front and back of a flat plate Atmosphere Purely normal flow Lift should be zero, drag is at maximum Calculated coefficients, cosAlpha = 1 Specular, sigmas == 0. Diffuse, sigmas == 1. Flat plate, constant cD Purely perpendicular flow The experimental coefficients show a greater sigmaT than sigmaN, but both are nonzero. The lift should be zero but the drag nonzero. Angle of attack on a flat plate cD is nonzero for zero angle of attack for nonzero sigmaT and finite S - the ratio of the molecular flow speed at orbit rate to the random speed from the atmospheric temperature. S might be 3 to 10.</p>
+<p>See Figure 2.6 (Hyperthermal) and 3.4, 3.5 (Free-Molecular) in Storch S = 3 in the reference plot Analytic solution, from Storch Numeric solution cD/cL of plate: use frontal area; this a special case of a general body. Accommodation coefficients This is a fit to experimental data for N2 on an aluminum surface. Considered valid for altitudes under 300 km. Data from Knechtel and Pitts (1973) and fit from Fredo and Kaplan (1981)</p>
+<p>Fredo and Kaplan, "Procedure for Obtaining Aerodynamic Properties of
+Spacecraft," J. Spacecraft Vol. 18 No. 4, July-August 1981. </p>
+
+<p class="reference">Referenced by <a class="el" href="group___a_c_functions.html#ga6a2d61aef1307b22d601061085d1dd41">CLCDFreeMolecular()</a>, and <a class="el" href="group___s_c_functions.html#ga9ee0022352fdd8b09bdd45f574c21b1e">FAeroSurfaceAccommodation()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_57d1b70c649d31ec87936898fd99801f.html">SC</a></li><li class="navelem"><a class="el" href="dir_41c194bba52f5b6fdec2c491af7082f0.html">Demos</a></li><li class="navelem"><a class="el" href="dir_a126fb8dea69a9d5b2f39b23340faf40.html">Disturbances</a></li><li class="navelem"><a class="el" href="_accommodation_flat_plate_8m.html">AccommodationFlatPlate.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_57d1b70c649d31ec87936898fd99801f.html">SC</a></li><li class="navelem"><a class="el" href="dir_41c194bba52f5b6fdec2c491af7082f0.html">Demos</a></li><li class="navelem"><a class="el" href="dir_a126fb8dea69a9d5b2f39b23340faf40.html">Disturbances</a></li><li class="navelem"><a class="el" href="_accommodation_flat_plate_8m.html">AccommodationFlatPlate.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:49 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,4 @@
 var _sin_x_8m =
 [
-    [ "SinX", "group___math_functions.html#gac3861a510861c1a9770433c159585c19", null ]
+    [ "SinX", "group___math_functions.html#ga1bc3973a74a31c570a9d5fe7b35ef06f", null ]
 ];

@@ -1,4 +1,4 @@
 var _trig_reduction_8m =
 [
-    [ "TrigReduction", "group___math_functions.html#gaeccd105d8b46cf2f71851749c7fc6716", null ]
+    [ "TrigReduction", "group___math_functions.html#gab3536a7854150a52e332b9d0e591d0e4", null ]
 ];

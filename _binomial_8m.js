@@ -1,4 +1,4 @@
 var _binomial_8m =
 [
-    [ "Binomial", "group___math_functions.html#gabbe254454354e246344bc7d22c708c38", null ]
+    [ "Binomial", "group___math_functions.html#ga8dbdb8144ac056e21e440a6c32ae81b4", null ]
 ];

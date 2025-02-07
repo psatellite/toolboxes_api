@@ -125,17 +125,17 @@ Groups</h2></td></tr>
 </table>
 
 
-<h3><a id="MHTPage" name="MHTPage"></a>Multiple Hypothesis Target Tracking Background</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md10872"></a>
+<h3><a id="MHTPage" name="MHTPage"></a>Multiple Hypothesis Target Tracking Background</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md10541"></a>
 Getting Started</h2>
 <p>Remember that you must install GLPK and GLPKMEX before running the MHT functions. A brief manual with background theory and references is also available.</p>
-<h3><a class="anchor" id="autotoc_md10873"></a>
+<h3><a class="anchor" id="autotoc_md10542"></a>
 Background on MHT</h3>
 <p>In many situations a sensor system must track multiple targets, like in rush hour traffic shown in the photo above. This leads to the problem of associating measurements with objects, or tracks. This is an essential element of any practical tracking system.</p>
 <p>The following figure shows the general tracking problem. Two scans (concurrent sets) of data are shown. When the first scan is done there are two tracks. The uncertainty ellipsoids are shown and they are based on all previous information. In the $k-1$ scan three measurements are observed. 1 and 3 are within the ellipsoids of the two tracks but 2 is in both. It may be a measurement of either of the tracks or a spurious measurement. In scan $k$ four measurements are taken. Only measurement 4 is in one of the uncertainty ellipsoids. 3 might be interpreted as spurious but it is actually due to to a new track from a third vehicle that separates from the blue track. 1 is outside of the red ellipsoid but is actually a good measurement of the red track and (if correctly interpreted) indicates that the model is erroneous. 4 is a good measurement of the blue track and indicates that the model is valid.</p>
 <p><img src="../Images/Tracking.png" alt="Tracking Problem" class="inline"/></p>
 <p>Hypotheses are sets of tracks with consistent data, that is where no measurements are assigned to more than one track. The track-oriented approach recomputes the hypotheses using the newly updated tracks after each scan of data are received. Rather than maintaining, and expanding, hypotheses from scan to scan, the track-oriented approach discards the hypotheses formed on scan k-1. The tracks that survive pruning are predicted to the next scan k where new tracks are formed, using the new observations, and reformed into hypotheses. Except for the necessity to delete some tracks based upon low probability or N-scan pruning, no information is lost because the track scores, that are maintained, contain all the relevant statistical data.</p>
 <p>The MHT Toolbox uses a powerful track pruning algorithm that does the pruning in one step. Because of its speed, ad-hoc pruning methods are not required leading to more robust and reliable results. The track management software is, as a consequence, quite simple.</p>
-<h3><a class="anchor" id="autotoc_md10874"></a>
+<h3><a class="anchor" id="autotoc_md10543"></a>
 Kalman Filters</h3>
 <p>The Core Control Toolbox includes Kalman Filters, Extended Kalman Filters and Unscented Kalman Filters. All of the Kalman Filters use a common code format:</p>
 <div class="fragment"><div class="line">u.t     = t;</div>
@@ -145,7 +145,7 @@ Kalman Filters</h3>
 </div><!-- fragment --><p>where <code>u</code> is a MATLAB data structure. This allows the two filtering steps to be used independently. For example, you can run the predict step multiple times while waiting for a measurement update.</p>
 <p>You can switch filter types by simply changing the <code>UKF</code> in the name to <code>EKF</code>. Each Kalman Filter can handle multiple measurement sources and measurements arriving at different times.</p>
 <p>All three Kalman Filters can be used independently or as part of the MHT system. The usual practice is to test the filter with the dynamical model before incorporating it into the MHT management system. The toolbox makes this easy to do. For example, the toolbox includes MHT distance functions for Kalman Filters, Extended Kalman Filters and the UKF. The UKF automatically uses sigma points and does not require derivatives to be taken of the measurement functions or linearized versions of the measurement models.</p>
-<h3><a class="anchor" id="autotoc_md10875"></a>
+<h3><a class="anchor" id="autotoc_md10544"></a>
 Example: Automobile Simulation</h3>
 <p>This demonstration involves multiple cars passing another car which has a radar system that measures range, range rate and azimuth. The radar has a limited field of view and range.</p>
 <p>There are two scripts associated with this demo. The first, <code><a class="el" href="_u_k_f_automobile_demo_8m.html" title="UKF automobile demo.">UKFAutomobileDemo.m</a></code>, tests the Unscented Kalman Filter that is to be used in the MHT system. This script has the car containing the radar and one other car that does a variety of maneuvers. It is, in essence, an MHT system with perfect measurement association. It is always a good idea to do this first to sort out the filter parameters and make sure that your filter works. The second script is the <code><a class="el" href="_m_h_t_automobile_demo_8m.html" title="MHT automobile demo.">MHTAutomobileDemo.m</a></code> that implements the MHT system.</p>
@@ -155,7 +155,7 @@ Example: Automobile Simulation</h3>
 <p><img src="../Images/AutoTree.png" alt="Auto Tree" class="inline"/></p>
 <p>The MHT GUI provides the user with a snapshot of the process of the MHT system thinking. This makes it easy to validate its decisions and to debug your software.</p>
 <p><img src="../Images/AutoGUI.png" alt="MHT GUI" class="inline"/></p>
-<h3><a class="anchor" id="autotoc_md10876"></a>
+<h3><a class="anchor" id="autotoc_md10545"></a>
 Using MHT</h3>
 <p>You will need the following functions to build an MHT application.</p>
 <ul>
@@ -172,7 +172,7 @@ Using MHT</h3>
 <li><code>ScanToTrackAuto</code></li>
 </ul>
 <p>Once you get good results your can build your MHT function using the same simulation. A convenient way is to have one script to run the simulation and save the measurements and states in a mat file. Then you can use this for both the Kalman Filter and MHT tests.</p>
-<h3><a class="anchor" id="autotoc_md10877"></a>
+<h3><a class="anchor" id="autotoc_md10546"></a>
 MHT Simulations</h3>
 <p>Thorough testing of an MHT system requires a number of features in the simulation.</p>
 <ul>
@@ -184,13 +184,13 @@ MHT Simulations</h3>
 <p>It is always a good idea to start by using the same model in your simulation as is in your Kalman filter. You should also not add false alarms or missed measurements until you have thoroughly tested your MHT code. Another useful debugging tool is to initialize new track Kalman Filter states exactly. Remove these simplifications one at time to validate your system. Your test script can have flags that allow you to switch these "features" on and off. </p>
 </div>
 
-<h3><a id="mht_demos" name="mht_demos"></a>MHT Demos</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md10878"></a>
+<h3><a id="mht_demos" name="mht_demos"></a>MHT Demos</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md10547"></a>
 KFDemos</h2>
 <ul>
 <li>[KFBilliardsDemo] (Demos/KFBilliardsDemo.html): Billiard demo using a Kalman filter to estimate the ball states.</li>
 <li>[UKFAutomobileDemo] (Demos/UKFAutomobileDemo.html): UKF automobile demo.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md10879"></a>
+<h2><a class="anchor" id="autotoc_md10548"></a>
 MHTDemos</h2>
 <ul>
 <li>[MHT1DDemo] (Demos/MHT1DDemo.html): One dimensional MHT demo.</li>
@@ -206,7 +206,7 @@ MHTDemos</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:12 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:50 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

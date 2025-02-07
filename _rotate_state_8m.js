@@ -1,4 +1,4 @@
 var _rotate_state_8m =
 [
-    [ "RotateState", "group___formation_flying_functions.html#ga242bce81017f632ac1c445459b7126f6", null ]
+    [ "RotateState", "group___formation_flying_functions.html#gac1e811888c60fed7cfd0d85060505f46", null ]
 ];

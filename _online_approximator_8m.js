@@ -1,4 +1,4 @@
 var _online_approximator_8m =
 [
-    [ "OnlineApproximator", "group___math_functions.html#ga11818c779d438d900494094ac132cd8f", null ]
+    [ "OnlineApproximator", "group___math_functions.html#ga432d1914458492ac784b468f363da1fe", null ]
 ];

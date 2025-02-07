@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/IntegratedSim/Software/DFFAttitudeController.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/IntegratedSim/Software/DFFAttitudeController.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,19 +110,19 @@ $(function(){initNavTree('_d_f_f_attitude_controller_8m.html',''); initResizable
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5283573e5313ea1d2a848ebb18f4cb21" id="r_a5283573e5313ea1d2a848ebb18f4cb21"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5283573e5313ea1d2a848ebb18f4cb21">DFFAttitudeController</a> (in action, in d, in k)</td></tr>
-<tr class="memdesc:a5283573e5313ea1d2a848ebb18f4cb21"><td class="mdescLeft">&#160;</td><td class="mdescRight">DFF attitude control routine.  <br /></td></tr>
-<tr class="separator:a5283573e5313ea1d2a848ebb18f4cb21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e615f4115c0401462b85a16f549131d" id="r_a5e615f4115c0401462b85a16f549131d"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e615f4115c0401462b85a16f549131d">DFFAttitudeController</a> (in action, in d, in k)</td></tr>
+<tr class="memdesc:a5e615f4115c0401462b85a16f549131d"><td class="mdescLeft">&#160;</td><td class="mdescRight">DFF attitude control routine.  <br /></td></tr>
+<tr class="separator:a5e615f4115c0401462b85a16f549131d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a5283573e5313ea1d2a848ebb18f4cb21" name="a5283573e5313ea1d2a848ebb18f4cb21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5283573e5313ea1d2a848ebb18f4cb21">&#9670;&#160;</a></span>DFFAttitudeController()</h2>
+<a id="a5e615f4115c0401462b85a16f549131d" name="a5e615f4115c0401462b85a16f549131d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e615f4115c0401462b85a16f549131d">&#9670;&#160;</a></span>DFFAttitudeController()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function DFFAttitudeController </td>
+          <td class="memname">function DFFAttitudeController </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
         </tr>
@@ -140,20 +140,22 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>This routine implements attitude control for the DFF system. PID controllers are used for attitude control - momentum control is not used. The torque command is applied directly in the simulation, without the use of an RWA model. Provision is made for filters of arbitrary order for loop shaping. Inputs are the target quaternion and the true quaternion. Small angles are computed from the two quaternions. The target quaternion should be near the true quaternion for best results.</p>
 <p>If there are no inputs it will perform a self-test.</p>
-<h2><a class="anchor" id="autotoc_md4412"></a>
+<h2><a class="anchor" id="autotoc_md4349"></a>
 Form</h2>
-<p>t = DFFAttitudeController( action, d, k )</p>
-<h2><a class="anchor" id="autotoc_md4413"></a>
+<pre class="fragment"> t = DFFAttitudeController( action, d, k )
+</pre><h2><a class="anchor" id="autotoc_md4350"></a>
 Inputs</h2>
-<p>action (1,:) Action to be performed <br  />
- d (.) Data structure for inputs k (1,1) Unique spacecraft identifier</p>
-<h2><a class="anchor" id="autotoc_md4414"></a>
+<pre class="fragment"> action        (1,:)     Action to be performed        
+ d              (.)      Data structure for inputs
+ k             (1,1)     Unique spacecraft identifier
+</pre><h2><a class="anchor" id="autotoc_md4351"></a>
 Outputs</h2>
-<p>t (.) Data structure with outputs. Valid only with action 'update' and 'get telemetry' </p>
+<pre class="fragment"> t              (.)     Data structure with outputs. Valid only
+                         with action 'update' and 'get telemetry'
+</pre> 
+<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="_hyper_r_d_e_8m.html#a2c8e022c0ae170d1c97520f95c1caee6">DefaultData()</a>, <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>, <a class="el" href="statespace_8m.html#aed9dbb8af76caf0e678e3a4161041fe9">isempty()</a>, <a class="el" href="group___common_functions.html#ga1ef57afb0df69f5293469b647bb38e3f">PID()</a>, <a class="el" href="transmat_8m.html#a4b3dc4e3d17b42a8536479d9a8dd91d1">quaternion()</a>, and <a class="el" href="group___s_c_functions.html#gacfbcea0460b2f616d1fd2631dd9b86eb">RWA()</a>.</p>
 
-<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="_hyper_r_d_e_8m.html#a2c8e022c0ae170d1c97520f95c1caee6">DefaultData()</a>, <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>, <a class="el" href="statespace_8m.html#aed9dbb8af76caf0e678e3a4161041fe9">isempty()</a>, <a class="el" href="group___common_functions.html#ga6a68ed91439d65a7d375fc036c671e54">PID()</a>, <a class="el" href="transmat_8m.html#a4b3dc4e3d17b42a8536479d9a8dd91d1">quaternion()</a>, and <a class="el" href="group___s_c_functions.html#ga6d7205cf9305b8bc465a7d6af9fbfb77">RWA()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_auto_form_command_list_8m.html#adfbe500e18db662f335bfe0960db404e">AutoFormCommandList()</a>, <a class="el" href="_collision_demo_command_list_8m.html#a503a60f9e6e7d1bb2dd2a34d96bc16fa">CollisionDemoCommandList()</a>, <a class="el" href="_default_command_list_8m.html#a63042acd1c7fbf4c6bca95b16c8352b7">DefaultCommandList()</a>, <a class="el" href="_demo_maneuver_command_list_8m.html#a25ca2a07da0353f581e85dcf56ebe22b">DemoManeuverCommandList()</a>, <a class="el" href="group___formation_flying_functions.html#ga6e466ac60ecc580aecaf252028510b42">DFFControl()</a>, <a class="el" href="_main_demo_command_list_8m.html#ae88953effe1e1f525f78fa35aa9d1ba8">MainDemoCommandList()</a>, <a class="el" href="_proj_circ_command_list_8m.html#a8dd872f6677345165121992885879427">ProjCircCommandList()</a>, <a class="el" href="_simple_maneuver_command_list_8m.html#ab420729954b8e64dc3ce6e18836de560">SimpleManeuverCommandList()</a>, <a class="el" href="_test_a_d_c_s_command_list_8m.html#a5639804a9be636c95bb38df2a6db4e60">TestADCSCommandList()</a>, and <a class="el" href="_test_control_command_list_8m.html#a0bb71fadd5443d0e3df0c2c96cb5a970">TestControlCommandList()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_auto_form_command_list_8m.html#a056067838a0de1f8e21a1075d1c6ea1a">AutoFormCommandList()</a>, <a class="el" href="_collision_demo_command_list_8m.html#aee02bf3a2decfbc4a7f8dd373a6646a9">CollisionDemoCommandList()</a>, <a class="el" href="_default_command_list_8m.html#a4a76f56fd63592f89989c1443d5636fa">DefaultCommandList()</a>, <a class="el" href="_demo_maneuver_command_list_8m.html#a28b3736160b24af578929cf46c7241ff">DemoManeuverCommandList()</a>, <a class="el" href="group___formation_flying_functions.html#gacfba4523cb0f018c53f6eb4b251954bf">DFFControl()</a>, <a class="el" href="_main_demo_command_list_8m.html#a2d4233ec57066a2814ae90b8132dcb37">MainDemoCommandList()</a>, <a class="el" href="_proj_circ_command_list_8m.html#a49764b346f7d258ca232e1db46c177c5">ProjCircCommandList()</a>, <a class="el" href="_simple_maneuver_command_list_8m.html#a3a4494900fb0f0fa7daeb04f299ffad0">SimpleManeuverCommandList()</a>, <a class="el" href="_test_a_d_c_s_command_list_8m.html#ad0b06351049f768239dc274dfbc3f1cf">TestADCSCommandList()</a>, and <a class="el" href="_test_control_command_list_8m.html#acb0604da491e22737423a38a63eaede7">TestControlCommandList()</a>.</p>
 
 </div>
 </div>
@@ -162,8 +164,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_9ac725e1de0bc93e411881206520fffe.html">Software</a></li><li class="navelem"><a class="el" href="_d_f_f_attitude_controller_8m.html">DFFAttitudeController.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_9ac725e1de0bc93e411881206520fffe.html">Software</a></li><li class="navelem"><a class="el" href="_d_f_f_attitude_controller_8m.html">DFFAttitudeController.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

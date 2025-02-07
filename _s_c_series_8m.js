@@ -1,4 +1,4 @@
 var _s_c_series_8m =
 [
-    [ "SCSeries", "group___math_functions.html#gaa0c3b89d43b251079444a0fdf6228197", null ]
+    [ "SCSeries", "group___math_functions.html#ga21d0faac0836d7c783885f98e0d14e1c", null ]
 ];

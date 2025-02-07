@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Missions/Demos/Comsat/ComStarAcq.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Missions/Demos/Comsat/ComStarAcq.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('_com_star_acq_8m.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">ComStarAcq.m File Reference<div class="ingroups"><a class="el" href="group___missions_group.html">Missions Module</a> &raquo; <a class="el" href="group___missions_demos.html">Missions Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">ComStarAcq.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -108,28 +108,24 @@ $(function(){initNavTree('_com_star_acq_8m.html',''); initResizable(true); });
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a href="Demos/Missions/ComStarAcq.html">Published Demo</a></p>
 <p>Comstar is spinning in transfer orbit. When the demonstration starts it is at orbit normal. The acquisition sequence has the following phases:</p>
-<ol type="1">
-<li>Despin to the DST angular rate</li>
-<li>DST with nutation damping</li>
-<li>Pitch estimation</li>
-<li>Pitch acquisition</li>
-<li>Normal mode</li>
-</ol>
-<p>Phases 2-4 make use of the tach loop</p>
-<h2><a class="anchor" id="autotoc_md5961"></a>
-Since version 2.</h2>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___s_c_functions.html#gacc29de4254815217c021ed3ba8489c2d" title="Compute dual spin turn rates.">DSTCrit</a>, PtchLoop, <a class="el" href="group___s_c_functions.html#ga03fc160638acc87c27a7d11047fa0f06" title="Simulates a single axis suns sensor.">SSA</a>, <a class="el" href="group___missions_functions.html#ga455f12f78370608587d554011640a07c" title="Estimates rate from measurements of period.">SpinREst</a>, <a class="el" href="group___common_functions.html#ga25e51e22743779aec13df399ed3db73a" title="Propagates state equations.">StatePrp</a>, <a class="el" href="group___s_c_functions.html#ga36d5c292e7bc9209f8ef41cb62519150" title="Gyrostat right-hand-side.">FGs</a>, <a class="el" href="group___common_functions.html#gad2aa5406bfcb16d2aed8f7163807d3c7" title="NPlot generates a plot on which the ylabels are character strings.">NPlot</a>, </dd>
+<pre class="fragment"> 1. Despin to the DST angular rate
+ 2. DST with nutation damping
+ 3. Pitch estimation
+ 4. Pitch acquisition
+ 5. Normal mode
+</pre><p>Phases 2-4 make use of the tach loop</p>
+<pre class="fragment"> Since version 2.
+</pre><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___s_c_functions.html#ga39bc32a1b8bea71fea5132008026bdbe" title="Compute dual spin turn rates.">DSTCrit</a>, PtchLoop, <a class="el" href="group___s_c_functions.html#ga94b2012a6ac0edd9a7c272b71892bbe4" title="Simulates a single axis suns sensor.">SSA</a>, <a class="el" href="group___missions_functions.html#ga9ab9513614a50943faaa151c81b50b9e" title="Estimates rate from measurements of period.">SpinREst</a>, <a class="el" href="group___common_functions.html#ga8d2a2cd16097fc3e26a52a26652b57fc" title="Propagates state equations.">StatePrp</a>, <a class="el" href="group___s_c_functions.html#ga56d86a909370650fe63250106d19d689" title="Gyrostat right-hand-side.">FGs</a>, <a class="el" href="group___common_functions.html#gaee55bd348d3d6a3deb990c25046164e8" title="NPlot generates a plot on which the ylabels are character strings.">NPlot</a>, </dd>
 <dd>
-<a class="el" href="group___missions_functions.html#ga5cb1bc42e68911d5df5276be53dab34f" title="The ComStar satellite properties database GUI.">ComStar</a>, <a class="el" href="group___missions_functions.html#ga43f7df76ed86c58176c5916366524a3a" title="Kalman Filter for pitch.">PitchEst</a>, <a class="el" href="group___common_functions.html#gae98740d1d9906ab35e0c5870cf6dfd2b" title="Converts a quaternion to 3-2-1 Euler angles.">Q2Eul</a>, <a class="el" href="group___common_functions.html#ga333e57e54da5b1629f5fac27222949c3" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#gad8224b630862781e5b991a2741964ab3" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, <a class="el" href="group___common_functions.html#ga918513da25db805cc32870932b833b74" title="A GUI displaying the time remaining and estimated completion time.">TimeGUI</a></dd></dl>
-<hr  />
+<a class="el" href="group___missions_functions.html#ga793f76e8056dc0aec3cafe31eb9450f3" title="The ComStar satellite properties database GUI.">ComStar</a>, <a class="el" href="group___missions_functions.html#ga90f907e4e46281dddc6bb71562a08774" title="Kalman Filter for pitch.">PitchEst</a>, <a class="el" href="group___common_functions.html#ga31d2e5786ec299580863fb269c10cbb3" title="Converts a quaternion to 3-2-1 Euler angles.">Q2Eul</a>, <a class="el" href="group___common_functions.html#ga3a2fd4c8c08b56a14ca41af691af1905" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#ga5c1f468d16ddd7a9d4049311428be679" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, <a class="el" href="group___common_functions.html#ga7972d3e113aebf4fd60c459ed274e46a" title="A GUI displaying the time remaining and estimated completion time.">TimeGUI</a></dd></dl>
 <p>Copyright 1994-1998 Princeton Satellite Systems, Inc. All rights reserved. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_5145aef67177b1bb2e8f64b21eee0f3d.html">Missions</a></li><li class="navelem"><a class="el" href="dir_0fc677c9440a0e94e26b6175c87d0f1f.html">Demos</a></li><li class="navelem"><a class="el" href="dir_bbd817cda79289eb532f5746e539bf88.html">Comsat</a></li><li class="navelem"><a class="el" href="_com_star_acq_8m.html">ComStarAcq.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_5145aef67177b1bb2e8f64b21eee0f3d.html">Missions</a></li><li class="navelem"><a class="el" href="dir_0fc677c9440a0e94e26b6175c87d0f1f.html">Demos</a></li><li class="navelem"><a class="el" href="dir_bbd817cda79289eb532f5746e539bf88.html">Comsat</a></li><li class="navelem"><a class="el" href="_com_star_acq_8m.html">ComStarAcq.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

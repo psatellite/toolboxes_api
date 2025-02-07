@@ -1,4 +1,4 @@
 var _riccati_8m =
 [
-    [ "Riccati", "group___common_functions.html#ga170f88be9edd14927607fa563ba3e6b6", null ]
+    [ "Riccati", "group___common_functions.html#gaa963273b5e85a4c2c3d6b5282e67568d", null ]
 ];

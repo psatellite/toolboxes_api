@@ -1,4 +1,4 @@
 var _compute_duration_8m =
 [
-    [ "ComputeDuration", "group___straight_line_functions.html#gae2a86e7b1f4026730082483beb824efd", null ]
+    [ "ComputeDuration", "group___straight_line_functions.html#gad35b6eec6c24f5f51933b840a95f18c1", null ]
 ];

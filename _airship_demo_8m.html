@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Airships/Demos/Simulation/AirshipDemo.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Airships/Demos/Simulation/AirshipDemo.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('_airship_demo_8m.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">AirshipDemo.m File Reference<div class="ingroups"><a class="el" href="group___airships_group.html">Airships Module</a> &raquo; <a class="el" href="group___airships_demos.html">Airships Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">AirshipDemo.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -107,33 +107,36 @@ $(function(){initNavTree('_airship_demo_8m.html',''); initResizable(true); });
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a href="Demos/Airships/AirshipDemo.html">Published Demo</a></p>
-<p>Runs a full nonlinear simulation of the specified airship model. The simulation is open loop.</p>
-<p>Computes a data structure with fields:</p><ul>
-<li>t Time</li>
-<li>r ECI position of origin</li>
-<li>rCG ECI position of CG</li>
-<li>v velocity of origin in body frame</li>
-<li>vCG velocity of CG in body frame</li>
-<li>q ECI to body quaternion</li>
-<li>w angular velocity of body frame</li>
-<li>alpha angle of attack</li>
-<li>beta sideslip</li>
-<li>force aerodynamic force</li>
-<li>torque aerodynamic torque</li>
-</ul>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___a_c_functions.html#ga34e343eebc6a38564b51a445d3e69aec" title="Compute angle of attack and sideslip.">AlphBeta</a>, <a class="el" href="group___a_c_functions.html#ga78ae146224bb5c96cbd4a76c0bfe3765" title="Compute ECI to body quaternion from ECI position and Euler angles.">QECI</a>, <a class="el" href="group___a_c_functions.html#ga14b7b0370ca3f6be342b61dc2ee03381" title="Convert from the ECI frame to the NEH frame.">RNEH</a>, <a class="el" href="group___a_c_functions.html#ga6aff0365bb05ed71875480d2516d2698" title="Dynamics model for an aircraft.">AC</a>, <a class="el" href="group___a_c_functions.html#gafb0a3531952958a474b005a2cd3a272d" title="Initialize the aircraft model.">ACInit</a>, <a class="el" href="group___aerospace_utils_functions.html#gadb2db2235320690d4f2527be6d7ed4b0" title="Computes air data based on a simplified standard atmosphere model.">AirData</a>, @acstate/acstate.m, </dd>
+<pre class="fragment">Runs a full nonlinear simulation of the specified airship model. 
+The simulation is open loop.
+
+
+Computes a data structure with fields:
+- t         Time
+- r         ECI position of origin
+- rCG       ECI position of CG
+- v         velocity of origin in body frame
+- vCG       velocity of CG in body frame
+- q         ECI to body quaternion
+- w         angular velocity of body frame
+- alpha     angle of attack
+- beta      sideslip
+- force     aerodynamic force
+- torque    aerodynamic torque
+</pre><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___a_c_functions.html#ga36fc9a0e03b85596babefc34fefd992e" title="Compute angle of attack and sideslip.">AlphBeta</a>, <a class="el" href="group___a_c_functions.html#ga9f75484863209421a634c76883f27db7" title="Compute ECI to body quaternion from ECI position and Euler angles.">QECI</a>, <a class="el" href="group___a_c_functions.html#ga5c052aa00cab1b573f8f9e760d17fd84" title="Convert from the ECI frame to the NEH frame.">RNEH</a>, <a class="el" href="group___a_c_functions.html#ga1271c5c182805a10d3b24cfde3be8808" title="Dynamics model for an aircraft.">AC</a>, <a class="el" href="group___a_c_functions.html#gac17558cba4b64d46211c34a79376df25" title="Initialize the aircraft model.">ACInit</a>, <a class="el" href="group___aerospace_utils_functions.html#ga73f187f462a6971205a7ab31f4302f60" title="Computes air data based on a simplified standard atmosphere model.">AirData</a>, @acstate/acstate.m, </dd>
 <dd>
-<a class="el" href="group___airships_functions.html#ga165a76025128a50cff800a767ae95373" title="Compute the trim controls for an airship at a given flight condition.">AirshipTrim</a>, <a class="el" href="group___airships_functions.html#ga665353514424edebaade2733bcfe0208" title="Build the aerodynamic model of an airship.">BuildAirshipModel</a>, <a class="el" href="group___airships_functions.html#gaf94ab96bf8fe669be1261332b42da43c" title="Aerodynamic forces and moments for an airship.">AirshipAero</a>, <a class="el" href="group___common_functions.html#gadc6a599f9ce46634821bba382ad21ec0" title="Computes the altitude above an ellipsoidal planet.">Altitude</a>, <a class="el" href="group___common_functions.html#ga4d739fd4e768e6cfb028d0e13c2dc540" title="Transform a 6x1 compact inertia vector into a 3x3 inertia matrix.">IConv</a>, <a class="el" href="group___common_functions.html#ga8225cf186f4bd8843a219b98f1d08d75" title="Transforms a vector opposite the direction of the quaternion.">QTForm</a></dd>
+<a class="el" href="group___airships_functions.html#ga729af57a71cfc5c61fa55acb12d2be2a" title="Compute the trim controls for an airship at a given flight condition.">AirshipTrim</a>, <a class="el" href="group___airships_functions.html#gaf0c6c6bc3d8bfcb97010c03b27386057" title="Build the aerodynamic model of an airship.">BuildAirshipModel</a>, <a class="el" href="group___airships_functions.html#ga2fadbb2a9baed0796e67daa0e835b6f5" title="Aerodynamic forces and moments for an airship.">AirshipAero</a>, <a class="el" href="group___common_functions.html#ga661eef54b3bae179f5c6f7c5e6ff1ede" title="Computes the altitude above an ellipsoidal planet.">Altitude</a>, <a class="el" href="group___common_functions.html#gaeea3fe81a304e12502d236b9ef3ecc8a" title="Transform a 6x1 compact inertia vector into a 3x3 inertia matrix.">IConv</a>, <a class="el" href="group___common_functions.html#gab63f3ad8219a695021616d47b8a163a3" title="Transforms a vector opposite the direction of the quaternion.">QTForm</a></dd>
 <dd>
-<a class="el" href="group___common_functions.html#gad8224b630862781e5b991a2741964ab3" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, <a class="el" href="group___common_functions.html#ga918513da25db805cc32870932b833b74" title="A GUI displaying the time remaining and estimated completion time.">TimeGUI</a>, <a class="el" href="group___math_functions.html#ga058693fa5e69570bca8c2568df970266" title="Vector cross product for multicolum arrays.">Cross</a>, <a class="el" href="group___math_functions.html#ga1dc2fa66a4f35374ed94a34daa86e513" title="Magnitude of a set of vectors.">Mag</a></dd></dl>
-<p>Copyright 2003 Princeton Satellite Systems, Inc. All rights reserved. </p>
-</div></div><!-- contents -->
+<a class="el" href="group___common_functions.html#ga5c1f468d16ddd7a9d4049311428be679" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, <a class="el" href="group___common_functions.html#ga7972d3e113aebf4fd60c459ed274e46a" title="A GUI displaying the time remaining and estimated completion time.">TimeGUI</a>, <a class="el" href="group___math_functions.html#ga8bc5e1aa9bb61f1fd77943b68486a981" title="Vector cross product for multicolum arrays.">Cross</a>, <a class="el" href="group___math_functions.html#ga4b519b77f25a768b7bcde40daeb0acb5" title="Magnitude of a set of vectors.">Mag</a></dd></dl>
+<pre class="fragment">Copyright 2003 Princeton Satellite Systems, Inc.
+All rights reserved.
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_1a21c1cbbe4c692d0924f576c3478eff.html">Airships</a></li><li class="navelem"><a class="el" href="dir_258e94dca26af7949e997d6530308548.html">Demos</a></li><li class="navelem"><a class="el" href="dir_baa1936dfeb4d8022f45386767cfb928.html">Simulation</a></li><li class="navelem"><a class="el" href="_airship_demo_8m.html">AirshipDemo.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_1a21c1cbbe4c692d0924f576c3478eff.html">Airships</a></li><li class="navelem"><a class="el" href="dir_258e94dca26af7949e997d6530308548.html">Demos</a></li><li class="navelem"><a class="el" href="dir_baa1936dfeb4d8022f45386767cfb928.html">Simulation</a></li><li class="navelem"><a class="el" href="_airship_demo_8m.html">AirshipDemo.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Core/Electrical/Components/HalbachMotorDesign.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Electrical/Components/HalbachMotorDesign.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -111,7 +111,7 @@ $(function(){initNavTree('_halbach_motor_design_8m.html',''); initResizable(true
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae88bfbaa10be52eaf2aaf55253530801" id="r_ae88bfbaa10be52eaf2aaf55253530801"><td class="memItemLeft" align="right" valign="top">ingroup ElectricalFunctions function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae88bfbaa10be52eaf2aaf55253530801">DefaultDataStructure</a> ()</td></tr>
-<tr class="memdesc:ae88bfbaa10be52eaf2aaf55253530801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type HalbachMotorDesign for a demo.  <br /></td></tr>
+<tr class="memdesc:ae88bfbaa10be52eaf2aaf55253530801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (c) 2020 Princeton Satellite Systems, Inc.  <br /></td></tr>
 <tr class="separator:ae88bfbaa10be52eaf2aaf55253530801"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea3da1389526ebc4b3693a5bf6a9ac3f" id="r_aea3da1389526ebc4b3693a5bf6a9ac3f"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea3da1389526ebc4b3693a5bf6a9ac3f">HalbachMotorDesign</a> (in d)</td></tr>
 <tr class="memdesc:aea3da1389526ebc4b3693a5bf6a9ac3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Design a dual rotor axial flux motor.  <br /></td></tr>
@@ -135,22 +135,45 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md10416"></a>
+<pre class="fragment"> Type HalbachMotorDesign for a demo.
+</pre><h2><a class="anchor" id="autotoc_md10111"></a>
 Form</h2>
-<p>d = HalbachMotorDesign; p = HalbachMotorDesign( d )</p>
-<h2><a class="anchor" id="autotoc_md10417"></a>
+<pre class="fragment"> d = HalbachMotorDesign;
+ p = HalbachMotorDesign( d )
+</pre><h2><a class="anchor" id="autotoc_md10112"></a>
 Inputs</h2>
-<p>d (1,1) Data structure .rO (1,1) Output radius (m) .rI (1,1) Inner radius (m) .n (1,1) Number of poles <br  />
- .jPeak (1,:) Peak (in time) current density (A/m^2) .rho (1,1) DC resistivity (ohm*m) .bPeak (1,1) Peak magnetic field (T) <br  />
- .wireD (1,1) Wire diameter (m) <br  />
- .omega (1,1) Angular rate (rad/s) <br  />
- .t (1,1) Thickness (m) .hM (1,1) Magnet height (m) <br  />
- .densityMagnet (1,1) Density magnet (kg/m^3) .densityCopper (1,1) Density copper (kg/m^3) .fLoss (1,1) Rotational coefficient of friction .eddyGreaves (1,1) Logical. True: Use eddy loss model of Greaves et. al. False: Use more general toolbox eddy loss model.</p>
-<h2><a class="anchor" id="autotoc_md10418"></a>
+<pre class="fragment"> d          (1,1)  Data structure
+                   .rO            (1,1) Output radius (m) 
+                   .rI            (1,1) Inner radius (m)
+                   .n             (1,1) Number of poles          
+                   .jPeak         (1,:) Peak (in time) current density
+                                        (A/m^2) 
+                   .rho           (1,1) DC resistivity (ohm*m)
+                   .bPeak         (1,1) Peak magnetic field (T)        
+                   .wireD         (1,1) Wire diameter (m)      
+                   .omega         (1,1) Angular rate (rad/s)        
+                   .t             (1,1) Thickness (m)
+                   .hM            (1,1) Magnet height (m)          
+                   .densityMagnet (1,1) Density magnet (kg/m^3) 
+                   .densityCopper (1,1) Density copper (kg/m^3)
+                   .fLoss         (1,1) Rotational coefficient of
+                                        friction
+                   .eddyGreaves   (1,1) Logical. True: Use eddy loss
+                                        model of Greaves et. al. False:
+                                        Use more general toolbox eddy
+                                        loss model. 
+</pre><h2><a class="anchor" id="autotoc_md10113"></a>
 Outputs</h2>
-<p>p (1,1) Data structure .pOut (1,1) Power out (W) .pLoss (1,1) Power loss (W) .torque (1,1) Torque (Nm) .eff (1,1) Conversion efficiency .mMagnet (1,1) Magnet mass (kg) .mCopper (1,1) Copper mass (kg) .mActive (1,1) Active mass (kg)</p>
-<p>Reference: M.C. Greaves, A.G. Simpson, B.D. Guymer, Dr G.R. Walker and D.A. Finn,"Ironless wheel motor for a direct drive
-vehicle application." Copyright (c) 2020 Princeton Satellite Systems, Inc. All rights reserved.</p>
+<pre class="fragment"> p          (1,1)  Data structure
+                   .pOut       (1,1) Power out (W)
+                   .pLoss      (1,1) Power loss (W)
+                   .torque     (1,1) Torque (Nm)
+                   .eff        (1,1) Conversion efficiency
+                   .mMagnet    (1,1) Magnet mass (kg)
+                   .mCopper    (1,1) Copper mass (kg)
+                   .mActive    (1,1) Active mass (kg)
+</pre><p>Reference: M.C. Greaves, A.G. Simpson, B.D. Guymer, Dr G.R. Walker and D.A. Finn,"Ironless wheel motor for a direct drive
+vehicle application." All rights reserved.</p>
 <p>Since 2020.1. Demo Geometry Output Greaves et. al. model <a class="el" href="_a_c_resistance_8m.html" title="Find enhanced AC wire resistance due to skin effect.">ACResistance.m</a> model Plot HalbachMotorDesign&gt;&gt;DefaultDataStructure </p>
 
 </div>
@@ -170,7 +193,7 @@ vehicle application." Copyright (c) 2020 Princeton Satellite Systems, Inc. All r
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="group___electrical_functions.html#gad5d0aa7a3aa986366c2accac01307951">ACResistance()</a>, <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="_brayton_with_recuperator_8m.html#ae953db19227464e4bb45ca35b0014aaf">DefaultDataStructure()</a>, <a class="el" href="_hyper_r_d_e_8m.html#a66e4ea51a839f2a719c09cddf294bfd3">Demo()</a>, <a class="el" href="#aea3da1389526ebc4b3693a5bf6a9ac3f">HalbachMotorDesign()</a>, and <a class="el" href="group___common_functions.html#gae59b663cdc4d24c241de22f6f9b5e50a">Inertias()</a>.</p>
+<p class="reference">References <a class="el" href="group___electrical_functions.html#ga0dc84ab6f8418a0014436f81e659f491">ACResistance()</a>, <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="_brayton_with_recuperator_8m.html#ae953db19227464e4bb45ca35b0014aaf">DefaultDataStructure()</a>, <a class="el" href="_hyper_r_d_e_8m.html#a66e4ea51a839f2a719c09cddf294bfd3">Demo()</a>, <a class="el" href="#aea3da1389526ebc4b3693a5bf6a9ac3f">HalbachMotorDesign()</a>, and <a class="el" href="group___common_functions.html#ga0cace758354eed32c5a57c065fe4077b">Inertias()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#aea3da1389526ebc4b3693a5bf6a9ac3f">HalbachMotorDesign()</a>.</p>
 
@@ -181,8 +204,8 @@ vehicle application." Copyright (c) 2020 Princeton Satellite Systems, Inc. All r
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c6310732a22f63c0c2fc5595561e68f1.html">Core</a></li><li class="navelem"><a class="el" href="dir_7e231413a6112f66ceccf223cb8e38f5.html">Electrical</a></li><li class="navelem"><a class="el" href="dir_35528a66d9bb73b82711c608b97a75d8.html">Components</a></li><li class="navelem"><a class="el" href="_halbach_motor_design_8m.html">HalbachMotorDesign.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_7e231413a6112f66ceccf223cb8e38f5.html">Electrical</a></li><li class="navelem"><a class="el" href="dir_35528a66d9bb73b82711c608b97a75d8.html">Components</a></li><li class="navelem"><a class="el" href="_halbach_motor_design_8m.html">HalbachMotorDesign.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:49 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

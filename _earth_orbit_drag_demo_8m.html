@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Orbit/Demos/OrbitSim/EarthOrbitDragDemo.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Orbit/Demos/OrbitSim/EarthOrbitDragDemo.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,33 +99,35 @@ $(function(){initNavTree('_earth_orbit_drag_demo_8m.html',''); initResizable(tru
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">EarthOrbitDragDemo.m File Reference<div class="ingroups"><a class="el" href="group___orbit_group.html">Orbit Module</a> &raquo; <a class="el" href="group___orbit_demos.html">Orbit Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">EarthOrbitDragDemo.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Simple demo to compute drag over one orbit <a href="Demos/Orbit/EarthOrbitDragDemo.html">Published Demo</a>  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Assumes point mass s/c, two body propagation. The only perturbing acceleration considered is due to drag. Mass is assumed to be constant, fixed cross-sectional area and drag coefficient. Demo produces plots of spacecraft position and velocity (in ECI frame) and drag force (N) (in ECI frame). DV due to drag perturbation is displayed.</p>
-<h2><a class="anchor" id="autotoc_md6187"></a>
-Since version 11</h2>
-<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___common_functions.html#ga333e57e54da5b1629f5fac27222949c3" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#gaa48c784bb78677916d4a8ea05e78b0f3" title="Compute the Julian Date from the date.">Date2JD</a>, <a class="el" href="group___orbit_functions.html#ga567af55ff5e35fce1417e98d76796034" title="Compute the period for an orbit.">Period</a>, <a class="el" href="group___orbit_functions.html#gac5427fbc7e145f25d217366fe07d739d" title="Generate an orbit by propagating Keplerian elements.">RVFromKepler</a>, </dd>
+<div class="textblock"><pre class="fragment">Assumes point mass s/c, two body propagation. The only perturbing 
+acceleration considered is due to drag. Mass is assumed to be constant, 
+fixed cross-sectional area and drag coefficient. Demo produces plots of
+spacecraft position and velocity (in ECI frame) and drag force (N) (in 
+ECI frame). DV due to drag perturbation is displayed.
+
+
+Since version 11
+</pre><dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___common_functions.html#ga3a2fd4c8c08b56a14ca41af691af1905" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#gacc8101597897c2b80df3b7f4835b1fcf" title="Compute the Julian Date from the date.">Date2JD</a>, <a class="el" href="group___orbit_functions.html#ga7c1eb42e22d71a258a2045394604e33b" title="Compute the period for an orbit.">Period</a>, <a class="el" href="group___orbit_functions.html#ga81aeaeb57bec300fb9cca611d68ea9f1" title="Generate an orbit by propagating Keplerian elements.">RVFromKepler</a>, </dd>
 <dd>
-<a class="el" href="group___s_c_functions.html#gae165f982cee8ebc6cea29d46efdc5286" title="Computes the solar flux prediction based on Julian date.">SolarFluxPrediction</a>, <a class="el" href="group___aerospace_utils_functions.html#gae03b0e78f6d3fa4fe501baea06d18395" title="Computes the atmospheric density using Jacchia&#39;s 1970 model.">AtmJ70</a>, <a class="el" href="group___s_c_functions.html#ga2e71006af063289258a0d4a59f03c4e3" title="Computes the mean earth rate.">EarthRte</a>, <a class="el" href="group___math_functions.html#gaee657ec6641275a2624dbb8113c0d5ad" title="Converts a vector into a skew symmetric matrix.">Skew</a>, <a class="el" href="group___aerospace_utils_functions.html#ga82f2ca4334ed3edf9805fb5797e017e9" title="Computes the matrix from mean of Aries 2000 to the earth fixed frame.">ECIToEF</a>, <a class="el" href="group___orbit_functions.html#ga6dc84f36c2851854162b8276db5c822c" title="Computes the right-hand-side of the orbit equations about a mass point.">FOrbCart</a>, <a class="el" href="group___math_functions.html#ga1dc2fa66a4f35374ed94a34daa86e513" title="Magnitude of a set of vectors.">Mag</a></dd>
+<a class="el" href="group___s_c_functions.html#gad8d8c21c68e3ec77eb8e090c0edac722" title="Computes the solar flux prediction based on Julian date.">SolarFluxPrediction</a>, <a class="el" href="group___aerospace_utils_functions.html#ga2da1f5dc14f4997298f006a00df68281" title="Computes the atmospheric density using Jacchia&#39;s 1970 model.">AtmJ70</a>, <a class="el" href="group___s_c_functions.html#gab5cb74b73bfcfb97d4c622fd9db7a1de" title="Computes the mean earth rate.">EarthRte</a>, <a class="el" href="group___math_functions.html#ga871412157385a6e7e302a6060aa8c6d5" title="Converts a vector into a skew symmetric matrix.">Skew</a>, <a class="el" href="group___aerospace_utils_functions.html#ga8ef49a83fc453a372a1998bf7e930058" title="Computes the matrix from mean of Aries 2000 to the earth fixed frame.">ECIToEF</a>, <a class="el" href="group___orbit_functions.html#gaa956115fac78470c5063c73fd015efc4" title="Computes the right-hand-side of the orbit equations about a mass point.">FOrbCart</a>, <a class="el" href="group___math_functions.html#ga4b519b77f25a768b7bcde40daeb0acb5" title="Magnitude of a set of vectors.">Mag</a></dd>
 <dd>
-<a class="el" href="group___common_functions.html#gaf96f2212c8decc8858e5f70f81ce5ef3" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>,<a class="el" href="group___common_functions.html#gad8224b630862781e5b991a2741964ab3" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a></dd></dl>
-<hr  />
-<hr  />
-<p>Copyright (c) 2013 Princeton Satellite Systems, Inc. </p>
-<h2><a class="anchor" id="autotoc_md6190"></a>
-All rights reserved.</h2>
-</div></div><!-- contents -->
+<a class="el" href="group___common_functions.html#ga5a8e26df8ab9db2da1c5c2e834d64c7d" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>,<a class="el" href="group___common_functions.html#ga5c1f468d16ddd7a9d4049311428be679" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a></dd></dl>
+<pre class="fragment">Copyright (c) 2013 Princeton Satellite Systems, Inc.
+All rights reserved.
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_6976d8c8e8ee346429237a70682b5ae7.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_652aacb251cfb54d223e7a01e92d684c.html">Demos</a></li><li class="navelem"><a class="el" href="dir_c2ed51872f2207498db12707fbdabbe4.html">OrbitSim</a></li><li class="navelem"><a class="el" href="_earth_orbit_drag_demo_8m.html">EarthOrbitDragDemo.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_6976d8c8e8ee346429237a70682b5ae7.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_652aacb251cfb54d223e7a01e92d684c.html">Demos</a></li><li class="navelem"><a class="el" href="dir_c2ed51872f2207498db12707fbdabbe4.html">OrbitSim</a></li><li class="navelem"><a class="el" href="_earth_orbit_drag_demo_8m.html">EarthOrbitDragDemo.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

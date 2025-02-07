@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/IntegratedSim/CommandLists/TestOrbAttControlCommandList.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/IntegratedSim/CommandLists/TestOrbAttControlCommandList.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,21 +110,21 @@ $(function(){initNavTree('_test_orb_att_control_command_list_8m.html',''); initR
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0bb71fadd5443d0e3df0c2c96cb5a970" id="r_a0bb71fadd5443d0e3df0c2c96cb5a970"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bb71fadd5443d0e3df0c2c96cb5a970">TestControlCommandList</a> ()</td></tr>
-<tr class="memdesc:a0bb71fadd5443d0e3df0c2c96cb5a970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command list for the testing the controller.  <br /></td></tr>
-<tr class="separator:a0bb71fadd5443d0e3df0c2c96cb5a970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0604da491e22737423a38a63eaede7" id="r_acb0604da491e22737423a38a63eaede7"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb0604da491e22737423a38a63eaede7">TestControlCommandList</a> ()</td></tr>
+<tr class="memdesc:acb0604da491e22737423a38a63eaede7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command list for the testing the controller.  <br /></td></tr>
+<tr class="separator:acb0604da491e22737423a38a63eaede7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Two spacecraft initialized </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a0bb71fadd5443d0e3df0c2c96cb5a970" name="a0bb71fadd5443d0e3df0c2c96cb5a970"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bb71fadd5443d0e3df0c2c96cb5a970">&#9670;&#160;</a></span>TestControlCommandList()</h2>
+<a id="acb0604da491e22737423a38a63eaede7" name="acb0604da491e22737423a38a63eaede7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb0604da491e22737423a38a63eaede7">&#9670;&#160;</a></span>TestControlCommandList()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function TestControlCommandList </td>
+          <td class="memname">function TestControlCommandList </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -132,19 +132,25 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Two spacecraft initialized</p>
-<p>in a leader-follower formation, plus a small semi-major axis difference. One is initialized as the reference. The other is commanded to achieve non-centered out-of-plane periodic motion. Ideal actuation and perfect state-sensing are assumed. No gravitational perturbations are modeled. The eccentricity may be set in the TestControlSimStruct file.</p>
-<p>Since version 7.</p>
-<h2><a class="anchor" id="autotoc_md4320"></a>
-Form</h2>
-<p>cmd = TestControlCommandList;</p>
-<h2><a class="anchor" id="autotoc_md4321"></a>
-Inputs</h2>
-<p>none</p>
-<h2><a class="anchor" id="autotoc_md4322"></a>
-Outputs</h2>
-<p>cmd (.) Data structure of commands to be sent to the cluster </p>
+<pre class="fragment"> in a leader-follower formation, plus a small semi-major axis difference.
+ One is initialized as the reference. The other is commanded to achieve 
+ non-centered out-of-plane periodic motion. Ideal actuation and perfect
+ state-sensing are assumed. No gravitational perturbations are modeled.
+ The eccentricity may be set in the TestControlSimStruct file.
 
-<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="group___formation_flying_functions.html#gac70a2199fd0bea70c558b7144158626b">Command_Structure()</a>, <a class="el" href="_d_f_f_attitude_controller_8m.html#a5283573e5313ea1d2a848ebb18f4cb21">DFFAttitudeController()</a>, <a class="el" href="_d_f_f_control_law_8m.html#a0f57cfdcc844e9b6a8f8428b6cd5c213">DFFControlLaw()</a>, <a class="el" href="_d_f_f_team_management_8m.html#a496d1c298d997d7d312697b44dee739c">DFFTeamManagement()</a>, <a class="el" href="group___formation_flying_functions.html#ga7ad694bdf7bc70f3e50797e00d519c41">EccGeometry_Structure()</a>, <a class="el" href="group___formation_flying_functions.html#ga16550f1853b747e0c3dcea0fcf7c86a3">Geometry_Structure()</a>, <a class="el" href="_core_2_common_2_help_2_file_help_8m.html#a532de5881ce1058a73a4636d8713c409">Initialize()</a>, <a class="el" href="statespace_8m.html#ad528e8b7e2fdb71c0ec8af51700dddf0">plus()</a>, <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>, <a class="el" href="group___formation_flying_functions.html#ga4e6ec647ed93978a9508df87b2272723">Team_Structure()</a>, <a class="el" href="_test_control_command_list_8m.html#a0bb71fadd5443d0e3df0c2c96cb5a970">TestControlCommandList()</a>, <a class="el" href="_test_control_sim_struct_8m.html#ad86781a12b013210fb69fde0a01d65b6">TestControlSimStruct()</a>, and <a class="el" href="group___formation_flying_functions.html#ga426df49a0a5ef7c63322ac8271f5863d">Window_Structure()</a>.</p>
+
+ Since version 7.
+</pre><h2><a class="anchor" id="autotoc_md4257"></a>
+Form</h2>
+<pre class="fragment"> cmd = TestControlCommandList;
+</pre><h2><a class="anchor" id="autotoc_md4258"></a>
+Inputs</h2>
+<pre class="fragment"> none
+</pre><h2><a class="anchor" id="autotoc_md4259"></a>
+Outputs</h2>
+<pre class="fragment"> cmd          (.)    Data structure of commands to be sent to the cluster
+</pre> 
+<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="group___formation_flying_functions.html#ga9f3e408c108e0a9f43cda89c17a9d8c0">Command_Structure()</a>, <a class="el" href="_d_f_f_attitude_controller_8m.html#a5e615f4115c0401462b85a16f549131d">DFFAttitudeController()</a>, <a class="el" href="_d_f_f_control_law_8m.html#ab6a8e74eac1bdd79f1117d033f70316d">DFFControlLaw()</a>, <a class="el" href="_d_f_f_team_management_8m.html#ab3d63b8f0336d8b96b1dd02964e3337e">DFFTeamManagement()</a>, <a class="el" href="group___formation_flying_functions.html#ga987722cfcd2a6331d287877bf7da87c5">EccGeometry_Structure()</a>, <a class="el" href="group___formation_flying_functions.html#ga26f79d9842505575075ffab27a275df7">Geometry_Structure()</a>, <a class="el" href="_core_2_common_2_help_2_file_help_8m.html#a532de5881ce1058a73a4636d8713c409">Initialize()</a>, <a class="el" href="statespace_8m.html#ad528e8b7e2fdb71c0ec8af51700dddf0">plus()</a>, <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>, <a class="el" href="group___formation_flying_functions.html#ga56aad3bf30e033c3cf718ef055087ee6">Team_Structure()</a>, <a class="el" href="_test_control_command_list_8m.html#acb0604da491e22737423a38a63eaede7">TestControlCommandList()</a>, <a class="el" href="_test_control_sim_struct_8m.html#ae41fbf41f2e0cafb23fea20fde0fba2e">TestControlSimStruct()</a>, and <a class="el" href="group___formation_flying_functions.html#ga894020b231d463c666a89f2e7933da97">Window_Structure()</a>.</p>
 
 </div>
 </div>
@@ -153,8 +159,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_4b90d27129bfde4492332393e165873d.html">CommandLists</a></li><li class="navelem"><a class="el" href="_test_orb_att_control_command_list_8m.html">TestOrbAttControlCommandList.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_4b90d27129bfde4492332393e165873d.html">CommandLists</a></li><li class="navelem"><a class="el" href="_test_orb_att_control_command_list_8m.html">TestOrbAttControlCommandList.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

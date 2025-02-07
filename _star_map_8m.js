@@ -1,4 +1,4 @@
 var _star_map_8m =
 [
-    [ "StarMap", "group___s_c_functions.html#ga8e27751e4c1f8d3e4800c2d84a3250b8", null ]
+    [ "StarMap", "group___s_c_functions.html#ga8d6a750d01e1a7758e963807db9503db", null ]
 ];

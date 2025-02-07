@@ -1,4 +1,4 @@
 var _cot_d_8m =
 [
-    [ "CotD", "group___math_functions.html#ga684040a64b9a3a42f49a4e6ea6b47202", null ]
+    [ "CotD", "group___math_functions.html#ga7183f2d8a5d9c29ca4005f9b7d3070af", null ]
 ];

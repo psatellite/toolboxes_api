@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Airships/Modeling/Models/ASM3.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Airships/Modeling/Models/ASM3.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,65 +110,70 @@ $(function(){initNavTree('_a_s_m3_8m.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3ea501d5543dd037c06dc79de62febd3" id="r_a3ea501d5543dd037c06dc79de62febd3"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ea501d5543dd037c06dc79de62febd3">ASM3</a> ()</td></tr>
-<tr class="memdesc:a3ea501d5543dd037c06dc79de62febd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Airship Model #2.  <br /></td></tr>
-<tr class="separator:a3ea501d5543dd037c06dc79de62febd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a225ccf12dfcab6fcfcadfd86253f1bf2" id="r_a225ccf12dfcab6fcfcadfd86253f1bf2"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a225ccf12dfcab6fcfcadfd86253f1bf2">ASM3</a> ()</td></tr>
+<tr class="memdesc:a225ccf12dfcab6fcfcadfd86253f1bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Airship Model #2.  <br /></td></tr>
+<tr class="separator:a225ccf12dfcab6fcfcadfd86253f1bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a3ea501d5543dd037c06dc79de62febd3" name="a3ea501d5543dd037c06dc79de62febd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ea501d5543dd037c06dc79de62febd3">&#9670;&#160;</a></span>ASM3()</h2>
+<a id="a225ccf12dfcab6fcfcadfd86253f1bf2" name="a225ccf12dfcab6fcfcadfd86253f1bf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a225ccf12dfcab6fcfcadfd86253f1bf2">&#9670;&#160;</a></span>ASM3()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function ASM3 </td>
+          <td class="memname">function ASM3 </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Contains the geometric and mass properties for a specific airship model</p>
-<p>The following geometric configuration is assumed:</p><ul>
-<li>double-ellipsoid hull with circular cross-section</li>
-<li>two horizontal tail-fins (identical, symmetric, based on NACA 1412)</li>
-<li>two vertical tail-fins (identical, symmetric, based on NACA 1412)</li>
-<li>streamlined hanging gondola to house payload</li>
-</ul>
-<p>The following design parameters are specified:</p><ul>
-<li>alt operating altitude [m]</li>
-<li>L hull length [m]</li>
-<li>D hull diameter [m]</li>
-<li>ratio rear ellipsoid length / front ellipsoid length</li>
-<li>xFinA start of fin at hull / hull length (from nose)</li>
-<li>xFinB start of fin taper / hull length (from nose)</li>
-<li>xFinC end of fin / hull length (from nose)</li>
-<li>yzFinI inboard fin width / hull radius (from x axis)</li>
-<li>yzFinO outboard fin width / hull radius (from x axis)</li>
-<li>xGonA gondola leading edge / hull length (from nose)</li>
-<li>xGonB gondola trailing edge / hull length (from nose)</li>
-<li>zGon bottom of gondola / hull radius (from x axis)</li>
-<li>rhoFab area density of skin fabric [kg/m^2]</li>
-<li>mP payload mass [kg]</li>
-<li>thrustMax maximum thrust capability [N]</li>
-<li>xProp x-location of propellers / hull length (from nose)</li>
-<li>zProp z-location of propellers / hull radius (from x axis)</li>
-</ul>
-<p>x-distances for fins, gondola and props are dimensionless (with L) y,z-distances for fins, gondola and props are dimensionless (with D/2)</p>
-<h2><a class="anchor" id="autotoc_md3692"></a>
+<pre class="fragment"> Contains the geometric and mass properties for a specific airship model
+
+
+ The following geometric configuration is assumed:
+ * double-ellipsoid hull with circular cross-section
+ * two horizontal tail-fins (identical, symmetric, based on NACA 1412)
+ * two vertical tail-fins   (identical, symmetric, based on NACA 1412)
+ * streamlined hanging gondola to house payload
+
+
+ The following design parameters are specified:
+ * alt          operating altitude                              [m]
+ * L            hull length                                     [m]
+ * D            hull diameter                                   [m]
+ * ratio        rear ellipsoid length / front ellipsoid length
+ * xFinA        start of fin at hull / hull length       (from nose)
+ * xFinB        start of fin taper / hull length         (from nose)
+ * xFinC        end of fin / hull length                 (from nose)
+ * yzFinI       inboard fin width / hull radius          (from x axis)
+ * yzFinO       outboard fin width / hull radius         (from x axis)
+ * xGonA        gondola leading edge / hull length       (from nose)
+ * xGonB        gondola trailing edge / hull length      (from nose)
+ * zGon         bottom of gondola / hull radius          (from x axis)
+ * rhoFab       area density of skin fabric              [kg/m^2]
+ * mP           payload mass                             [kg]
+ * thrustMax    maximum thrust capability                [N]
+ * xProp        x-location of propellers / hull length   (from nose)
+ * zProp        z-location of propellers / hull radius   (from x axis)
+
+
+ x-distances for fins, gondola and props are dimensionless (with L)
+ y,z-distances for fins, gondola and props are dimensionless (with D/2)
+</pre><h2><a class="anchor" id="autotoc_md3651"></a>
 Form</h2>
-<p>d = ASM3;</p>
-<h2><a class="anchor" id="autotoc_md3693"></a>
+<pre class="fragment"> d = ASM3;
+</pre><h2><a class="anchor" id="autotoc_md3652"></a>
 Inputs</h2>
-<p>none</p>
-<h2><a class="anchor" id="autotoc_md3694"></a>
+<pre class="fragment"> none
+</pre><h2><a class="anchor" id="autotoc_md3653"></a>
 Outputs</h2>
-<p>none </p>
+<pre class="fragment"> none
+</pre> 
+<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="#a225ccf12dfcab6fcfcadfd86253f1bf2">ASM3()</a>, and <a class="el" href="acstate_8m.html#a93c860fbc0b00237698debdccbc93363">length()</a>.</p>
 
-<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="#a3ea501d5543dd037c06dc79de62febd3">ASM3()</a>, and <a class="el" href="acstate_8m.html#a93c860fbc0b00237698debdccbc93363">length()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="group___airships_functions.html#ga7ea18292d0e29d89ecba72ade5c90825">AirshipAeroAnalysis()</a>, <a class="el" href="group___airships_functions.html#ga8293c43ac49a20fed14c71f07d37bbd4">AirshipInit()</a>, <a class="el" href="group___airships_functions.html#gadf2d0bdf30b30eab48f248013f096d80">AirshipSim()</a>, <a class="el" href="group___airships_functions.html#ga083fe2af0b594d39273719f3bf3f8f04">AirshipStabConDerivatives()</a>, <a class="el" href="_airship_state_8m.html#a06b5455bcf0872b70ccfcf9b1b4caef0">AirshipState()</a>, <a class="el" href="#a3ea501d5543dd037c06dc79de62febd3">ASM3()</a>, and <a class="el" href="group___airships_functions.html#gadf7d1ebcb23c9cd2bb6265ba43b56bd7">BuildAirshipMassModel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___airships_functions.html#gada2f04d0a31a03fb71b2b460bb6ff32f">AirshipAeroAnalysis()</a>, <a class="el" href="group___airships_functions.html#ga34c890508774a864db709dcf49220c7b">AirshipInit()</a>, <a class="el" href="group___airships_functions.html#ga71d52e8a9ac71c9754f2fc9e86b46da1">AirshipSim()</a>, <a class="el" href="group___airships_functions.html#gacb0ffb35c2e422b24ee170b3a02e8b0d">AirshipStabConDerivatives()</a>, <a class="el" href="group___airships_functions.html#ga06b5455bcf0872b70ccfcf9b1b4caef0">AirshipState()</a>, <a class="el" href="#a225ccf12dfcab6fcfcadfd86253f1bf2">ASM3()</a>, and <a class="el" href="group___airships_functions.html#gad839fd2e867e4db5f1fdd53c6d2380f2">BuildAirshipMassModel()</a>.</p>
 
 </div>
 </div>
@@ -177,8 +182,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_1a21c1cbbe4c692d0924f576c3478eff.html">Airships</a></li><li class="navelem"><a class="el" href="dir_72692ac3ae3fbad23b28c005579b3889.html">Modeling</a></li><li class="navelem"><a class="el" href="dir_ce4f1a50c895912ad679ed77b05a4210.html">Models</a></li><li class="navelem"><a class="el" href="_a_s_m3_8m.html">ASM3.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_1a21c1cbbe4c692d0924f576c3478eff.html">Airships</a></li><li class="navelem"><a class="el" href="dir_72692ac3ae3fbad23b28c005579b3889.html">Modeling</a></li><li class="navelem"><a class="el" href="dir_ce4f1a50c895912ad679ed77b05a4210.html">Models</a></li><li class="navelem"><a class="el" href="_a_s_m3_8m.html">ASM3.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

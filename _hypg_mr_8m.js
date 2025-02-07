@@ -1,4 +1,4 @@
 var _hypg_mr_8m =
 [
-    [ "HypgMr", "group___math_functions.html#gade2582a5a3382de418204e12851c453a", null ]
+    [ "HypgMr", "group___math_functions.html#ga0b72a5781ac7d512407f272b7c5aca6f", null ]
 ];

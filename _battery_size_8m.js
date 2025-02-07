@@ -1,4 +1,4 @@
 var _battery_size_8m =
 [
-    [ "BatterySize", "group___s_c_functions.html#ga2e350c11052302d958c08b274569aa03", null ]
+    [ "BatterySize", "group___s_c_functions.html#ga78443e76391c4109ecc0d8f443ad3583", null ]
 ];

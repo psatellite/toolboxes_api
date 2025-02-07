@@ -1,4 +1,4 @@
 var _r_markov_8m =
 [
-    [ "RMarkov", "group___math_functions.html#ga94b2b261e52292965869203520c6027d", null ]
+    [ "RMarkov", "group___math_functions.html#ga380d32968cd7a108526be9626ca92b5a", null ]
 ];

@@ -1,4 +1,4 @@
 var _cluster_goals_demo_command_list_8m =
 [
-    [ "ClusterGoalsDemoCommandList", "_cluster_goals_demo_command_list_8m.html#a7d8e84ff8528cf96cc2b64cd5ffe6d70", null ]
+    [ "ClusterGoalsDemoCommandList", "_cluster_goals_demo_command_list_8m.html#ae59a55808b961170cb64c76d2b46ef38", null ]
 ];

@@ -1,4 +1,4 @@
 var _torque_v_a_w_t_8m =
 [
-    [ "TorqueVAWT", "group___wind_turbine_functions.html#gaa10ab5218284a923d47297645a56b0bd", null ]
+    [ "TorqueVAWT", "group___wind_turbine_functions.html#ga75e8824f41527ce30acb5222f92f4771", null ]
 ];

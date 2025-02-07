@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Orbit/Demos/OrbitManeuver/GeoOrbitSim.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Orbit/Demos/OrbitManeuver/GeoOrbitSim.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,22 +99,59 @@ $(function(){initNavTree('_geo_orbit_sim_8m.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">GeoOrbitSim.m File Reference<div class="ingroups"><a class="el" href="group___orbit_group.html">Orbit Module</a> &raquo; <a class="el" href="group___orbit_demos.html">Orbit Demos</a></div></div></div>
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">GeoOrbitSim.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Low thrust geo transfer <a href="Demos/Orbit/GeoOrbitSim.html">Published Demo</a>  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a14e630977152328447c18a54098870ab" id="r_a14e630977152328447c18a54098870ab"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14e630977152328447c18a54098870ab">RHS</a> (in x, in ignoredArg)</td></tr>
+<tr class="memdesc:a14e630977152328447c18a54098870ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (c) 2017 Princeton Satellite Systems, Inc.  <br /></td></tr>
+<tr class="separator:a14e630977152328447c18a54098870ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Corrects both semi-major axis and inclination. It corrects the semi-major axis first then the inclination. Uses a right-hand-side function in the script.</p>
-<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___orbit_functions.html#ga10579b4b83887450b59026bf220b0135" title="Computes the delta-V for a phase change.">OrbMnvrPhaseChange</a> </dd></dl>
-</div></div><!-- contents -->
+<div class="textblock"><p>Right hand side.</p>
+<p>Corrects both semi-major axis and inclination. It corrects the semi-major axis first then the inclination. Uses a right-hand-side function in the script.</p>
+<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___orbit_functions.html#ga45eda09df0cae2abba52f55eefa9f976" title="Computes the delta-V for a phase change.">OrbMnvrPhaseChange</a></dd></dl>
+<p>Low thrust geo transfer <a href="Demos/Orbit/GeoOrbitSim.html">Published Demo</a> </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a14e630977152328447c18a54098870ab" name="a14e630977152328447c18a54098870ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e630977152328447c18a54098870ab">&#9670;&#160;</a></span>RHS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">function RHS </td>
+          <td>(</td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>ignoredArg</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>All Rights Reserved.</p>
+<p>Since 2017.1 Parameters Simulate Plot </p>
+
+<p class="reference">References <a class="el" href="group___math_functions.html#ga4b519b77f25a768b7bcde40daeb0acb5">Mag()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_6976d8c8e8ee346429237a70682b5ae7.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_652aacb251cfb54d223e7a01e92d684c.html">Demos</a></li><li class="navelem"><a class="el" href="dir_f79bbc24e23459ae28d4e747dc8e9331.html">OrbitManeuver</a></li><li class="navelem"><a class="el" href="_geo_orbit_sim_8m.html">GeoOrbitSim.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_6976d8c8e8ee346429237a70682b5ae7.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_652aacb251cfb54d223e7a01e92d684c.html">Demos</a></li><li class="navelem"><a class="el" href="dir_f79bbc24e23459ae28d4e747dc8e9331.html">OrbitManeuver</a></li><li class="navelem"><a class="el" href="_geo_orbit_sim_8m.html">GeoOrbitSim.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

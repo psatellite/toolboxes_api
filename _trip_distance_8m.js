@@ -1,4 +1,4 @@
 var _trip_distance_8m =
 [
-    [ "TripDistance", "group___straight_line_functions.html#ga7473b1fa013e8b7d53df6961275f0f46", null ]
+    [ "TripDistance", "group___straight_line_functions.html#ga4871249131de702b090462f32fe5ae60", null ]
 ];

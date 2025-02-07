@@ -1,4 +1,4 @@
 var _attitude_control_sim_r_w_a_8m =
 [
-    [ "AttitudeControlSimRWA", "group___cube_sat_functions.html#ga0b7cd7890e75b0f0e7671bb58cf36804", null ]
+    [ "AttitudeControlSimRWA", "group___cube_sat_functions.html#gadab93efc5f32a63afe123eacb54e35e6", null ]
 ];

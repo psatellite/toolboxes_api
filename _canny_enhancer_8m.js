@@ -1,4 +1,4 @@
 var _canny_enhancer_8m =
 [
-    [ "CannyEnhancer", "group___imaging_functions.html#gaab0aea2eebe957bbda251d2e8f0e1600", null ]
+    [ "CannyEnhancer", "group___imaging_functions.html#gae2ccdc462a11ae6cda228117bc12c29e", null ]
 ];

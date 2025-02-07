@@ -1,4 +1,4 @@
 var _skin_depth_8m =
 [
-    [ "SkinDepth", "group___electrical_functions.html#gafa58847e84bce0e7159a5f5085be7915", null ]
+    [ "SkinDepth", "group___electrical_functions.html#gabcf232d62d138e586183e09e2e3ecbd8", null ]
 ];

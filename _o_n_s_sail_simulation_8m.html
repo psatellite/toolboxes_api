@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/OpticalNavigation/Demos/Core/ONSSailSimulation.m File Reference</title>
+<title>PSS MATLAB Toolboxes: OpticalNavigation/Demos/Core/ONSSailSimulation.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,29 +99,69 @@ $(function(){initNavTree('_o_n_s_sail_simulation_8m.html',''); initResizable(tru
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">ONSSailSimulation.m File Reference<div class="ingroups"><a class="el" href="group___optical_navigation_group.html">OpticalNavigation Module</a> &raquo; <a class="el" href="group___optical_navigation_demos.html">OpticalNavigation Demos</a></div></div></div>
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">ONSSailSimulation.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Simulate ONS for a solar sail near the L1 Lagrange point <a href="Demos/OpticalNavigation/ONSSailSimulation.html">Published Demo</a>  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a67bd9b400f7eaaed69b6607b4a5981a3" id="r_a67bd9b400f7eaaed69b6607b4a5981a3"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67bd9b400f7eaaed69b6607b4a5981a3">TransSEMRToEq</a> (in jD, in rSEMR, in vSEMR)</td></tr>
+<tr class="memdesc:a67bd9b400f7eaaed69b6607b4a5981a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constants.  <br /></td></tr>
+<tr class="separator:a67bd9b400f7eaaed69b6607b4a5981a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This only simulates the orbital motion.</p>
-<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___interplanetary_functions.html#ga8c8ba5650a56a6046dc40aa002e4caca" title="Get positions for an array of planets using the JPL ephemeris.">PlanetPosJPL</a>, <a class="el" href="group___optical_navigation_functions.html#ga92fc3081cae44bd2ac727a87c41d7b18" title="Right hand side for a heliocentric mission.">RHSHelioMission</a>, <a class="el" href="group___s_c_functions.html#ga782ef7bd08256b75a813640025e5fe8e" title="Returns the planet centroid and the local stars locations.">NavigationCamera</a>, </dd>
+<div class="textblock"><p>Transform from SEMR to equatorial, sun-centered frame.</p>
+<p>This only simulates the orbital motion.</p>
+<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___interplanetary_functions.html#ga2b5e0ac3a78c312c0b1a492ff4e50d16" title="Get positions for an array of planets using the JPL ephemeris.">PlanetPosJPL</a>, <a class="el" href="group___optical_navigation_functions.html#gaf11402436df4713085e6181a1deeb76c" title="Right hand side for a heliocentric mission.">RHSHelioMission</a>, <a class="el" href="group___s_c_functions.html#gae5305f84ef7d19d901018070a439e379" title="Returns the planet centroid and the local stars locations.">NavigationCamera</a>, </dd>
 <dd>
-<a class="el" href="group___optical_navigation_functions.html#ga2af42903717c6d3bee37c0326dec646d" title="Implements optical navigation using two targets.">OpticalNavigation</a>, <a class="el" href="group___optical_navigation_functions.html#ga29ab4dcb5378f8e609f069e902e1c9d0" title="Right hand side for a heliocentric mission, for UKF.">RHSUKFHelioMission</a>, <a class="el" href="group___s_c_functions.html#ga0630afed39cb60b7770abbde93b09fee" title="Views the output from NavigationCamera.">StarCameraViewer</a>, <a class="el" href="group___spacecraft_estimation_functions.html#gad332fdb28c2c78f7c412bcbc8fcc9fd4" title="GPS range and range rate model for use with UKF.">MeasGPS</a></dd>
+<a class="el" href="group___optical_navigation_functions.html#ga60442d4f4a5b07fdad4a274956b5ab28" title="Implements optical navigation using two targets.">OpticalNavigation</a>, <a class="el" href="group___optical_navigation_functions.html#ga57f21cf01d4f0979c7d50f87103d68e5" title="Right hand side for a heliocentric mission, for UKF.">RHSUKFHelioMission</a>, <a class="el" href="group___s_c_functions.html#ga36cc953a0fabd0ee8090cc853479239a" title="Views the output from NavigationCamera.">StarCameraViewer</a>, <a class="el" href="group___spacecraft_estimation_functions.html#ga9bd3ccf7802018da562d7c809051a696" title="GPS range and range rate model for use with UKF.">MeasGPS</a></dd>
 <dd>
-<a class="el" href="group___spacecraft_estimation_functions.html#ga233da4b0829050874df9ab7e7acbde78" title="Range and range rate to ground station.">MeasRangeGroundStation</a>, <a class="el" href="group___optical_navigation_functions.html#ga2880a0f67c060f248110061710e6aea5" title="Measure star angle and chord.">MeasStarAngleAndChord</a>, <a class="el" href="group___optical_navigation_functions.html#ga29ab4dcb5378f8e609f069e902e1c9d0" title="Right hand side for a heliocentric mission, for UKF.">RHSUKFHelioMission</a></dd>
+<a class="el" href="group___spacecraft_estimation_functions.html#ga607b46c0d1fecafb8aaf5cdf17bd2ddd" title="Range and range rate to ground station.">MeasRangeGroundStation</a>, <a class="el" href="group___optical_navigation_functions.html#ga1d72c7fe92fdeaf375552e747a964aeb" title="Measure star angle and chord.">MeasStarAngleAndChord</a>, <a class="el" href="group___optical_navigation_functions.html#ga57f21cf01d4f0979c7d50f87103d68e5" title="Right hand side for a heliocentric mission, for UKF.">RHSUKFHelioMission</a></dd>
 <dd>
-<a class="el" href="group___sail_functions.html#ga803ddcb8ffdcd601609891ad18045d8d" title="Combined thermal and optical solar pressure force model.">SolarPressureForce</a>, <a class="el" href="group___s_c_functions.html#ga8c28ffbff4c6a87b13bf5cc108510125" title="Solar flux from the sun as a function of distance in AU.">SolarFlx</a>, <a class="el" href="group___interplanetary_functions.html#gad2a96b908f42a030ea4d57be27f1c7cb" title="Plot planets and a trajectory in the heliocentric frame.">HelioPlot</a></dd></dl>
-<p>Copyright (c) 2021 Princeton Satellite Systems, Inc. All rights reserved. </p>
-</div></div><!-- contents -->
+<a class="el" href="group___sail_functions.html#gadc32a0e697be2fbacd2310493e3d7ebe" title="Combined thermal and optical solar pressure force model.">SolarPressureForce</a>, <a class="el" href="group___s_c_functions.html#ga2933577c5c0df0cd4ac982f1a57e3818" title="Solar flux from the sun as a function of distance in AU.">SolarFlx</a>, <a class="el" href="group___interplanetary_functions.html#ga89706992edc5cbaca9cf4fa537193244" title="Plot planets and a trajectory in the heliocentric frame.">HelioPlot</a></dd></dl>
+<pre class="fragment"> Copyright (c) 2021 Princeton Satellite Systems, Inc.
+ All rights reserved.
+</pre><p>Simulate ONS for a solar sail near the L1 Lagrange point <a href="Demos/OpticalNavigation/ONSSailSimulation.html">Published Demo</a> </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a67bd9b400f7eaaed69b6607b4a5981a3" name="a67bd9b400f7eaaed69b6607b4a5981a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bd9b400f7eaaed69b6607b4a5981a3">&#9670;&#160;</a></span>TransSEMRToEq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">function TransSEMRToEq </td>
+          <td>(</td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>jD</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>rSEMR</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>vSEMR</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the defaults Script control acceleration model solar sail parameters Add Earth for CRTBP? Initialize the ephemeris yDot = RHSCRTBP( t, y, mu ) Initialize the state This halo state does not take into account the sail's force TransSEMRToHelio this was using the unit vector of the sun backwards!! deltas from Earth position may be in ecliptic Set the Julian date for the dynamical model Simulation steps Setup the camera data structure Add noise Set up the displays The time vector Setup Optical Navigation Initialize ONS Set up the parameters in ONS Plotting arrays Run the simulation ONS simulation Determine if the spacecraft has hit the ground Get data for plotting Get the location and velocity of Earth Stop on landing The camera boresight points at the target xCam is in the ECI frame Needed to point the camera Get the measurements ONS Display the cameras Propagate the state x = RK4(@RHSHelioMission,x,dT,t(k),dRHS); Plotting Shorten the vectors if it hits the ground Make earth and sun referenced positions Sun/Mars plot Time histories </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_61ff521ec6e579c70834ab20b09d8895.html">OpticalNavigation</a></li><li class="navelem"><a class="el" href="dir_86e43fb3e31e9403477dc2da2a227500.html">Demos</a></li><li class="navelem"><a class="el" href="dir_9c6c1ac3b833283bc8996fa8e25a429f.html">Core</a></li><li class="navelem"><a class="el" href="_o_n_s_sail_simulation_8m.html">ONSSailSimulation.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_61ff521ec6e579c70834ab20b09d8895.html">OpticalNavigation</a></li><li class="navelem"><a class="el" href="dir_86e43fb3e31e9403477dc2da2a227500.html">Demos</a></li><li class="navelem"><a class="el" href="dir_9c6c1ac3b833283bc8996fa8e25a429f.html">Core</a></li><li class="navelem"><a class="el" href="_o_n_s_sail_simulation_8m.html">ONSSailSimulation.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Core/WindTurbine/Sim/SetupFiles/WT_VAWTSetup.m File Reference</title>
+<title>PSS MATLAB Toolboxes: WindTurbine/Sim/SetupFiles/WT_VAWTSetup.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -105,35 +105,44 @@ $(function(){initNavTree('_w_t___v_a_w_t_setup_8m.html',''); initResizable(true)
 </div><!--header-->
 <div class="contents">
 
-<p>Setup file for vertical axis wind turbine sim.  
+<p>Copyright (c) 2008 Princeton Satellite Systems, Inc.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afa02d7442d3f16f8e3951c79aba83fd0" id="r_afa02d7442d3f16f8e3951c79aba83fd0"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa02d7442d3f16f8e3951c79aba83fd0">WT_VAWTSetup</a> ()</td></tr>
-<tr class="separator:afa02d7442d3f16f8e3951c79aba83fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa70af42b808237d37b5e313b56409375" id="r_aa70af42b808237d37b5e313b56409375"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa70af42b808237d37b5e313b56409375">WT_VAWTSetup</a> ()</td></tr>
+<tr class="separator:aa70af42b808237d37b5e313b56409375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>For use in <a class="el" href="_w_t_sim_8m.html" title="GUI for running wind turbine simulations.">WTSim.m</a>.</p>
-<p>Forms:</p>
-<p>% Obtain input/output data structure information ioData = WT_WindModel;</p>
-<p>% Supply input data, update, and return output output = WT_WindModel( input );</p>
-<h2><a class="anchor" id="autotoc_md11164"></a>
+<div class="textblock"><pre class="fragment"> Setup file for vertical axis wind turbine sim. For use in WTSim.m.
+
+
+ Forms:
+
+
+ % Obtain input/output data structure information
+ ioData = WT_WindModel;
+
+
+ % Supply input data, update, and return output
+ output = WT_WindModel( input );
+</pre><h2><a class="anchor" id="autotoc_md10833"></a>
 Inputs</h2>
-<p>input (.) Input data structure</p>
-<h2><a class="anchor" id="autotoc_md11165"></a>
+<pre class="fragment"> input       (.)  Input data structure
+</pre><h2><a class="anchor" id="autotoc_md10834"></a>
 Outputs</h2>
-<p>output (.) Output data structure Copyright (c) 2008 Princeton Satellite Systems, Inc. All rights reserved. &lt; Define Model Names:</p>
+<pre class="fragment"> output      (.)  Output data structure
+</pre><p> All rights reserved. &lt; Define Model Names:</p>
 <p>Define Model Names: </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="afa02d7442d3f16f8e3951c79aba83fd0" name="afa02d7442d3f16f8e3951c79aba83fd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa02d7442d3f16f8e3951c79aba83fd0">&#9670;&#160;</a></span>WT_VAWTSetup()</h2>
+<a id="aa70af42b808237d37b5e313b56409375" name="aa70af42b808237d37b5e313b56409375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70af42b808237d37b5e313b56409375">&#9670;&#160;</a></span>WT_VAWTSetup()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function WT_VAWTSetup </td>
+          <td class="memname">function WT_VAWTSetup </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -141,7 +150,9 @@ Outputs</h2>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="group___wind_turbine_functions.html#ga096f9851ddd6be99342c71f45539d564">TorqueHAWT()</a>, <a class="el" href="group___wind_turbine_functions.html#gab53ccfddf0385a001546d1cab9944b48">Wind()</a>, <a class="el" href="group___a_c_functions.html#gabbe5f2d9f52acca969a9a418b4f2b7d4">WindModel()</a>, <a class="el" href="_w_t___converter_8m.html#acbe444eb73972b29d07d2b731a2d82e9">WT_Converter()</a>, <a class="el" href="_w_t___grid_8m.html#a9ad485e58a77741a029817e87ce09388">WT_Grid()</a>, <a class="el" href="_w_t___structure_8m.html#a5120ade5c062e599178cc5c7bc3b8253">WT_Structure()</a>, <a class="el" href="_w_t___transmission_8m.html#a376ad7bfc66e6483f6221d6c81ed6754">WT_Transmission()</a>, <a class="el" href="_w_t___v_a_w_t_blades_8m.html#a53a727c17d256673db36a494f42b9673">WT_VAWTBlades()</a>, <a class="el" href="_w_t___v_a_w_t_controller_8m.html#a710149b3ea2e2e3593e27072818c23fe">WT_VAWTController()</a>, <a class="el" href="_w_t___v_a_w_t_estimator_8m.html#a7a5763454610567aa4828a9d197fd15b">WT_VAWTEstimator()</a>, <a class="el" href="_w_t___v_a_w_t_tach_8m.html#a120db8c5119cec10f439d62009e40b45">WT_VAWTTach()</a>, <a class="el" href="_w_t___wind_model_8m.html#ae2b28caa589ec689688485522867cd54">WT_WindModel()</a>, <a class="el" href="_w_t___wind_sensor_8m.html#a8b8e02cb0d7fc4d317957b21721b9eb9">WT_WindSensor()</a>, and <a class="el" href="group___wind_turbine_functions.html#gac69ef52e07cdc4d4c2c70d5737e17670">WTSim()</a>.</p>
+<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="group___wind_turbine_functions.html#ga41da0501d854d9b46f945092161439df">TorqueHAWT()</a>, <a class="el" href="group___wind_turbine_functions.html#ga659018ede3ed31a4642fc0cfb40a3535">Wind()</a>, <a class="el" href="group___a_c_functions.html#ga33e48c02ece05a0ec1c99efaa4a6dea8">WindModel()</a>, <a class="el" href="_w_t___converter_8m.html#acbe444eb73972b29d07d2b731a2d82e9">WT_Converter()</a>, <a class="el" href="_w_t___grid_8m.html#a9ad485e58a77741a029817e87ce09388">WT_Grid()</a>, <a class="el" href="_w_t___structure_8m.html#a5120ade5c062e599178cc5c7bc3b8253">WT_Structure()</a>, <a class="el" href="_w_t___transmission_8m.html#a376ad7bfc66e6483f6221d6c81ed6754">WT_Transmission()</a>, <a class="el" href="_w_t___v_a_w_t_blades_8m.html#a53a727c17d256673db36a494f42b9673">WT_VAWTBlades()</a>, <a class="el" href="_w_t___v_a_w_t_controller_8m.html#a710149b3ea2e2e3593e27072818c23fe">WT_VAWTController()</a>, <a class="el" href="_w_t___v_a_w_t_estimator_8m.html#a7a5763454610567aa4828a9d197fd15b">WT_VAWTEstimator()</a>, <a class="el" href="#aa70af42b808237d37b5e313b56409375">WT_VAWTSetup()</a>, <a class="el" href="_w_t___v_a_w_t_tach_8m.html#a120db8c5119cec10f439d62009e40b45">WT_VAWTTach()</a>, <a class="el" href="_w_t___wind_model_8m.html#ae2b28caa589ec689688485522867cd54">WT_WindModel()</a>, <a class="el" href="_w_t___wind_sensor_8m.html#a8b8e02cb0d7fc4d317957b21721b9eb9">WT_WindSensor()</a>, and <a class="el" href="group___wind_turbine_functions.html#ga43041757d362368010b83a5a8f5c10c6">WTSim()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="#aa70af42b808237d37b5e313b56409375">WT_VAWTSetup()</a>.</p>
 
 </div>
 </div>
@@ -150,8 +161,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c6310732a22f63c0c2fc5595561e68f1.html">Core</a></li><li class="navelem"><a class="el" href="dir_a4ce6c676f2ddc39b2db9c2dc4cd23a2.html">WindTurbine</a></li><li class="navelem"><a class="el" href="dir_2fbd773bf895324df253973f985a1f47.html">Sim</a></li><li class="navelem"><a class="el" href="dir_8e0b5b7a5de29cfd770d7829211bda9a.html">SetupFiles</a></li><li class="navelem"><a class="el" href="_w_t___v_a_w_t_setup_8m.html">WT_VAWTSetup.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_a4ce6c676f2ddc39b2db9c2dc4cd23a2.html">WindTurbine</a></li><li class="navelem"><a class="el" href="dir_2fbd773bf895324df253973f985a1f47.html">Sim</a></li><li class="navelem"><a class="el" href="dir_8e0b5b7a5de29cfd770d7829211bda9a.html">SetupFiles</a></li><li class="navelem"><a class="el" href="_w_t___v_a_w_t_setup_8m.html">WT_VAWTSetup.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:49 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

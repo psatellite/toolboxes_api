@@ -1,4 +1,4 @@
 var _landing_control_gravity_turn_8m =
 [
-    [ "LandingControlGravityTurn", "group___interplanetary_functions.html#ga300d6d3d2f23fc82305ac25894ce5ed2", null ]
+    [ "LandingControlGravityTurn", "group___interplanetary_functions.html#gac26d3cb3b0859bd3b7d1b581b3ff6ce6", null ]
 ];

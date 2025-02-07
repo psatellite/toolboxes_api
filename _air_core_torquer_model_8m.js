@@ -1,4 +1,4 @@
 var _air_core_torquer_model_8m =
 [
-    [ "AirCoreTorquerModel", "group___aerospace_utils_functions.html#ga0edf403a7321b16751b712aa5f9f3cae", null ]
+    [ "AirCoreTorquerModel", "group___aerospace_utils_functions.html#gafaf5ac6b100565ebdec6b46255f8d8e1", null ]
 ];

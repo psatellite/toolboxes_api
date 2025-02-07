@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/Demos/Control/EccentricControlAnalysis.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/Demos/Control/EccentricControlAnalysis.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,44 +99,42 @@ $(function(){initNavTree('_eccentric_control_analysis_8m.html',''); initResizabl
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">EccentricControlAnalysis.m File Reference<div class="ingroups"><a class="el" href="group___formation_flying_group.html">FormationFlying Module</a> &raquo; <a class="el" href="group___formation_flying_demos.html">FormationFlying Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">EccentricControlAnalysis.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Analyze the performance of relative orbit control in eccentric orbits <a href="Demos/FormationFlying/EccentricControlAnalysis.html">Published Demo</a>  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This script compares the performance of two different control methods for relative orbit control in a highly eccentric orbit. The two methods compared are:</p>
-<ul>
-<li>LPEccentric (relative dynamics expressed in Hills frame)</li>
-<li>LPEccentricGVE (relative dynamics expressed with Gauss var. eqs.)</li>
-</ul>
-<p>The linearization error is much higher when the relative dynamics is based in Hills frame. This results in noticable error in the controlled trajectory.</p>
-<p>In addition, this script also compares the relative trajectories when the maneuver is simulated in different ways. The following types of simulations are compared</p>
-<ul>
-<li>Discrete relative dynamics in Hills frame.</li>
-<li>Discrete relative dynamics with differential elements using Gauss' variational equations.</li>
-<li>Keplerian orbits patched together with impulsive delta-v's</li>
-<li>Numerical integration in ECI frame</li>
-</ul>
-<p>Since version 7.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___common_functions.html#gad8b7e419205f3e81a051fc26dd0e6a6b" title="Create a model of a delay using Pade approximants for exp(-sT).">Delay</a>, <a class="el" href="group___aerospace_utils_functions.html#ga25b05b35955be685152e24ecbc773074" title="Generate the quaternion that transforms from the ECI to the Hills frame.">QHills</a>, <a class="el" href="group___common_functions.html#ga8225cf186f4bd8843a219b98f1d08d75" title="Transforms a vector opposite the direction of the quaternion.">QTForm</a>, <a class="el" href="group___common_functions.html#ga918513da25db805cc32870932b833b74" title="A GUI displaying the time remaining and estimated completion time.">TimeGUI</a>, <a class="el" href="group___math_functions.html#ga1dc2fa66a4f35374ed94a34daa86e513" title="Magnitude of a set of vectors.">Mag</a>, <a class="el" href="group___math_functions.html#ga466ccc0fc6feaaa84201885770e5c60b" title="Fourth order Runge-Kutta integration.">RK4TI</a>, </dd>
+<div class="textblock"><p>This script compares the performance of two different control methods for relative orbit control in a highly eccentric orbit. The two methods compared are: </p><pre class="fragment"> - LPEccentric     (relative dynamics expressed in Hills frame)
+ - LPEccentricGVE  (relative dynamics expressed with Gauss var. eqs.) 
+</pre><p>The linearization error is much higher when the relative dynamics is based in Hills frame. This results in noticable error in the controlled trajectory.</p>
+<p>In addition, this script also compares the relative trajectories when the maneuver is simulated in different ways. The following types of simulations are compared </p><pre class="fragment"> - Discrete relative dynamics in Hills frame.
+ - Discrete relative dynamics with differential elements using Gauss'
+ variational equations.
+ - Keplerian orbits patched together with impulsive delta-v's
+ - Numerical integration in ECI frame 
+
+
+ Since version 7.
+</pre><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___common_functions.html#gad03b28d2e7655ebdd16142e29cb3bbaa" title="Create a model of a delay using Pade approximants for exp(-sT).">Delay</a>, <a class="el" href="group___aerospace_utils_functions.html#gac73fa8521b0dca51b5ade9b00b3a6ea8" title="Generate the quaternion that transforms from the ECI to the Hills frame.">QHills</a>, <a class="el" href="group___common_functions.html#gab63f3ad8219a695021616d47b8a163a3" title="Transforms a vector opposite the direction of the quaternion.">QTForm</a>, <a class="el" href="group___common_functions.html#ga7972d3e113aebf4fd60c459ed274e46a" title="A GUI displaying the time remaining and estimated completion time.">TimeGUI</a>, <a class="el" href="group___math_functions.html#ga4b519b77f25a768b7bcde40daeb0acb5" title="Magnitude of a set of vectors.">Mag</a>, <a class="el" href="group___math_functions.html#ga207d91401554443bbf18a6d895b27741" title="Fourth order Runge-Kutta integration.">RK4TI</a>, </dd>
 <dd>
-<a class="el" href="group___formation_flying_functions.html#ga7ad694bdf7bc70f3e50797e00d519c41" title="Initialize an eccentric geometry data structure.">EccGeometry_Structure</a>, <a class="el" href="group___formation_flying_functions.html#gadb9b395ddf8eb7b09eec4e262d310a7e" title="Computes the relative state trajectory in an eccentric reference orbit.">DiscreteGVE</a>, <a class="el" href="group___formation_flying_functions.html#gaff99c035be5c68bf84005e733798cf79" title="Computes the relative state trajectory in an eccentric reference orbit.">FFEccDiscreteHills</a>, <a class="el" href="group___formation_flying_functions.html#ga2631dd195250e944bc46e7fd38d6fc65" title="Computes the thrust trajectory between Hill&#39;s states (eccentric orbit) with Simplex.">LPEccentric</a></dd>
+<a class="el" href="group___formation_flying_functions.html#ga987722cfcd2a6331d287877bf7da87c5" title="Initialize an eccentric geometry data structure.">EccGeometry_Structure</a>, <a class="el" href="group___formation_flying_functions.html#ga2c24dddcf1311ceca2e55405a15a0d75" title="Computes the relative state trajectory in an eccentric reference orbit.">DiscreteGVE</a>, <a class="el" href="group___formation_flying_functions.html#ga7a0a813e6561b4765b258d97db7644d3" title="Computes the relative state trajectory in an eccentric reference orbit.">FFEccDiscreteHills</a>, <a class="el" href="group___formation_flying_functions.html#gac6601846df00bb5e19fa66f92b57b1a8" title="Computes the thrust trajectory between Hill&#39;s states (eccentric orbit) with Simplex.">LPEccentric</a></dd>
 <dd>
-<a class="el" href="group___formation_flying_functions.html#ga1375ea07a596b37a7ab82a00dc4b0a95" title="Compute trajectory between states as element differences, with Simplex.">LPEccentricGVE</a>, <a class="el" href="group___formation_flying_functions.html#ga4e127c3e5536271df67ab87a8b423f4c" title="Compute the relative state in Hills frame given two ECI state vectors.">ECI2Hills</a>, <a class="el" href="group___formation_flying_functions.html#ga464c477b2e2ccd1e95a080203c5e18cb" title="Convert element differences to Hills frame coordinates in an eccentric orbit.">FFEccDeltaElem2Hills</a>, <a class="el" href="group___formation_flying_functions.html#ga5fdcc07f5c5b6ed6a96defb71eb88933" title="Compute Hills frame state (time-domain) given geometric goals and orbit info.">FFEccGoals2Hills</a></dd>
+<a class="el" href="group___formation_flying_functions.html#ga2edbc5e1595e05b66e72fe65e248108a" title="Compute trajectory between states as element differences, with Simplex.">LPEccentricGVE</a>, <a class="el" href="group___formation_flying_functions.html#ga7326dfca8110bfe2235387756aa8da84" title="Compute the relative state in Hills frame given two ECI state vectors.">ECI2Hills</a>, <a class="el" href="group___formation_flying_functions.html#ga8fc0a59d9a17436de5c5ea382179f16d" title="Convert element differences to Hills frame coordinates in an eccentric orbit.">FFEccDeltaElem2Hills</a>, <a class="el" href="group___formation_flying_functions.html#gad083f7be24048991573e8b8dd9d15ef0" title="Compute Hills frame state (time-domain) given geometric goals and orbit info.">FFEccGoals2Hills</a></dd>
 <dd>
-<a class="el" href="group___formation_flying_functions.html#ga85fed55d5982d6fdf5a935d996bad2af" title="Compute element differences from Hills frame state and ref.">FFEccHills2DeltaElem</a>, <a class="el" href="_apply_delta_v_8m.html#a53eac8b01b354838e4800012e28a4c63">ApplyDeltaV</a>, <a class="el" href="group___formation_flying_functions.html#ga82fecec7a933deccf1180afc777170ac" title="Generate an orbit by propagating Keplerian elements with impulsive delta-vs.">RVOrbGenDV</a>, <a class="el" href="group___orbit_functions.html#gaef19d27993b732d00a2b789b1fcb7660" title="Compute the orbital rate from distance and semi-major axis.">OrbRate</a>, <a class="el" href="group___orbit_functions.html#ga69b82953888de99ee146a72f065b3b71" title="Generate an orbit by propagating Keplerian elements.">RVOrbGen</a>, <a class="el" href="group___orbit_functions.html#gaed91df46bdea0396c2055f146c5644f4" title="Converts orbital elements to r and v for an elliptic orbit.">El2RV</a></dd>
+<a class="el" href="group___formation_flying_functions.html#gaae68fe476d8841a10b6fd4ec69e82a62" title="Compute element differences from Hills frame state and ref.">FFEccHills2DeltaElem</a>, <a class="el" href="_apply_delta_v_8m.html#a53eac8b01b354838e4800012e28a4c63">ApplyDeltaV</a>, <a class="el" href="group___formation_flying_functions.html#gaf1676076efa92d6c3e171e84a23d2a52" title="Generate an orbit by propagating Keplerian elements with impulsive delta-vs.">RVOrbGenDV</a>, <a class="el" href="group___orbit_functions.html#ga073f07b551d25f55b354a8e693ab6ea4" title="Compute the orbital rate from distance and semi-major axis.">OrbRate</a>, <a class="el" href="group___orbit_functions.html#ga8dd4015eb11dd93d9278245e033a1ec6" title="Generate an orbit by propagating Keplerian elements.">RVOrbGen</a>, <a class="el" href="group___orbit_functions.html#ga5afb2fb1d6667a79269e1376665d1064" title="Converts orbital elements to r and v for an elliptic orbit.">El2RV</a></dd>
 <dd>
-<a class="el" href="group___orbit_functions.html#ga13a9e1087d13b7f3d237aef2e3870037" title="Computes the true anomaly from the mean anomaly.">M2Nu</a>, <a class="el" href="group___orbit_functions.html#gaf5ef1d8e7da9235f19ffac5c250bb9d5" title="Computes the true anomaly from the mean anomaly without wrapping.">M2NuAbs</a></dd></dl>
-<p>Copyright (c) 2004 Princeton Satellite Systems, Inc. All rights reserved. </p>
-</div></div><!-- contents -->
+<a class="el" href="group___orbit_functions.html#gae8b75b4628134242dcebb80198494bc8" title="Computes the true anomaly from the mean anomaly.">M2Nu</a>, <a class="el" href="group___orbit_functions.html#ga2f828a68dbe865c1e633d8aaee614916" title="Computes the true anomaly from the mean anomaly without wrapping.">M2NuAbs</a></dd></dl>
+<pre class="fragment"> Copyright (c) 2004 Princeton Satellite Systems, Inc. 
+ All rights reserved.
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_7c3e595ca686d579887fe73a7a14f22e.html">Demos</a></li><li class="navelem"><a class="el" href="dir_c4377e5d2a7d3311b99e750c2958cc11.html">Control</a></li><li class="navelem"><a class="el" href="_eccentric_control_analysis_8m.html">EccentricControlAnalysis.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_7c3e595ca686d579887fe73a7a14f22e.html">Demos</a></li><li class="navelem"><a class="el" href="dir_c4377e5d2a7d3311b99e750c2958cc11.html">Control</a></li><li class="navelem"><a class="el" href="_eccentric_control_analysis_8m.html">EccentricControlAnalysis.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

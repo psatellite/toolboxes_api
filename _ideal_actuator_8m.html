@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/IntegratedSim/Actuators/IdealActuator.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/IntegratedSim/Actuators/IdealActuator.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,19 +110,19 @@ $(function(){initNavTree('_ideal_actuator_8m.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aafed72cda2f4923df57efe5064ae305e" id="r_aafed72cda2f4923df57efe5064ae305e"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafed72cda2f4923df57efe5064ae305e">IdealActuator</a> (in action, in d, in k)</td></tr>
-<tr class="memdesc:aafed72cda2f4923df57efe5064ae305e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ideal actuator.  <br /></td></tr>
-<tr class="separator:aafed72cda2f4923df57efe5064ae305e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f90dd4fb2e63aae26c0c11594aea33b" id="r_a5f90dd4fb2e63aae26c0c11594aea33b"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f90dd4fb2e63aae26c0c11594aea33b">IdealActuator</a> (in action, in d, in k)</td></tr>
+<tr class="memdesc:a5f90dd4fb2e63aae26c0c11594aea33b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ideal actuator.  <br /></td></tr>
+<tr class="separator:a5f90dd4fb2e63aae26c0c11594aea33b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aafed72cda2f4923df57efe5064ae305e" name="aafed72cda2f4923df57efe5064ae305e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafed72cda2f4923df57efe5064ae305e">&#9670;&#160;</a></span>IdealActuator()</h2>
+<a id="a5f90dd4fb2e63aae26c0c11594aea33b" name="a5f90dd4fb2e63aae26c0c11594aea33b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f90dd4fb2e63aae26c0c11594aea33b">&#9670;&#160;</a></span>IdealActuator()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function IdealActuator </td>
+          <td class="memname">function IdealActuator </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
         </tr>
@@ -138,14 +138,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md4262"></a>
+<h2><a class="anchor" id="autotoc_md4199"></a>
 Inputs</h2>
-<p>action (1,:) 'initialize', 'set torque', 'set force', 'set hills force', 'get torque', 'get force', 'get hills force', d (1,1) Depends on the action k (1,1) Spacecraft Indentifier</p>
-<h2><a class="anchor" id="autotoc_md4263"></a>
+<pre class="fragment"> action      (1,:)      'initialize', 
+                        'set torque',
+                        'set force',
+                        'set hills force',
+                        'get torque', 
+                        'get force', 
+                        'get hills force', 
+ d           (1,1)     Depends on the action
+ k           (1,1)     Spacecraft Indentifier
+</pre><h2><a class="anchor" id="autotoc_md4200"></a>
 Outputs</h2>
-<p>y (1,1) Depends on the action </p>
-
-<p class="reference">References <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>, <a class="el" href="group___math_functions.html#ga1dc2fa66a4f35374ed94a34daa86e513">Mag()</a>, <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>, and <a class="el" href="acstate_8m.html#a868c2ad16f7ccf1ccb3eb728b357b42f">zeros()</a>.</p>
+<pre class="fragment"> y           (1,1)     Depends on the action
+</pre> 
+<p class="reference">References <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>, <a class="el" href="group___math_functions.html#ga4b519b77f25a768b7bcde40daeb0acb5">Mag()</a>, <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>, and <a class="el" href="acstate_8m.html#a868c2ad16f7ccf1ccb3eb728b357b42f">zeros()</a>.</p>
 
 </div>
 </div>
@@ -154,8 +162,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_efb5ce3f9eec50577b9d70f86cc7bcbd.html">Actuators</a></li><li class="navelem"><a class="el" href="_ideal_actuator_8m.html">IdealActuator.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_efb5ce3f9eec50577b9d70f86cc7bcbd.html">Actuators</a></li><li class="navelem"><a class="el" href="_ideal_actuator_8m.html">IdealActuator.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,4 @@
 var _sun_data_8m =
 [
-    [ "SunData", "group___s_a_a_d_functions.html#gae2f22a4e98c6748bd9de5b0caec59176", null ]
+    [ "SunData", "group___s_a_a_d_functions.html#gad7272bf01ec3710503abbdff755dfc58", null ]
 ];

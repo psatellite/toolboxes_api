@@ -1,4 +1,4 @@
 var _nav_observables_8m =
 [
-    [ "NavObservables", "group___s_c_functions.html#ga2b33ffc6509b7a3abcbca81c86a64cb1", null ]
+    [ "NavObservables", "group___s_c_functions.html#ga39db3ec0db73f0a85aed7774d29f496f", null ]
 ];

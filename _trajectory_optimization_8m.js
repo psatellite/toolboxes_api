@@ -1,4 +1,4 @@
 var _trajectory_optimization_8m =
 [
-    [ "TrajectoryOptimization", "group___orbit_functions.html#ga78ab7c0f3fe46fdfd753efbe657b4e12", null ]
+    [ "TrajectoryOptimization", "group___orbit_functions.html#ga7a129cc08a1a2d0fe60ceb1bd90596eb", null ]
 ];

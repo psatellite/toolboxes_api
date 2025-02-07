@@ -1,4 +1,4 @@
 var _s_a_test_fun_8m =
 [
-    [ "SATestFun", "group___sail_functions.html#ga21b9739a685e712e2c6881c7b6df8ca9", null ]
+    [ "SATestFun", "group___sail_functions.html#gad8476dca63165ea969ce84ca9e42b17a", null ]
 ];

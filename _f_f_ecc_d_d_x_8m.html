@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/EccDynamics/Derivatives/FFEccDDX.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/EccDynamics/Derivatives/FFEccDDX.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,19 +110,19 @@ $(function(){initNavTree('_f_f_ecc_d_d_x_8m.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9fa911af4622f5f5890ba2624e57108b" id="r_a9fa911af4622f5f5890ba2624e57108b"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fa911af4622f5f5890ba2624e57108b">FFEccDDX</a> (in nu, in e, in D, in dH)</td></tr>
-<tr class="memdesc:a9fa911af4622f5f5890ba2624e57108b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the second derivative of x with respect to true anomaly.  <br /></td></tr>
-<tr class="separator:a9fa911af4622f5f5890ba2624e57108b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadb0fb855aed3ea57bf3826a66c6b5d2" id="r_aadb0fb855aed3ea57bf3826a66c6b5d2"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadb0fb855aed3ea57bf3826a66c6b5d2">FFEccDDX</a> (in nu, in e, in D, in dH)</td></tr>
+<tr class="memdesc:aadb0fb855aed3ea57bf3826a66c6b5d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the second derivative of x with respect to true anomaly.  <br /></td></tr>
+<tr class="separator:aadb0fb855aed3ea57bf3826a66c6b5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a9fa911af4622f5f5890ba2624e57108b" name="a9fa911af4622f5f5890ba2624e57108b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fa911af4622f5f5890ba2624e57108b">&#9670;&#160;</a></span>FFEccDDX()</h2>
+<a id="aadb0fb855aed3ea57bf3826a66c6b5d2" name="aadb0fb855aed3ea57bf3826a66c6b5d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadb0fb855aed3ea57bf3826a66c6b5d2">&#9670;&#160;</a></span>FFEccDDX()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function FFEccDDX </td>
+          <td class="memname">function FFEccDDX </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>nu</em></span>, </td>
         </tr>
@@ -143,25 +143,30 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This is used by the FFEccXExt function.</p>
-<p>Since version 7.</p>
-<h2><a class="anchor" id="autotoc_md4134"></a>
+<pre class="fragment"> This is used by the FFEccXExt function.
+
+
+ Since version 7.
+</pre><h2><a class="anchor" id="autotoc_md4071"></a>
 Form</h2>
-<p>ddx = FFEccDDX( nu, e, D, dH );</p>
-<h2><a class="anchor" id="autotoc_md4135"></a>
+<pre class="fragment"> ddx = FFEccDDX( nu, e, D, dH );
+</pre><h2><a class="anchor" id="autotoc_md4072"></a>
 Inputs</h2>
-<p>nu (1,n) True anomaly [rad] e (1) Eccentricity D (6,1) Integration constants computed from i.c.'s dH (1) Integration constant computed from H(nu0)=0</p>
-<h2><a class="anchor" id="autotoc_md4136"></a>
+<pre class="fragment"> nu              (1,n)  True anomaly [rad]
+ e                (1)   Eccentricity
+ D               (6,1)  Integration constants computed from i.c.'s
+ dH               (1)   Integration constant computed from H(nu0)=0
+</pre><h2><a class="anchor" id="autotoc_md4073"></a>
 Outputs</h2>
-<p>ddx (1) Second derivative of x with respect to true anomaly</p>
-<p>References: Inalhan, Tillerson, How, "Relative Dynamics and Control of
+<pre class="fragment"> ddx              (1)   Second derivative of x with respect to true anomaly
+</pre><p>References: Inalhan, Tillerson, How, "Relative Dynamics and Control of
 Spacecraft Formations in Eccentric Orbits", Journal of Guidance, Control &amp; Dynamics, Vol.25, No.1, Jan-Feb 2002.</p>
 <p>Copyright 2004 Princeton Satellite Systems, Inc.</p>
 <p>All rights reserved. </p>
 
-<p class="reference">References <a class="el" href="group___formation_flying_functions.html#ga1377f4876683b9570d2a1d34b0860ad4">FFEccRMat()</a>.</p>
+<p class="reference">References <a class="el" href="group___formation_flying_functions.html#gabd3b9695204bea6d18a17f6281bd1ac5">FFEccRMat()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="group___formation_flying_functions.html#ga4d62063b27d7fda3c6c83d2f01aa827b">FFEccZExt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___formation_flying_functions.html#ga97b64a0c1fe55b6d8e947e06d269279a">FFEccZExt()</a>.</p>
 
 </div>
 </div>
@@ -170,8 +175,8 @@ Spacecraft Formations in Eccentric Orbits", Journal of Guidance, Control &amp; D
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_b3e48c05240b402f263141829698d7aa.html">EccDynamics</a></li><li class="navelem"><a class="el" href="dir_7c9ef0ae47091d8bfca40657f20bea07.html">Derivatives</a></li><li class="navelem"><a class="el" href="_f_f_ecc_d_d_x_8m.html">FFEccDDX.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_b3e48c05240b402f263141829698d7aa.html">EccDynamics</a></li><li class="navelem"><a class="el" href="dir_7c9ef0ae47091d8bfca40657f20bea07.html">Derivatives</a></li><li class="navelem"><a class="el" href="_f_f_ecc_d_d_x_8m.html">FFEccDDX.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/IntegratedSim/DefaultData/DefaultTankData.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/IntegratedSim/DefaultData/DefaultTankData.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,19 +110,19 @@ $(function(){initNavTree('_default_tank_data_8m.html',''); initResizable(true); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a884c05f93b3b17ea3660ad4a185e2845" id="r_a884c05f93b3b17ea3660ad4a185e2845"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a884c05f93b3b17ea3660ad4a185e2845">DefaultTankData</a> (in n)</td></tr>
-<tr class="memdesc:a884c05f93b3b17ea3660ad4a185e2845"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a data structure for fuel tank info.  <br /></td></tr>
-<tr class="separator:a884c05f93b3b17ea3660ad4a185e2845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb16be5888940fdc3ef4a47a62ec500b" id="r_aeb16be5888940fdc3ef4a47a62ec500b"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb16be5888940fdc3ef4a47a62ec500b">DefaultTankData</a> (in n)</td></tr>
+<tr class="memdesc:aeb16be5888940fdc3ef4a47a62ec500b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a data structure for fuel tank info.  <br /></td></tr>
+<tr class="separator:aeb16be5888940fdc3ef4a47a62ec500b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a884c05f93b3b17ea3660ad4a185e2845" name="a884c05f93b3b17ea3660ad4a185e2845"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a884c05f93b3b17ea3660ad4a185e2845">&#9670;&#160;</a></span>DefaultTankData()</h2>
+<a id="aeb16be5888940fdc3ef4a47a62ec500b" name="aeb16be5888940fdc3ef4a47a62ec500b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb16be5888940fdc3ef4a47a62ec500b">&#9670;&#160;</a></span>DefaultTankData()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function DefaultTankData </td>
+          <td class="memname">function DefaultTankData </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
           <td></td>
@@ -130,19 +130,33 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This is for a blow down system. Each tank has a set of thrusters associated with the tank.</p>
-<h2><a class="anchor" id="autotoc_md4326"></a>
+<h2><a class="anchor" id="autotoc_md4263"></a>
 Form</h2>
-<p>tank = DefaultTankData( n )</p>
-<h2><a class="anchor" id="autotoc_md4327"></a>
+<pre class="fragment"> tank = DefaultTankData( n )
+</pre><h2><a class="anchor" id="autotoc_md4264"></a>
 Inputs</h2>
-<p>n (1,1) Number of tanks</p>
-<h2><a class="anchor" id="autotoc_md4328"></a>
+<pre class="fragment"> n      (1,1)   Number of tanks
+</pre><h2><a class="anchor" id="autotoc_md4265"></a>
 Outputs</h2>
-<p>tank (.) Fuel tank data structure .nThrusters (1,1) Number of thrusters .minimumPulsewidth (1,1) Minimum width (s) .pulsewidthResolution (1,1) Resolution (s) .pressure (1,1) Pressure (N/m^2) .thrustCoefficient (1,:) N/(N/m^2) .massPressurant (1,1) Mass (kg) .densityFuel (1,1) Density (kg/m^3) .volumeTank (1,1) Volume (m^3) .rPress (1,1) Gas constant .temperatureTank (1,1) Temperature (deg-K) .massFuel (1,1) Mass fuel (kg) .uECoefficient (.) struct('iSP',{1,:},'pulsewidth',(1,:)) .r (3,:) Position from cm to thruster .u (3,:) Force unit vector </p>
+<pre class="fragment"> tank   (.)   Fuel tank data structure
+             .nThrusters            (1,1) Number of thrusters
+             .minimumPulsewidth     (1,1) Minimum width (s)
+             .pulsewidthResolution  (1,1) Resolution (s)
+             .pressure             (1,1) Pressure (N/m^2)
+             .thrustCoefficient    (1,:) N/(N/m^2)
+             .massPressurant       (1,1) Mass (kg)
+             .densityFuel          (1,1) Density (kg/m^3)
+             .volumeTank           (1,1) Volume (m^3)
+             .rPress               (1,1) Gas constant
+             .temperatureTank      (1,1) Temperature (deg-K)
+             .massFuel             (1,1) Mass fuel (kg)
+             .uECoefficient        (.)   struct('iSP',{1,:},'pulsewidth',(1,:))
+             .r                    (3,:) Position from cm to thruster
+             .u                    (3,:) Force unit vector
+</pre> 
+<p class="reference">References <a class="el" href="group___missions_functions.html#gac30a25b235d09233480f61470885cc0e">Pressure()</a>, and <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>.</p>
 
-<p class="reference">References <a class="el" href="group___missions_functions.html#gac3af67f3f3e0020d9b2233f115bf3bea">Pressure()</a>, and <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_d_f_f_thrusters_8m.html#ab0c2cfa6198af170437f8349df2ef5ab">DFFThrusters()</a>, and <a class="el" href="_spacecraft_parameters_8m.html#acfb7c08e381da1c20c719df5eb4f7f0d">SpacecraftParameters()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_d_f_f_thrusters_8m.html#ab090188861ec96957e42b6917beccaa7">DFFThrusters()</a>, and <a class="el" href="_spacecraft_parameters_8m.html#a7a1bd3154448c64ccc1ca8f3b330a8fd">SpacecraftParameters()</a>.</p>
 
 </div>
 </div>
@@ -151,8 +165,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_afc2bbe29969d28355f200090a81c5cf.html">DefaultData</a></li><li class="navelem"><a class="el" href="_default_tank_data_8m.html">DefaultTankData.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_afc2bbe29969d28355f200090a81c5cf.html">DefaultData</a></li><li class="navelem"><a class="el" href="_default_tank_data_8m.html">DefaultTankData.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

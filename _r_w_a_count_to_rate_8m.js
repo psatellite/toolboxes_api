@@ -1,4 +1,4 @@
 var _r_w_a_count_to_rate_8m =
 [
-    [ "RWACountToRate", "group___s_c_functions.html#ga3cff5d849b26e6cc48daf030a1e92a4b", null ]
+    [ "RWACountToRate", "group___s_c_functions.html#gab78769e8d7c0ec3b5c3e29f92005e93b", null ]
 ];

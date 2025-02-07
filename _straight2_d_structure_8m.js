@@ -1,4 +1,4 @@
 var _straight2_d_structure_8m =
 [
-    [ "Straight2DStructure", "group___straight_line_functions.html#gaf141ff579a6e568fd337d0c2f7640834", null ]
+    [ "Straight2DStructure", "group___straight_line_functions.html#ga16fd05425c234349e76ad3a5888bfe81", null ]
 ];

@@ -1,4 +1,4 @@
 var _v_inf_8m =
 [
-    [ "VInf", "group___orbit_functions.html#ga0ae3ebc22d6fd332ba921c2ea73cec94", null ]
+    [ "VInf", "group___orbit_functions.html#gae8bf95a48ac739b3baa49965f9b2b762", null ]
 ];

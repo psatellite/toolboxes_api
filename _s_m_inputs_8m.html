@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/SAAD/GUI/SMInputs.m File Reference</title>
+<title>PSS MATLAB Toolboxes: SAAD/GUI/SMInputs.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -120,7 +120,6 @@ Functions</h2></td></tr>
 <tr class="memdesc:ab0c4e8e2860136e9540370671b7972b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">get main window position  <br /></td></tr>
 <tr class="separator:ab0c4e8e2860136e9540370671b7972b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1efc6154f2e4c9c99405f5b11b2cfc10" id="r_a1efc6154f2e4c9c99405f5b11b2cfc10"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1efc6154f2e4c9c99405f5b11b2cfc10">DeleteUnavailableHSAs</a> (in hSAs, in avail)</td></tr>
-<tr class="memdesc:a1efc6154f2e4c9c99405f5b11b2cfc10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines which HSAs were last used for this solution method.  <br /></td></tr>
 <tr class="separator:a1efc6154f2e4c9c99405f5b11b2cfc10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ef7b6c77d816373dfe25dd55917aa2e" id="r_a0ef7b6c77d816373dfe25dd55917aa2e"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ef7b6c77d816373dfe25dd55917aa2e">KalAdv</a> ()</td></tr>
 <tr class="memdesc:a0ef7b6c77d816373dfe25dd55917aa2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position window correctly, and get list of all method names except this one.  <br /></td></tr>
@@ -154,12 +153,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md7397"></a>
+<h2><a class="anchor" id="autotoc_md7220"></a>
 Inputs</h2>
-<p>none</p>
-<h2><a class="anchor" id="autotoc_md7398"></a>
+<pre class="fragment"> none
+</pre><h2><a class="anchor" id="autotoc_md7221"></a>
 Outputs</h2>
-<p>a Handle to the window created Get initial values Sizing Basic properties Error Tolerance SVD Tolerance Show Condition Number Help button </p>
+<pre class="fragment"> a                    Handle to the window created
+</pre><p> Get initial values Sizing Basic properties Error Tolerance SVD Tolerance Show Condition Number Help button </p>
+
+<p class="reference">References <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>.</p>
 
 </div>
 </div>
@@ -191,17 +193,19 @@ Outputs</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md7386"></a>
+<h2><a class="anchor" id="autotoc_md7209"></a>
 Form</h2>
-<p>h = SMInputs( action, solutionMethod, varargin )</p>
-<h2><a class="anchor" id="autotoc_md7387"></a>
+<pre class="fragment"> h = SMInputs( action, solutionMethod, varargin )
+</pre><h2><a class="anchor" id="autotoc_md7210"></a>
 Inputs</h2>
-<p>action 'Open Window' or 'Set Values' solutionMethod String containing the solution method</p>
-<h2><a class="anchor" id="autotoc_md7388"></a>
+<pre class="fragment"> action               'Open Window' or 'Set Values'
+ solutionMethod       String containing the solution method 
+</pre><h2><a class="anchor" id="autotoc_md7211"></a>
 Outputs</h2>
-<p>h Handle to window created Copyright (c) 1997-8 Princeton Satellite Systems, Inc. All rights reserved. if using a closed form method, varargin contains the handle to the checkbox for this method Subfunctions to create each of the input windows </p>
+<pre class="fragment"> h                    Handle to window created
+</pre><p> Copyright (c) 1997-8 Princeton Satellite Systems, Inc. All rights reserved. if using a closed form method, varargin contains the handle to the checkbox for this method Subfunctions to create each of the input windows </p>
 
-<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>, and <a class="el" href="group___s_a_a_d_functions.html#ga4d54dd9dde5a1fb53e2c6c24a11fcc82">SAADTool()</a>.</p>
+<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>, and <a class="el" href="group___s_a_a_d_functions.html#gaa5a561918a5f2fe2af691278d1b87f9e">SAADTool()</a>.</p>
 
 </div>
 </div>
@@ -228,12 +232,15 @@ Outputs</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md7391"></a>
+<h2><a class="anchor" id="autotoc_md7214"></a>
 Inputs</h2>
-<p>name Method name, used for callbacks code Shorter, 1 or 2 character name used for labeling shortName Used to label window; default value is name</p>
-<h2><a class="anchor" id="autotoc_md7392"></a>
+<pre class="fragment"> name                 Method name, used for callbacks
+ code                 Shorter, 1 or 2 character name used for labeling
+ shortName            Used to label window; default value is name
+</pre><h2><a class="anchor" id="autotoc_md7215"></a>
 Outputs</h2>
-<p>a Handle to the window created Correlate method names, number, and input names Position window correctly Other sizing values get main window position Determine which boxes will be checked Determine which boxes will be active Button names, spacing Make state buttons Buttons for other options </p>
+<pre class="fragment"> a                    Handle to the window created
+</pre><p> Correlate method names, number, and input names Position window correctly Other sizing values get main window position Determine which boxes will be checked Determine which boxes will be active Button names, spacing Make state buttons Buttons for other options </p>
 
 <p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, and <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>.</p>
 
@@ -253,12 +260,15 @@ Outputs</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md7395"></a>
+<h2><a class="anchor" id="autotoc_md7218"></a>
 Inputs</h2>
-<p>none</p>
-<h2><a class="anchor" id="autotoc_md7396"></a>
+<pre class="fragment"> none
+</pre><h2><a class="anchor" id="autotoc_md7219"></a>
 Outputs</h2>
-<p>a Handle to the window created Get initial values Sizing Basic properties Forgetting factor Number of Iterations Attitude Reference Help button </p>
+<pre class="fragment"> a                    Handle to the window created
+</pre><p> Get initial values Sizing Basic properties Forgetting factor Number of Iterations Attitude Reference Help button </p>
+
+<p class="reference">References <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>.</p>
 
 </div>
 </div>
@@ -280,14 +290,21 @@ Outputs</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Checks the userdata of the methodButton; if userdata doesn't exist or is invalid then the first output is determined by the HSAs with available data, and lastHSAs is -1. Otherwise, both hSAs and lastHSAs are the same as the userdata</p>
-<h2><a class="anchor" id="autotoc_md7403"></a>
+<pre class="fragment"> Determines which HSAs were last used for this solution method. Checks
+ the userdata of the methodButton; if userdata doesn't exist or is invalid
+ then the first output is determined by the HSAs with available data, and
+ lastHSAs is -1. Otherwise, both hSAs and lastHSAs are the same as the userdata
+</pre><h2><a class="anchor" id="autotoc_md7226"></a>
 Inputs</h2>
-<p>methodButton (1) Handle to the checkbox for this method</p>
-<h2><a class="anchor" id="autotoc_md7404"></a>
+<pre class="fragment"> methodButton   (1)  Handle to the checkbox for this method
+</pre><h2><a class="anchor" id="autotoc_md7227"></a>
 Outputs</h2>
-<p>hSAs (1) 1 if HSA 1, 2 if HSA 2, 3 if both, 0 if none avail (2) For each HSA, 1 means data is available, 0 means no data lastHSAs (1) Userdata of methodButton if it exists and is valid (has value in 0:3); -1 else </p>
-
+<pre class="fragment"> hSAs           (1)   1 if HSA 1, 2 if HSA 2, 3 if both, 0 if none
+ avail          (2)   For each HSA, 1 means data is available, 0 means
+                      no data
+ lastHSAs       (1)   Userdata of methodButton if it exists and is valid
+                      (has value in 0:3); -1 else
+</pre> 
 </div>
 </div>
 <a id="a0ef7b6c77d816373dfe25dd55917aa2e" name="a0ef7b6c77d816373dfe25dd55917aa2e"></a>
@@ -304,12 +321,15 @@ Outputs</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md7393"></a>
+<h2><a class="anchor" id="autotoc_md7216"></a>
 Inputs</h2>
-<p>name Method name, used for callbacks code Shorter, 1 or 2 character name used for labeling shortName Used to label window; default value is name</p>
-<h2><a class="anchor" id="autotoc_md7394"></a>
+<pre class="fragment"> name                 Method name, used for callbacks
+ code                 Shorter, 1 or 2 character name used for labeling
+ shortName            Used to label window; default value is name
+</pre><h2><a class="anchor" id="autotoc_md7217"></a>
 Outputs</h2>
-<p>a Handle to the window created Sizing their contents to allow room between left side and text and all frames are 2 points higher than their contents get main window position Make Covariance window Get initial values - they are stored in radians^2, and the default display units are deg^2 Table Header move position reference down </p>
+<pre class="fragment"> a                    Handle to the window created
+</pre><p> Sizing their contents to allow room between left side and text and all frames are 2 points higher than their contents get main window position Make Covariance window Get initial values - they are stored in radians^2, and the default display units are deg^2 Table Header move position reference down </p>
 
 <p class="reference">References <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>.</p>
 
@@ -329,12 +349,13 @@ Outputs</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md7401"></a>
+<h2><a class="anchor" id="autotoc_md7224"></a>
 Inputs</h2>
-<p>none</p>
-<h2><a class="anchor" id="autotoc_md7402"></a>
+<pre class="fragment"> none
+</pre><h2><a class="anchor" id="autotoc_md7225"></a>
 Outputs</h2>
-<p>a Handle to the window created Get initial values Sizing Basic properties X Tolerance Cost Tolerance Max number of steps Show intermediate steps Help button </p>
+<pre class="fragment"> a                    Handle to the window created
+</pre><p> Get initial values Sizing Basic properties X Tolerance Cost Tolerance Max number of steps Show intermediate steps Help button </p>
 
 </div>
 </div>
@@ -352,12 +373,13 @@ Outputs</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md7399"></a>
+<h2><a class="anchor" id="autotoc_md7222"></a>
 Inputs</h2>
-<p>none</p>
-<h2><a class="anchor" id="autotoc_md7400"></a>
+<pre class="fragment"> none
+</pre><h2><a class="anchor" id="autotoc_md7223"></a>
 Outputs</h2>
-<p>a Handle to the window created Get initial values Basic properties Sizing Cost Tolerance Show progress reports Use Steepest Descent Help button </p>
+<pre class="fragment"> a                    Handle to the window created
+</pre><p> Get initial values Basic properties Sizing Cost Tolerance Show progress reports Use Steepest Descent Help button </p>
 
 </div>
 </div>
@@ -384,12 +406,16 @@ Outputs</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md7389"></a>
+<h2><a class="anchor" id="autotoc_md7212"></a>
 Inputs</h2>
-<p>methodButton Handle to the checkbox for this method name Method name, used for callbacks code Shorter, 1 or 2 character name used for labeling shortName Used to label window; default value is name</p>
-<h2><a class="anchor" id="autotoc_md7390"></a>
+<pre class="fragment"> methodButton         Handle to the checkbox for this method
+ name                 Method name, used for callbacks
+ code                 Shorter, 1 or 2 character name used for labeling
+ shortName            Used to label window; default value is name
+</pre><h2><a class="anchor" id="autotoc_md7213"></a>
 Outputs</h2>
-<p>a Handle to the window created Position window correctly no change get main window position: maxHigh and maxWide are from SAADData Determine which button should appear pressed, and if any should be inactivated because of lack of data Store handles to other radio buttons in userdata </p>
+<pre class="fragment"> a                    Handle to the window created
+</pre><p> Position window correctly no change get main window position: maxHigh and maxWide are from SAADData Determine which button should appear pressed, and if any should be inactivated because of lack of data Store handles to other radio buttons in userdata </p>
 
 </div>
 </div>
@@ -416,13 +442,15 @@ Outputs</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md7405"></a>
+<h2><a class="anchor" id="autotoc_md7228"></a>
 Inputs</h2>
-<p>hSAs (1) 1 if HSA1, 2 if HSA2, 3 if both, 0 if neither avail (2) avail(i) = 1 if data is available for HSAi =0 if no data</p>
-<h2><a class="anchor" id="autotoc_md7406"></a>
+<pre class="fragment"> hSAs       (1)    1 if HSA1, 2 if HSA2, 3 if both, 0 if neither
+ avail      (2)    avail(i) = 1 if data is available for HSAi
+                    =0 if no data
+</pre><h2><a class="anchor" id="autotoc_md7229"></a>
 Outputs</h2>
-<p>hSAs (1) 1 if HSA 1, 2 if HSA 2, 3 if both, 0 if none </p>
-
+<pre class="fragment"> hSAs       (1)    1 if HSA 1, 2 if HSA 2, 3 if both, 0 if none
+</pre> 
 </div>
 </div>
 <a id="ab4c93f5492ee3b538e984cb18f93f1bf" name="ab4c93f5492ee3b538e984cb18f93f1bf"></a>
@@ -456,8 +484,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_28870ed0f0376d1a0dd974810eb6fa1a.html">SAAD</a></li><li class="navelem"><a class="el" href="dir_26425e640337bf4addcf59d127153302.html">GUI</a></li><li class="navelem"><a class="el" href="_s_m_inputs_8m.html">SMInputs.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_28870ed0f0376d1a0dd974810eb6fa1a.html">SAAD</a></li><li class="navelem"><a class="el" href="dir_26425e640337bf4addcf59d127153302.html">GUI</a></li><li class="navelem"><a class="el" href="_s_m_inputs_8m.html">SMInputs.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

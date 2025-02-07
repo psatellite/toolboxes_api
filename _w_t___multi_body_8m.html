@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Core/WindTurbine/Sim/Models/Blades/WT_MultiBody.m File Reference</title>
+<title>PSS MATLAB Toolboxes: WindTurbine/Sim/Models/Blades/WT_MultiBody.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,21 +110,21 @@ $(function(){initNavTree('_w_t___multi_body_8m.html',''); initResizable(true); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab45734e6506c37fa31d8738eff25540a" id="r_ab45734e6506c37fa31d8738eff25540a"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab45734e6506c37fa31d8738eff25540a">WT_MultiBody</a> (in input, in time)</td></tr>
-<tr class="memdesc:ab45734e6506c37fa31d8738eff25540a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multi-body VAWT Model.  <br /></td></tr>
-<tr class="separator:ab45734e6506c37fa31d8738eff25540a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca4b923c109c43c84ad6cb67c1288a27" id="r_aca4b923c109c43c84ad6cb67c1288a27"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca4b923c109c43c84ad6cb67c1288a27">WT_MultiBody</a> (in input, in time)</td></tr>
+<tr class="memdesc:aca4b923c109c43c84ad6cb67c1288a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multi-body VAWT Model.  <br /></td></tr>
+<tr class="separator:aca4b923c109c43c84ad6cb67c1288a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>For use in <a class="el" href="_w_t_sim_8m.html" title="GUI for running wind turbine simulations.">WTSim.m</a> as the "Blades" block. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ab45734e6506c37fa31d8738eff25540a" name="ab45734e6506c37fa31d8738eff25540a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab45734e6506c37fa31d8738eff25540a">&#9670;&#160;</a></span>WT_MultiBody()</h2>
+<a id="aca4b923c109c43c84ad6cb67c1288a27" name="aca4b923c109c43c84ad6cb67c1288a27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca4b923c109c43c84ad6cb67c1288a27">&#9670;&#160;</a></span>WT_MultiBody()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function WT_MultiBody </td>
+          <td class="memname">function WT_MultiBody </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
@@ -136,17 +136,20 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>For use in <a class="el" href="_w_t_sim_8m.html" title="GUI for running wind turbine simulations.">WTSim.m</a> as the "Blades" block.</p>
-<p>Forms: <br  />
- ioData = WT_Blades; % Obtain i/o data output = WT_Blades( input, time ); % Update with current sim time output = WT_Blades( input, -1 ); % initialize</p>
-<h2><a class="anchor" id="autotoc_md11123"></a>
+<pre class="fragment"> Forms:  
+ ioData = WT_Blades;                 % Obtain i/o data 
+ output = WT_Blades( input, time );  % Update with current sim time
+ output = WT_Blades( input, -1 );    % initialize
+</pre><h2><a class="anchor" id="autotoc_md10792"></a>
 Inputs</h2>
-<p>input (.) Input data structure time (1) Simulation time</p>
-<h2><a class="anchor" id="autotoc_md11124"></a>
+<pre class="fragment"> input       (.)  Input data structure
+ time        (1)  Simulation time
+</pre><h2><a class="anchor" id="autotoc_md10793"></a>
 Outputs</h2>
-<p>output (.) Output data structure</p>
-<p>Note: MultibodyDynamics does not exist in the current toolbox but VAWTMultibodyDemo calls RHSRobot. </p>
+<pre class="fragment"> output      (.)  Output data structure
+</pre><p>Note: MultibodyDynamics does not exist in the current toolbox but VAWTMultibodyDemo calls RHSRobot. </p>
 
-<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="group___electrical_functions.html#gac48f2e225c8a9db69c5c7e3e15b4bcca">DCMotor()</a>, <a class="el" href="group___electrical_functions.html#ga851f3ec26523ea5b14361a30eba8eb48">DToA()</a>, <a class="el" href="acstate_8m.html#a93c860fbc0b00237698debdccbc93363">length()</a>, <a class="el" href="group___dynamics_functions.html#gaa51672fa6080dadc51f8c54a9d76cf1a">RHSRobot()</a>, <a class="el" href="group___math_functions.html#ga0effcdde6bb79d7705aef465a7f987c2">RK4()</a>, <a class="el" href="quat_8m.html#aed6fe2c13bf4990a14430d36b2b4d0c3">vector()</a>, <a class="el" href="_w_t___blades_8m.html#a82acf643783d5d03aaef4a049bad5e9c">WT_Blades()</a>, <a class="el" href="group___wind_turbine_functions.html#gac69ef52e07cdc4d4c2c70d5737e17670">WTSim()</a>, and <a class="el" href="acstate_8m.html#a868c2ad16f7ccf1ccb3eb728b357b42f">zeros()</a>.</p>
+<p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>, <a class="el" href="group___electrical_functions.html#ga60ae22d9cfd19548e801d1ade9934d2f">DCMotor()</a>, <a class="el" href="group___electrical_functions.html#gaa3dae9814f927388eeedc2323542b4eb">DToA()</a>, <a class="el" href="acstate_8m.html#a93c860fbc0b00237698debdccbc93363">length()</a>, <a class="el" href="group___dynamics_functions.html#ga4303686cdf21dcedd8e4b0cc02291f21">RHSRobot()</a>, <a class="el" href="group___math_functions.html#ga2bd3d421395eeb70502e6fd0f9959089">RK4()</a>, <a class="el" href="quat_8m.html#aed6fe2c13bf4990a14430d36b2b4d0c3">vector()</a>, <a class="el" href="_w_t___blades_8m.html#a82acf643783d5d03aaef4a049bad5e9c">WT_Blades()</a>, <a class="el" href="group___wind_turbine_functions.html#ga43041757d362368010b83a5a8f5c10c6">WTSim()</a>, and <a class="el" href="acstate_8m.html#a868c2ad16f7ccf1ccb3eb728b357b42f">zeros()</a>.</p>
 
 </div>
 </div>
@@ -155,8 +158,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c6310732a22f63c0c2fc5595561e68f1.html">Core</a></li><li class="navelem"><a class="el" href="dir_a4ce6c676f2ddc39b2db9c2dc4cd23a2.html">WindTurbine</a></li><li class="navelem"><a class="el" href="dir_2fbd773bf895324df253973f985a1f47.html">Sim</a></li><li class="navelem"><a class="el" href="dir_9d18171249e2598472604039486a2948.html">Models</a></li><li class="navelem"><a class="el" href="dir_f2f1dffd5ef12b6a29cf9cc441998fbd.html">Blades</a></li><li class="navelem"><a class="el" href="_w_t___multi_body_8m.html">WT_MultiBody.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_a4ce6c676f2ddc39b2db9c2dc4cd23a2.html">WindTurbine</a></li><li class="navelem"><a class="el" href="dir_2fbd773bf895324df253973f985a1f47.html">Sim</a></li><li class="navelem"><a class="el" href="dir_9d18171249e2598472604039486a2948.html">Models</a></li><li class="navelem"><a class="el" href="dir_f2f1dffd5ef12b6a29cf9cc441998fbd.html">Blades</a></li><li class="navelem"><a class="el" href="_w_t___multi_body_8m.html">WT_MultiBody.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:49 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

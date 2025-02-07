@@ -1,4 +1,4 @@
 var _mass_structure_8m =
 [
-    [ "MassStructure", "group___common_functions.html#gad6b9967c3b1f32ebbf32f8e1ea0940fe", null ]
+    [ "MassStructure", "group___common_functions.html#ga2d29bb84a39e07d45c15c7859d1e1e74", null ]
 ];

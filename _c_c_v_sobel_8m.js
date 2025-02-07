@@ -1,4 +1,4 @@
 var _c_c_v_sobel_8m =
 [
-    [ "CCVSobel", "group___a_c_functions.html#ga6f81eb5af9c4896f0cecb1b4622bae05", null ]
+    [ "CCVSobel", "group___a_c_functions.html#ga316e3b96a6324b298c92b6882f4b49a2", null ]
 ];

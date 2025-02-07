@@ -1,4 +1,4 @@
 var _ray_trace_lens_8m =
 [
-    [ "RayTraceLens", "group___imaging_functions.html#ga2fa4e79ecd72583b5c2ccc1467a45cb0", null ]
+    [ "RayTraceLens", "group___imaging_functions.html#gae9b4be81d76f9eceb951f6a48c046d94", null ]
 ];

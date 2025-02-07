@@ -1,4 +1,4 @@
 var _breguet_range_equation_8m =
 [
-    [ "BreguetRangeEquation", "group___a_c_functions.html#gaaf572d4afaaf798077bab0881460fec3", null ]
+    [ "BreguetRangeEquation", "group___a_c_functions.html#ga2ed0be968b570fbe9271977f515d5025", null ]
 ];

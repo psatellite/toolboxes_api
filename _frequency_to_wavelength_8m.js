@@ -1,4 +1,4 @@
 var _frequency_to_wavelength_8m =
 [
-    [ "FrequencyToWavelength", "group___link_functions.html#gad142aadb4477e13243893633eee28d32", null ]
+    [ "FrequencyToWavelength", "group___link_functions.html#ga1b93c6482f474b4916a1649e7a4a8eb3", null ]
 ];

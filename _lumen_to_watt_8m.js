@@ -1,4 +1,4 @@
 var _lumen_to_watt_8m =
 [
-    [ "LumenToWatt", "group___imaging_functions.html#ga12669524b3efaaa5cf252184920bc5da", null ]
+    [ "LumenToWatt", "group___imaging_functions.html#gad600f9969381b91db8ba91dff1404fe2", null ]
 ];

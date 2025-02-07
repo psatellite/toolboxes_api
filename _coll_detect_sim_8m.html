@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/Demos/Collision/CollDetectSim.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/Demos/Collision/CollDetectSim.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('_coll_detect_sim_8m.html',''); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">CollDetectSim.m File Reference<div class="ingroups"><a class="el" href="group___formation_flying_group.html">FormationFlying Module</a> &raquo; <a class="el" href="group___formation_flying_demos.html">FormationFlying Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">CollDetectSim.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -109,22 +109,23 @@ $(function(){initNavTree('_coll_detect_sim_8m.html',''); initResizable(true); })
 <div class="textblock"><p><a href="Demos/FormationFlying/CollDetectSim.html">Published Demo</a></p>
 <p>Computes the probability of collision between the two spacecraft for a fixed prediction window at each step. Also outputs the probability of collision for "now". Also simulates a fault in one of the spacecrafts in Projected Line formation (so no measurements are received for a fraction of an orbit) and plots the actual ("now") and predicted probability of collision over 2 orbits.</p>
 <p>This demo does not include maneuvers for any of the spacecraft.</p>
-<p>Since version 7.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___common_functions.html#ga333e57e54da5b1629f5fac27222949c3" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#gad8224b630862781e5b991a2741964ab3" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, <a class="el" href="group___common_functions.html#ga7fb512090e021a184ab6ac464b66d1db" title="Create a 3-dimensional plot.">Plot3D</a>, <a class="el" href="group___common_functions.html#gaf96f2212c8decc8858e5f70f81ce5ef3" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga1dc2fa66a4f35374ed94a34daa86e513" title="Magnitude of a set of vectors.">Mag</a>, <a class="el" href="group___math_functions.html#ga853f33180ccc692d4295b2ac59eab733" title="Unwrap a vector of angular values to change continuously.">UnwrapPhase</a>, </dd>
+<pre class="fragment"> Since version 7.
+</pre><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___common_functions.html#ga3a2fd4c8c08b56a14ca41af691af1905" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#ga5c1f468d16ddd7a9d4049311428be679" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, <a class="el" href="group___common_functions.html#ga8f5f143027f22f0c9575996036c39c00" title="Create a 3-dimensional plot.">Plot3D</a>, <a class="el" href="group___common_functions.html#ga5a8e26df8ab9db2da1c5c2e834d64c7d" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga4b519b77f25a768b7bcde40daeb0acb5" title="Magnitude of a set of vectors.">Mag</a>, <a class="el" href="group___math_functions.html#gac286d49d36e1ef11e9aea04c29b2e0f4" title="Unwrap a vector of angular values to change continuously.">UnwrapPhase</a>, </dd>
 <dd>
-<a class="el" href="group___formation_flying_functions.html#gacf8db7d6a8ba8dd81b6808344c9ddd68" title="Runs the collision monitoring algorithm.">CollisionMonitor</a>, <a class="el" href="group___formation_flying_functions.html#ga3f98fa9c5a5427ddf2871ea92ab1ddf7" title="Plot collision ellipsoids in 3D.">Plot3DEllipsoids</a>, <a class="el" href="group___formation_flying_functions.html#ga410035b600d077b4ac1d57ed255c615f" title="Calculates orbital elements for an in-line formation.">ProjLine</a>, <a class="el" href="group___formation_flying_functions.html#ga242bce81017f632ac1c445459b7126f6" title="Rotate a geometric state to the circular phase angle phi.">RotateState</a></dd>
+<a class="el" href="group___formation_flying_functions.html#ga3dad60d9c0f3fa2ac3040e4962fdcfd3" title="Runs the collision monitoring algorithm.">CollisionMonitor</a>, <a class="el" href="group___formation_flying_functions.html#ga08d63b9038856f5bc53ac7c7572bec16" title="Plot collision ellipsoids in 3D.">Plot3DEllipsoids</a>, <a class="el" href="group___formation_flying_functions.html#ga7c5848e8c93781a70b5f8538a48e51c7" title="Calculates orbital elements for an in-line formation.">ProjLine</a>, <a class="el" href="group___formation_flying_functions.html#gac1e811888c60fed7cfd0d85060505f46" title="Rotate a geometric state to the circular phase angle phi.">RotateState</a></dd>
 <dd>
-<a class="el" href="group___formation_flying_functions.html#ga16550f1853b747e0c3dcea0fcf7c86a3" title="Initialize a geometry data structure.">Geometry_Structure</a>, <a class="el" href="group___formation_flying_functions.html#ga8b4617e518e761da4caa64cb23bd4774" title="Closed form solution of relative orbital motion using Hills equations.">HillsEqns</a>, <a class="el" href="group___formation_flying_functions.html#gae2eae857af4bdf541b3c9f5578ab533c" title="Compute Hills frame state given initial state, true anomaly, and eccentricity.">FFEccLawdensEqns</a>, <a class="el" href="group___formation_flying_functions.html#ga369f85ce916b6ec3df582725c873be75" title="Compute a Hills state from geometric goals.">Goals2Hills</a>, <a class="el" href="group___orbit_functions.html#gaef19d27993b732d00a2b789b1fcb7660" title="Compute the orbital rate from distance and semi-major axis.">OrbRate</a></dd>
+<a class="el" href="group___formation_flying_functions.html#ga26f79d9842505575075ffab27a275df7" title="Initialize a geometry data structure.">Geometry_Structure</a>, <a class="el" href="group___formation_flying_functions.html#gaa8fc8406343b01a5f8ebc108033e5ea9" title="Closed form solution of relative orbital motion using Hills equations.">HillsEqns</a>, <a class="el" href="group___formation_flying_functions.html#ga60d0c0ac80b78dbdb6b81fcdeaf21d46" title="Compute Hills frame state given initial state, true anomaly, and eccentricity.">FFEccLawdensEqns</a>, <a class="el" href="group___formation_flying_functions.html#gabb40804ff2560e5fd6599ccfd0c79edc" title="Compute a Hills state from geometric goals.">Goals2Hills</a>, <a class="el" href="group___orbit_functions.html#ga073f07b551d25f55b354a8e693ab6ea4" title="Compute the orbital rate from distance and semi-major axis.">OrbRate</a></dd>
 <dd>
-<a class="el" href="group___orbit_functions.html#ga13a9e1087d13b7f3d237aef2e3870037" title="Computes the true anomaly from the mean anomaly.">M2Nu</a></dd></dl>
-<p>Copyright (c) 2004-2005 Princeton Satellite Systems, Inc. All rights reserved. </p>
-</div></div><!-- contents -->
+<a class="el" href="group___orbit_functions.html#gae8b75b4628134242dcebb80198494bc8" title="Computes the true anomaly from the mean anomaly.">M2Nu</a></dd></dl>
+<pre class="fragment"> Copyright (c) 2004-2005 Princeton Satellite Systems, Inc. 
+ All rights reserved.
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_7c3e595ca686d579887fe73a7a14f22e.html">Demos</a></li><li class="navelem"><a class="el" href="dir_17b4996c9f4fee1d3c3269db49e590c4.html">Collision</a></li><li class="navelem"><a class="el" href="_coll_detect_sim_8m.html">CollDetectSim.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_7c3e595ca686d579887fe73a7a14f22e.html">Demos</a></li><li class="navelem"><a class="el" href="dir_17b4996c9f4fee1d3c3269db49e590c4.html">Collision</a></li><li class="navelem"><a class="el" href="_coll_detect_sim_8m.html">CollDetectSim.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,4 @@
 var _alph_beta_8m =
 [
-    [ "AlphBeta", "group___a_c_functions.html#ga34e343eebc6a38564b51a445d3e69aec", null ]
+    [ "AlphBeta", "group___a_c_functions.html#ga36fc9a0e03b85596babefc34fefd992e", null ]
 ];

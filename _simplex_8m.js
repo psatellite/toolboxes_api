@@ -1,4 +1,4 @@
 var _simplex_8m =
 [
-    [ "Simplex", "group___math_functions.html#ga79d62fd99d6deac20bb3718689aaf1b2", null ]
+    [ "Simplex", "group___math_functions.html#gad6a5634c7b7938c49347fb5e30a4caf4", null ]
 ];

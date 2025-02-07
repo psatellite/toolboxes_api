@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/LunarMissions/Demos/LunarMission/LunarMissionDesign.m File Reference</title>
+<title>PSS MATLAB Toolboxes: LunarMissions/Demos/LunarMission/LunarMissionDesign.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('_lunar_mission_design_8m.html',''); initResizable(true
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">LunarMissionDesign.m File Reference<div class="ingroups"><a class="el" href="group___lunar_missions_group.html">LunarMissions Module</a> &raquo; <a class="el" href="group___lunar_missions_demos.html">LunarMissions Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">LunarMissionDesign.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -107,32 +107,32 @@ $(function(){initNavTree('_lunar_mission_design_8m.html',''); initResizable(true
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Compute transfer delta-Vs and simulate a lunar landing starting from low Earth orbit. The entire spacecraft lands, there is no portion left in lunar orbit. The steps are:</p>
-<h1><a class="anchor" id="autotoc_md5658"></a>
+<h1><a class="anchor" id="autotoc_md5556"></a>
 Set the elements and date so that transfer orbit and lunar orbit match.</h1>
-<h1><a class="anchor" id="autotoc_md5659"></a>
+<h1><a class="anchor" id="autotoc_md5557"></a>
 Compute the insertion delta-v</h1>
-<h1><a class="anchor" id="autotoc_md5660"></a>
+<h1><a class="anchor" id="autotoc_md5558"></a>
 Circularize the lunar orbit</h1>
-<h1><a class="anchor" id="autotoc_md5661"></a>
+<h1><a class="anchor" id="autotoc_md5559"></a>
 Do a Hohmann descent to the powered landing altitude</h1>
-<h1><a class="anchor" id="autotoc_md5662"></a>
+<h1><a class="anchor" id="autotoc_md5560"></a>
 Do a powered landing using BilinearTangent</h1>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___orbit_functions.html#gad10485154a08216bc691ab1748ea5917" title="Computes the semi major axis from apogee and perigee radii.">RARP2A</a>, <a class="el" href="group___orbit_functions.html#gad018c1bbf59d9195a22f533fff47e4e4" title="Converts perigee and apogee to semi-major axis and eccentricity.">RPRA2AE</a>, <a class="el" href="group___orbit_functions.html#ga0e3c5cbff115e3583d309176574a5057" title="Computes the delta-v for a coplanar Hohmann transfer.">DVHoh</a>, <a class="el" href="group___orbit_functions.html#ga69b82953888de99ee146a72f065b3b71" title="Generate an orbit by propagating Keplerian elements.">RVOrbGen</a>, <a class="el" href="group___lunar_missions_functions.html#gaa3582d7cbf2a2756a561c2476cc7f1ff" title="Plot an orbit track in the Earth/Moon System.">EarthMoon</a>, <a class="el" href="group___orbit_functions.html#gaf54119d462415275f31ee72381322aa9" title="Draws a 2D or 3D trajectory plot.">TrajectoryPlot</a>, </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___orbit_functions.html#gaba216ddc4dd84e5afe27cbea2beb705a" title="Computes the semi major axis from apogee and perigee radii.">RARP2A</a>, <a class="el" href="group___orbit_functions.html#gafe44bccc182e3a10df9def6b15983170" title="Converts perigee and apogee to semi-major axis and eccentricity.">RPRA2AE</a>, <a class="el" href="group___orbit_functions.html#ga732a0fe92b3e391b78be53b78305d088" title="Computes the delta-v for a coplanar Hohmann transfer.">DVHoh</a>, <a class="el" href="group___orbit_functions.html#ga8dd4015eb11dd93d9278245e033a1ec6" title="Generate an orbit by propagating Keplerian elements.">RVOrbGen</a>, <a class="el" href="group___lunar_missions_functions.html#gac55dd234f2e90adffa4cc67c8ecf0d78" title="Plot an orbit track in the Earth/Moon System.">EarthMoon</a>, <a class="el" href="group___orbit_functions.html#ga5305d65df0320d7265ff7f71550d4355" title="Draws a 2D or 3D trajectory plot.">TrajectoryPlot</a>, </dd>
 <dd>
-<a class="el" href="group___propulsion_functions.html#ga39ecaa20cfac1c73338858e50569b0d5" title="Compute masses for a single stage to produce the required delta-v.">RocketMass</a>, <a class="el" href="group___orbit_functions.html#ga567af55ff5e35fce1417e98d76796034" title="Compute the period for an orbit.">Period</a>, <a class="el" href="group___orbit_functions.html#gaee6c6852bd96912c362c6ae013c37528" title="Converts Cartesian state to Keplerian orbital elements.">RV2El</a>, <a class="el" href="group___orbit_functions.html#gafeeecd7e9899ca81b3df11360b7bee8a" title="Computes the orbital velocity from radius.">VOrbit</a>, <a class="el" href="group___s_c_functions.html#ga33cba71b966fe58eded5f408054905e1" title="Transformation matrix from ecliptic to Earth equatorial planes.">CEcl2Eq</a>, <a class="el" href="group___interplanetary_functions.html#ga8c8ba5650a56a6046dc40aa002e4caca" title="Get positions for an array of planets using the JPL ephemeris.">PlanetPosJPL</a></dd>
+<a class="el" href="group___propulsion_functions.html#ga685d93149452528547c6055d38793d81" title="Compute masses for a single stage to produce the required delta-v.">RocketMass</a>, <a class="el" href="group___orbit_functions.html#ga7c1eb42e22d71a258a2045394604e33b" title="Compute the period for an orbit.">Period</a>, <a class="el" href="group___orbit_functions.html#ga1089993ec76d603555d52ad54c1aecfe" title="Converts Cartesian state to Keplerian orbital elements.">RV2El</a>, <a class="el" href="group___orbit_functions.html#ga9338398befe045ced499f57f175855b8" title="Computes the orbital velocity from radius.">VOrbit</a>, <a class="el" href="group___s_c_functions.html#gadc5152f6924b544745500ac50067a1f5" title="Transformation matrix from ecliptic to Earth equatorial planes.">CEcl2Eq</a>, <a class="el" href="group___interplanetary_functions.html#ga2b5e0ac3a78c312c0b1a492ff4e50d16" title="Get positions for an array of planets using the JPL ephemeris.">PlanetPosJPL</a></dd>
 <dd>
-<a class="el" href="group___interplanetary_functions.html#ga1258e31e22551eb6e96030d419773616" title="Bilinear tangent law for orbit insertion or landing.">BilinearTangentLaw</a>, <a class="el" href="group___common_functions.html#ga333e57e54da5b1629f5fac27222949c3" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#gaa0609ede199cb9b0d51de78e76e53616" title="Creates an HTML table from x.">CreateHTMLTable</a>, <a class="el" href="group___common_functions.html#gac0957fb93e0dec4096b495d976cbc271" title="Displays a LaTeX table or create formatted string output.">DisplayLatexTable</a>, <a class="el" href="group___common_functions.html#ga744659571504739313271c967d5c3043" title="Creates a new figure.">NewFig</a></dd>
+<a class="el" href="group___interplanetary_functions.html#ga3aba4e02822bdf12ec9b03553c585d05" title="Bilinear tangent law for orbit insertion or landing.">BilinearTangentLaw</a>, <a class="el" href="group___common_functions.html#ga3a2fd4c8c08b56a14ca41af691af1905" title="Outputs the value of a constant or opens a GUI for searching.">Constant</a>, <a class="el" href="group___common_functions.html#gacca461c7c8c4c3882054061013c275e4" title="Creates an HTML table from x.">CreateHTMLTable</a>, <a class="el" href="group___common_functions.html#gabf6bb76e659ae529ca74e71c2d09d97a" title="Displays a LaTeX table or create formatted string output.">DisplayLatexTable</a>, <a class="el" href="group___common_functions.html#gaf0e1b0ea8a7f6e57910e4b55b57ea369" title="Creates a new figure.">NewFig</a></dd>
 <dd>
-<a class="el" href="group___common_functions.html#gaf96f2212c8decc8858e5f70f81ce5ef3" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___common_functions.html#gadbcf7e8aa884881f6243670a40300e1c" title="Creates an xlabel using the toolbox style settings.">XLabelS</a>, <a class="el" href="group___common_functions.html#gaa48c784bb78677916d4a8ea05e78b0f3" title="Compute the Julian Date from the date.">Date2JD</a>, <a class="el" href="group___math_functions.html#ga0effcdde6bb79d7705aef465a7f987c2" title="Fourth order Runge-Kutta.">RK4</a></dd></dl>
-<hr  />
-<p>Copyright (c) 2014 Princeton Satellite Systems All Rights Reserved. </p>
-</div></div><!-- contents -->
+<a class="el" href="group___common_functions.html#ga5a8e26df8ab9db2da1c5c2e834d64c7d" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___common_functions.html#gac9aa46a0522738d5b0517cbad1801f87" title="Creates an xlabel using the toolbox style settings.">XLabelS</a>, <a class="el" href="group___common_functions.html#gacc8101597897c2b80df3b7f4835b1fcf" title="Compute the Julian Date from the date.">Date2JD</a>, <a class="el" href="group___math_functions.html#ga2bd3d421395eeb70502e6fd0f9959089" title="Fourth order Runge-Kutta.">RK4</a></dd></dl>
+<pre class="fragment"> Copyright (c) 2014 Princeton Satellite Systems
+ All Rights Reserved.
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_0c354de4d7830fb657ec432c5ab18776.html">LunarMissions</a></li><li class="navelem"><a class="el" href="dir_884f24da450b4d1d492c697633684c78.html">Demos</a></li><li class="navelem"><a class="el" href="dir_6662627d8e9d4c274ff013578e1a5749.html">LunarMission</a></li><li class="navelem"><a class="el" href="_lunar_mission_design_8m.html">LunarMissionDesign.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_0c354de4d7830fb657ec432c5ab18776.html">LunarMissions</a></li><li class="navelem"><a class="el" href="dir_884f24da450b4d1d492c697633684c78.html">Demos</a></li><li class="navelem"><a class="el" href="dir_6662627d8e9d4c274ff013578e1a5749.html">LunarMission</a></li><li class="navelem"><a class="el" href="_lunar_mission_design_8m.html">LunarMissionDesign.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

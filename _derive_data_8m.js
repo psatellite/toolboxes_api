@@ -1,4 +1,4 @@
 var _derive_data_8m =
 [
-    [ "DeriveData", "group___plotting_functions.html#ga74da824bcb1c12283ecdc6584d3fde66", null ]
+    [ "DeriveData", "group___plotting_functions.html#ga83129585fa07ed57252fc9aa231727a2", null ]
 ];

@@ -1,4 +1,4 @@
 var _r_i_g_model_8m =
 [
-    [ "RIGModel", "group___s_c_functions.html#ga58b77d2c16bc6dd0f4907004c5fa0308", null ]
+    [ "RIGModel", "group___s_c_functions.html#gad016e9c8cdecfa5210be1c8999fff1a8", null ]
 ];

@@ -1,4 +1,4 @@
 var _is_sing_8m =
 [
-    [ "IsSing", "group___math_functions.html#gaabca28083d75a03529bdd6185e88fe40", null ]
+    [ "IsSing", "group___math_functions.html#gae6bfa181291bca37d97afba61a2a8612", null ]
 ];

@@ -1,4 +1,4 @@
 var _sun_nadir_8m =
 [
-    [ "SunNadir", "group___s_c_functions.html#ga3111b74697c4258092a7362e99ca4395", null ]
+    [ "SunNadir", "group___s_c_functions.html#gac233a7bc17f86f9945a316e27123527d", null ]
 ];

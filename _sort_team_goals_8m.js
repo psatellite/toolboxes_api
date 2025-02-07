@@ -1,4 +1,4 @@
 var _sort_team_goals_8m =
 [
-    [ "SortTeamGoals", "group___formation_flying_functions.html#ga1c73c90b93c27d0555748aa7dfe39e1b", null ]
+    [ "SortTeamGoals", "group___formation_flying_functions.html#gac3becc3534b68e7a2a3845614a9257d1", null ]
 ];

@@ -1,4 +1,4 @@
 var _band_gap_to_wavelength_8m =
 [
-    [ "BandGapToWavelength", "group___electrical_functions.html#gac2a72edda656ac1ef55d174b9eda3e64", null ]
+    [ "BandGapToWavelength", "group___electrical_functions.html#ga3ae2bbf74e1dfe8a187f279ad812bd54", null ]
 ];

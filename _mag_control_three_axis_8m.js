@@ -1,4 +1,4 @@
 var _mag_control_three_axis_8m =
 [
-    [ "MagControlThreeAxis", "group___s_c_functions.html#ga44951985d9604b01e707e4c70537c716", null ]
+    [ "MagControlThreeAxis", "group___s_c_functions.html#ga4feefdb67b550fe02e49a77d189196b9", null ]
 ];

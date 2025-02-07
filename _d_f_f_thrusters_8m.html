@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/IntegratedSim/Actuators/DFFThrusters.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/IntegratedSim/Actuators/DFFThrusters.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,19 +110,19 @@ $(function(){initNavTree('_d_f_f_thrusters_8m.html',''); initResizable(true); })
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab0c2cfa6198af170437f8349df2ef5ab" id="r_ab0c2cfa6198af170437f8349df2ef5ab"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0c2cfa6198af170437f8349df2ef5ab">DFFThrusters</a> (in action, in d, in k)</td></tr>
-<tr class="memdesc:ab0c2cfa6198af170437f8349df2ef5ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thruster pulsewidth model for DFF.  <br /></td></tr>
-<tr class="separator:ab0c2cfa6198af170437f8349df2ef5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab090188861ec96957e42b6917beccaa7" id="r_ab090188861ec96957e42b6917beccaa7"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab090188861ec96957e42b6917beccaa7">DFFThrusters</a> (in action, in d, in k)</td></tr>
+<tr class="memdesc:ab090188861ec96957e42b6917beccaa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thruster pulsewidth model for DFF.  <br /></td></tr>
+<tr class="separator:ab090188861ec96957e42b6917beccaa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ab0c2cfa6198af170437f8349df2ef5ab" name="ab0c2cfa6198af170437f8349df2ef5ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0c2cfa6198af170437f8349df2ef5ab">&#9670;&#160;</a></span>DFFThrusters()</h2>
+<a id="ab090188861ec96957e42b6917beccaa7" name="ab090188861ec96957e42b6917beccaa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab090188861ec96957e42b6917beccaa7">&#9670;&#160;</a></span>DFFThrusters()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function DFFThrusters </td>
+          <td class="memname">function DFFThrusters </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
         </tr>
@@ -138,16 +138,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<h2><a class="anchor" id="autotoc_md4260"></a>
+<h2><a class="anchor" id="autotoc_md4197"></a>
 Inputs</h2>
-<p>action (1,:) 'initialize' 'get torque' 'get force' 'update' 'set simulation dt' 'set fuel mass' 'set cm' 'get pressure' 'get temperature' 'set pulsewidth' d (1,1) Depends on the action k (1,1) Spacecraft Identifier</p>
-<h2><a class="anchor" id="autotoc_md4261"></a>
+<pre class="fragment"> action      (1,:)     'initialize' 'get torque' 'get force' 'update'
+                       'set simulation dt' 'set fuel mass' 'set cm'
+                       'get pressure' 'get temperature' 'set pulsewidth'
+ d           (1,1)     Depends on the action
+ k           (1,1)     Spacecraft Identifier
+</pre><h2><a class="anchor" id="autotoc_md4198"></a>
 Outputs</h2>
-<p>y (1,1) Depends on the action </p>
+<pre class="fragment"> y           (1,1)     Depends on the action
+</pre> 
+<p class="reference">References <a class="el" href="_default_tank_data_8m.html#aeb16be5888940fdc3ef4a47a62ec500b">DefaultTankData()</a>, <a class="el" href="statespace_8m.html#aed9dbb8af76caf0e678e3a4161041fe9">isempty()</a>, <a class="el" href="acstate_8m.html#a93c860fbc0b00237698debdccbc93363">length()</a>, and <a class="el" href="acstate_8m.html#a868c2ad16f7ccf1ccb3eb728b357b42f">zeros()</a>.</p>
 
-<p class="reference">References <a class="el" href="_default_tank_data_8m.html#a884c05f93b3b17ea3660ad4a185e2845">DefaultTankData()</a>, <a class="el" href="statespace_8m.html#aed9dbb8af76caf0e678e3a4161041fe9">isempty()</a>, <a class="el" href="acstate_8m.html#a93c860fbc0b00237698debdccbc93363">length()</a>, and <a class="el" href="acstate_8m.html#a868c2ad16f7ccf1ccb3eb728b357b42f">zeros()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_spacecraft_parameters_8m.html#acfb7c08e381da1c20c719df5eb4f7f0d">SpacecraftParameters()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_spacecraft_parameters_8m.html#a7a1bd3154448c64ccc1ca8f3b330a8fd">SpacecraftParameters()</a>.</p>
 
 </div>
 </div>
@@ -156,8 +160,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_efb5ce3f9eec50577b9d70f86cc7bcbd.html">Actuators</a></li><li class="navelem"><a class="el" href="_d_f_f_thrusters_8m.html">DFFThrusters.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_efb5ce3f9eec50577b9d70f86cc7bcbd.html">Actuators</a></li><li class="navelem"><a class="el" href="_d_f_f_thrusters_8m.html">DFFThrusters.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

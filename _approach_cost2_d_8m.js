@@ -1,4 +1,4 @@
 var _approach_cost2_d_8m =
 [
-    [ "ApproachCost2D", "group___interplanetary_functions.html#gaed85728ca07697e938d2099f3d4bfc76", null ]
+    [ "ApproachCost2D", "group___interplanetary_functions.html#ga3c6f48bee3fb7fe4b61efd1077e10e68", null ]
 ];

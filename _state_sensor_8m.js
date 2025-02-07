@@ -1,4 +1,4 @@
 var _state_sensor_8m =
 [
-    [ "StateSensor", "_state_sensor_8m.html#a4eb0321700de1dba8ae2bd003dc0d406", null ]
+    [ "StateSensor", "_state_sensor_8m.html#afd258152973ce97c67e9ccb4e8b29b79", null ]
 ];

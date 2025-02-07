@@ -1,4 +1,4 @@
 var _d_s_t_crit_8m =
 [
-    [ "DSTCrit", "group___s_c_functions.html#gacc29de4254815217c021ed3ba8489c2d", null ]
+    [ "DSTCrit", "group___s_c_functions.html#ga39bc32a1b8bea71fea5132008026bdbe", null ]
 ];

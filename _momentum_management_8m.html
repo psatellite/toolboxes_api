@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/CubeSat/Demos/Simulation/MomentumManagement.m File Reference</title>
+<title>PSS MATLAB Toolboxes: CubeSat/Demos/Simulation/MomentumManagement.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,26 +99,68 @@ $(function(){initNavTree('_momentum_management_8m.html',''); initResizable(true)
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MomentumManagement.m File Reference<div class="ingroups"><a class="el" href="group___cube_sat_group.html">CubeSat Module</a> &raquo; <a class="el" href="group___cube_sat_demos.html">CubeSat Demos</a></div></div></div>
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">MomentumManagement.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Demonstrate simple dipole based momentum management <a href="Demos/CubeSat/MomentumManagement.html">Published Demo</a>  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6f0f31bff85c754e66966aabd9cd7c3d" id="r_a6f0f31bff85c754e66966aabd9cd7c3d"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f0f31bff85c754e66966aabd9cd7c3d">RHSMomentum</a> (in ignoredArg, in ignoredArg, in torque)</td></tr>
+<tr class="memdesc:a6f0f31bff85c754e66966aabd9cd7c3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constants.  <br /></td></tr>
+<tr class="separator:a6f0f31bff85c754e66966aabd9cd7c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This uses projection to get the best fit between the available dipoles and the desired momentum unloading torque.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___common_functions.html#gad8224b630862781e5b991a2741964ab3" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, <a class="el" href="group___common_functions.html#gaf96f2212c8decc8858e5f70f81ce5ef3" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga0effcdde6bb79d7705aef465a7f987c2" title="Fourth order Runge-Kutta.">RK4</a>, <a class="el" href="group___common_functions.html#gaa48c784bb78677916d4a8ea05e78b0f3" title="Compute the Julian Date from the date.">Date2JD</a>, <a class="el" href="group___cube_sat_functions.html#ga27644524f9bbe9c59e218bb9bae489bd" title="Compute the torque from a magnetic momentum unloading system.">MomentumUnloading</a>, </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___common_functions.html#ga5c1f468d16ddd7a9d4049311428be679" title="Easily build a versatile 2D plot page consisting of any number of plots.">Plot2D</a>, <a class="el" href="group___common_functions.html#ga5a8e26df8ab9db2da1c5c2e834d64c7d" title="Generates a time label given the maximum value of t and rescales t.">TimeLabl</a>, <a class="el" href="group___math_functions.html#ga2bd3d421395eeb70502e6fd0f9959089" title="Fourth order Runge-Kutta.">RK4</a>, <a class="el" href="group___common_functions.html#gacc8101597897c2b80df3b7f4835b1fcf" title="Compute the Julian Date from the date.">Date2JD</a>, <a class="el" href="group___cube_sat_functions.html#gaacaaeba241f35167c0644ce7a909cd86" title="Compute the torque from a magnetic momentum unloading system.">MomentumUnloading</a>, </dd>
 <dd>
-<a class="el" href="group___cube_sat_functions.html#ga6ebf1c2a23c3d955a90c405461052e54" title="RHS for momentum in the inertial frame.">RHSMomentum</a>, <a class="el" href="group___orbit_functions.html#ga567af55ff5e35fce1417e98d76796034" title="Compute the period for an orbit.">Period</a></dd></dl>
-<p>Copyright (c) 2010, 2021 Princeton Satellite Systems, Inc. All rights reserved.</p>
-<p>Since version 9. 2021.2 Now uses the torque from the torquers in the inertial frames. Now uses TimeHistory, instead of Plot2D </p>
-</div></div><!-- contents -->
+<a class="el" href="#a6f0f31bff85c754e66966aabd9cd7c3d" title="Constants.">RHSMomentum</a>, <a class="el" href="group___orbit_functions.html#ga7c1eb42e22d71a258a2045394604e33b" title="Compute the period for an orbit.">Period</a></dd></dl>
+<pre class="fragment"> Copyright (c) 2010, 2021 Princeton Satellite Systems, Inc.
+ All rights reserved.
+
+
+ Since version 9.
+ 2021.2 Now uses the torque from the torquers in the inertial frames.
+ Now uses TimeHistory, instead of Plot2D
+</pre></div><h2 class="groupheader">Function Documentation</h2>
+<a id="a6f0f31bff85c754e66966aabd9cd7c3d" name="a6f0f31bff85c754e66966aabd9cd7c3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f0f31bff85c754e66966aabd9cd7c3d">&#9670;&#160;</a></span>RHSMomentum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">function RHSMomentum </td>
+          <td>(</td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>ignoredArg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>ignoredArg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>torque</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Simulation duration Time step The momentum to be removed Start Julian date Momentum unloading gain Orbit Run the simulation Magnetic field - the magnetometer output is proportional to this Unloading in the inertial frame A time step with 4th order Runge-Kutta Store for plotting Plotting Y-axis labels Plotting utility RHS for momentum in the inertial frame. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_46e21f77ce7fe56268441dd3c3913ad1.html">CubeSat</a></li><li class="navelem"><a class="el" href="dir_c2565d8821fedb154ee10557890872d6.html">Demos</a></li><li class="navelem"><a class="el" href="dir_06c1c3c5f1a3006d01599d7476b9d63f.html">Simulation</a></li><li class="navelem"><a class="el" href="_momentum_management_8m.html">MomentumManagement.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_46e21f77ce7fe56268441dd3c3913ad1.html">CubeSat</a></li><li class="navelem"><a class="el" href="dir_c2565d8821fedb154ee10557890872d6.html">Demos</a></li><li class="navelem"><a class="el" href="dir_06c1c3c5f1a3006d01599d7476b9d63f.html">Simulation</a></li><li class="navelem"><a class="el" href="_momentum_management_8m.html">MomentumManagement.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

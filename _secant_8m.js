@@ -1,4 +1,4 @@
 var _secant_8m =
 [
-    [ "Secant", "group___math_functions.html#gaeb492b76b78ff2f719483352f4a08343", null ]
+    [ "Secant", "group___math_functions.html#ga64622d9baf69ba17e068be57f5d985a9", null ]
 ];

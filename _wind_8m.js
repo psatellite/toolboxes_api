@@ -1,4 +1,4 @@
 var _wind_8m =
 [
-    [ "Wind", "group___wind_turbine_functions.html#gab53ccfddf0385a001546d1cab9944b48", null ]
+    [ "Wind", "group___wind_turbine_functions.html#ga659018ede3ed31a4642fc0cfb40a3535", null ]
 ];

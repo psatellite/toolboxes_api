@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Plotting/Help/PlottingTool_hlp.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Plotting/Help/PlottingTool_hlp.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -106,37 +106,57 @@ $(function(){initNavTree('_plotting_tool__hlp_8m.html',''); initResizable(true);
 <p>Plotting Tool <a href="Demos/Aerospace/PlottingTool_hlp.html">Published Demo</a>  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Introduction</p>
-<p>This tool allows you to load simulation results and create any number of plots of the data. You can save your plot preferences in a template. The parts of the Plotting Tool are explained below.</p>
-<p>The Plotting Tool GUI</p><ul>
+<div class="textblock"><p>Introduction </p><pre class="fragment">This tool allows you to load simulation results and create any 
+number of plots of the data. You can save your plot preferences
+in a template. The parts of the Plotting Tool are explained below.
+</pre><p>The Plotting Tool GUI</p><ul>
 <li><p class="startli"><em>Control buttons:</em></p>
 <p class="startli">The buttons along the bottom control the window. You should begin by loading a sim data file, there should be examples in the folder even if you have not run any simulations yet. Then you can load a template, which contains various variable and plotting preferences. There should also be sample templates included with the PlottingTool. The other buttons allow you to manage the variable list and save your own templates.</p>
-<p class="startli">You can load multiple sim data files. They will all use the same template.</p>
 </li>
+</ul>
+<pre class="fragment"> You can load multiple sim data files. They will all use the same 
+ template.
+</pre><ul>
 <li><p class="startli"><em>Variables:</em></p>
 <p class="startli">The left side of the PlottingTool is devoted to the variables in the sim results file. Here you can see a list of the variables, and view information and plots of individual variables. Just click on a variable to view it.</p>
-<p class="startli">The 'Group Variables' and 'Display Filter' allow you to modify the list of variables that you see according to your own preferences. When you load a template the variables will be filtered as defined in the template.</p>
 </li>
+</ul>
+<pre class="fragment"> The 'Group Variables' and 'Display Filter' allow you to modify the list
+ of variables that you see according to your own preferences. When 
+ you load a template the variables will be filtered as defined in the 
+ template.
+</pre><ul>
 <li><p class="startli"><em>Animation pane:</em></p>
 <p class="startli">A pane in the middle of the Plotting Tool allows you to view animations of 3D variables. You must have previously defined some 3D variables, which will then appear in the popup menu in this pane. You can set the start and stop times for the animation, as well as the speed.</p>
 </li>
 <li><p class="startli"><em>Plot definition:</em></p>
 <p class="startli">The right hand side of the Plotting Tool is devoted to user-defined plots. Use the buttons at the top to create or delete plots. These changes will be reflected in the popup menu. Use the 'Plot Time History' button at the bottom to generate the plot currently selected in the popup menu.</p>
-<p class="startli">The check boxes allow you to select variables and satellites for your plot. Any combination of variables and satellite can be plotted using the subplot and line type information you select in the small popup menus.</p>
-<p class="startli">Derivation functions</p>
-<p class="startli">You may derive additional data from the variables included in the sim data file. The 'Derive Data' button brings up an additional GUI which can be used to specify a new type of derived data. Several derivation functions are included with the PlottingTool and additional functions may be defined by the user. You can select any of the previously defined variables as inputs for a derivation function.</p>
-<p class="startli">Templates</p>
-<p class="startli">All the changes you make to a sim data file, including defining and deriving new variables and figures, can be saved in a template. This template can be applied to any other desired sim data files as well. In this sense, templates really capture user preferences. Use the 'Load Template' and 'Save Template' buttons to save or create new templates and to apply a template to a sim data file.</p>
 </li>
 </ul>
-<p>Back to &lt;GUIindex.html&gt; </p>
+<pre class="fragment"> The check boxes allow you to select variables and satellites for your 
+ plot. Any combination of variables and satellite can be plotted using 
+ the subplot and line type information you select in the small popup 
+ menus.
+</pre><p>Derivation functions </p><pre class="fragment">You may derive additional data from the variables included in the sim 
+data file. The 'Derive Data' button brings up an additional GUI which 
+can be used to specify a new type of derived data. Several derivation 
+functions are included with the PlottingTool and additional functions 
+may be defined by the user. You can select any of the previously defined 
+variables as inputs for a derivation function. 
+</pre><p>Templates </p><pre class="fragment">All the changes you make to a sim data file, including defining and 
+deriving new variables and figures, can be saved in a template. This 
+template can be applied to any other desired sim data files as well. 
+In this sense, templates really capture user preferences. Use the 'Load 
+Template' and 'Save Template' buttons to save or create new templates 
+and to apply a template to a sim data file.
+</pre><p>Back to &lt;GUIindex.html&gt; </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_ef9bc8b759f3c5a05c8755d81b2f131f.html">Plotting</a></li><li class="navelem"><a class="el" href="dir_cc418eb51bbc48d4b4ea61bad508e5c5.html">Help</a></li><li class="navelem"><a class="el" href="_plotting_tool__hlp_8m.html">PlottingTool_hlp.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_ef9bc8b759f3c5a05c8755d81b2f131f.html">Plotting</a></li><li class="navelem"><a class="el" href="dir_cc418eb51bbc48d4b4ea61bad508e5c5.html">Help</a></li><li class="navelem"><a class="el" href="_plotting_tool__hlp_8m.html">PlottingTool_hlp.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

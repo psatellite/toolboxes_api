@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/SC/Demos/CAD/BuildAgileSat.m File Reference</title>
+<title>PSS MATLAB Toolboxes: SC/Demos/CAD/BuildAgileSat.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('_build_agile_sat_8m.html',''); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">BuildAgileSat.m File Reference<div class="ingroups"><a class="el" href="group___s_c_group.html">SC Module</a> &raquo; <a class="el" href="group___s_c_demos.html">SC Demos folders</a></div></div></div>
+  <div class="headertitle"><div class="title">BuildAgileSat.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -107,58 +107,84 @@ $(function(){initNavTree('_build_agile_sat_8m.html',''); initResizable(true); })
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>There are two variants. Variant A has 12 hydrazine thrusters, a radar dish and a rendezvous camera. Variant B has a telescope and 4 Hall thrusters. Exporting files is off by default, see the end of the demo.</p>
-<p>Components:</p>
-<p>GN&amp;C</p>
-<p>1 Hall thruster or 12 hydrazine for variant A 1 PCU <br  />
- 2 Magnetic torquers <br  />
- 1 Xenon tank <br  />
- 1 Honeywell RWA Array <br  />
- 1 IMU <br  />
- 1 Magnetometer on boom <br  />
- 2 Star cameras <br  />
- 1 Radar for variant A</p>
-<p>Communications</p>
-<p>1 ISL <br  />
- 2 Omni antenna <br  />
- 1 High gain antenna <br  />
-</p>
-<p>Payload</p>
-<p>1 Telescope Payload B 1 Radar dish Payload A</p>
-<p>Power</p>
-<p>1 LiOn battery <br  />
- 2 Solarcon arrays <br  />
-</p>
-<p>Data processing</p>
-<p>1 Ethernet bus <br  />
- 1 RAD 750 processor (cPCI) <br  />
- 1 Interface board (cPCI) <br  />
- 1 Mass memory board (cPCI) <br  />
- 1 Command receiver (cPCI) <br  />
- 1 GPS receiver (cPCI) <br  />
-</p>
-<p>Interface</p>
-<p>2 Umbilical connectors <br  />
- 1 Flange <br  />
-</p>
-<p>Structure</p>
-<p>Aluminum frame <br  />
- Honeycomb panels <br  />
-</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___aerospace_utils_functions.html#ga6a6963f62a83d678b62db923afa3e150" title="Get vertices and faces for the SHELS Interface CAD components.">SHELSInterface</a>, <a class="el" href="group___s_c_functions.html#ga1d1eaa9ca7786930872ad54856d396f8" title="Generates data for the NRL SolarCon solar array.">NRLArray</a>, <a class="el" href="group___aerospace_utils_functions.html#gaeda67db65c53b633dd89eb8800f8789a" title="Get CAD vertices and faces for a frame for a honeycomb panel.">PanelFrame</a>, <a class="el" href="group___common_functions.html#ga650d7035c987ff1ea4362c25fc761b58" title="Generate strut going from x1 to x2.">ShapedStrut</a>, </dd>
+<pre class="fragment"> Components:
+
+
+ GN&amp;C
+
+
+ 1 Hall thruster              or 12 hydrazine for variant A
+ 1 PCU                       
+ 2 Magnetic torquers         
+ 1 Xenon tank                
+ 1 Honeywell RWA Array       
+ 1 IMU                       
+ 1 Magnetometer on boom      
+ 2 Star cameras              
+ 1 Radar                      for variant A
+
+
+ Communications
+
+
+ 1 ISL                       
+ 2 Omni antenna              
+ 1 High gain antenna         
+
+
+ Payload
+
+
+ 1 Telescope                  Payload B
+ 1 Radar dish                 Payload A
+
+
+ Power
+
+
+ 1 LiOn battery              
+ 2 Solarcon arrays           
+
+
+ Data processing
+
+
+ 1 Ethernet bus              
+ 1 RAD 750 processor (cPCI)  
+ 1 Interface board   (cPCI)  
+ 1 Mass memory board (cPCI)  
+ 1 Command receiver  (cPCI)  
+ 1 GPS receiver      (cPCI)  
+
+
+ Interface
+
+
+ 2 Umbilical connectors      
+ 1 Flange                    
+
+
+ Structure
+
+
+ Aluminum frame              
+ Honeycomb panels            
+</pre><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___aerospace_utils_functions.html#ga8b39e9c160096c3bf90ff77cd4436225" title="Get vertices and faces for the SHELS Interface CAD components.">SHELSInterface</a>, <a class="el" href="group___s_c_functions.html#ga3c6e326af57a93e5a5251da8ba7410eb" title="Generates data for the NRL SolarCon solar array.">NRLArray</a>, <a class="el" href="group___aerospace_utils_functions.html#ga1e47a2259ee45d96c6b938285035d83c" title="Get CAD vertices and faces for a frame for a honeycomb panel.">PanelFrame</a>, <a class="el" href="group___common_functions.html#ga3f77c24a1b1f15997635f7f5e4900986" title="Generate strut going from x1 to x2.">ShapedStrut</a>, </dd>
 <dd>
-<a class="el" href="group___aerospace_utils_functions.html#ga497c6f5df7ba42ef58cd6b2c92aac877" title="Get CAD vertices and faces for a panel with a cutout.">PanelWithCutout</a>, <a class="el" href="group___aerospace_utils_functions.html#ga55b5457211f0bfdbd88cbec245010511" title="Get vertices and faces for a CompactPCI 3U Chassis CAD component.">CompactPCIChassis</a>, <a class="el" href="group___aerospace_utils_functions.html#gad665e816c1e1c0d951d598d1d2ce9056" title="Generate a Xenon Tank CAD model based on the ETS VIII Tank.">XenonTank</a>, <a class="el" href="group___aerospace_utils_functions.html#gaa14cc48fc69e7e55f1ca4dbd336df85f" title="Generate CAD vertices for a Xenon Tank support based on the ETS VIII Tank.">XenonTankSupport</a></dd>
+<a class="el" href="group___aerospace_utils_functions.html#ga8290ec57cd5ade02e25bfe2e4a0a8729" title="Get CAD vertices and faces for a panel with a cutout.">PanelWithCutout</a>, <a class="el" href="group___aerospace_utils_functions.html#gadd11d59d43f653a4655b2cac429cc995" title="Get vertices and faces for a CompactPCI 3U Chassis CAD component.">CompactPCIChassis</a>, <a class="el" href="group___aerospace_utils_functions.html#ga4734c31cb6930427aeecabb61f0a0afa" title="Generate a Xenon Tank CAD model based on the ETS VIII Tank.">XenonTank</a>, <a class="el" href="group___aerospace_utils_functions.html#ga46cc670d8779be90274f07493fd706ac" title="Generate CAD vertices for a Xenon Tank support based on the ETS VIII Tank.">XenonTankSupport</a></dd>
 <dd>
-<a class="el" href="group___aerospace_utils_functions.html#gace6d58c164d406c4b9b2ed3474d9698f" title="Build a model of a spacecraft using repeated calls to this function.">BuildCADModel</a>, <a class="el" href="group___aerospace_utils_functions.html#ga55cca71b312d9320f3fdb67d2d6dfe9c" title="Create a body with hinge data.">CreateBody</a>, <a class="el" href="group___aerospace_utils_functions.html#ga3130ef4fc831fb5430422b54591edc48" title="Creates CAD model report.">CreateCADReport</a>, <a class="el" href="group___aerospace_utils_functions.html#ga5c56cc337fe962adf75a27976aa2ff2a" title="Create a CAD component.">CreateComponent</a>, <a class="el" href="group___aerospace_utils_functions.html#ga0803029e3aa9c08fccece60b1a230f88" title="Export a CAD file to a text file.">ExportCAD</a></dd>
+<a class="el" href="group___aerospace_utils_functions.html#ga610c90714738bd25066710f2e3356cb6" title="Build a model of a spacecraft using repeated calls to this function.">BuildCADModel</a>, <a class="el" href="group___aerospace_utils_functions.html#gadaddbc3987897e4c6bcf2e67b4759074" title="Create a body with hinge data.">CreateBody</a>, <a class="el" href="group___aerospace_utils_functions.html#ga01718495bd811fedc0a85bb93a1a64e4" title="Creates CAD model report.">CreateCADReport</a>, <a class="el" href="group___aerospace_utils_functions.html#gab7a217b42e5fa22ccf64ba4cc452da58" title="Create a CAD component.">CreateComponent</a>, <a class="el" href="group___aerospace_utils_functions.html#gae9c19960f9dd6f5fc8e6b04ca562cffe" title="Export a CAD file to a text file.">ExportCAD</a></dd>
 <dd>
-<a class="el" href="group___aerospace_utils_functions.html#ga620146f15ad33cb8221af988b7542142" title="Export an OBJ file.">ExportOBJ</a>, <a class="el" href="group___common_functions.html#gae59b663cdc4d24c241de22f6f9b5e50a" title="Computes inertias of common objects about their c.m.">Inertias</a>, <a class="el" href="group___common_functions.html#ga9ca808ae9f0c184d4158f3b620d54635" title="Generate a frustrum of a cone.">Frustrum</a>, <a class="el" href="group___aerospace_utils_functions.html#ga9dd8e0edf3d65bf43ed8e09ea05505ca" title="Get CAD components for an array of four reaction wheels.">RWAArray</a>, <a class="el" href="group___common_functions.html#ga9f3d6838e80839850cfbbee8af74b6e3" title="Converts 3-2-1 Euler angles into an orthonormal transformation matrix.">Eul2Mat</a>, <a class="el" href="group___common_functions.html#ga5fba9f89eaf25e44345df1ca3f8d8ba3" title="Converts a transformation matrix to a quaternion.">Mat2Q</a>, <a class="el" href="group___aerospace_utils_functions.html#ga36923696746f9ba2ea3ec7d2c98288ca" title="Generate the quaternions that transform from ECI to LVLH coordinates.">QLVLH</a></dd></dl>
-<p>Copyright (c) 2003, 2007 Princeton Satellite Systems, Inc. All rights reserved. </p>
-</div></div><!-- contents -->
+<a class="el" href="group___aerospace_utils_functions.html#ga287894bed81b8f51bf29931b0c1f79b8" title="Export an OBJ file.">ExportOBJ</a>, <a class="el" href="group___common_functions.html#ga0cace758354eed32c5a57c065fe4077b" title="Computes inertias of common objects about their c.m.">Inertias</a>, <a class="el" href="group___common_functions.html#gad0ce006ee4eacffd950e130b4f16f3bd" title="Generate a frustrum of a cone.">Frustrum</a>, <a class="el" href="group___aerospace_utils_functions.html#ga6dcb436ba5decc5ff2d5b5b3d4ac66ef" title="Get CAD components for an array of four reaction wheels.">RWAArray</a>, <a class="el" href="group___common_functions.html#ga8e0d0a31a8d5ceab22e2e47616eb0fde" title="Converts 3-2-1 Euler angles into an orthonormal transformation matrix.">Eul2Mat</a>, <a class="el" href="group___common_functions.html#gaf7cf55ca15afa3defa6bdf27af6ea2f6" title="Converts a transformation matrix to a quaternion.">Mat2Q</a>, <a class="el" href="group___aerospace_utils_functions.html#ga8377127ed7891c4901b9fce0696fb4f7" title="Generate the quaternions that transform from ECI to LVLH coordinates.">QLVLH</a></dd></dl>
+<pre class="fragment"> Copyright (c) 2003, 2007 Princeton Satellite Systems, Inc. 
+ All rights reserved.
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_57d1b70c649d31ec87936898fd99801f.html">SC</a></li><li class="navelem"><a class="el" href="dir_41c194bba52f5b6fdec2c491af7082f0.html">Demos</a></li><li class="navelem"><a class="el" href="dir_98305aaa03c4c773b97d9c186f15ccdc.html">CAD</a></li><li class="navelem"><a class="el" href="_build_agile_sat_8m.html">BuildAgileSat.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_57d1b70c649d31ec87936898fd99801f.html">SC</a></li><li class="navelem"><a class="el" href="dir_41c194bba52f5b6fdec2c491af7082f0.html">Demos</a></li><li class="navelem"><a class="el" href="dir_98305aaa03c4c773b97d9c186f15ccdc.html">CAD</a></li><li class="navelem"><a class="el" href="_build_agile_sat_8m.html">BuildAgileSat.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:49 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

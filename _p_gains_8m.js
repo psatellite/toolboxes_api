@@ -1,4 +1,4 @@
 var _p_gains_8m =
 [
-    [ "PGains", "group___common_functions.html#ga87ee91ba2db7317da2223f03e2e72f60", null ]
+    [ "PGains", "group___common_functions.html#ga68f8756f62442a6d8862b6b674baac84", null ]
 ];

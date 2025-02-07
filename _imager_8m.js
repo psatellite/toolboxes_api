@@ -1,4 +1,4 @@
 var _imager_8m =
 [
-    [ "Imager", "group___imaging_functions.html#ga576ee536dfb2cd30d065cd8ff40b3bc8", null ]
+    [ "Imager", "group___imaging_functions.html#gae96227aa6955b281ded4b8238c443a09", null ]
 ];

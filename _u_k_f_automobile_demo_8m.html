@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Core/MHT/Demos/KFDemos/UKFAutomobileDemo.m File Reference</title>
+<title>PSS MATLAB Toolboxes: MHT/Demos/KFDemos/UKFAutomobileDemo.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('_u_k_f_automobile_demo_8m.html',''); initResizable(tru
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">UKFAutomobileDemo.m File Reference<div class="ingroups"><a class="el" href="group___m_h_t_group.html">MHT Module</a> &raquo; <a class="el" href="group___m_h_t_demos.html">MHT Demos</a></div></div></div>
+  <div class="headertitle"><div class="title">UKFAutomobileDemo.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -107,30 +107,38 @@ $(function(){initNavTree('_u_k_f_automobile_demo_8m.html',''); initResizable(tru
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a href="Demos/MHT/UKFAutomobileDemo.html">Published Demo</a></p>
-<p>This models a car driving near a car with radar. The cars are at different speeds and the track car performs a passing and lane change maneuver.</p>
-<p>The demo uses the Unscented Kalman Filter (UKF).</p>
-<p>The simulation is run first and then the UKF estimates the trajectory of the tracked car. The demo also computes the MHT distance for the tracked car. The estimator starts with an estimated state of zero, meaning the tracked car and car with radar coincide. This leads to a large MHT distance at the start.</p>
-<p>The car maneuvers and initial states can be modified.</p>
-<p>Things to try;</p><ol type="1">
-<li>Add more cars.</li>
-<li>Make the simulation parameters different from the filter</li>
-</ol>
-<hr  />
- <dl class="section see"><dt>See also</dt><dd><a class="el" href="group___m_h_t_functions.html#ga8be1f81839d02d4e6787d4081a0ae9ac" title="Automotive (2D) radar.">AutoRadar</a>, <a class="el" href="group___m_h_t_functions.html#ga00aeecb671c0d3e38d8180122386578d" title="Implements passing control by pointing the wheels at the target.">AutomobilePassing</a>, <a class="el" href="group___m_h_t_functions.html#ga5ab0f2eea308dbb850acbaed9c011909" title="Implements lane change control by pointing the wheels at the target.">AutomobileLaneChange</a>, </dd>
+<pre class="fragment"> This models a car driving near a car with radar. The cars
+ are at different speeds and the track car performs a passing and lane
+ change maneuver.
+
+
+ The demo uses the Unscented Kalman Filter (UKF). 
+
+
+ The simulation is run first and then the UKF estimates the trajectory
+ of the tracked car. The demo also computes the MHT distance for the
+ tracked car. The estimator starts with an estimated state of zero,
+ meaning the tracked car and car with radar coincide. This leads to 
+ a large MHT distance at the start.
+
+
+ The car maneuvers and initial states can be modified. 
+
+
+ Things to try;
+ 1. Add more cars.
+ 2. Make the simulation parameters different from the filter
+</pre><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___m_h_t_functions.html#ga1bd3a2e0fd73f343ea7ed7d221fe2a2b" title="Automotive (2D) radar.">AutoRadar</a>, <a class="el" href="group___m_h_t_functions.html#gaf4c9eed5522e03c7ff2bb3b83e45db78" title="Implements passing control by pointing the wheels at the target.">AutomobilePassing</a>, <a class="el" href="group___m_h_t_functions.html#ga87fd4e07ee735e6ca0f2fe1091b714e0" title="Implements lane change control by pointing the wheels at the target.">AutomobileLaneChange</a>, </dd>
 <dd>
-<a class="el" href="group___m_h_t_functions.html#ga7f4af9251f2ad3928b5c58dbdb72e3e0" title="Right hand side for a 2D automobile.">RHSAutomobile</a>, <a class="el" href="group___m_h_t_functions.html#ga3c6fa313bdeaa179561f057fe38dc945" title="Double integrator model for a car.">RHSAutomobileXY</a></dd></dl>
-<hr  />
-<hr  />
-<p> Copyright (c) 2013 Princeton Satellite Systems, Inc. </p>
-<h2><a class="anchor" id="autotoc_md10826"></a>
-All rights reserved.</h2>
+<a class="el" href="group___m_h_t_functions.html#ga81a82516573947fe10800d011a0acf64" title="Right hand side for a 2D automobile.">RHSAutomobile</a>, <a class="el" href="group___m_h_t_functions.html#ga7137d1cbab34e95c093c06f289ec73f0" title="Double integrator model for a car.">RHSAutomobileXY</a></dd></dl>
+<p>Copyright (c) 2013 Princeton Satellite Systems, Inc. All rights reserved. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c6310732a22f63c0c2fc5595561e68f1.html">Core</a></li><li class="navelem"><a class="el" href="dir_d78d0becbe67e72a2e39a286af654283.html">MHT</a></li><li class="navelem"><a class="el" href="dir_5469006c2c8ccedee2e04cf3d26158cd.html">Demos</a></li><li class="navelem"><a class="el" href="dir_587c5c2415ed4935deba00c8f0953926.html">KFDemos</a></li><li class="navelem"><a class="el" href="_u_k_f_automobile_demo_8m.html">UKFAutomobileDemo.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_d78d0becbe67e72a2e39a286af654283.html">MHT</a></li><li class="navelem"><a class="el" href="dir_5469006c2c8ccedee2e04cf3d26158cd.html">Demos</a></li><li class="navelem"><a class="el" href="dir_587c5c2415ed4935deba00c8f0953926.html">KFDemos</a></li><li class="navelem"><a class="el" href="_u_k_f_automobile_demo_8m.html">UKFAutomobileDemo.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:49 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

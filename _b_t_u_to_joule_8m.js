@@ -1,4 +1,4 @@
 var _b_t_u_to_joule_8m =
 [
-    [ "BTUToJoule", "group___thermal_functions.html#gab47dd800c0a892424d25ac851df9f01a", null ]
+    [ "BTUToJoule", "group___thermal_functions.html#ga633472f263273c9f1e4b4ecb97c8808c", null ]
 ];

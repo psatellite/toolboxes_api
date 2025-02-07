@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/LunarMissions/Demos/Gateway/DockingSim.m File Reference</title>
+<title>PSS MATLAB Toolboxes: LunarMissions/Demos/Gateway/DockingSim.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,24 +99,66 @@ $(function(){initNavTree('_docking_sim_8m.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">DockingSim.m File Reference<div class="ingroups"><a class="el" href="group___lunar_missions_group.html">LunarMissions Module</a> &raquo; <a class="el" href="group___lunar_missions_demos.html">LunarMissions Demos</a></div></div></div>
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">DockingSim.m File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Gateway docking simulation <a href="Demos/LunarMissions/DockingSim.html">Published Demo</a>  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aabb9dbef5dcbe2f3c3de9fe1b582c11f" id="r_aabb9dbef5dcbe2f3c3de9fe1b582c11f"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabb9dbef5dcbe2f3c3de9fe1b582c11f">Docking</a> (in omegaOld, in s, in omegaOrion)</td></tr>
+<tr class="memdesc:aabb9dbef5dcbe2f3c3de9fe1b582c11f"><td class="mdescLeft">&#160;</td><td class="mdescRight">User inputs.  <br /></td></tr>
+<tr class="separator:aabb9dbef5dcbe2f3c3de9fe1b582c11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Loads the stored <a class="el" href="_mass_props_8mat.html">MassProps.mat</a>.</p>
-<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___s_c_functions.html#gad776bc1c0f75767fab7edc291db6267f" title="A PID-based 3 axis controller for rigid body.">PID3Axis</a>, <a class="el" href="group___common_functions.html#gac1ad2574cafad301304f2a4b077dc3fd" title="Produces a state space n degree of freedom PID controller.">PIDMIMO</a>, <a class="el" href="group___lunar_missions_functions.html#ga0d92e778ca7cf876dc541b51cef5564c" title="Computes the right hand side for single gimbal CMGs.">RHSSGCMG</a>, <a class="el" href="group___math_functions.html#ga0effcdde6bb79d7705aef465a7f987c2" title="Fourth order Runge-Kutta.">RK4</a>, <a class="el" href="group___common_functions.html#ga63c31fd37ffa27bd0e2af01a9a90d980" title="Time history plots.">TimeHistory</a></dd></dl>
-<p>Copyright (c) 2022 Princeton Satellite Systems, Inc. All rights reserved.</p>
-<p>Since 2023.1 </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>Docking.</p>
+<p>Loads the stored <a class="el" href="_mass_props_8mat.html">MassProps.mat</a>.</p>
+<dl class="section see"><dt>See also</dt><dd>: <a class="el" href="group___s_c_functions.html#gaa06199b6784f7be2466b616810233057" title="A PID-based 3 axis controller for rigid body.">PID3Axis</a>, <a class="el" href="group___common_functions.html#gad412ba3d9c1a2f7559ac0de6981100a0" title="Produces a state space n degree of freedom PID controller.">PIDMIMO</a>, <a class="el" href="group___lunar_missions_functions.html#gab904415e8a6da76cd46535446609b1b7" title="Computes the right hand side for single gimbal CMGs.">RHSSGCMG</a>, <a class="el" href="group___math_functions.html#ga2bd3d421395eeb70502e6fd0f9959089" title="Fourth order Runge-Kutta.">RK4</a>, <a class="el" href="group___common_functions.html#gac038564e341b54b1b6158115ae2b83c7" title="Time history plots.">TimeHistory</a></dd></dl>
+<pre class="fragment"> Copyright (c) 2022 Princeton Satellite Systems, Inc. 
+ All rights reserved.
+
+
+ Since 2023.1
+</pre><p>Gateway docking simulation <a href="Demos/LunarMissions/DockingSim.html">Published Demo</a> </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="aabb9dbef5dcbe2f3c3de9fe1b582c11f" name="aabb9dbef5dcbe2f3c3de9fe1b582c11f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabb9dbef5dcbe2f3c3de9fe1b582c11f">&#9670;&#160;</a></span>Docking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">function Docking </td>
+          <td>(</td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>omegaOld</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>omegaOrion</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disturbance torque Docking Target quaternion and Orion residual angular rates Script control Read in the Gateway and Orion inertia Design the controller Simulation Default data structure Attitude control Plot Print to file </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_0c354de4d7830fb657ec432c5ab18776.html">LunarMissions</a></li><li class="navelem"><a class="el" href="dir_884f24da450b4d1d492c697633684c78.html">Demos</a></li><li class="navelem"><a class="el" href="dir_c16067eb2442ea8591774a736a152b49.html">Gateway</a></li><li class="navelem"><a class="el" href="_docking_sim_8m.html">DockingSim.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_0c354de4d7830fb657ec432c5ab18776.html">LunarMissions</a></li><li class="navelem"><a class="el" href="dir_884f24da450b4d1d492c697633684c78.html">Demos</a></li><li class="navelem"><a class="el" href="dir_c16067eb2442ea8591774a736a152b49.html">Gateway</a></li><li class="navelem"><a class="el" href="_docking_sim_8m.html">DockingSim.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

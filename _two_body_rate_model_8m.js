@@ -1,4 +1,4 @@
 var _two_body_rate_model_8m =
 [
-    [ "TwoBodyRateModel", "group___sail_functions.html#ga07d0f77a495ca0db647e546ede878fa8", null ]
+    [ "TwoBodyRateModel", "group___sail_functions.html#gaa9fe962eb7c5284edd4f746aa7965133", null ]
 ];

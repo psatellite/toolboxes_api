@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/IntegratedSim/Sensors/StateSensor.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/IntegratedSim/Sensors/StateSensor.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,21 +110,21 @@ $(function(){initNavTree('_state_sensor_8m.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4eb0321700de1dba8ae2bd003dc0d406" id="r_a4eb0321700de1dba8ae2bd003dc0d406"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4eb0321700de1dba8ae2bd003dc0d406">StateSensor</a> (in action, in d, in k)</td></tr>
-<tr class="memdesc:a4eb0321700de1dba8ae2bd003dc0d406"><td class="mdescLeft">&#160;</td><td class="mdescRight">State sensor.  <br /></td></tr>
-<tr class="separator:a4eb0321700de1dba8ae2bd003dc0d406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd258152973ce97c67e9ccb4e8b29b79" id="r_afd258152973ce97c67e9ccb4e8b29b79"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd258152973ce97c67e9ccb4e8b29b79">StateSensor</a> (in action, in d, in k)</td></tr>
+<tr class="memdesc:afd258152973ce97c67e9ccb4e8b29b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">State sensor.  <br /></td></tr>
+<tr class="separator:afd258152973ce97c67e9ccb4e8b29b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Gives the ideal states of the system. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a4eb0321700de1dba8ae2bd003dc0d406" name="a4eb0321700de1dba8ae2bd003dc0d406"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4eb0321700de1dba8ae2bd003dc0d406">&#9670;&#160;</a></span>StateSensor()</h2>
+<a id="afd258152973ce97c67e9ccb4e8b29b79" name="afd258152973ce97c67e9ccb4e8b29b79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd258152973ce97c67e9ccb4e8b29b79">&#9670;&#160;</a></span>StateSensor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function StateSensor </td>
+          <td class="memname">function StateSensor </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
         </tr>
@@ -141,16 +141,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Gives the ideal states of the system.</p>
-<h2><a class="anchor" id="autotoc_md4409"></a>
+<h2><a class="anchor" id="autotoc_md4346"></a>
 Form</h2>
-<p>y = StateSensor( action, d, k )</p>
-<h2><a class="anchor" id="autotoc_md4410"></a>
+<pre class="fragment"> y = StateSensor( action, d, k )
+</pre><h2><a class="anchor" id="autotoc_md4347"></a>
 Inputs</h2>
-<p>action (1,:) 'initialize', 'derivative', 'output', 'fail' d (1,1) Depends on the action k (1,1) Unique Spacecraft Identifier</p>
-<h2><a class="anchor" id="autotoc_md4411"></a>
+<pre class="fragment"> action      (1,:)     'initialize', 'derivative', 'output', 'fail' 
+ d           (1,1)     Depends on the action
+ k           (1,1)     Unique Spacecraft Identifier
+</pre><h2><a class="anchor" id="autotoc_md4348"></a>
 Outputs</h2>
-<p>y (1,1) Depends on the action </p>
-
+<pre class="fragment"> y           (1,1)     Depends on the action
+</pre> 
 <p class="reference">References <a class="el" href="quat_8m.html#a3df87fc1b2fd8838b19b3a1721e05ab0">get()</a>, <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>, and <a class="el" href="acstate_8m.html#a868c2ad16f7ccf1ccb3eb728b357b42f">zeros()</a>.</p>
 
 </div>
@@ -160,8 +162,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_051cea7ca58ca24512f0c2b315a1e8dd.html">Sensors</a></li><li class="navelem"><a class="el" href="_state_sensor_8m.html">StateSensor.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_051cea7ca58ca24512f0c2b315a1e8dd.html">Sensors</a></li><li class="navelem"><a class="el" href="_state_sensor_8m.html">StateSensor.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

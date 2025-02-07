@@ -1,4 +1,4 @@
 var _strehl_ratio_8m =
 [
-    [ "StrehlRatio", "group___imaging_functions.html#gafe234f51d382f09ae6bf92aec24f9d6a", null ]
+    [ "StrehlRatio", "group___imaging_functions.html#ga39fa1389aac525dab62420096199af53", null ]
 ];

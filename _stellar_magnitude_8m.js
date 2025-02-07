@@ -1,4 +1,4 @@
 var _stellar_magnitude_8m =
 [
-    [ "StellarMagnitude", "group___imaging_functions.html#gacfde1aee67b11ad28e62e45a0569c02b", null ]
+    [ "StellarMagnitude", "group___imaging_functions.html#gac14c665e8112af3174dd830050ffcb9f", null ]
 ];

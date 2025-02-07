@@ -11,5 +11,5 @@ var statespace_8m =
     [ "plus", "statespace_8m.html#ad528e8b7e2fdb71c0ec8af51700dddf0", null ],
     [ "series", "statespace_8m.html#a0202915a0676b8cbdbe34e6a6de864e3", null ],
     [ "set", "statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5", null ],
-    [ "statespace", "statespace_8m.html#a6500bbec965ca2acedb3d7a7edcc3b86", null ]
+    [ "statespace", "statespace_8m.html#a2e35e7bbe8c178cb120f7e6f8b61aa94", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/IntegratedSim/Initialize/MainDemoSimStruct.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/IntegratedSim/Initialize/MainDemoSimStruct.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,19 +110,19 @@ $(function(){initNavTree('_main_demo_sim_struct_8m.html',''); initResizable(true
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab03e44c055dbab3cbc87ff5b75f04931" id="r_ab03e44c055dbab3cbc87ff5b75f04931"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab03e44c055dbab3cbc87ff5b75f04931">MainDemoSimStruct</a> (in el, in nOrbits, in nSC, in jD, in ideal)</td></tr>
-<tr class="memdesc:ab03e44c055dbab3cbc87ff5b75f04931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the simulation data structure for the main demo.  <br /></td></tr>
-<tr class="separator:ab03e44c055dbab3cbc87ff5b75f04931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b624658fb675e560184e4e636a68781" id="r_a8b624658fb675e560184e4e636a68781"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b624658fb675e560184e4e636a68781">MainDemoSimStruct</a> (in el, in nOrbits, in nSC, in jD, in ideal)</td></tr>
+<tr class="memdesc:a8b624658fb675e560184e4e636a68781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the simulation data structure for the main demo.  <br /></td></tr>
+<tr class="separator:a8b624658fb675e560184e4e636a68781"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ab03e44c055dbab3cbc87ff5b75f04931" name="ab03e44c055dbab3cbc87ff5b75f04931"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab03e44c055dbab3cbc87ff5b75f04931">&#9670;&#160;</a></span>MainDemoSimStruct()</h2>
+<a id="a8b624658fb675e560184e4e636a68781" name="a8b624658fb675e560184e4e636a68781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b624658fb675e560184e4e636a68781">&#9670;&#160;</a></span>MainDemoSimStruct()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function MainDemoSimStruct </td>
+          <td class="memname">function MainDemoSimStruct </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>el</em></span>, </td>
         </tr>
@@ -148,18 +148,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Since version 7.</p>
-<h2><a class="anchor" id="autotoc_md4382"></a>
+<pre class="fragment"> Since version 7.
+</pre><h2><a class="anchor" id="autotoc_md4319"></a>
 Form</h2>
-<p>sim = MainDemoSimStruct( el, nOrbits, nSC, jD, ideal );</p>
-<h2><a class="anchor" id="autotoc_md4383"></a>
+<pre class="fragment"> sim = MainDemoSimStruct( el, nOrbits, nSC, jD, ideal );
+</pre><h2><a class="anchor" id="autotoc_md4320"></a>
 Inputs</h2>
-<p>el (n,:) Initial element set for all spacecraft. nOrbits (1) Number of orbits simulation will last. nSC (1) Number of spacecraft to simulate. jD (1) Julian date at start of simulation. ideal (1) Flag indicating whether to use ideal actuation.</p>
-<h2><a class="anchor" id="autotoc_md4384"></a>
+<pre class="fragment"> el         (n,:)    Initial element set for all spacecraft.
+ nOrbits     (1)     Number of orbits simulation will last.
+ nSC         (1)     Number of spacecraft to simulate.
+ jD          (1)     Julian date at start of simulation.
+ ideal       (1)     Flag indicating whether to use ideal actuation.
+</pre><h2><a class="anchor" id="autotoc_md4321"></a>
 Outputs</h2>
-<p>sim (.) Simulation data structure to be input to DFFSimulation </p>
-
-<p class="reference">References <a class="el" href="group___formation_flying_functions.html#gac72d8b0b0c3c7e5fd474eca9757899c0">DFFSimulation()</a>, <a class="el" href="group___common_functions.html#gad9cd05ee0fe34d133490710851868f82">JD2000()</a>, <a class="el" href="group___orbit_functions.html#ga8a82e58d1f8c61d91bc593d26cf3dfe9">LoadGravityModel()</a>, <a class="el" href="_main_demo_command_list_8m.html#ae88953effe1e1f525f78fa35aa9d1ba8">MainDemoCommandList()</a>, <a class="el" href="group___orbit_functions.html#gaef19d27993b732d00a2b789b1fcb7660">OrbRate()</a>, <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>, and <a class="el" href="_spacecraft_parameters_8m.html#acfb7c08e381da1c20c719df5eb4f7f0d">SpacecraftParameters()</a>.</p>
+<pre class="fragment"> sim          (.)    Simulation data structure to be input to DFFSimulation
+</pre> 
+<p class="reference">References <a class="el" href="group___formation_flying_functions.html#gabeefac9bb622c784b7e62a202d5078cc">DFFSimulation()</a>, <a class="el" href="group___common_functions.html#ga27f3dfb980e396d07b061dab831d7a12">JD2000()</a>, <a class="el" href="group___orbit_functions.html#gac4eee1e33602847a17d941576dad0382">LoadGravityModel()</a>, <a class="el" href="_main_demo_command_list_8m.html#a2d4233ec57066a2814ae90b8132dcb37">MainDemoCommandList()</a>, <a class="el" href="group___orbit_functions.html#ga073f07b551d25f55b354a8e693ab6ea4">OrbRate()</a>, <a class="el" href="statespace_8m.html#a9ba11dee9f0f98ed17846dd7afc421a5">set()</a>, and <a class="el" href="_spacecraft_parameters_8m.html#a7a1bd3154448c64ccc1ca8f3b330a8fd">SpacecraftParameters()</a>.</p>
 
 </div>
 </div>
@@ -168,8 +172,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_986aafd429014b34d4707c7fdf736be0.html">Initialize</a></li><li class="navelem"><a class="el" href="_main_demo_sim_struct_8m.html">MainDemoSimStruct.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_986aafd429014b34d4707c7fdf736be0.html">Initialize</a></li><li class="navelem"><a class="el" href="_main_demo_sim_struct_8m.html">MainDemoSimStruct.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

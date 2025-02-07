@@ -1,4 +1,4 @@
 var _solar_flux_historical_8m =
 [
-    [ "SolarFluxHistorical", "group___s_c_functions.html#ga1e3ad16048732de03ee83df6bd115d45", null ]
+    [ "SolarFluxHistorical", "group___s_c_functions.html#ga9f51210502b03f3d0110e1f7d4c02b60", null ]
 ];

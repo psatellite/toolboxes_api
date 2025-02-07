@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/Orbit/RHSOrbit/FOrbLEOPStopping.m File Reference</title>
+<title>PSS MATLAB Toolboxes: Orbit/RHSOrbit/FOrbLEOPStopping.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -105,34 +105,45 @@ $(function(){initNavTree('_f_orb_l_e_o_p_stopping_8m.html',''); initResizable(tr
 </div><!--header-->
 <div class="contents">
 
-<p>Events function for FOrbLEOP Its companion function is FOrbLEOP.  
+<p>Its companion function is FOrbLEOP.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a15e117ea8b9c113d75c5641dc752c6e7" id="r_a15e117ea8b9c113d75c5641dc752c6e7"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15e117ea8b9c113d75c5641dc752c6e7">FOrbLEOPStopping</a> (in t, in x, in d)</td></tr>
-<tr class="separator:a15e117ea8b9c113d75c5641dc752c6e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc15e631995ce0424c2bab67cb667063" id="r_abc15e631995ce0424c2bab67cb667063"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc15e631995ce0424c2bab67cb667063">FOrbLEOPStopping</a> (in t, in x, in d)</td></tr>
+<tr class="separator:abc15e631995ce0424c2bab67cb667063"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h2><a class="anchor" id="autotoc_md7003"></a>
+<div class="textblock"><pre class="fragment"> Events function for FOrbLEOP
+</pre><p> Its companion function is FOrbLEOP</p>
+<h2><a class="anchor" id="autotoc_md6826"></a>
 Form</h2>
-<p>xDot = FOrbLEOP( t, x, d )</p>
-<h2><a class="anchor" id="autotoc_md7004"></a>
+<pre class="fragment"> xDot = FOrbLEOP( t, x, d )
+</pre><h2><a class="anchor" id="autotoc_md6827"></a>
 Inputs</h2>
-<p>t Time (Not used) x (7,1) The state vector [r;v;m] d (1,1) Data structure (Not used) .thrust (1,1) Engine thrust (N) .mu (1,1) Gravitational parameter .uE (1,1) Exhaust velocity (m/s) .cDA (1,1) Drag area product .burnStart (1,1) Start time of burn .burnEnd (1,1) End time of burn</p>
-<h2><a class="anchor" id="autotoc_md7005"></a>
+<pre class="fragment"> t                      Time (Not used)
+ x             (7,1)    The state vector [r;v;m]
+ d             (1,1)    Data structure (Not used)
+                        .thrust    (1,1) Engine thrust (N)
+                        .mu        (1,1) Gravitational parameter
+                        .uE        (1,1) Exhaust velocity (m/s)
+                        .cDA       (1,1) Drag area product
+                        .burnStart (1,1) Start time of burn
+                        .burnEnd   (1,1) End time of burn
+</pre><h2><a class="anchor" id="autotoc_md6828"></a>
 Outputs</h2>
-<p>value (1,1) Value of stopping condition isTerminal (1,1) 1 if terminal direction (1,1) Direction of crossing the boundary</p>
-<p>Its companion function is FOrbLEOP </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a15e117ea8b9c113d75c5641dc752c6e7" name="a15e117ea8b9c113d75c5641dc752c6e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15e117ea8b9c113d75c5641dc752c6e7">&#9670;&#160;</a></span>FOrbLEOPStopping()</h2>
+<pre class="fragment"> value          (1,1)    Value of stopping condition
+ isTerminal     (1,1)    1 if terminal
+ direction      (1,1)    Direction of crossing the boundary
+</pre> </div><h2 class="groupheader">Function Documentation</h2>
+<a id="abc15e631995ce0424c2bab67cb667063" name="abc15e631995ce0424c2bab67cb667063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc15e631995ce0424c2bab67cb667063">&#9670;&#160;</a></span>FOrbLEOPStopping()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function FOrbLEOPStopping </td>
+          <td class="memname">function FOrbLEOPStopping </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
         </tr>
@@ -149,9 +160,9 @@ Outputs</h2>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="group___orbit_functions.html#ga67e6726350dd7e35ea404ac702540127">FOrbLEOP()</a>, and <a class="el" href="quat_8m.html#aed6fe2c13bf4990a14430d36b2b4d0c3">vector()</a>.</p>
+<p class="reference">References <a class="el" href="group___orbit_functions.html#ga2c023312833a6e9a883a60d37d954c11">FOrbLEOP()</a>, and <a class="el" href="quat_8m.html#aed6fe2c13bf4990a14430d36b2b4d0c3">vector()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="group___orbit_functions.html#ga67e6726350dd7e35ea404ac702540127">FOrbLEOP()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___orbit_functions.html#ga2c023312833a6e9a883a60d37d954c11">FOrbLEOP()</a>.</p>
 
 </div>
 </div>
@@ -160,8 +171,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_6976d8c8e8ee346429237a70682b5ae7.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_00fd1ce7c2626b1f5b18eb7ca904b286.html">RHSOrbit</a></li><li class="navelem"><a class="el" href="_f_orb_l_e_o_p_stopping_8m.html">FOrbLEOPStopping.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:11 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_6976d8c8e8ee346429237a70682b5ae7.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_00fd1ce7c2626b1f5b18eb7ca904b286.html">RHSOrbit</a></li><li class="navelem"><a class="el" href="_f_orb_l_e_o_p_stopping_8m.html">FOrbLEOPStopping.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

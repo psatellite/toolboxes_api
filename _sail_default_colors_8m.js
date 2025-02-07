@@ -1,4 +1,4 @@
 var _sail_default_colors_8m =
 [
-    [ "SailDefaultColors", "group___sail_functions.html#ga3270c75f7c0b62af4aa09b723843fdc7", null ]
+    [ "SailDefaultColors", "group___sail_functions.html#gae8ff9752a79f55ac68e45dd0f65d0303", null ]
 ];

@@ -1,4 +1,4 @@
 var _circle_of_confusion_8m =
 [
-    [ "CircleOfConfusion", "group___imaging_functions.html#gaa08e82f1c66d943cd01dd86901dcae2e", null ]
+    [ "CircleOfConfusion", "group___imaging_functions.html#ga4436e7c20ab33743b71b5156e7a83e8f", null ]
 ];

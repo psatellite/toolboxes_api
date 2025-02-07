@@ -1,4 +1,4 @@
 var _geomagnetic_rigidity_8m =
 [
-    [ "GeomagneticRigidity", "group___a_c_functions.html#ga842e8c9c52a04399a624966ba7f70806", null ]
+    [ "GeomagneticRigidity", "group___a_c_functions.html#gae8d230255d1bb279a8163f70a28508b3", null ]
 ];

@@ -1,4 +1,4 @@
 var _straight_line_data_structure_8m =
 [
-    [ "StraightLineDataStructure", "group___straight_line_functions.html#gaa961ee229b66fe211ede38e853bc9ebf", null ]
+    [ "StraightLineDataStructure", "group___straight_line_functions.html#gad6fad27593579aaab7d6258aacf2a19a", null ]
 ];

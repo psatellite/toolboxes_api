@@ -1,4 +1,4 @@
 var _wavelength_8m =
 [
-    [ "Wavelength", "group___link_functions.html#gabc0637d900ce0a7c497c4a789c86f53b", null ]
+    [ "Wavelength", "group___link_functions.html#gac0245e207d52131c2c5957103cd772ba", null ]
 ];

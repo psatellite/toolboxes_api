@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/IntegratedSim/Analysis/CheckAlignment.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/IntegratedSim/Analysis/CheckAlignment.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,19 +110,19 @@ $(function(){initNavTree('_check_alignment_8m.html',''); initResizable(true); })
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae3ea1cc470e47271efb5e393abc70b49" id="r_ae3ea1cc470e47271efb5e393abc70b49"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3ea1cc470e47271efb5e393abc70b49">CheckAlignment</a> (in uH, in scIndex)</td></tr>
-<tr class="memdesc:ae3ea1cc470e47271efb5e393abc70b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Post simulation analysis of alignment.  <br /></td></tr>
-<tr class="separator:ae3ea1cc470e47271efb5e393abc70b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac41f810cb3377ebf206d3d729e9995a9" id="r_ac41f810cb3377ebf206d3d729e9995a9"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac41f810cb3377ebf206d3d729e9995a9">CheckAlignment</a> (in uH, in scIndex)</td></tr>
+<tr class="memdesc:ac41f810cb3377ebf206d3d729e9995a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Post simulation analysis of alignment.  <br /></td></tr>
+<tr class="separator:ac41f810cb3377ebf206d3d729e9995a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ae3ea1cc470e47271efb5e393abc70b49" name="ae3ea1cc470e47271efb5e393abc70b49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3ea1cc470e47271efb5e393abc70b49">&#9670;&#160;</a></span>CheckAlignment()</h2>
+<a id="ac41f810cb3377ebf206d3d729e9995a9" name="ac41f810cb3377ebf206d3d729e9995a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac41f810cb3377ebf206d3d729e9995a9">&#9670;&#160;</a></span>CheckAlignment()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function CheckAlignment </td>
+          <td class="memname">function CheckAlignment </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>uH</em></span>, </td>
         </tr>
@@ -134,18 +134,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>First load a data file from a DFF simulation into the Plotting Tool, then export the data to the workspace. Call this function to plot a time history of the body vector of each spacecraft that is aligned with a specified vector in Hill's frame.</p>
-<p>Steps: </p><blockquote class="doxtable">
-<blockquote class="doxtable">
-<p>sim = TestOrbAttControlSimStruct; % use any simulation struct you want d = DFFSimulation( sim ); % run the simulation PlottingTool('load sim data',d); % load the sim data to the Plotting Tool PlottingTool('export'); % export data to the workspace uB = CheckAlignment( [0;0;1] ); % analyze the alignment </p>
-</blockquote>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md4264"></a>
+<pre class="fragment"> Steps:
+ &gt;&gt; sim = TestOrbAttControlSimStruct;  % use any simulation struct you want
+ &gt;&gt; d = DFFSimulation( sim );          % run the simulation
+ &gt;&gt; PlottingTool('load sim data',d);   % load the sim data to the Plotting Tool
+ &gt;&gt; PlottingTool('export');            % export data to the workspace
+ &gt;&gt; uB = CheckAlignment( [0;0;1] );    % analyze the alignment
+</pre><h2><a class="anchor" id="autotoc_md4201"></a>
 Inputs</h2>
-<p>uH (3,1) Unit vector in Hills frame (default is +y direction) scIndex (1) Index of the spacercaft you wish to analyze (default is all)</p>
-<h2><a class="anchor" id="autotoc_md4265"></a>
+<pre class="fragment"> uH            (3,1)    Unit vector in Hills frame (default is +y direction)
+ scIndex        (1)     Index of the spacercaft you wish to analyze (default is all)
+</pre><h2><a class="anchor" id="autotoc_md4202"></a>
 Outputs</h2>
-<p>uB {nSC,1} Cell array of time histories of unit body-frame vectors aligned with specified Hills frame vector </p>
-
+<pre class="fragment"> uB            {nSC,1}  Cell array of time histories of unit body-frame
+                           vectors aligned with specified Hills frame vector
+</pre> 
 <p class="reference">References <a class="el" href="quat_8m.html#aed6fe2c13bf4990a14430d36b2b4d0c3">vector()</a>.</p>
 
 </div>
@@ -155,8 +158,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_3cd7cbf073ca93df407f5731b10c4835.html">Analysis</a></li><li class="navelem"><a class="el" href="_check_alignment_8m.html">CheckAlignment.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_62f511563c89fc005cb5848c06dd92b8.html">IntegratedSim</a></li><li class="navelem"><a class="el" href="dir_3cd7cbf073ca93df407f5731b10c4835.html">Analysis</a></li><li class="navelem"><a class="el" href="_check_alignment_8m.html">CheckAlignment.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

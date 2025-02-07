@@ -1,4 +1,4 @@
 var _solar_cell_eff_8m =
 [
-    [ "SolarCellEff", "group___electrical_functions.html#gaa8592a82d067ea87759836835337ff60", null ]
+    [ "SolarCellEff", "group___electrical_functions.html#ga2ce359104694396fcc0a2048e9da4b60", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSS MATLAB Toolboxes: Aerospace/FormationFlying/EccDynamics/Derivatives/FFEccDYDX.m File Reference</title>
+<title>PSS MATLAB Toolboxes: FormationFlying/EccDynamics/Derivatives/FFEccDYDX.m File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,19 +110,19 @@ $(function(){initNavTree('_f_f_ecc_d_y_d_x_8m.html',''); initResizable(true); })
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2257b19abfd636c6186f689cec778247" id="r_a2257b19abfd636c6186f689cec778247"><td class="memItemLeft" align="right" valign="top">blank line function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2257b19abfd636c6186f689cec778247">FFEccDYDX</a> (in nu, in e, in w)</td></tr>
-<tr class="memdesc:a2257b19abfd636c6186f689cec778247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the slope of an ellipse, dy/dx, at a particular true anomaly.  <br /></td></tr>
-<tr class="separator:a2257b19abfd636c6186f689cec778247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c93e60084a324e63733d99a3b411936" id="r_a5c93e60084a324e63733d99a3b411936"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c93e60084a324e63733d99a3b411936">FFEccDYDX</a> (in nu, in e, in w)</td></tr>
+<tr class="memdesc:a5c93e60084a324e63733d99a3b411936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the slope of an ellipse, dy/dx, at a particular true anomaly.  <br /></td></tr>
+<tr class="separator:a5c93e60084a324e63733d99a3b411936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a2257b19abfd636c6186f689cec778247" name="a2257b19abfd636c6186f689cec778247"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2257b19abfd636c6186f689cec778247">&#9670;&#160;</a></span>FFEccDYDX()</h2>
+<a id="a5c93e60084a324e63733d99a3b411936" name="a5c93e60084a324e63733d99a3b411936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c93e60084a324e63733d99a3b411936">&#9670;&#160;</a></span>FFEccDYDX()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blank line function FFEccDYDX </td>
+          <td class="memname">function FFEccDYDX </td>
           <td>(</td>
           <td class="paramtype">in</td>          <td class="paramname"><span class="paramname"><em>nu</em></span>, </td>
         </tr>
@@ -138,23 +138,33 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Here, x is along the major axis and y is along the minor axis.</p>
-<p>This function is called by the "FFEccTrueAnomZInc" function to find the true <br  />
- anomaly at which the maximum cross-track separation occurs, assuming a pure inclination difference (no right ascension difference). At this true anomaly, the slope (dy/dx) of the ellipse is equal to the tangent of the argument of perigee, w.</p>
-<p>If the argument of perigee is passed as a third input, the difference between the slope and tan(w) will be returned.</p>
-<h2><a class="anchor" id="autotoc_md4149"></a>
-Form</h2>
-<p>dydx = FFEccDYDX( nu, e, w );</p>
-<h2><a class="anchor" id="autotoc_md4150"></a>
-Inputs</h2>
-<p>nu (1,N) True anomaly [rad] e (1) Eccentricity w (1) Argument of perigee (optional, default 0)</p>
-<h2><a class="anchor" id="autotoc_md4151"></a>
-Outputs</h2>
-<p>dydx (1,N) Slope on the ellipse at each true anomaly</p>
-<p>Copyright 2004 Princeton Satellite Systems, Inc.</p>
-<p>All rights reserved.</p>
-<p>Since version 7. </p>
+<pre class="fragment"> Here, x is along the major axis and y is along the minor axis.
 
+
+ This function is called by the "FFEccTrueAnomZInc" function to find the true  
+ anomaly at which the maximum cross-track separation occurs, assuming a pure 
+ inclination difference (no right ascension difference). At this true anomaly, 
+ the slope (dy/dx) of the ellipse is equal to the tangent of the argument of 
+ perigee, w. 
+
+
+ If the argument of perigee is passed as a third input, the 
+ difference between the slope and tan(w) will be returned.
+</pre><h2><a class="anchor" id="autotoc_md4086"></a>
+Form</h2>
+<pre class="fragment"> dydx = FFEccDYDX( nu, e, w );
+</pre><h2><a class="anchor" id="autotoc_md4087"></a>
+Inputs</h2>
+<pre class="fragment"> nu              (1,N)  True anomaly [rad]
+ e                (1)   Eccentricity
+ w                (1)   Argument of perigee (optional, default 0)
+</pre><h2><a class="anchor" id="autotoc_md4088"></a>
+Outputs</h2>
+<pre class="fragment"> dydx            (1,N)  Slope on the ellipse at each true anomaly
+</pre><p>Copyright 2004 Princeton Satellite Systems, Inc.</p>
+<p>All rights reserved.</p>
+<pre class="fragment"> Since version 7.
+</pre> 
 <p class="reference">References <a class="el" href="statespace_8m.html#a4899caf4a54937eeaea8618b53beb34c">and()</a>.</p>
 
 </div>
@@ -164,8 +174,8 @@ Outputs</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9f399d70a7c1858159ba06a7e227c86a.html">Aerospace</a></li><li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_b3e48c05240b402f263141829698d7aa.html">EccDynamics</a></li><li class="navelem"><a class="el" href="dir_7c9ef0ae47091d8bfca40657f20bea07.html">Derivatives</a></li><li class="navelem"><a class="el" href="_f_f_ecc_d_y_d_x_8m.html">FFEccDYDX.m</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 14:22:10 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="dir_abdedc486c0ae02601337e8e0d122a49.html">FormationFlying</a></li><li class="navelem"><a class="el" href="dir_b3e48c05240b402f263141829698d7aa.html">EccDynamics</a></li><li class="navelem"><a class="el" href="dir_7c9ef0ae47091d8bfca40657f20bea07.html">Derivatives</a></li><li class="navelem"><a class="el" href="_f_f_ecc_d_y_d_x_8m.html">FFEccDYDX.m</a></li>
+    <li class="footer">Generated on Fri Feb 7 2025 18:10:48 for PSS MATLAB Toolboxes by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

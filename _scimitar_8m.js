@@ -1,4 +1,4 @@
 var _scimitar_8m =
 [
-    [ "Scimitar", "group___a_c_functions.html#ga8e9b58455031372de544f6c0f0f59462", null ]
+    [ "Scimitar", "group___a_c_functions.html#ga59066563f13b7bc431b0ade3a1ec5989", null ]
 ];

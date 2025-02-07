@@ -1,4 +1,4 @@
 var _ramps_8m =
 [
-    [ "Ramps", "group___math_functions.html#ga1d17835514bab3b3b4188d59de7dec83", null ]
+    [ "Ramps", "group___math_functions.html#ga83a68424f48990d000d3ed84b8625c33", null ]
 ];
