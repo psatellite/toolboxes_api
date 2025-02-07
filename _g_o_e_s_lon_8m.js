@@ -1,4 +1,4 @@
 var _g_o_e_s_lon_8m =
 [
-    [ "GOESLon", "group___s_c_functions.html#ga5ae65123282e14d46c4bfef82cb2eb18", null ]
+    [ "GOESLon", "group___s_c_functions.html#ga55284e5e21cd64ef9bca6ac3b0337548", null ]
 ];

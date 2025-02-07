@@ -1,4 +1,4 @@
 var _sector_patch_8m =
 [
-    [ "SectorPatch", "group___common_functions.html#ga247c145aa18ca86267bbc66dfbb0d763", null ]
+    [ "SectorPatch", "group___common_functions.html#ga972d7ae9ad9abe0d33d6e3feb1a29c19", null ]
 ];

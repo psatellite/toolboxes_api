@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['z2damp_2em_0',['Z2Damp.m',['../_z2_damp_8m.html',1,'']]],
-  ['z2s_2em_1',['Z2S.m',['../_z2_s_8m.html',1,'']]],
-  ['zfresp_2em_2',['ZFresp.m',['../_z_fresp_8m.html',1,'']]],
-  ['zlabels_2em_3',['ZLabelS.m',['../_z_label_s_8m.html',1,'']]],
-  ['zoh_2em_4',['ZOH.m',['../_z_o_h_8m.html',1,'']]],
-  ['zoomlens_2em_5',['ZoomLens.m',['../_zoom_lens_8m.html',1,'']]]
+  ['yawrollgyrocompassing_2em_0',['YawRollGyroCompassing.m',['../_yaw_roll_gyro_compassing_8m.html',1,'']]],
+  ['ybcomp_2em_1',['YBComp.m',['../_y_b_comp_8m.html',1,'']]],
+  ['ylabels_2em_2',['YLabelS.m',['../_y_label_s_8m.html',1,'']]],
+  ['ypf2t_2em_3',['YPF2T.m',['../_y_p_f2_t_8m.html',1,'']]],
+  ['yrgcdemo_2em_4',['YRGCDemo.m',['../_y_r_g_c_demo_8m.html',1,'']]],
+  ['yrmax_2em_5',['YRMax.m',['../_y_r_max_8m.html',1,'']]]
 ];

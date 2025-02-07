@@ -1,4 +1,4 @@
 var _range_measurement_8m =
 [
-    [ "RangeMeasurement", "group___s_c_functions.html#gaf3b07658bea46f84067bc484a1e34e3d", null ]
+    [ "RangeMeasurement", "group___s_c_functions.html#gafa311adb0400b0395c6be902849d6a3c", null ]
 ];

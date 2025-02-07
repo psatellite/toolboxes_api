@@ -1,4 +1,4 @@
 var _eclipse_duration_8m =
 [
-    [ "EclipseDuration", "group___s_c_functions.html#ga2560fa6d0aae15359fa2e28cd9389975", null ]
+    [ "EclipseDuration", "group___s_c_functions.html#ga335c1aa32923ee971ad1603d63268ac3", null ]
 ];

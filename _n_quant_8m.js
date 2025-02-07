@@ -1,4 +1,4 @@
 var _n_quant_8m =
 [
-    [ "NQuant", "group___common_functions.html#gaa1cb1f15ad16d2911942040b55a9332f", null ]
+    [ "NQuant", "group___common_functions.html#ga0439d7d2fd7c75d71e9a22fd9d359f1f", null ]
 ];

@@ -1,4 +1,4 @@
 var _r_h_s_gyrostat_no_friction_8m =
 [
-    [ "RHSGyrostatNoFriction", "group___s_c_functions.html#gaa38411f99c65a05e192b1bcb2b02e549", null ]
+    [ "RHSGyrostatNoFriction", "group___s_c_functions.html#ga33134da9f74b0f3b85f243ab2e435dd4", null ]
 ];

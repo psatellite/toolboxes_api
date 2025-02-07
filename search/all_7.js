@@ -1,15 +1,6 @@
 var searchData=
 [
-  ['halbachfield_0',['HalbachField',['../group___electrical_functions.html#ga8f4db07d2725e6b082d9acdf578ec537',1,'HalbachField.m']]],
-  ['halbachfield_2em_1',['HalbachField.m',['../_halbach_field_8m.html',1,'']]],
-  ['halbachmotordesign_2',['HalbachMotorDesign',['../_halbach_motor_design_8m.html#aea3da1389526ebc4b3693a5bf6a9ac3f',1,'HalbachMotorDesign.m']]],
-  ['halbachmotordesign_2em_3',['HalbachMotorDesign.m',['../_halbach_motor_design_8m.html',1,'']]],
-  ['halfellipsoid_4',['HalfEllipsoid',['../group___airships_functions.html#ga335133abfb651782824751d5496a23cf',1,'HalfEllipsoid.m']]],
-  ['halfellipsoid_2em_5',['HalfEllipsoid.m',['../_half_ellipsoid_8m.html',1,'']]],
-  ['hgcdte_6',['HgCdTe',['../group___electrical_functions.html#ga8498038054c6b552b22000231eb9cba1',1,'HgCdTe.m']]],
-  ['hgcdte_2em_7',['HgCdTe.m',['../_hg_cd_te_8m.html',1,'']]],
-  ['hgcdtewavelength_8',['HgCdTeWavelength',['../group___electrical_functions.html#gad83b15ffe9ac1b159efc26ef62e4f6b8',1,'HgCdTeWavelength.m']]],
-  ['hgcdtewavelength_2em_9',['HgCdTeWavelength.m',['../_hg_cd_te_wavelength_8m.html',1,'']]],
-  ['hph_10',['HpH',['../group___dynamics_functions.html#gaceeb408e48c150f2932e0c8ac5761af0',1,'HpH.m']]],
-  ['hph_2em_11',['HpH.m',['../_hp_h_8m.html',1,'']]]
+  ['7_0',['7',['../_coarse_prob_demo_8m.html#autotoc_md4098',1,'Since version 7.'],['../_l_q_g_orbit_control_demo_8m.html#autotoc_md4105',1,'Since version 7.'],['../_f_f_h_e_o_solar_dist_8m.html#autotoc_md4108',1,'Since version 7.'],['../_f_f_ecc_init_demo_8m.html#autotoc_md4111',1,'Since version 7.'],['../_assignment_demo_8m.html#autotoc_md4115',1,'Since version 7.'],['../_illustrate_eccentric_geometry_8m.html#autotoc_md4118',1,'Since version 7.'],['../_g_e_o_graveyard_8m.html#autotoc_md7701',1,'Since version 7.'],['../_s_t9_combined_demo_8m.html#autotoc_md7703',1,'Since version 7.']]],
+  ['7_2020_1',['Reference: Vallado 2nd edition, p.476 and Fig. 7-20',['../_target_demo_8m.html#autotoc_md6175',1,'']]],
+  ['70_20and_20the_20airbus_20340_20500_20in_20a_20table_2',['The design is compared to the XB-70 and the Airbus 340-500 in a table.',['../_airliner_design_8m.html#autotoc_md3100',1,'']]]
 ];

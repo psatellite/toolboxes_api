@@ -1,4 +1,4 @@
 var _angle_encoder_8m =
 [
-    [ "AngleEncoder", "group___electrical_functions.html#gab79f32d0f1089dc85265389782a35d5f", null ]
+    [ "AngleEncoder", "group___electrical_functions.html#gad121b282e60556d8314e1758e24434da", null ]
 ];

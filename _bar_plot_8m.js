@@ -1,4 +1,4 @@
 var _bar_plot_8m =
 [
-    [ "BarPlot", "group___common_functions.html#ga0101f7c1c2f5f0e6c57f61d73d92713d", null ]
+    [ "BarPlot", "group___common_functions.html#gaa4425146ba312be2f7c8fd061229ebce", null ]
 ];

@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['electrical_20demos_0',['Electrical Demos',['../group___electrical_demos.html',1,'']]],
-  ['electrical_20functions_1',['Electrical Functions',['../group___electrical_functions.html',1,'']]],
-  ['electrical_20module_2',['Electrical Module',['../group___electrical.html',1,'']]]
+  ['demos_0',['Demos',['../group___a_c_demos.html',1,'AC Module Demos'],['../group___airships_demos.html',1,'Airships Demos'],['../group___common_demos.html',1,'Common Demos'],['../group___cube_sat_demos.html',1,'CubeSat Demos'],['../group___straight_line_demos.html',1,'Demos'],['../group___dynamics_demos.html',1,'Dynamics Demos'],['../group___electrical_demos.html',1,'Electrical Demos'],['../group___formation_flying_demos.html',1,'FormationFlying Demos'],['../group___imaging_demos.html',1,'Imaging Demos'],['../group___interplanetary_demos.html',1,'Interplanetary Demos'],['../group___launch_vehicle_demos.html',1,'LaunchVehicle Demos'],['../group___link_demos.html',1,'Link Demos'],['../group___lunar_missions_demos.html',1,'LunarMissions Demos'],['../group___math_demos.html',1,'Math Demos'],['../group___m_h_t_demos.html',1,'MHT Demos'],['../group___missions_demos.html',1,'Missions Demos'],['../group___optical_navigation_demos.html',1,'OpticalNavigation Demos'],['../group___orbit_demos.html',1,'Orbit Demos'],['../group___plotting_demos.html',1,'Plotting Demos'],['../group___propulsion_demos.html',1,'Propulsion Demos'],['../group___s_a_a_d_demos.html',1,'SAAD Demos'],['../group___sail_demos.html',1,'Sail Demos'],['../group___spacecraft_estimation_demos.html',1,'SpacecraftEstimation Demos'],['../group___thermal_demos.html',1,'Thermal Demos'],['../group___wind_turbine_demos.html',1,'WindTurbine Demos']]],
+  ['demos_20folders_1',['SC Demos folders',['../group___s_c_demos.html',1,'']]],
+  ['dynamics_20demos_2',['Dynamics Demos',['../group___dynamics_demos.html',1,'']]],
+  ['dynamics_20functions_3',['Dynamics Functions',['../group___dynamics_functions.html',1,'']]],
+  ['dynamics_20module_4',['Dynamics Module',['../group___dynamics_group.html',1,'']]]
 ];

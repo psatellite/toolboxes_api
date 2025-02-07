@@ -8,5 +8,6 @@ var dir_925b8b553b864ac3cc0c9550863e0a29 =
     [ "Graphics", "dir_b39254d504881d79592f37a9f2e10b40.html", "dir_b39254d504881d79592f37a9f2e10b40" ],
     [ "Help", "dir_1248d48968c913d761c4d86b980be698.html", "dir_1248d48968c913d761c4d86b980be698" ],
     [ "Plugins", "dir_4f20efc155cd9f2296a05a158cdbe73a.html", "dir_4f20efc155cd9f2296a05a158cdbe73a" ],
-    [ "UKF", "dir_e8d9bef8c51690d6d18cb9f62840da11.html", "dir_e8d9bef8c51690d6d18cb9f62840da11" ]
+    [ "UKF", "dir_e8d9bef8c51690d6d18cb9f62840da11.html", "dir_e8d9bef8c51690d6d18cb9f62840da11" ],
+    [ "xSplash.mat", "_core_2_common_2_demos_2x_splash_8mat.html", null ]
 ];

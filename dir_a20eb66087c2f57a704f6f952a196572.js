@@ -47,7 +47,7 @@ var dir_a20eb66087c2f57a704f6f952a196572 =
     [ "RHSRWAOrbit.m", "_r_h_s_r_w_a_orbit_8m.html", "_r_h_s_r_w_a_orbit_8m" ],
     [ "RHSRWASC.m", "_r_h_s_r_w_a_s_c_8m.html", "_r_h_s_r_w_a_s_c_8m" ],
     [ "RHSSlosh.m", "_r_h_s_slosh_8m.html", "_r_h_s_slosh_8m" ],
-    [ "RHSSNP.m", "_r_h_s_s_n_p_8m.html", "_r_h_s_s_n_p_8m" ],
+    [ "RHSSNP.m", "_s_c_2_dynamics_2_r_h_s_s_n_p_8m.html", "_s_c_2_dynamics_2_r_h_s_s_n_p_8m" ],
     [ "RHSSpacecraftWithIMU.m", "_r_h_s_spacecraft_with_i_m_u_8m.html", "_r_h_s_spacecraft_with_i_m_u_8m" ],
     [ "RHSSpacecraftWithRWA.m", "_r_h_s_spacecraft_with_r_w_a_8m.html", "_r_h_s_spacecraft_with_r_w_a_8m" ],
     [ "RHSThreeBody.m", "_r_h_s_three_body_8m.html", "_r_h_s_three_body_8m" ],

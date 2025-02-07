@@ -1,4 +1,4 @@
 var _k_smooth_8m =
 [
-    [ "KSmooth", "group___common_functions.html#ga5d51f6da9c9320d30af6ba9a310a8e0a", null ]
+    [ "KSmooth", "group___common_functions.html#gafaf21bfef2146960622ff7d582ad2ceb", null ]
 ];

@@ -1,4 +1,4 @@
 var _flywheel_stresses_8m =
 [
-    [ "FlywheelStresses", "group___electrical_functions.html#gad87032b25745ed64369be25adbcda104", null ]
+    [ "FlywheelStresses", "group___electrical_functions.html#ga5a4147db604368e37c7377e03eca0f20", null ]
 ];

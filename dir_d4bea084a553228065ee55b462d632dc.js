@@ -4,6 +4,7 @@ var dir_d4bea084a553228065ee55b462d632dc =
     [ "Figui.m", "_figui_8m.html", "_figui_8m" ],
     [ "Finder.m", "_finder_8m.html", "_finder_8m" ],
     [ "GUIColors.m", "_g_u_i_colors_8m.html", "_g_u_i_colors_8m" ],
+    [ "GUIColors.mat", "_g_u_i_colors_8mat.html", null ],
     [ "InformDlg.m", "_inform_dlg_8m.html", "_inform_dlg_8m" ],
     [ "LegendFig.m", "_legend_fig_8m.html", "_legend_fig_8m" ],
     [ "MessageQueue.m", "_message_queue_8m.html", "_message_queue_8m" ],

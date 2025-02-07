@@ -1,7 +1,7 @@
 var guis =
 [
     [ "General Toolbox GUIs", "generalgui.html", "generalgui" ],
-    [ "Aircraft Toolbox GUIs", "acprogui.html", "acprogui" ],
-    [ "Spacecraft Toolbox GUIs", "scprogui.html", "scprogui" ],
+    [ "Aircraft Toolbox GUIs", "acgui.html", "acgui" ],
+    [ "Spacecraft Toolbox GUIs", "scgui.html", "scgui" ],
     [ "Winds Help", "windsgui.html", null ]
 ];

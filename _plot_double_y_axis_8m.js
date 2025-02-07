@@ -1,4 +1,4 @@
 var _plot_double_y_axis_8m =
 [
-    [ "PlotDoubleYAxis", "group___common_functions.html#gaef0d57a6ed481cc3ca68471a3f9a7131", null ]
+    [ "PlotDoubleYAxis", "group___common_functions.html#gaa8eaf867e87bd951a3fde0a752dc3bfa", null ]
 ];

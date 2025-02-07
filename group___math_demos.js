@@ -1,0 +1,25 @@
+var group___math_demos =
+[
+    [ "Analysis", "dir_4c07584e5911b1442e708e4d2ac4eed4.html", null ],
+    [ "AStar", "dir_85681d98b866e0be97bed427fb3c5a7b.html", null ],
+    [ "Demos", "dir_a60f238d737229c1b3fd00d383e0778c.html", null ],
+    [ "FDIR", "dir_d78d9029035845a03cfb2fe22dc4c1d7.html", null ],
+    [ "Probability", "dir_5e36e16992f6da611699a7d1ddf4e06b.html", null ],
+    [ "AStarSearch3DManeuverDemo.m", "_a_star_search3_d_maneuver_demo_8m.html", null ],
+    [ "AStarSearchGrid1Demo.m", "_a_star_search_grid1_demo_8m.html", null ],
+    [ "AStarSearchGrid2Demo.m", "_a_star_search_grid2_demo_8m.html", null ],
+    [ "AStarSearchManeuverDemo.m", "_a_star_search_maneuver_demo_8m.html", null ],
+    [ "AStarSearchOrderGridDemo.m", "_a_star_search_order_grid_demo_8m.html", null ],
+    [ "AStarSearchRandomGridDemo.m", "_a_star_search_random_grid_demo_8m.html", null ],
+    [ "DCMotorSim.m", "_d_c_motor_sim_8m.html", null ],
+    [ "DetectionFilterBuilderDemo.m", "_detection_filter_builder_demo_8m.html", null ],
+    [ "DoggyProblem.m", "_doggy_problem_8m.html", null ],
+    [ "FDIROLASim.m", "_f_d_i_r_o_l_a_sim_8m.html", null ],
+    [ "GunProblem.m", "_gun_problem_8m.html", null ],
+    [ "OrbitFDIRDemo.m", "_orbit_f_d_i_r_demo_8m.html", null ],
+    [ "OrbitFDIRPulseDemo.m", "_orbit_f_d_i_r_pulse_demo_8m.html", null ],
+    [ "SimplexConstraintRelaxationDemo.m", "_simplex_constraint_relaxation_demo_8m.html", null ],
+    [ "SimplexScalingDemo.m", "_simplex_scaling_demo_8m.html", null ],
+    [ "SpinnerFDIRDemo.m", "_spinner_f_d_i_r_demo_8m.html", null ],
+    [ "THyperG.m", "_t_hyper_g_8m.html", null ]
+];

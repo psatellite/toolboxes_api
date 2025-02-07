@@ -1,4 +1,4 @@
 var _l_r_loop_antenna_8m =
 [
-    [ "LRLoopAntenna", "group___electrical_functions.html#gaf8da9c1524c1738cb0fb6319e45ff2fe", null ]
+    [ "LRLoopAntenna", "group___electrical_functions.html#ga9bb3478fb6ce9c6127a06e1561d4213f", null ]
 ];

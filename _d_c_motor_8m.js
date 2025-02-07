@@ -1,4 +1,4 @@
 var _d_c_motor_8m =
 [
-    [ "DCMotor", "group___electrical_functions.html#ga60ae22d9cfd19548e801d1ade9934d2f", null ]
+    [ "DCMotor", "group___electrical_functions.html#gac48f2e225c8a9db69c5c7e3e15b4bcca", null ]
 ];

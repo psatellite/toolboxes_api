@@ -1,4 +1,4 @@
 var _axial_flux_coil_8m =
 [
-    [ "AxialFluxCoil", "group___electrical_functions.html#ga1e14493a74025c9b695a71f05d20d90c", null ]
+    [ "AxialFluxCoil", "group___electrical_functions.html#ga8138fa767e15bf1151ccbbb8e8c47f70", null ]
 ];

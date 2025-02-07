@@ -1,11 +1,24 @@
 var searchData=
 [
-  ['matchingcircuit_0',['MatchingCircuit',['../group___electrical_functions.html#ga78ba8abb160f69785ef9552579173cf8',1,'MatchingCircuit.m']]],
-  ['mc33switching_1',['MC33Switching',['../group___electrical_functions.html#gaf070de57c429e36f643ebaa30062f798',1,'MC33Switching.m']]],
-  ['mcdynamics_2',['MCDynamics',['../group___electrical_functions.html#ga539a833163b878d25694bc313a98486f',1,'MCDynamics.m']]],
-  ['modulationspectralefficiency_3',['ModulationSpectralEfficiency',['../group___link_functions.html#ga6b03cbe72e7477cd9ab2c67eb2a7453b',1,'ModulationSpectralEfficiency.m']]],
-  ['mufermenter_4',['MuFermenter',['../group___dynamics_functions.html#ga9aee3a19ff82f867836d95fe77d49b4d',1,'MuFermenter.m']]],
-  ['multibepplot_5',['MultiBEPPlot',['../group___link_functions.html#gacb5eea439de07d3560bf31e05ad37b22',1,'MultiBEPPlot.m']]],
-  ['mutualinductancecoaxialcoil_6',['MutualInductanceCoaxialCoil',['../group___electrical_functions.html#ga43b98216db214389ea1815679c3d0536',1,'MutualInductanceCoaxialCoil.m']]],
-  ['mutualinductancecoil_7',['MutualInductanceCoil',['../group___electrical_functions.html#ga0de1683838e8c874949801c4726e4e4e',1,'MutualInductanceCoil.m']]]
+  ['k2l_0',['K2L',['../group___orbit_functions.html#gad55d703043c3f568494b642c715ab165',1,'K2L.m']]],
+  ['kaimal_1',['Kaimal',['../group___wind_turbine_functions.html#ga5b9b0fe678b535e4b62b09a016168984',1,'Kaimal.m']]],
+  ['kaladv_2',['KalAdv',['../_s_m_inputs_8m.html#a0ef7b6c77d816373dfe25dd55917aa2e',1,'SMInputs.m']]],
+  ['kalmanfiltercombine_3',['KalmanFilterCombine',['../group___common_functions.html#ga6bc2302e72592172500f9a8e8ce8a5ed',1,'KalmanFilterCombine.m']]],
+  ['kconst_4',['KConst',['../group___s_c_functions.html#gae07e2d8a52c6956e157a8d4dc04e6c61',1,'KConst.m']]],
+  ['kconstp_5',['KConstP',['../group___s_c_functions.html#ga93dfdccf1e3784930a4ad20b1cdb384b',1,'KConstP.m']]],
+  ['kconstq_6',['KConstQ',['../group___s_c_functions.html#ga4ff6dee22ad32fb20533842543f19bcf',1,'KConstQ.m']]],
+  ['kevtoj_7',['KEVToJ',['../group___propulsion_functions.html#ga398ea5b2cdb955f38de04b1774d305e9',1,'KEVToJ.m']]],
+  ['kfexitmu_8',['KFExItMu',['../group___s_a_a_d_functions.html#ga56cccae0faf7dee2e97db54dc44d2d48',1,'KFExItMu.m']]],
+  ['kfilter_9',['KFilter',['../group___common_functions.html#ga44b9db73431ee7ed37049102d08d0bfc',1,'KFilter.m']]],
+  ['kfinitialize_10',['KFInitialize',['../group___common_functions.html#gaf85fde5d44c25cd5aa1c3bb7558f86ab',1,'KFInitialize.m']]],
+  ['kfpredict_11',['KFPredict',['../group___common_functions.html#ga9b1e40aeca839500fa452439676ba726',1,'KFPredict.m']]],
+  ['kfsaad_12',['KFSAAD',['../group___s_a_a_d_functions.html#ga4d94436a47c0d5d94ce411a0387cd2f5',1,'KFSAAD.m']]],
+  ['kfsunandearth2_13',['KFSunAndEarth2',['../group___spacecraft_estimation_functions.html#gafca141a256275aaa0fc7ed6f3a1c3ef7',1,'KFSunAndEarth2.m']]],
+  ['kfupdate_14',['KFUpdate',['../group___common_functions.html#gae93b9f998fd11cc90ecdf18ba8563af7',1,'KFUpdate.m']]],
+  ['kinematicviscosity_15',['KinematicViscosity',['../group___thermal_functions.html#ga82fa93981afc25e35962d6159d033320',1,'KinematicViscosity.m']]],
+  ['kms2crtbp_16',['Kms2CRTBP',['../group___interplanetary_functions.html#gac9242ceddeb1c570eb7732c1c8fd4947',1,'Kms2CRTBP.m']]],
+  ['knudsen_17',['Knudsen',['../group___a_c_functions.html#ga6cb8cf47fe4ec53eb07792bf5eb75c91',1,'Knudsen.m']]],
+  ['kronprod_18',['KronProd',['../group___common_functions.html#ga8ea13b4f740c1cd5896c5599e7e8e542',1,'KronProd.m']]],
+  ['kronsum_19',['KronSum',['../group___common_functions.html#ga3e69366206c79c269cf3488aa348e687',1,'KronSum.m']]],
+  ['ksmooth_20',['KSmooth',['../group___common_functions.html#gafaf21bfef2146960622ff7d582ad2ceb',1,'KSmooth.m']]]
 ];

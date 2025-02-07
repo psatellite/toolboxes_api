@@ -1,4 +1,4 @@
 var _reaction_wheel_friction_8m =
 [
-    [ "ReactionWheelFriction", "group___s_c_functions.html#ga1b0eeff61025b40da49c93304ea2bf75", null ]
+    [ "ReactionWheelFriction", "group___s_c_functions.html#ga6e97eb5262944abd13c755af488d56a2", null ]
 ];

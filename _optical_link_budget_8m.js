@@ -1,4 +1,4 @@
 var _optical_link_budget_8m =
 [
-    [ "OpticalLinkBudget", "group___link_functions.html#ga8b0e885343e0e0ad5d3fc6161eb2dfaa", null ]
+    [ "OpticalLinkBudget", "group___link_functions.html#ga16d4f4ed724031533a73d2a9ea94cbbf", null ]
 ];

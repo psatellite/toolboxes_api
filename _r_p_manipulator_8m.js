@@ -1,4 +1,4 @@
 var _r_p_manipulator_8m =
 [
-    [ "RoboticsDemos", "_r_p_manipulator_8m.html#a56c775fe983363922a196cc23c10b1e0", null ]
+    [ "DynamicsDemos", "_r_p_manipulator_8m.html#a399a890c028ae46f03f4c15fd262875c", null ]
 ];

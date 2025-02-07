@@ -1,4 +1,4 @@
 var _delete_suffix_8m =
 [
-    [ "DeleteSuffix", "group___common_functions.html#ga0ff7c30e08f24ede605c240c0d2cd47c", null ]
+    [ "DeleteSuffix", "group___common_functions.html#ga940e9b5861fa09c41339fa080987c494", null ]
 ];

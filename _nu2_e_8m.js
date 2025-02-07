@@ -1,4 +1,4 @@
 var _nu2_e_8m =
 [
-    [ "Nu2E", "group___s_c_functions.html#gacf958eb9d27429709510ef148fb1dd3c", null ]
+    [ "Nu2E", "group___orbit_functions.html#ga0e5b6fbbda981a738d6f3c11bb0342b2", null ]
 ];

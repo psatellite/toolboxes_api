@@ -1,4 +1,4 @@
 var _rectifier_n_phase_8m =
 [
-    [ "RectifierNPhase", "group___electrical_functions.html#gae617151910005e565d44d9271b6e5ad2", null ]
+    [ "RectifierNPhase", "group___electrical_functions.html#ga9d0dbd707ceab7ca4044c11fccd2f3be", null ]
 ];

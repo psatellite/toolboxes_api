@@ -1,6 +1,8 @@
 var dir_e4be2bdb45f825e9ab3c0fbb4811142b =
 [
+    [ "CCVControl.mat", "_c_c_v_control_8mat.html", null ],
     [ "CCVDemo.m", "_c_c_v_demo_8m.html", null ],
+    [ "CCVModel.mat", "_c_c_v_model_8mat.html", null ],
     [ "ControlExample.m", "_control_example_8m.html", null ],
     [ "LQFullState.m", "_l_q_full_state_8m.html", null ],
     [ "MatchFilterTest.m", "_match_filter_test_8m.html", null ],

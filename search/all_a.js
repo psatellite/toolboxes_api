@@ -1,23 +1,7 @@
 var searchData=
 [
-  ['matchingcircuit_0',['MatchingCircuit',['../group___electrical_functions.html#ga78ba8abb160f69785ef9552579173cf8',1,'MatchingCircuit.m']]],
-  ['matchingcircuit_2em_1',['MatchingCircuit.m',['../_matching_circuit_8m.html',1,'']]],
-  ['matchingcircuitdemo_2em_2',['MatchingCircuitDemo.m',['../_matching_circuit_demo_8m.html',1,'']]],
-  ['matcondemo_2em_3',['MatConDemo.m',['../_mat_con_demo_8m.html',1,'']]],
-  ['matconssdemo_2em_4',['MatConSSDemo.m',['../_mat_con_s_s_demo_8m.html',1,'']]],
-  ['mc33switching_5',['MC33Switching',['../group___electrical_functions.html#gaf070de57c429e36f643ebaa30062f798',1,'MC33Switching.m']]],
-  ['mc33switching_2em_6',['MC33Switching.m',['../_m_c33_switching_8m.html',1,'']]],
-  ['mcdynamics_7',['MCDynamics',['../group___electrical_functions.html#ga539a833163b878d25694bc313a98486f',1,'MCDynamics.m']]],
-  ['mcdynamics_2em_8',['MCDynamics.m',['../_m_c_dynamics_8m.html',1,'']]],
-  ['modulationspectralefficiency_9',['ModulationSpectralEfficiency',['../group___link_functions.html#ga6b03cbe72e7477cd9ab2c67eb2a7453b',1,'ModulationSpectralEfficiency.m']]],
-  ['modulationspectralefficiency_2em_10',['ModulationSpectralEfficiency.m',['../_modulation_spectral_efficiency_8m.html',1,'']]],
-  ['mufermenter_11',['MuFermenter',['../group___dynamics_functions.html#ga9aee3a19ff82f867836d95fe77d49b4d',1,'MuFermenter.m']]],
-  ['mufermenter_2em_12',['MuFermenter.m',['../_mu_fermenter_8m.html',1,'']]],
-  ['multiarmrobot_2em_13',['MultiarmRobot.m',['../_multiarm_robot_8m.html',1,'']]],
-  ['multibepplot_14',['MultiBEPPlot',['../group___link_functions.html#gacb5eea439de07d3560bf31e05ad37b22',1,'MultiBEPPlot.m']]],
-  ['multibepplot_2em_15',['MultiBEPPlot.m',['../_multi_b_e_p_plot_8m.html',1,'']]],
-  ['mutualinductancecoaxialcoil_16',['MutualInductanceCoaxialCoil',['../group___electrical_functions.html#ga43b98216db214389ea1815679c3d0536',1,'MutualInductanceCoaxialCoil.m']]],
-  ['mutualinductancecoaxialcoil_2em_17',['MutualInductanceCoaxialCoil.m',['../_mutual_inductance_coaxial_coil_8m.html',1,'']]],
-  ['mutualinductancecoil_18',['MutualInductanceCoil',['../group___electrical_functions.html#ga0de1683838e8c874949801c4726e4e4e',1,'MutualInductanceCoil.m']]],
-  ['mutualinductancecoil_2em_19',['MutualInductanceCoil.m',['../_mutual_inductance_coil_8m.html',1,'']]]
+  ['_3a_2030_20minutes_0',['Step-size       : 30 minutes',['../_new_horizons_pluto_flyby_8m.html#autotoc_md4767',1,'']]],
+  ['_3a_20lqe_1',['w.b  : lqe',['../group___common_functions.html#autotoc_md398',1,'']]],
+  ['_3a_20string_20name_20of_20planet_20for_20initialization_2',['planetName  (1,:)   String name of planet for initialization',['../group___interplanetary_functions.html#autotoc_md4804',1,'']]],
+  ['_3a_20weighting_20matrices_20depends_20on_20the_20type_20of_20design_3',['w              (:)     Weighting matrices depends on the type of design',['../group___common_functions.html#autotoc_md396',1,'']]]
 ];

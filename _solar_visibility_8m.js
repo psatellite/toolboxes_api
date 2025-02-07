@@ -1,4 +1,4 @@
 var _solar_visibility_8m =
 [
-    [ "SolarVisibility", "group___s_c_functions.html#ga001e01a809a765360549178d0d21ba6a", null ]
+    [ "SolarVisibility", "group___s_c_functions.html#ga149477bbb63b978b58d422c268a55486", null ]
 ];

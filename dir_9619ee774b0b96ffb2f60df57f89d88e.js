@@ -13,7 +13,7 @@ var dir_9619ee774b0b96ffb2f60df57f89d88e =
     [ "EffPw.m", "_eff_pw_8m.html", "_eff_pw_8m" ],
     [ "Friction.m", "_friction_8m.html", "_friction_8m" ],
     [ "FrictionBristle.m", "_friction_bristle_8m.html", "_friction_bristle_8m" ],
-    [ "FrictionSmooth.m", "_friction_smooth_8m.html", "_friction_smooth_8m" ],
+    [ "FrictionSmooth.m", "_aerospace_2_s_c_2_actuator_2_friction_smooth_8m.html", "_aerospace_2_s_c_2_actuator_2_friction_smooth_8m" ],
     [ "HydrazineThruster.m", "_hydrazine_thruster_8m.html", "_hydrazine_thruster_8m" ],
     [ "MagAirC.m", "_mag_air_c_8m.html", "_mag_air_c_8m" ],
     [ "MagneticFieldDipole.m", "_magnetic_field_dipole_8m.html", "_magnetic_field_dipole_8m" ],

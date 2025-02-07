@@ -1,4 +1,4 @@
 var _meas_sun_sensor_digital_8m =
 [
-    [ "MeasSunSensorDigital", "group___s_c_functions.html#ga8a1500f2d669bc9c79e85bf4ee277473", null ]
+    [ "MeasSunSensorDigital", "group___s_c_functions.html#ga92f5202eadce09a85c656e0c0088e910", null ]
 ];

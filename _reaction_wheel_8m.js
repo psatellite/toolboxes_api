@@ -1,4 +1,4 @@
 var _reaction_wheel_8m =
 [
-    [ "ReactionWheel", "group___s_c_functions.html#ga9d791a6122a199d1e00638a8e868cba9", null ]
+    [ "ReactionWheel", "group___s_c_functions.html#ga6cdeb084b2a11ac5569293e31733c1f5", null ]
 ];
